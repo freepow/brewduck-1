@@ -1,6 +1,7 @@
 package com.brewduck.web.style.controller;
 
 import com.brewduck.web.domain.Style;
+import com.brewduck.web.style.service.StyleService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
