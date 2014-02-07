@@ -20,8 +20,8 @@
 <div class="col-lg-12">
 <section class="panel">
 <header class="panel-heading">
-    <h2><strong>Toggle</strong> column </h2>
-    <label class="color">Data table toggle <em><strong>with toolsbar </strong></em></label>
+    <h2><strong>Code</strong> List </h2>
+    <label class="color"> <em><strong>공통코드</strong>를 관리합니다.</em></label>
 </header>
 <div class="panel-tools fully color " align="right" data-toolscolor="theme-inverse">
     <ul class="tooltip-area">
