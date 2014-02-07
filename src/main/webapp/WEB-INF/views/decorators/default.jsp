@@ -546,23 +546,7 @@
 //////////     JAVASCRIPT  LIBRARY     //////////
 /////////////////////////////////////////////////////////////////////
 -->
+<decorator:getProperty property="page.script"/>
 
-<!-- Jquery Library -->
-<script type="text/javascript" src="/resources/js/jquery.min.js"></script>
-<script type="text/javascript" src="/resources/js/jquery.ui.min.js"></script>
-<script type="text/javascript" src="/resources/plugins/bootstrap/bootstrap.min.js"></script>
-<!-- Modernizr Library For HTML5 And CSS3 -->
-<script type="text/javascript" src="/resources/js/modernizr/modernizr.js"></script>
-<script type="text/javascript" src="/resources/plugins/mmenu/jquery.mmenu.js"></script>
-<!-- Holder Images -->
-<script type="text/javascript" src="/resources/plugins/holder/holder.js"></script>
-<!-- Form plugins -->
-<script type="text/javascript" src="/resources/plugins/form/form.js"></script>
-<!-- Datetime plugins -->
-<script type="text/javascript" src="/resources/plugins/datetime/datetime.js"></script>
-<!-- Library Chart-->
-<script type="text/javascript" src="/resources/plugins/chart/chart.js"></script>
-<!-- Library Themes Customize-->
-<script type="text/javascript" src="/resources/js/caplet.custom.js"></script>
 </body>
 </html>
