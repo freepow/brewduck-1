@@ -68,11 +68,11 @@
                                     </div>
                                     <div class="form-group">
                                         <label class="control-label">패스워드</label>
-                                        <input type="password" class="form-control" id="pword"  parsley-trigger="keyup"  parsley-rangelength="[4,8]"  parsley-required="true" placeholder="4-8 Characters">
+                                        <input type="password" class="form-control" id="password"  parsley-trigger="keyup"  parsley-rangelength="[4,8]"  parsley-required="true" placeholder="4-8 Characters">
                                     </div>
                                     <div class="form-group">
                                         <label class="control-label">패스워드</label>
-                                        <input type="password" class="form-control"  parsley-trigger="keyup"  parsley-equalto="#pword" placeholder="Confirm Password" parsley-error-message="Password don't match" >
+                                        <input type="password" class="form-control"  parsley-trigger="keyup"  parsley-equalto="#password" placeholder="Confirm Password" parsley-error-message="Password don't match" >
                                     </div>
                                 </div>
                                 <div class="tab-pane fade align-lg-center" id="step3">
