@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="Common">
+
+    <sql id="Common.selectCode">
+        SELECT
+            CODE AS code,
+            CODE_NAME AS codeName
+          FROM CODES
+    </sql>
+
+    <!-- 성별 리스트  -->
+    <select id="Common.selectGenderList"
+            resultType="Common">
+        <include refid="Common.selectCode" />
+        WHERE GROUP_CODE = '2100'
+     ORDER BY GROUP_CODE,
+              DISPLAY
+    </select>
+
+    <!-- 월 리스트 -->
+    <select id="Common.selectMonthList"
+            resultType="Common">
+        <include refid="Common.selectCode" />
+        WHERE GROUP_CODE = '0000'
+     ORDER BY GROUP_CODE,
+               TO_NUMBER(DISPLAY)
+    </select>
+
+    <!-- 메인 카테고리 리스트 -->
+    <select id="Common.selectMainCategoryList"
+            resultType="Common">
+        SELECT
+            CODE AS code,
+            CODE_NAME AS codeName
+          FROM CODES
+        WHERE GROUP_CODE = '1000'
+     ORDER BY GROUP_CODE,
+        TO_NUMBER(DISPLAY)
+    </select>
+
+    <!-- 메인 카테고리 -->
+    <select id="Common.selectMainCategory"
+            resultType="Common">
+        <include refid="Common.selectCode" />
+        WHERE GROUP_CODE = '1000'
+          AND CODE = #{code}
+          AND ROWNUM = 1
+    </select>
+
+    <!-- 서브 카테고리 -->
+    <select id="Common.selectSubCategory"
+            resultType="Common">
+        <include refid="Common.selectCode" />
+        WHERE PARENT_CODE = #{parentCode}
+        AND CODE = #{code}
+        AND ROWNUM = 1
+    </select>
+
+    <!-- 서브 카테고리 리스트 -->
+    <select id="Common.selectSubCategoryList"
+            resultType="Common">
+        <include refid="Common.selectCode" />
+        <if test="parentCode != null">
+        WHERE PARENT_CODE = #{parentCode}
+        </if>
+
+        ORDER BY GROUP_CODE,
+        TO_NUMBER(DISPLAY)
+    </select>
+
+    <!-- 지역(시,군) 리스트 -->
+    <select id="Common.selectMainAreaList"
+            resultType="Common">
+        <include refid="Common.selectCode" />
+        WHERE GROUP_CODE = '2300'
+        ORDER BY GROUP_CODE,
+        TO_NUMBER(DISPLAY)
+    </select>
+
+    <!-- 지역(동,읍) 리스트 -->
+    <select id="Common.selectSubAreaList"
+            resultType="Common">
+        <include refid="Common.selectCode" />
+        <if test="parentCode != null">
+            WHERE PARENT_CODE = #{parentCode}
+        </if>
+        ORDER BY GROUP_CODE,
+        TO_NUMBER(DISPLAY)
+    </select>
+
+    <!-- 업로드 이미지 정보 저장 -->
+    <insert id="Common.insertImage"
+            parameterType="Common">
+        <!-- 프로필 생성 -->
+        INSERT INTO IMAGES (
+        IMAGE_ID
+        ,TALENT_ID
+        ,IMAGE_NAME
+        ,DELETE_YN
+        ,CREATE_DATE
+        ) values (
+         #{imageId}
+        ,#{talentId}
+        ,#{imageName}
+        ,#{deleteYn}
+        ,sysdate
+        )
+    </insert>
+
+    <select id="Common.selectImageId"
+            resultType="int">
+        SELECT NVL(MAX(IMAGE_ID),0) + 1 AS imageId
+        FROM IMAGES
+    </select>
+
+    <select id="Common.selectMovieId"
+            resultType="int">
+        SELECT NVL(MAX(MOVIE_ID),0) + 1 AS movieId
+        FROM MOVIES
+    </select>
+
+</mapper>

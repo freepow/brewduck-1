@@ -1,0 +1,136 @@
+
+
+
+$font-ubuntu:								"Ubuntu" !default;
+$font-open-sans:							"Open Sans" !default;
+$font-arial:								"Arial", sans-serif !default;
+$font-base:									$font-ubuntu !default;
+
+$font-size-base:							14px !default;
+$font-size-extra-large:						ceil($font-size-base * 1.85) !default; // ~26px
+$font-size-large:							ceil($font-size-base * 1.25) !default; // ~18px
+$font-size-small:							ceil($font-size-base * 0.85) !default; // ~12px
+$font-size-mini:							ceil($font-size-base * 0.715) !default; // ~10px
+
+$font-weight-lighter: 						300;
+$font-weight-normal: 						400;
+$font-weight-border: 						700;
+
+// size min width
+
+$site-min-width:         					320px !default;
+
+// Select colors
+
+$colors-primary:         					#428bca !default;
+$colors-success:         					#5cb85c !default;
+$colors-warning:         					#f0ad4e !default;
+$colors-danger:          					#d9534f !default;
+$colors-info:           					#5bc0de !default;
+$colors-white:            					#FFFFFF !default;
+$colors-inverse:           					#62707D !default;
+$colors-theme:            					#f37864 !default;
+$colors-theme-inverse:           			#6CC3A0 !default;
+
+$colors-online:            					#0C0 !default;
+$colors-busy:            					#F90 !default;
+$colors-block:            					#F90 !default;
+
+
+$colors-link:            					#3f9673 !default;
+$colors-link-hover:            				darken($colors-link,2.3%) !default;
+
+
+
+$colors-bg-light: 							#F7F6F1 !default;
+$colors-bg-dark: 							#262729 !default;
+$colors-bg-soft: 							#edece5 !default;
+
+$colors-bg-wraper-content: 					lighten($colors-bg-dark,2.3%) !default;
+$colors-bg-header-content: 					$colors-bg-light !default;
+$colors-bg-main-content: 					$colors-bg-light !default;
+
+
+$colors-bg-off-canvas: 						darken($colors-bg-dark, 15%) !default;
+
+$color-scrollbar:							#F2F0EB;
+$color-scrollbar-thumb:						#CDCDCD;
+
+
+// header 
+$header-heigth: 							55px;
+$header-border-bottom: 						5px;
+$header-avatar-width: 						34px;
+$header-border-color: 						$colors-theme-inverse !default;
+
+$header-toolsbar-link:						#3f9673 !default;
+
+// logo  
+$logo-bg-color: 							$colors-theme-inverse;
+$logo-border-color: 						darken($logo-bg-color, 15%) !default;
+
+
+// Scrollbar 
+$scroll-bar-width: 							17px;
+$scroll-bar-width-mini: 					5px;
+
+// Left Menu Show 
+$left-menu-show: 							50px;
+
+
+// Nav slide 
+$nav-slide-width: 							250px;
+$nav-slide-color: 							$colors-bg-dark !default;
+
+// Mailbox 
+$mail-box-width: 							300px;
+$mail-box-color: 							$colors-white;
+
+
+// Avatar Chart
+$avatar-chart-size: 						118px;
+$avatar-chart-image-size: 					96px;
+
+$avatar-small-size: 						50px;
+$avatar-mini-size: 							34px;
+
+$avatar-status-size: 						10px;
+$avatar-status-border: 						2px;
+
+//Progress-bar
+$progress-dark-color: 						#2D3237;
+$progress-sm:								10px;
+$progress-xs:								5px; 
+
+
+
+// widget-slide
+$widget-slide-padding:						15px;
+
+//List Rounded
+$list-rounded-size:							30px;
+$list-rounded-color:						$colors-theme;
+
+//List Rectangle
+$list-rectangle-size:						30px;
+$list-rectangle-color:						$colors-theme-inverse;
+
+
+//form-signin
+$form-signin-width:							330px;
+
+//widget clock 
+$widget-clock-bg: $colors-white;
+$widget-clock-stroke: $colors-theme-inverse;
+$widget-clock-sec: darken($widget-clock-stroke, 15%) !default;
+$widget-clock-min: darken($widget-clock-stroke, 40%) !default;
+$widget-clock-hour: darken($widget-clock-stroke, 40%) !default;
+
+$widget-dateTime-month: $colors-theme-inverse;
+$widget-dateTime-year: $colors-theme;
+
+
+//widget-chat 
+$widget-chat-header: $colors-theme;
+$widget-chat-header-size: 45px; 
+$widget-chat-body-height: 500px; 

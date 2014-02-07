@@ -1,0 +1,46 @@
+// Text overflow
+// Requires inline-block or block for proper styling
+@mixin text-overflow() {
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+// Site selection colors
+@mixin selection-colors() {
+ 	background-color:#ffcc33;
+	color:#FFF;
+}
+
+// Site selection colors
+@mixin touch-scroll() {
+  overflow: scroll;
+  overflow-x: hidden;
+  -webkit-overflow-scrolling: touch;
+}
+
+// Site selection colors
+@mixin theme-shadow() {
+    -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
+}
+
+
+//shadows
+@mixin box-shadow($shadow...) {
+	-webkit-box-shadow: $shadow; // iOS <4.3 & Android <4.1
+			box-shadow: $shadow;
+}
+
+// Opacity
+@mixin opacity($opacity) {
+	// IE8 filter
+	$opacity-ie: ($opacity * 100);
+	filter: #{alpha(opacity=$opacity-ie)};
+	opacity: $opacity;
+}
+
+// clear margin & padding
+@mixin clear-margin {
+    margin: 0;
+    padding: 0;
+}

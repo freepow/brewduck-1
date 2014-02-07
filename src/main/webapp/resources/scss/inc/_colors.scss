@@ -1,0 +1,11 @@
+@mixin colors_labels( $cls: "",
+	$highlightedBg: rgba( 255, 255, 255, 0.05 )
+) {
+	.mm-menu#{$cls}
+	{
+		.mm-list li.mm-label > div > div
+		{
+			background: $highlightedBg;
+		}
+	}
+}
