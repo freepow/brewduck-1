@@ -57,11 +57,7 @@
                                 <div class="tab-pane fade" id="step2" parsley-validate parsley-bind>
                                     <h4>거의 다 됐어요!</h4><br>
                                     <div class="form-group row">
-                                        <div class="col-md-6">
-                                            <label class="control-label">성</label>
-                                            <input type="text" class="form-control" id="fullname" parsley-required="true" placeholder="성">
-                                        </div>
-                                        <div class="col-md-6">
+                                        <div class="col-md-12">
                                             <label class="control-label">이름</label>
                                             <form:input path="name" type="text" class="form-control"  placeholder="이름" />
                                         </div>
