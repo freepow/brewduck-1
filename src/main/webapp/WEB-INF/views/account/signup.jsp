@@ -59,16 +59,16 @@
                                     <div class="form-group row">
                                         <div class="col-md-12">
                                             <label class="control-label">이름</label>
-                                            <form:input path="name" type="text" class="form-control"  placeholder="이름" />
+                                            <form:input path="name" type="text" class="form-control" placeholder="이름" />
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <label class="control-label">패스워드</label>
-                                        <input type="password" class="form-control" id="password"  parsley-trigger="keyup"  parsley-rangelength="[4,8]"  parsley-required="true" placeholder="4-8 Characters">
+                                        <form:input path="password" type="password" class="form-control" placeholder="패스워드" />
                                     </div>
                                     <div class="form-group">
                                         <label class="control-label">패스워드</label>
-                                        <input type="password" class="form-control"  parsley-trigger="keyup"  parsley-equalto="#password" placeholder="Confirm Password" parsley-error-message="Password don't match" >
+                                        <form:input path="checkPassword" type="password" class="form-control" placeholder="패스워드 확인" />
                                     </div>
                                 </div>
                                 <div class="tab-pane fade align-lg-center" id="step3">

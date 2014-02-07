@@ -20,7 +20,7 @@ import java.util.Properties;
 public class MailService {
     Logger logger = LoggerFactory.getLogger(this.getClass());
 
-    public StringBuffer signUpEmailForm(String authKey) throws  RuntimeException {
+    public StringBuffer signUpEmailForm(String domain, String authKey) throws RuntimeException {
         StringBuffer html = new StringBuffer();
         html.append("<!doctype html>");
         html.append("<head>");
@@ -53,7 +53,7 @@ public class MailService {
         html.append("<td style='font-family:'나눔고딕', NanumGothic, NanumGothicWeb, Helvetica, sans-serif;font-size:13px;color:#8a8a8a;line-height:20px;'>");
         html.append("<p style='font-size:18px;line-height:21px;color:#222222;'>브루덕 회원이 되신 것을 진심으로 환영합니다.</p>");
         html.append("<p style=''>아래의 이메일인증을 클릭하여 주세요.</p>");
-        html.append("<p style='text-align:center; padding-top:20px;'><a href='http://nanooda01.cafe24.com/account/activation/" + authKey);
+        html.append("<p style='text-align:center; padding-top:20px;'><a href='" + domain + "/account/activation/" + authKey);
         html.append("' target='_blank' style='background:#ff6126;border-radius:5px;-moz-border-radius:5px;-webkit-border-radius:5px; padding:10px 20px; color:#fff;text-decoration:none;font-weight:bold;'>이메일 인증</a></p>");
         html.append("</td>");
         html.append("</tr>");
@@ -123,25 +123,24 @@ public class MailService {
      *
      * @param receiveEmail
      * @param sendTitle
-     * @param sendContent
+     * @param authKey
      * @return
      */
     public boolean sendMail(String receiveEmail,
                             String sendTitle,
                             String authKey) {
         // TODO : 향후에 외부 설정으로 빠져야 함.
-        // TODO : 향후에 외부 설정으로 빠져야 함.
         String smtpHost = "smtp.gmail.com";
         String smtpPort = "587";    // TLS 포트 번호
         String password = "glasowk1225";
         String sendEmail = "help@brewduck.com";
         String sendPassword = "D90A6EF4755C4CF1C6BDFF70F15F61EC";
-
+        String domain = "http://localhost:8080";
         String charset = "UTF-8";
 
         boolean result = false;
 
-        String content = signUpEmailForm(authKey).toString();
+        String content = signUpEmailForm(domain, authKey).toString();
 
         // TODO : GMAIL 2단계 인증 설정시 이메일 보내기 실패
         try {

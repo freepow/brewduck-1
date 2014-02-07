@@ -52,6 +52,9 @@
             ,'ROLE_SIGNIN'
             ,'DISABLE'
         )
+        <selectKey keyProperty="id" resultType="int" order="AFTER">
+            SELECT LAST_INSERT_ID();
+        </selectKey>
     </insert>
 
     <update id="Account.updateAccount"

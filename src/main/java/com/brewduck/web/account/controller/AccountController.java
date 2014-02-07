@@ -82,11 +82,11 @@ public class AccountController {
                        BindingResult result,
                        Model model) {
 
-        logger.debug("@@@@@@@@@@@ 회원 가입 ");
+        logger.info("회원 가입");
 
         // 필수값 미입력시 가입 페이지로 전환
         if (result.hasErrors()) {
-            logger.debug("가입 실패 : {}", account.toString());
+            logger.info("가입 실패 : {}", account.toString());
             return "account/signup";
         }
 
@@ -219,7 +219,7 @@ public class AccountController {
         try {
             // authKey(userId) 복호화
             userId = SimpleCrypto.decrypt(SimpleCrypto.seed, authKey);
-            logger.debug("userId : " + userId);
+            logger.info("userId : " + userId);
         } catch (Exception e) {
             logger.error("이메일 인증키 복호화를 실패하였습니다.", e);
             result = -1;

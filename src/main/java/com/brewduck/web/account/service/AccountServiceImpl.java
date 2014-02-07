@@ -86,7 +86,8 @@ public class AccountServiceImpl implements AccountService {
         if (currentAccount == null) {
             // 회원 가입 후 UserId 리턴
             insertCount = accountDao.insertAccount(account);
-            logger.debug("가입 UserId : " + account.getId());
+            logger.info("insertCount : " + insertCount);
+            logger.info("가입 UserId : " + account.getId());
 
             // 가입 완료 후 이메일 전송
             if (insertCount > 0) {
@@ -95,7 +96,7 @@ public class AccountServiceImpl implements AccountService {
                                     SimpleCrypto.seed,
                                     String.valueOf(account.getId())
                                 );
-                    logger.debug("가입 인증키 : " + authKey);
+                    logger.info("가입 인증키 : " + authKey);
                 } catch (Exception e) {
                     throw new RuntimeException("이메일 인증키 암호화하는 도중에 오류가 발생하였습니다.", e);
                 }
@@ -120,7 +121,7 @@ public class AccountServiceImpl implements AccountService {
             return duplicateEmail;
         }
         else {
-            logger.debug("회원 가입 처리");
+            logger.info("회원 가입 처리");
         }
 
         return insertCount;
