@@ -10,7 +10,7 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 
-@Repository("styleDao")
+@Repository("fermentableDao")
 public class FermentableDaoImpl implements FermentableDao {
     private static final Logger logger = LoggerFactory.getLogger(FermentableDaoImpl.class);
 

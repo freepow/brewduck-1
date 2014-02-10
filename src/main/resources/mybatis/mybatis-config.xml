@@ -15,7 +15,6 @@
         <typeAlias type="com.brewduck.web.domain.Style" alias="Style" />
         <typeAlias type="com.brewduck.web.domain.Profile" alias="Profile" />
         <typeAlias type="com.brewduck.web.domain.Common" alias="Common" />
-        <typeAlias type="com.brewduck.web.domain.Payment" alias="Payment" />
         <typeAlias type="com.brewduck.web.domain.Fermentable" alias="Fermentable" />
     </typeAliases>
 
