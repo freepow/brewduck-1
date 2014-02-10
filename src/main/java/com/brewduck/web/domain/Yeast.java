@@ -36,9 +36,9 @@ public class Yeast implements Serializable {
     private Double minTemperature;
     // 효모 최고 온도
     private Double maxTemperature;
-    // 효모
+    // 효모 응집
     private String flocculation;
-    // 효모
+    // 효모 희석
     private Double attenuation;
     // 효모 메모
     private String notes;
