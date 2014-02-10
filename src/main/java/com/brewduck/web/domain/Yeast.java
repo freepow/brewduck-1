@@ -14,25 +14,45 @@ import java.util.Date;
 public class Yeast implements Serializable {
 	private static final long serialVersionUID = 1L;
 
+    // 효모 영문명
     private String name;
+    // 효모 한글명
     private String koreanName;
+    // 효모 버전
     private Integer version;
+    // 효모 종류
     private String type;
+    // 효모 유형
     private String form;
+    // 효모 양
     private Double amount;
+    // 효모 양과 중량
     private Boolean amountIsWeight;
+    // 효모의 실험실에서 생산한 이름
     private String laboratory;
+    // 효모 생산 아이디
     private String productId;
+    // 효모 최소 온도
     private Double minTemperature;
+    // 효모 최고 온도
     private Double maxTemperature;
+    // 효모
     private String flocculation;
+    // 효모
     private Double attenuation;
+    // 효모 메모
     private String notes;
+    // 효모가 가장 적합한 스타일이나 맥주
     private String bestFor;
+    // 효모 배양 횟수
     private Integer timesCultured;
+    // 효모 사용 최대 횟수
     private Integer maxReuse;
+    // 효모 2번재 추가 유무
     private Boolean addToSecondary;
+    // 수정자 아이디
     private String updateId;
+    // 수정 날짜
     private Date updateDt;
 
 
