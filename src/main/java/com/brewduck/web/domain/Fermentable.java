@@ -41,9 +41,15 @@ public class Fermentable implements Serializable {
     private Double protein;
     // 맥주 최대 배치의 권장하는 비율 ("%")
     private Double maxInBatch;
-    //
+    //추천 당화
     private Boolean recommend_mash;
-    //
+    /*
+        홉추출물에만 적용됨 -
+        1갤런의 물에 넣은 추출물 1파운드당 IBU의 예상값.
+        IBU로 변환하려면 이 숫자를 "amount "(파운드)로 곱한 뒤 배치내 갤런값으로 나누시오.
+        60분 끓이는 것을 가정으로 함.
+        추출물 타입에만 적용될 수 있고 다른경우에 이 값은 무시됨.
+    */
     private Double ibuGalPerLb;
     // 수정자 아이디
     private String updateId;
