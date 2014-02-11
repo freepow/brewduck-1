@@ -12,7 +12,7 @@ import java.util.Date;
  * 신재근, 2014-02-10
   */
 public class Style implements Serializable {
-	private static final long serialVersionUID = 1L;
+    private static final long serialVersionUID = 1L;
 
     // 스타일 영문명
     private String name;
@@ -36,7 +36,7 @@ public class Style implements Serializable {
     private Double ogMax;
     // 최종 비중, 최소값
     private Double fgMin;
-    // 초종 비중, 최대값
+    // 최종 비중, 최대값
     private Double fgMax;
     // 쓴맛 기준, 최소값
     private Integer ibuMin;
@@ -253,130 +253,290 @@ public class Style implements Serializable {
         this.ogMax = ogMax;
     }
 
+    /**
+     * 최종 비중, 최소값
+     *
+     * @return 최종 비중, 최소값
+     */
     public Double getFgMin() {
         return fgMin;
     }
 
+    /**
+     * 최종 비중, 최소값
+     *
+     * @param fgMin 최종 비중, 최소값
+     */
     public void setFgMin(Double fgMin) {
         this.fgMin = fgMin;
     }
 
+    /**
+     * 최종 비중, 최대값
+     *
+     * @return 최종 비중, 최대값
+     */
     public Double getFgMax() {
         return fgMax;
     }
 
+    /**
+     * 최종 비중, 최대값
+     *
+     * @param fgMax 최종 비중, 최대값
+     */
     public void setFgMax(Double fgMax) {
         this.fgMax = fgMax;
     }
 
+    /**
+     * 쓴맛 기준, 최소값
+     *
+     * @return 쓴맛 기준, 최소값
+     */
     public Integer getIbuMin() {
         return ibuMin;
     }
 
+    /**
+     * 쓴맛 기준, 최소값
+     *
+     * @param ibuMin 쓴맛 기준, 최소값
+     */
     public void setIbuMin(Integer ibuMin) {
         this.ibuMin = ibuMin;
     }
 
+    /**
+     * 쓴맛 기준, 최대값
+     *
+     * @return 쓴맛 기준, 최대값
+     */
     public Integer getIbuMax() {
         return ibuMax;
     }
 
+    /**
+     * 쓴맛 기준, 최대값
+     *
+     * @param ibuMax 쓴맛 기준, 최대값
+     */
     public void setIbuMax(Integer ibuMax) {
         this.ibuMax = ibuMax;
     }
 
+    /**
+     * 맥주 색상, 최소값
+     *
+     * @return 맥주 색상, 최소값
+     */
     public Integer getColorMin() {
         return colorMin;
     }
 
+    /**
+     * 맥주 색상, 최소값
+     *
+     * @param colorMin 맥주 색상, 최소값
+     */
     public void setColorMin(Integer colorMin) {
         this.colorMin = colorMin;
     }
 
+    /**
+     * 맥주 색상, 최대값
+     *
+     * @return 맥주 색상, 최대값
+     */
     public Integer getColorMax() {
         return colorMax;
     }
 
+    /**
+     * 맥주 색상, 최대값
+     *
+     * @param colorMax 맥주 색상, 최대값
+     */
     public void setColorMax(Integer colorMax) {
         this.colorMax = colorMax;
     }
 
+    /**
+     * 탄산 함량, 최소값
+     *
+     * @return 탄산 함량, 최소값
+     */
     public Double getCarbMin() {
         return carbMin;
     }
 
+    /**
+     * 탄산 함량, 최소값
+     *
+     * @param carbMin 탄산 함량, 최소값
+     */
     public void setCarbMin(Double carbMin) {
         this.carbMin = carbMin;
     }
 
+    /**
+     * 탄산 함량, 최대값
+     *
+     * @return 탄산 함량, 최대값
+     */
     public Double getCarbMax() {
         return carbMax;
     }
 
+    /**
+     * 탄산 함량, 최대값
+     *
+     * @param carbMax 탄산 함량, 최대값
+     */
     public void setCarbMax(Double carbMax) {
         this.carbMax = carbMax;
     }
 
+    /**
+     * 알콜 함량, 최소값
+     *
+     * @return 알콜 함량, 최소값
+     */
     public Double getAbvMin() {
         return abvMin;
     }
 
+    /**
+     * 알콜 함량, 최소값
+     *
+     * @param abvMin 알콜 함량, 최소값
+     */
     public void setAbvMin(Double abvMin) {
         this.abvMin = abvMin;
     }
 
+    /**
+     * 알콜 함량, 최대값
+     *
+     * @return 알콜 함량, 최대값
+     */
     public Double getAbvMax() {
         return abvMax;
     }
 
+    /**
+     * 알콜 함량, 최대값
+     *
+     * @param abvMax 알콜 함량, 최대값
+     */
     public void setAbvMax(Double abvMax) {
         this.abvMax = abvMax;
     }
 
+    /**
+     * 스타일 메모
+     *
+     * @return 스타일 메모
+     */
     public String getNotes() {
         return notes;
     }
 
+    /**
+     * 스타일 메모
+     *
+     * @param notes 스타일 메모
+     */
     public void setNotes(String notes) {
         this.notes = notes;
     }
 
+    /**
+     * 스타일의 향과 맛 정보
+     *
+     * @return 스타일의 향과 맛 정보
+     */
     public String getProfile() {
         return profile;
     }
 
+    /**
+     * 스타일의 향과 맛 정보
+     *
+     * @param profile 스타일의 향과 맛 정보
+     */
     public void setProfile(String profile) {
         this.profile = profile;
     }
 
+    /**
+     * 스타일 추천 재료
+     *
+     * @return 스타일 추천 재료
+     */
     public String getIngredients() {
         return ingredients;
     }
 
+    /**
+     * 스타일 추천 재료
+     *
+     * @param ingredients 스타일 추천 재료
+     */
     public void setIngredients(String ingredients) {
         this.ingredients = ingredients;
     }
 
+    /**
+     * 스타일 맥주 예제
+     *
+     * @return 스타일 맥주 예제
+     */
     public String getExamples() {
         return examples;
     }
 
+    /**
+     * 스타일 맥주 예제
+     *
+     * @param examples 스타일 맥주 예제
+     */
     public void setExamples(String examples) {
         this.examples = examples;
     }
 
+    /**
+     * 수정자 아이디
+     *
+     * @return 수정자 아이디
+     */
     public String getUpdateId() {
         return updateId;
     }
 
+    /**
+     * 수정자 아이디
+     *
+     * @param updateId 수정자 아이디
+     */
     public void setUpdateId(String updateId) {
         this.updateId = updateId;
     }
 
+    /**
+     * 수정 날짜
+     *
+     * @return 수정 날짜
+     */
     public Date getUpdateDt() {
         return updateDt;
     }
 
+    /**
+     * 수정 날짜
+     *
+     * @param updateDt 수정 날짜
+     */
     public void setUpdateDt(Date updateDt) {
         this.updateDt = updateDt;
     }

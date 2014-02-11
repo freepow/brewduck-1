@@ -12,7 +12,7 @@ import java.util.Date;
  * 신재근, 2014-02-10
  */
 public class Yeast implements Serializable {
-	private static final long serialVersionUID = 1L;
+    private static final long serialVersionUID = 1L;
 
     // 효모 영문명
     private String name;
