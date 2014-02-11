@@ -34,7 +34,6 @@ public class StyleController {
     @RequestMapping(value = "/style", method = RequestMethod.GET)
     public String index(Model model) {
         Style style = new Style();
-        style.setId(1);
 
         logger.info("### style : {}", style);
 
