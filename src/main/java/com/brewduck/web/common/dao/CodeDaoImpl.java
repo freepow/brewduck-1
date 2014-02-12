@@ -36,7 +36,7 @@ public class CodeDaoImpl implements CodeDao {
 
     @Override
     public List<Code> getSelectCodeList(Code code) throws DataAccessException {
-        return sqlSessionTemplate.selectList("Code.selectCodeList", code);
+        return sqlSessionTemplate.selectList("Common.selectCodeList", code);
     }
 
 
