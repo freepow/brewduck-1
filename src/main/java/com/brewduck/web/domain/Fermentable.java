@@ -56,10 +56,19 @@ public class Fermentable implements Serializable {
         추출물 타입에만 적용될 수 있고 다른경우에 이 값은 무시됨.
     */
     private Double ibuGalPerLb;
+    // 작성자 아이디
+    private String insertId;
+    // 작성자 날짜
+    private Double insertDate;
     // 수정자 아이디
     private String updateId;
-    // 수정 날짜
-    private Date updateDt;
+    // 수정자 날짜
+    private Double updateDate;
+    // 삭제자 아이디
+    private String deleteId;
+    // 삭제자 날짜
+    private Double deleteDate;
+
 
 
     /**
@@ -394,6 +403,42 @@ public class Fermentable implements Serializable {
     }
 
     /**
+     * 작성자 아이디
+     *
+     * @return 작성자 아이디
+     */
+    public String getInsertId() {
+        return insertId;
+    }
+
+    /**
+     * 작성자 아이디
+     *
+     * @param insertId 작성자 아이디
+     */
+    public void setInsertId(String insertId) {
+        this.insertId = insertId;
+    }
+
+    /**
+     * 작성 날짜
+     *
+     * @return 작성 날짜
+     */
+    public Double getInsertDate() {
+        return insertDate;
+    }
+
+    /**
+     * 작성 날짜
+     *
+     * @param insertDate 작성 날짜
+     */
+    public void setInsertDate(Double insertDate) {
+        this.insertDate = insertDate;
+    }
+
+    /**
      * 수정자 아이디
      *
      * @return 수정자 아이디
@@ -416,17 +461,53 @@ public class Fermentable implements Serializable {
      *
      * @return 수정 날짜
      */
-    public Date getUpdateDt() {
-        return updateDt;
+    public Double getUpdateDate() {
+        return updateDate;
     }
 
     /**
      * 수정 날짜
      *
-     * @param updateDt 수정 날짜
+     * @param updateDate 수정 날짜
      */
-    public void setUpdateDt(Date updateDt) {
-        this.updateDt = updateDt;
+    public void setUpdateDate(Double updateDate) {
+        this.updateDate = updateDate;
+    }
+
+    /**
+     * 삭제자 아이디
+     *
+     * @return 삭제자 아이디
+     */
+    public String getDeleteId() {
+        return deleteId;
+    }
+
+    /**
+     * 삭제자 아이디
+     *
+     * @param deleteId 삭제자 아이디
+     */
+    public void setDeleteId(String deleteId) {
+        this.deleteId = deleteId;
+    }
+
+    /**
+     * 삭제 날짜
+     *
+     * @return 삭제 날짜
+     */
+    public Double getDeleteDate() {
+        return deleteDate;
+    }
+
+    /**
+     * 삭제 날짜
+     *
+     * @param deleteDate 삭제 날짜
+     */
+    public void setDeleteDate(Double deleteDate) {
+        this.deleteDate = deleteDate;
     }
 
     @Override
