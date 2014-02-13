@@ -55,6 +55,4 @@
         <beans:property name="userDetailsService" ref="userDetailService" />
     </beans:bean>
 
-
-
 </beans:beans>

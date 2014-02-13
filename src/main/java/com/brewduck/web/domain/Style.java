@@ -6,11 +6,15 @@ import org.apache.commons.lang.builder.ToStringStyle;
 import java.io.Serializable;
 import java.util.Date;
 
+
 /**
- * 스타일 Value Object
+ * <pre>
+ * 스타일 Value Object.
+ * </pre>
  *
- * 신재근, 2014-02-10
-  */
+ * @author jaeger
+ * @version 1.0, 2014.02.10
+ */
 public class Style implements Serializable {
     private static final long serialVersionUID = 1L;
 
@@ -65,15 +69,19 @@ public class Style implements Serializable {
     // 작성자 아이디
     private String insertId;
     // 작성자 날짜
-    private Double insertDate;
+    private Date insertDate;
     // 수정자 아이디
     private String updateId;
     // 수정자 날짜
-    private Double updateDate;
+    private Date updateDate;
     // 삭제자 아이디
     private String deleteId;
     // 삭제자 날짜
-    private Double deleteDate;
+    private Date deleteDate;
+    // 수정 성공 여부
+    private Boolean updateFlag;
+    // 삭제 성공 여부
+    private Boolean deleteFlag;
 
 
     /**
@@ -536,7 +544,7 @@ public class Style implements Serializable {
      *
      * @return 작성 날짜
      */
-    public Double getInsertDate() {
+    public Date getInsertDate() {
         return insertDate;
     }
 
@@ -545,7 +553,7 @@ public class Style implements Serializable {
      *
      * @param insertDate 작성 날짜
      */
-    public void setInsertDate(Double insertDate) {
+    public void setInsertDate(Date insertDate) {
         this.insertDate = insertDate;
     }
 
@@ -572,7 +580,7 @@ public class Style implements Serializable {
      *
      * @return 수정 날짜
      */
-    public Double getUpdateDate() {
+    public Date getUpdateDate() {
         return updateDate;
     }
 
@@ -581,7 +589,7 @@ public class Style implements Serializable {
      *
      * @param updateDate 수정 날짜
      */
-    public void setUpdateDate(Double updateDate) {
+    public void setUpdateDate(Date updateDate) {
         this.updateDate = updateDate;
     }
 
@@ -608,7 +616,7 @@ public class Style implements Serializable {
      *
      * @return 삭제 날짜
      */
-    public Double getDeleteDate() {
+    public Date getDeleteDate() {
         return deleteDate;
     }
 
@@ -617,8 +625,44 @@ public class Style implements Serializable {
      *
      * @param deleteDate 삭제 날짜
      */
-    public void setDeleteDate(Double deleteDate) {
+    public void setDeleteDate(Date deleteDate) {
         this.deleteDate = deleteDate;
+    }
+
+    /**
+     * 수정 성공 여부.
+     *
+     * @return 수정 성공 여부
+     */
+    public Boolean getUpdateFlag() {
+        return updateFlag;
+    }
+
+    /**
+     * 수정 성공 여부.
+     *
+     * @param updateFlag 수정 성공 여부
+     */
+    public void setUpdateFlag(Boolean updateFlag) {
+        this.updateFlag = updateFlag;
+    }
+
+    /**
+     * 삭제 성공 여부.
+     *
+     * @return 삭제 성공 여부
+     */
+    public Boolean getDeleteFlag() {
+        return deleteFlag;
+    }
+
+    /**
+     * 삭제 성공 여부.
+     *
+     * @param deleteFlag 삭제 성공 여부
+     */
+    public void setDeleteFlag(Boolean deleteFlag) {
+        this.deleteFlag = deleteFlag;
     }
 
     @Override

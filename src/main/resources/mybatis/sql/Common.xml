@@ -14,7 +14,7 @@
           FROM commons A
     </sql>
 
-    <select id="Code.selectCodeList"
+    <select id="Common.selectCodeList"
             resultType="Common">
         <include refid="Common.selectCode" />
           WHERE GROUP_CODE = '2100'
@@ -132,7 +132,5 @@
         SELECT NVL(MAX(MOVIE_ID),0) + 1 AS movieId
         FROM MOVIES
     </select>
-
-
 
 </mapper>
