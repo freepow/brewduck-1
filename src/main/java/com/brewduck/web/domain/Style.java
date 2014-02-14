@@ -78,6 +78,8 @@ public class Style implements Serializable {
     private String deleteId;
     // 삭제자 날짜
     private Date deleteDate;
+    // 저장 성공 여부
+    private Boolean insertFlag;
     // 수정 성공 여부
     private Boolean updateFlag;
     // 삭제 성공 여부
@@ -627,6 +629,24 @@ public class Style implements Serializable {
      */
     public void setDeleteDate(Date deleteDate) {
         this.deleteDate = deleteDate;
+    }
+
+    /**
+     * 저장 성공 여부.
+     *
+     * @return 저장 성공 여부
+     */
+    public Boolean getInsertFlag() {
+        return insertFlag;
+    }
+
+    /**
+     * 저장 성공 여부.
+     *
+     * @param insertFlag 저장 성공 여부
+     */
+    public void setInsertFlag(Boolean insertFlag) {
+        this.insertFlag = insertFlag;
     }
 
     /**
