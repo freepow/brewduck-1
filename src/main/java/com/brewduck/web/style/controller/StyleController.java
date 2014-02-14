@@ -109,7 +109,7 @@ public class StyleController {
         // 맥주 스타일 저장했는지 성공 세팅
         Style returnStyle = new Style();
         returnStyle.setName(name);
-        returnStyle.setUpdateFlag(insertFlag);
+        returnStyle.setInsertFlag(insertFlag);
 
         return returnStyle;
     }
