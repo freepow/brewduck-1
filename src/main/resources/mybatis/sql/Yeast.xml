@@ -1,6 +1,172 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="Fermentable">
+<mapper namespace="Yeast">
 
+    <sql id="Yeast.selectYeast">
+        SELECT
+               name                name
+              ,korean_name         koreanName
+              ,version             version
+              ,type                type
+              ,form                form
+              ,amount              amount
+              ,amount_is_weight    amountIsWeight
+              ,laboratory          laboratory
+              ,product_id          productId
+              ,min_temperature     minTemperature
+              ,max_temperature     maxTemperature
+              ,flocculation        flocculation
+              ,attenuation         attenuation
+              ,notes               notes
+              ,best_for            bestFor
+              ,times_cultured      timesCultured
+              ,max_reuse           maxReuse
+              ,add_to_secondary    addToSecondary
+              ,insert_id           insertId
+              ,insert_date         insertDate
+              ,update_id           updateId
+              ,update_date         updateDate
+              ,delete_id           deleteId
+              ,delete_date         deleteDate
+          FROM brewduckdb.YEAST
+    </sql>
+
+    <select id="Yeast.selectYeastList" parameterType="Yeast" resultType="Yeast">
+        <!-- 맥주 이스트 목록 조회 -->
+        <include refid="Yeast.selectYeast" />
+        WHERE delete_id IS NULL
+    </select>
+
+    <select id="Yeast.selectYeastDetail" parameterType="Yeast" resultType="Yeast">
+        <!-- 맥주 이스트 상세 조회 -->
+        <include refid="Yeast.selectYeast" />
+        WHERE delete_id IS NULL
+        <if test="name != null">
+            AND name = #{name}
+        </if>
+        <if test="type != null">
+            AND type = #{type}
+        </if>
+    </select>
+
+    <insert id="Yeast.insertYeast" parameterType="Yeast">
+        <!-- 맥주 이스트 저장 -->
+        INSERT INTO brewduckdb.YEAST (
+             name
+            ,korean_name
+            ,version
+            ,type
+            ,form
+            ,amount
+            ,amount_is_weight
+            ,laboratory
+            ,product_id
+            ,min_temperature
+            ,max_temperature
+            ,flocculation
+            ,attenuation
+            ,notes
+            ,best_for
+            ,times_cultured
+            ,max_reuse
+            ,add_to_secondary
+            ,insert_id
+            ,insert_date
+        ) VALUES (
+             #{name}
+            ,#{koreanName}
+            ,#{version}
+            ,#{type}
+            ,#{form}
+            ,#{amount}
+            ,#{amountIsWeight}
+            ,#{laboratory}
+            ,#{productId}
+            ,#{minTemperature}
+            ,#{maxTemperature}
+            ,#{flocculation}
+            ,#{attenuation}
+            ,#{notes}
+            ,#{bestFor}
+            ,#{timesCultured}
+            ,#{maxReuse}
+            ,#{addToSecondary}
+            ,#{insertId}
+            ,now()
+        )
+    </insert>
+
+    <update id="updateYeast" parameterType="Yeast">
+        <!-- 맥주 이스트 수정 -->
+        UPDATE brewduckdb.YEAST
+        <trim prefix="SET" suffixOverrides=",">
+            <if test="koreanName != null">
+                korean_name = #{koreanName},
+            </if>
+            <if test="version != null">
+                version = #{version}
+            </if>
+            <if test="type != null">
+                type = #{type}
+            </if>
+            <if test="form != null">
+                form = #{form}
+            </if>
+            <if test="amount != null">
+                amount = #{amount}
+            </if>
+            <if test="amountIsWeight != null">
+                amount_is_weight = #{amountIsWeight}
+            </if>
+            <if test="laboratory != null">
+                laboratory = #{laboratory}
+            </if>
+            <if test="productId != null">
+                product_id = #{productId}
+            </if>
+            <if test="minTemperature != null">
+                min_temperature = #{minTemperature}
+            </if>
+            <if test="maxTemperature != null">
+                max_temperature = #{maxTemperature}
+            </if>
+            <if test="flocculation != null">
+                flocculation = #{flocculation}
+            </if>
+            <if test="attenuation != null">
+                attenuation = #{attenuation}
+            </if>
+            <if test="notes != null">
+                notes = #{notes}
+            </if>
+            <if test="bestFor != null">
+                best_for = #{bestFor}
+            </if>
+            <if test="timesCultured != null">
+                times_cultured = #{timesCultured}
+            </if>
+            <if test="maxReuse != null">
+                max_reuse = #{maxReuse}
+            </if>
+            <if test="addToSecondary != null">
+                add_to_secondary = #{addToSecondary}
+            </if>
+            <if test="updateId != null">
+                update_id = #{updateId},
+            </if>
+            <if test="updateId != null">
+                update_date = now()
+            </if>
+        </trim>
+        WHERE name = #{name}
+    </update>
+
+    <update id="deleteYeast" parameterType="Yeast">
+        <!-- 맥주 이스트 삭제 -->
+        UPDATE brewduckdb.YEAST
+           SET delete_id = #{deleteId}
+              ,delete_date = now()
+         WHERE name = #{name}
+    </update>
 
 </mapper>

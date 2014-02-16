@@ -53,15 +53,21 @@ public class Yeast implements Serializable {
     // 작성자 아이디
     private String insertId;
     // 작성자 날짜
-    private Double insertDate;
+    private Date insertDate;
     // 수정자 아이디
     private String updateId;
     // 수정자 날짜
-    private Double updateDate;
+    private Date updateDate;
     // 삭제자 아이디
     private String deleteId;
     // 삭제자 날짜
-    private Double deleteDate;
+    private Date deleteDate;
+    // 저장 성공 여부
+    private Boolean insertFlag;
+    // 수정 성공 여부
+    private Boolean updateFlag;
+    // 삭제 성공 여부
+    private Boolean deleteFlag;
 
 
     /**
@@ -416,7 +422,7 @@ public class Yeast implements Serializable {
      *
      * @return 작성 날짜
      */
-    public Double getInsertDate() {
+    public Date getInsertDate() {
         return insertDate;
     }
 
@@ -425,7 +431,7 @@ public class Yeast implements Serializable {
      *
      * @param insertDate 작성 날짜
      */
-    public void setInsertDate(Double insertDate) {
+    public void setInsertDate(Date insertDate) {
         this.insertDate = insertDate;
     }
 
@@ -452,7 +458,7 @@ public class Yeast implements Serializable {
      *
      * @return 수정 날짜
      */
-    public Double getUpdateDate() {
+    public Date getUpdateDate() {
         return updateDate;
     }
 
@@ -461,7 +467,7 @@ public class Yeast implements Serializable {
      *
      * @param updateDate 수정 날짜
      */
-    public void setUpdateDate(Double updateDate) {
+    public void setUpdateDate(Date updateDate) {
         this.updateDate = updateDate;
     }
 
@@ -488,7 +494,7 @@ public class Yeast implements Serializable {
      *
      * @return 삭제 날짜
      */
-    public Double getDeleteDate() {
+    public Date getDeleteDate() {
         return deleteDate;
     }
 
@@ -497,8 +503,62 @@ public class Yeast implements Serializable {
      *
      * @param deleteDate 삭제 날짜
      */
-    public void setDeleteDate(Double deleteDate) {
+    public void setDeleteDate(Date deleteDate) {
         this.deleteDate = deleteDate;
+    }
+
+    /**
+     * 저장 성공 여부.
+     *
+     * @return 저장 성공 여부
+     */
+    public Boolean getInsertFlag() {
+        return insertFlag;
+    }
+
+    /**
+     * 저장 성공 여부.
+     *
+     * @param insertFlag 저장 성공 여부
+     */
+    public void setInsertFlag(Boolean insertFlag) {
+        this.insertFlag = insertFlag;
+    }
+
+    /**
+     * 수정 성공 여부.
+     *
+     * @return 수정 성공 여부
+     */
+    public Boolean getUpdateFlag() {
+        return updateFlag;
+    }
+
+    /**
+     * 수정 성공 여부.
+     *
+     * @param updateFlag 수정 성공 여부
+     */
+    public void setUpdateFlag(Boolean updateFlag) {
+        this.updateFlag = updateFlag;
+    }
+
+    /**
+     * 삭제 성공 여부.
+     *
+     * @return 삭제 성공 여부
+     */
+    public Boolean getDeleteFlag() {
+        return deleteFlag;
+    }
+
+    /**
+     * 삭제 성공 여부.
+     *
+     * @param deleteFlag 삭제 성공 여부
+     */
+    public void setDeleteFlag(Boolean deleteFlag) {
+        this.deleteFlag = deleteFlag;
     }
 
     @Override
