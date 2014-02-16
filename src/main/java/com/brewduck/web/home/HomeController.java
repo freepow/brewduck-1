@@ -59,7 +59,6 @@ public class HomeController {
 
         model.addAttribute("account", account);
 
-        logger.warn("this is 12312312 page 13213");
 
         return "home";
     }
