@@ -94,7 +94,7 @@
             ,#{category}
             ,#{categoryNumber}
             ,#{styleLetter}
-            ,'BJCP'
+            ,'BJCP 2008'
             ,#{type}
             ,#{ogMin}
             ,#{ogMax}
