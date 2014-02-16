@@ -4,30 +4,30 @@
 
     <sql id="Hops.selectHop">
         SELECT
-                name		        name,
-                korean_name	        koreanName,
-                version		        version,
-                alpha		        alpha,
-                amount		        amount,
-                hops_use		    hopsUse,
-                time		        time,
-                notes		        notes,
-                type		        type,
-                form		        form,
-                beta		        beta,
-                hsi		            hsi,
-                origin		        origin,
-                substitutes	        substitutes,
-                humulene	        humulene,
-                caryophyllene       caryophyllene,
-                cohumulone	        cohumulone,
-                myrcene		        myrcene,
-                insert_id	        insertId,
-                insert_date	        insertDate,
-                update_id	        updateId,
-                update_date	        updateDate,
-                delete_id	        deleteId,
-                delete_date	        deleteDate
+                name             name,
+                korean_name      koreanName,
+                version          version,
+                alpha            alpha,
+                amount           amount,
+                hops_use         hopsUse,
+                time             time,
+                notes            notes,
+                type             type,
+                form             form,
+                beta             beta,
+                hsi              hsi,
+                origin           origin,
+                substitutes      substitutes,
+                humulene         humulene,
+                caryophyllene    caryophyllene,
+                cohumulone       cohumulone,
+                myrcene          myrcene,
+                insert_id        insertId,
+                insert_date      insertDate,
+                update_id        updateId,
+                update_date      updateDate,
+                delete_id        deleteId,
+                delete_date      deleteDate
           FROM brewduckdb.HOPS
    </sql>
 
@@ -44,18 +44,15 @@
         <if test="name != null">
             AND name = #{name}
         </if>
-<!--        <if test="category != null">
-            AND category = #{category}
-        </if>
         <if test="type != null">
             AND type = #{type}
-        </if>-->
+        </if>
     </select>
 
     <insert id="Hops.insertHop" parameterType="Hop">
         <!-- 맥주 홉 저장 -->
         INSERT INTO brewduckdb.HOPS (
-            name
+             name
             ,korean_name
             ,version
             ,alpha
@@ -76,26 +73,26 @@
             ,insert_id
             ,insert_date
         ) VALUES (
-              #{name}
-             ,#{koreanName}
-             ,#{version}
-             ,#{alpha}
-             ,#{amount}
-             ,#{hopsUse}
-             ,#{time}
-             ,#{notes}
-             ,#{type}
-             ,#{form}
-             ,#{beta}
-             ,#{hsi}
-             ,#{origin}
-             ,#{substitutes}
-             ,#{humulene}
-             ,#{caryophyllene}
-             ,#{cohumulone}
-             ,#{myrcene}
-             ,#{insertId}
-             ,now()
+             #{name}
+            ,#{koreanName}
+            ,#{version}
+            ,#{alpha}
+            ,#{amount}
+            ,#{hopsUse}
+            ,#{time}
+            ,#{notes}
+            ,#{type}
+            ,#{form}
+            ,#{beta}
+            ,#{hsi}
+            ,#{origin}
+            ,#{substitutes}
+            ,#{humulene}
+            ,#{caryophyllene}
+            ,#{cohumulone}
+            ,#{myrcene}
+            ,#{insertId}
+            ,now()
         )
     </insert>
 
@@ -112,7 +109,7 @@
             <if test="amount != null">
                 amount = #{amount},
             </if>
-            <if test="hops_use != null">
+            <if test="hopsUse != null">
                 hops_use = #{hopsUse},
             </if>
             <if test="time != null">
@@ -168,6 +165,5 @@
               ,delete_date = now()
          WHERE name = #{name}
     </update>
-
 
 </mapper>

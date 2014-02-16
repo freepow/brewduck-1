@@ -20,7 +20,7 @@ import java.util.List;
  */
 @Repository("HopDao")
 public class HopDaoImpl implements HopDao {
-    private static final Logger logger = LoggerFactory.getLogger(HopDaoImpl.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(HopDaoImpl.class);
 
     /**
      * Mybatis SQL Session Dependency Injection.
@@ -41,7 +41,7 @@ public class HopDaoImpl implements HopDao {
 
     @Override
     public Integer insertHop(Hop hop) {
-        return sqlSession.update("Hops.insertHop", hop);
+        return sqlSession.insert("Hops.insertHop", hop);
     }
 
     @Override
