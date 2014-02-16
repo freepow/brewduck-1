@@ -4,395 +4,237 @@ import org.apache.commons.lang.builder.ToStringBuilder;
 import org.apache.commons.lang.builder.ToStringStyle;
 
 import java.io.Serializable;
+import java.util.Date;
+
 
 /**
- * 홉, Value Object
+ * <pre>
+ * 홉 Value Object.
+ * </pre>
  *
- * 신재근, 2014-02-12
+ * @author  chacha
+ * @version 1.0, 2014.02.16
  */
 public class Hop implements Serializable {
-	private static final long serialVersionUID = 1L;
+    private static final long serialVersionUID = 1L;
 
-    // 홉 한글명
-    private String name;
     // 홉 영문명
-    private String korean_name;
+    private String name;
+    // 홉 한글명
+    private String koreanName;
     // 홉 버전
     private Integer version;
     // 홉 투명도
     private Double alpha;
-    // 홉의 량
+    // 홉 량
     private Double amount;
-    // 홉의 사용 용도
+    // 홉 사용 용도
     private String use;
-    // 홉의 사용 용도의 시간 (단위 : 분)
+    // 홉 사용 용도의 시간(단위:분)
     private Integer time;
-    // 홉의 주의사항 (설명)
+    // 설명
     private String notes;
-    // 홉의 용도 (쓴맛, 향, 둘다)
+    // 홉의 용도 (쓴맛,향,둘다)
     private String type;
-    // 홉의 형태 (Pellet, Plug, Leaf)
+    // 홉의 형태(Pellet, Plug, Leaf)
     private String form;
-    // 홉 베타값 (단위 : %)
+    // 홉 베타값(단위: %)
     private Double beta;
-    // 홉 알파값 손실율 (단위 : %)
+    // 홉 알파값 손실율(단위: %)
     private Double hsi;
     // 홉 원산지
     private String origin;
     // 홉 대체 재료
     private String substitutes;
-    // Humulene 함량 (단위 : %)
-    // 향기의 주성분
+    //Humulene 함량 (단위 : %) 향기의 주성분
     private Double humulene;
     // Caryophyllene 함량 (단위 : %)
     private Double caryophyllene;
     // Cohumulone 함량 (단위 :%)
     private Double cohumulone;
-    // Myrcene 함량 (단위 : %)
-    // 항기의 주성분
+    // Myrcene 함량 (단위 : %) 항기의 주성분
     private Double myrcene;
     // 작성자 아이디
     private String insertId;
     // 작성자 날짜
-    private Double insertDate;
+    private Date insertDate;
     // 수정자 아이디
     private String updateId;
     // 수정자 날짜
-    private Double updateDate;
+    private Date updateDate;
     // 삭제자 아이디
     private String deleteId;
     // 삭제자 날짜
-    private Double deleteDate;
+    private Date deleteDate;
+    // 저장 성공 여부
+    private Boolean insertFlag;
+    // 수정 성공 여부
+    private Boolean updateFlag;
+    // 삭제 성공 여부
+    private Boolean deleteFlag;
 
-
-    /**
-     * 홉 한글명
-     *
-     * @return 홉 한글명
-     */
-    public String getName() {
-        return name;
-    }
-
-    /**
-     * 홉 한글명
-     *
-     * @param name 홉 한글명
-     */
-    public void setName(String name) {
-        this.name = name;
-    }
 
     /**
      * 홉 영문명
      *
      * @return 홉 영문명
      */
-    public String getKorean_name() {
-        return korean_name;
+    public String getName() {
+        return name;
     }
 
     /**
      * 홉 영문명
      *
-     * @param korean_name 홉 영문명
+     * @param name 홉 영문명
      */
-    public void setKorean_name(String korean_name) {
-        this.korean_name = korean_name;
+    public void setName(String name) {
+        this.name = name;
     }
 
     /**
-     * 홉의 버전
+     * 홉 한글명
      *
-     * @return 홉의 버전
+     * @return 홉 한글명
      */
+    public String getKoreanName() {
+        return koreanName;
+    }
+
+    /**
+     * 홉 한글명
+     *
+     * @param koreanName 홉 한글명
+     */
+    public void setKoreanName(String koreanName) {
+        this.koreanName = koreanName;
+    }
+
+
     public Integer getVersion() {
         return version;
     }
 
-    /**
-     * 홉의 버전
-     *
-     * @param version 홉의 버전
-     */
     public void setVersion(Integer version) {
         this.version = version;
     }
 
-    /**
-     * 홉의 투명도
-     *
-     * @return 홉의 투명도
-     */
     public Double getAlpha() {
         return alpha;
     }
 
-    /**
-     * 홉의 투명도
-     *
-     * @param alpha 홉의 투명도
-     */
     public void setAlpha(Double alpha) {
         this.alpha = alpha;
     }
 
-    /**
-     * 홉의 량
-     *
-     * @return 홉의 량
-     */
     public Double getAmount() {
         return amount;
     }
 
-    /**
-     * 홉의 량
-     *
-     * @param amount 홉의 량
-     */
     public void setAmount(Double amount) {
         this.amount = amount;
     }
 
-    /**
-     * 홉의 사용 용도
-     *
-     * @return 홉의 사용 용도
-     */
     public String getUse() {
         return use;
     }
 
-    /**
-     * 홉의 사용 용도
-     *
-     * @param use 홉의 사용 용도
-     */
     public void setUse(String use) {
         this.use = use;
     }
 
-    /**
-     * 홉의 사용 용도의 시간
-     *
-     * @return 홉의 사용 용도의 시간
-     */
     public Integer getTime() {
         return time;
     }
 
-    /**
-     * 홉의 사용 용도의 시간
-     *
-     * @param time 홉의 사용 용도의 시간
-     */
     public void setTime(Integer time) {
         this.time = time;
     }
 
-    /**
-     * 홉의 주의사항 (메모)
-     *
-     * @return 홉의 주의사항 (메모)
-     */
     public String getNotes() {
         return notes;
     }
 
-    /**
-     * 홉의 주의사항 (메모)
-     *
-     * @param notes 홉의 주의사항 (메모)
-     */
     public void setNotes(String notes) {
         this.notes = notes;
     }
 
-    /**
-     * 홉의 용도 (쓴맛, 향, 둘다)
-     *
-     * @return 홉의 용도
-     */
     public String getType() {
         return type;
     }
 
-    /**
-     * 홉의 용도 (쓴맛, 향, 둘다)
-     *
-     * @param type 홉의 용도
-     */
     public void setType(String type) {
         this.type = type;
     }
 
-    /**
-     * 홉의 형태 (Pellet, Plug, Leaf)
-     *
-     * @return 홉의 형태
-     */
     public String getForm() {
         return form;
     }
 
-    /**
-     * 홉의 형태 (Pellet, Plug, Leaf)
-     *
-     * @param form 홉의 형태
-     */
     public void setForm(String form) {
         this.form = form;
     }
 
-    /**
-     * 홉 베타값 (단위 : %)
-     *
-     * @return 홉 베타값
-     */
     public Double getBeta() {
         return beta;
     }
 
-    /**
-     * 홉 베타값 (단위 : %)
-     *
-     * @param beta 홉 베타값
-     */
     public void setBeta(Double beta) {
         this.beta = beta;
     }
 
-    /**
-     * 홉의 알파값 손실율 (단위 : %)
-     *
-     * @return 홉의 알파값 손실율
-     */
     public Double getHsi() {
         return hsi;
     }
 
-    /**
-     * 홉의 알파값 손실율 (단위 : %)
-     *
-     * @param hsi 홉의 알파값 손실율
-     */
     public void setHsi(Double hsi) {
         this.hsi = hsi;
     }
 
-    /**
-     * 홉 원산지
-     *
-     * @return 홉 원산지
-     */
     public String getOrigin() {
         return origin;
     }
 
-    /**
-     * 홉 원산지
-     *
-     * @param origin 홉 원산지
-     */
     public void setOrigin(String origin) {
         this.origin = origin;
     }
 
-    /**
-     * 홉 대체 재료
-     *
-     * @return 홉 대체 재료
-     */
     public String getSubstitutes() {
         return substitutes;
     }
 
-    /**
-     * 홉 대체 재료
-     *
-     * @param substitutes 홉 대체 재료
-     */
     public void setSubstitutes(String substitutes) {
         this.substitutes = substitutes;
     }
 
-    /**
-     * Humulene 함량 (단위 : %)
-     * 향기의 주성분
-     *
-     * @return Humulene 함량
-     */
     public Double getHumulene() {
         return humulene;
     }
 
-    /**
-     * Humulene 함량 (단위 : %)
-     * 향기의 주성분
-     *
-     * @param humulene Humulene 함량
-     */
     public void setHumulene(Double humulene) {
         this.humulene = humulene;
     }
 
-    /**
-     * Caryophyllene 함량
-     * (단위 : %)
-     *
-     * @return Caryophyllene 함량
-     */
     public Double getCaryophyllene() {
         return caryophyllene;
     }
 
-    /**
-     * Caryophyllene 함량
-     * (단위 : %)
-     *
-     * @param caryophyllene Caryophyllene 함량
-     */
     public void setCaryophyllene(Double caryophyllene) {
         this.caryophyllene = caryophyllene;
     }
 
-    /**
-     * Cohumulone 함량
-     * (단위 :%)
-     *
-     * @return Cohumulone 함량
-     */
     public Double getCohumulone() {
         return cohumulone;
     }
 
-    /**
-     * Cohumulone 함량
-     * (단위 :%)
-     *
-     * @param cohumulone Cohumulone 함량
-     */
     public void setCohumulone(Double cohumulone) {
         this.cohumulone = cohumulone;
     }
 
-    /**
-     * Myrcene 함량 (단위 : %)
-     * 항기의 주성분
-     *
-     * @return Myrcene 함량
-     */
     public Double getMyrcene() {
         return myrcene;
     }
 
-    /**
-     * Myrcene 함량 (단위 : %)
-     * 항기의 주성분
-     *
-     * @param myrcene Myrcene 함량
-     */
     public void setMyrcene(Double myrcene) {
         this.myrcene = myrcene;
     }
@@ -420,7 +262,7 @@ public class Hop implements Serializable {
      *
      * @return 작성 날짜
      */
-    public Double getInsertDate() {
+    public Date getInsertDate() {
         return insertDate;
     }
 
@@ -429,7 +271,7 @@ public class Hop implements Serializable {
      *
      * @param insertDate 작성 날짜
      */
-    public void setInsertDate(Double insertDate) {
+    public void setInsertDate(Date insertDate) {
         this.insertDate = insertDate;
     }
 
@@ -456,7 +298,7 @@ public class Hop implements Serializable {
      *
      * @return 수정 날짜
      */
-    public Double getUpdateDate() {
+    public Date getUpdateDate() {
         return updateDate;
     }
 
@@ -465,7 +307,7 @@ public class Hop implements Serializable {
      *
      * @param updateDate 수정 날짜
      */
-    public void setUpdateDate(Double updateDate) {
+    public void setUpdateDate(Date updateDate) {
         this.updateDate = updateDate;
     }
 
@@ -492,7 +334,7 @@ public class Hop implements Serializable {
      *
      * @return 삭제 날짜
      */
-    public Double getDeleteDate() {
+    public Date getDeleteDate() {
         return deleteDate;
     }
 
@@ -501,8 +343,62 @@ public class Hop implements Serializable {
      *
      * @param deleteDate 삭제 날짜
      */
-    public void setDeleteDate(Double deleteDate) {
+    public void setDeleteDate(Date deleteDate) {
         this.deleteDate = deleteDate;
+    }
+
+    /**
+     * 저장 성공 여부.
+     *
+     * @return 저장 성공 여부
+     */
+    public Boolean getInsertFlag() {
+        return insertFlag;
+    }
+
+    /**
+     * 저장 성공 여부.
+     *
+     * @param insertFlag 저장 성공 여부
+     */
+    public void setInsertFlag(Boolean insertFlag) {
+        this.insertFlag = insertFlag;
+    }
+
+    /**
+     * 수정 성공 여부.
+     *
+     * @return 수정 성공 여부
+     */
+    public Boolean getUpdateFlag() {
+        return updateFlag;
+    }
+
+    /**
+     * 수정 성공 여부.
+     *
+     * @param updateFlag 수정 성공 여부
+     */
+    public void setUpdateFlag(Boolean updateFlag) {
+        this.updateFlag = updateFlag;
+    }
+
+    /**
+     * 삭제 성공 여부.
+     *
+     * @return 삭제 성공 여부
+     */
+    public Boolean getDeleteFlag() {
+        return deleteFlag;
+    }
+
+    /**
+     * 삭제 성공 여부.
+     *
+     * @param deleteFlag 삭제 성공 여부
+     */
+    public void setDeleteFlag(Boolean deleteFlag) {
+        this.deleteFlag = deleteFlag;
     }
 
     @Override
