@@ -47,7 +47,7 @@ public class StyleController {
     @ResponseBody
     @RequestMapping(value = "/list", method = RequestMethod.GET)
     // public String styleList(Model model, Style style) {
-    public List<Style> styleList(Model model) {
+    public List<Style> selectStyleList(Model model) {
         logger.info("Style List");
         Style style = new Style();
 
@@ -73,7 +73,7 @@ public class StyleController {
     @ResponseBody
     @RequestMapping(value = "/detail/{name}", method = RequestMethod.GET)
     // public String styleDetail(Model model, @PathVariable("name") String name) {
-    public Style styleDetail(Model model, @PathVariable("name") String name) {
+    public Style selectStyleDetail(Model model, @PathVariable("name") String name) {
         logger.info("Style Name : {}", name);
 
         Style style = new Style();
