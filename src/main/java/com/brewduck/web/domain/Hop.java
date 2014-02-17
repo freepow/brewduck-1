@@ -29,7 +29,7 @@ public class Hop implements Serializable {
     // 홉 량
     private Double amount;
     // 홉 사용 용도
-    private String use;
+    private String hopsUse;
     // 홉 사용 용도의 시간(단위:분)
     private Integer time;
     // 설명
@@ -110,7 +110,6 @@ public class Hop implements Serializable {
         this.koreanName = koreanName;
     }
 
-
     public Integer getVersion() {
         return version;
     }
@@ -135,12 +134,12 @@ public class Hop implements Serializable {
         this.amount = amount;
     }
 
-    public String getUse() {
-        return use;
+    public String getHopsUse() {
+        return hopsUse;
     }
 
-    public void setUse(String use) {
-        this.use = use;
+    public void setHopsUse(String hopsUse) {
+        this.hopsUse = hopsUse;
     }
 
     public Integer getTime() {

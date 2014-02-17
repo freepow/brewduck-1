@@ -19,7 +19,7 @@ import java.util.List;
  */
 @Service("hopService")
 public class HopServiceImpl implements HopService {
-    private static final Logger logger = LoggerFactory.getLogger(HopServiceImpl.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(HopServiceImpl.class);
 
     /**
      * HopDao Dependency Injection.
