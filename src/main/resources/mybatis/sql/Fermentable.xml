@@ -2,5 +2,171 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="Fermentable">
 
+    <sql id="Fermentable.selectFermentable">
+        SELECT
+               name                name
+              ,korean_name         koreanName
+              ,version             version
+              ,type                type
+              ,amount              amount
+              ,yield               yield
+              ,color               color
+              ,add_after_boil      addAfterBoil
+              ,orgin               orgin
+              ,supplier            supplier
+              ,notes               notes
+              ,coarse_fine_diff    coarseFineDiff
+              ,moisture            moisture
+              ,diastatic_power     diastaticPower
+              ,protein             protein
+              ,max_in_batch        maxInBatch
+              ,recommend_mash      recommendMash
+              ,ibu_gal_per_lb      ibuGalPerLb
+              ,insert_id           insertId
+              ,insert_date         insertDate
+              ,update_id           updateId
+              ,update_date         updateDate
+              ,delete_id           deleteId
+              ,delete_date         deleteDate
+          FROM brewduckdb.FERMENTABLE
+    </sql>
+
+    <select id="Fermentable.selectFermentableList" parameterType="Fermentable" resultType="Fermentable">
+        <!-- 맥주 스타일 목록 조회 -->
+        <include refid="Fermentable.selectFermentable" />
+        WHERE delete_id IS NULL
+    </select>
+
+    <select id="Fermentable.selectFermentableDetail" parameterType="Fermentable" resultType="Fermentable">
+        <!-- 맥주 스타일 상세 조회 -->
+        <include refid="Fermentable.selectFermentable" />
+        WHERE delete_id IS NULL
+        <if test="name != null">
+            AND name = #{name}
+        </if>
+        <if test="type != null">
+            AND type = #{type}
+        </if>
+    </select>
+
+    <insert id="Fermentable.insertFermentable" parameterType="Fermentable">
+        <!-- 맥주 스타일 저장 -->
+        INSERT INTO brewduckdb.FERMENTABLE (
+             name
+            ,korean_name
+            ,version
+            ,type
+            ,amount
+            ,yield
+            ,color
+            ,add_after_boil
+            ,orgin
+            ,supplier
+            ,notes
+            ,coarse_fine_diff
+            ,moisture
+            ,diastatic_power
+            ,protein
+            ,max_in_batch
+            ,recommend_mash
+            ,ibu_gal_per_lb
+            ,insert_id
+            ,insert_date
+        ) VALUES (
+             #{name}
+            ,#{koreanName}
+            ,#{version}
+            ,#{type}
+            ,#{amount}
+            ,#{yield}
+            ,#{color}
+            ,#{addAfterBoil}
+            ,#{orgin}
+            ,#{supplier}
+            ,#{notes}
+            ,#{coarseFineDiff}
+            ,#{moisture}
+            ,#{diastaticPower}
+            ,#{protein}
+            ,#{maxInBatch}
+            ,#{recommendMash}
+            ,#{ibuGalPerLb}
+            ,#{insertId}
+            ,now()
+        )
+    </insert>
+
+    <update id="updateFermentable" parameterType="Fermentable">
+        <!-- 맥주 스타일 수정 -->
+        UPDATE brewduckdb.FERMENTABLE
+        <trim prefix="SET" suffixOverrides=",">
+            <if test="koreanName != null">
+                korean_name = #{koreanName},
+            </if>
+            <if test="version != null">
+                version = #{version}
+            </if>
+            <if test="type != null">
+                type = #{type}
+            </if>
+            <if test="amount != null">
+                amount = #{amount}
+            </if>
+            <if test="yield != null">
+                yield = #{yield}
+            </if>
+            <if test="color != null">
+                color = #{color}
+            </if>
+            <if test="addAfterBoil != null">
+                add_after_boil = #{addAfterBoil}
+            </if>
+            <if test="orgin != null">
+                orgin = #{orgin}
+            </if>
+            <if test="supplier != null">
+                supplier = #{supplier}
+            </if>
+            <if test="notes != null">
+                notes = #{notes}
+            </if>
+            <if test="coarseFineDiff != null">
+                coarse_fine_diff = #{coarseFineDiff}
+            </if>
+            <if test="moisture != null">
+                moisture = #{moisture}
+            </if>
+            <if test="diastaticPower != null">
+                diastatic_power = #{diastaticPower}
+            </if>
+            <if test="protein != null">
+                protein = #{protein}
+            </if>
+            <if test="maxInBatch != null">
+                max_in_batch = #{maxInBatch}
+            </if>
+            <if test="recommendMash != null">
+                recommend_mash = #{recommendMash}
+            </if>
+            <if test="ibuGalPerLb != null">
+                ibu_gal_per_lb = #{ibuGalPerLb}
+            </if>
+            <if test="updateId != null">
+                update_id = #{updateId},
+            </if>
+            <if test="updateId != null">
+                update_date = now()
+            </if>
+        </trim>
+        WHERE name = #{name}
+    </update>
+
+    <update id="deleteFermentable" parameterType="Fermentable">
+        <!-- 맥주 스타일 삭제 -->
+        UPDATE brewduckdb.FERMENTABLE
+           SET delete_id = #{deleteId}
+              ,delete_date = now()
+         WHERE name = #{name}
+    </update>
 
 </mapper>

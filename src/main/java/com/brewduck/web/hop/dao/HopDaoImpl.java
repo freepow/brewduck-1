@@ -31,27 +31,27 @@ public class HopDaoImpl implements HopDao {
 
     @Override
     public List<Hop> selectHopList(Hop hop) {
-        return sqlSession.selectList("Hops.selectHopList", hop);
+        return sqlSession.selectList("Hop.selectHopList", hop);
     }
 
     @Override
     public Hop selectHopDetail(Hop hop) {
-        return sqlSession.selectOne("Hops.selectHopDetail", hop);
+        return sqlSession.selectOne("Hop.selectHopDetail", hop);
     }
 
     @Override
     public Integer insertHop(Hop hop) {
-        return sqlSession.insert("Hops.insertHop", hop);
+        return sqlSession.insert("Hop.insertHop", hop);
     }
 
     @Override
     public Integer updateHop(Hop hop) {
-        return sqlSession.update("Hops.updateHop", hop);
+        return sqlSession.update("Hop.updateHop", hop);
     }
 
     @Override
     public Integer deleteHop(Hop hop) {
-        return sqlSession.update("Hops.deleteHop", hop);
+        return sqlSession.update("Hop.deleteHop", hop);
     }
 
 }

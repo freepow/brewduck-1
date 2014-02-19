@@ -47,28 +47,30 @@ public class Fermentable implements Serializable {
     // 맥주 최대 배치의 권장하는 비율 ("%")
     private Double maxInBatch;
     // 추천 당화
-    private Boolean recommend_mash;
-    /*
-        1갤런의 물에 넣은 추출물 1파운드당 IBU의 예상값.
-        홉 추출물에만 적용됨.
-        IBU로 변환하려면 이 숫자를 "amount"(파운드)로 곱한 뒤 배치내 갤런값으로 나누시오.
-        60분 끓이는 것을 가정으로 함.
-        추출물 타입에만 적용될 수 있고 다른경우에 이 값은 무시됨.
-    */
+    private Boolean recommendMash;
+    // 1갤런의 물에 넣은 추출물 1파운드당 IBU의 예상값.
+    // IBU로 변환하려면 이 숫자를 "amount"(파운드)로 곱한 뒤 배치내 갤런값으로 나누시오.
+    // 60분 끓이는 것을 가정으로 함.
+    // 추출물 타입에만 적용될 수 있고, 다른경우에 이 값은 무시됨.
     private Double ibuGalPerLb;
     // 작성자 아이디
     private String insertId;
     // 작성자 날짜
-    private Double insertDate;
+    private Date insertDate;
     // 수정자 아이디
     private String updateId;
     // 수정자 날짜
-    private Double updateDate;
+    private Date updateDate;
     // 삭제자 아이디
     private String deleteId;
     // 삭제자 날짜
-    private Double deleteDate;
-
+    private Date deleteDate;
+    // 저장 성공 여부
+    private Boolean insertFlag;
+    // 수정 성공 여부
+    private Boolean updateFlag;
+    // 삭제 성공 여부
+    private Boolean deleteFlag;
 
 
     /**
@@ -371,17 +373,17 @@ public class Fermentable implements Serializable {
      *
      * @return 발효 추천 당화
      */
-    public Boolean getRecommend_mash() {
-        return recommend_mash;
+    public Boolean getRecommendMash() {
+        return recommendMash;
     }
 
     /**
      * 발효 추천 당화
      *
-     * @param recommend_mash 발효 추천 당화
+     * @param recommendMash 발효 추천 당화
      */
-    public void setRecommend_mash(Boolean recommend_mash) {
-        this.recommend_mash = recommend_mash;
+    public void setRecommendMash(Boolean recommendMash) {
+        this.recommendMash = recommendMash;
     }
 
     /**
@@ -425,7 +427,7 @@ public class Fermentable implements Serializable {
      *
      * @return 작성 날짜
      */
-    public Double getInsertDate() {
+    public Date getInsertDate() {
         return insertDate;
     }
 
@@ -434,7 +436,7 @@ public class Fermentable implements Serializable {
      *
      * @param insertDate 작성 날짜
      */
-    public void setInsertDate(Double insertDate) {
+    public void setInsertDate(Date insertDate) {
         this.insertDate = insertDate;
     }
 
@@ -461,7 +463,7 @@ public class Fermentable implements Serializable {
      *
      * @return 수정 날짜
      */
-    public Double getUpdateDate() {
+    public Date getUpdateDate() {
         return updateDate;
     }
 
@@ -470,7 +472,7 @@ public class Fermentable implements Serializable {
      *
      * @param updateDate 수정 날짜
      */
-    public void setUpdateDate(Double updateDate) {
+    public void setUpdateDate(Date updateDate) {
         this.updateDate = updateDate;
     }
 
@@ -497,7 +499,7 @@ public class Fermentable implements Serializable {
      *
      * @return 삭제 날짜
      */
-    public Double getDeleteDate() {
+    public Date getDeleteDate() {
         return deleteDate;
     }
 
@@ -506,13 +508,66 @@ public class Fermentable implements Serializable {
      *
      * @param deleteDate 삭제 날짜
      */
-    public void setDeleteDate(Double deleteDate) {
+    public void setDeleteDate(Date deleteDate) {
         this.deleteDate = deleteDate;
+    }
+
+    /**
+     * 저장 성공 여부.
+     *
+     * @return 저장 성공 여부
+     */
+    public Boolean getInsertFlag() {
+        return insertFlag;
+    }
+
+    /**
+     * 저장 성공 여부.
+     *
+     * @param insertFlag 저장 성공 여부
+     */
+    public void setInsertFlag(Boolean insertFlag) {
+        this.insertFlag = insertFlag;
+    }
+
+    /**
+     * 수정 성공 여부.
+     *
+     * @return 수정 성공 여부
+     */
+    public Boolean getUpdateFlag() {
+        return updateFlag;
+    }
+
+    /**
+     * 수정 성공 여부.
+     *
+     * @param updateFlag 수정 성공 여부
+     */
+    public void setUpdateFlag(Boolean updateFlag) {
+        this.updateFlag = updateFlag;
+    }
+
+    /**
+     * 삭제 성공 여부.
+     *
+     * @return 삭제 성공 여부
+     */
+    public Boolean getDeleteFlag() {
+        return deleteFlag;
+    }
+
+    /**
+     * 삭제 성공 여부.
+     *
+     * @param deleteFlag 삭제 성공 여부
+     */
+    public void setDeleteFlag(Boolean deleteFlag) {
+        this.deleteFlag = deleteFlag;
     }
 
     @Override
     public String toString() {
         return ToStringBuilder.reflectionToString(this, ToStringStyle.MULTI_LINE_STYLE);
     }
-
 }

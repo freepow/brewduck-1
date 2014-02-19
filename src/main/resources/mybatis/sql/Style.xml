@@ -4,36 +4,36 @@
 
     <sql id="Style.selectStyle">
         SELECT
-               name               name,
-               korean_name        koreanName,
-               category           category,
-               version            version,
-               category_number    categoryNumber,
-               style_letter       styleLetter,
-               style_guide        styleGuide,
-               type               type,
-               og_min             ogMin,
-               og_max             ogMax,
-               fg_min             fgMin,
-               fg_max             fgMax,
-               ibu_min            ibuMin,
-               ibu_max            ibuMax,
-               color_min          colorMin,
-               color_max          colorMax,
-               carb_min           carbMin,
-               carb_max           carbMax,
-               abv_min            abvMin,
-               abv_max            abvMax,
-               notes              notes,
-               profile            profile,
-               ingredients        ingredients,
-               examples           examples,
-               insert_id          insertId,
-               insert_date        insertDate,
-               update_id          updateId,
-               update_date        updateDate,
-               delete_id          deleteId,
-               delete_date        deleteDate
+               name               name
+              ,korean_name        koreanName
+              ,category           category
+              ,version            version
+              ,category_number    categoryNumber
+              ,style_letter       styleLetter
+              ,style_guide        styleGuide
+              ,type               type
+              ,og_min             ogMin
+              ,og_max             ogMax
+              ,fg_min             fgMin
+              ,fg_max             fgMax
+              ,ibu_min            ibuMin
+              ,ibu_max            ibuMax
+              ,color_min          colorMin
+              ,color_max          colorMax
+              ,carb_min           carbMin
+              ,carb_max           carbMax
+              ,abv_min            abvMin
+              ,abv_max            abvMax
+              ,notes              notes
+              ,profile            profile
+              ,ingredients        ingredients
+              ,examples           examples
+              ,insert_id          insertId
+              ,insert_date        insertDate
+              ,update_id          updateId
+              ,update_date        updateDate
+              ,delete_id          deleteId
+              ,delete_date        deleteDate
           FROM brewduckdb.STYLEw
     </sql>
 
@@ -201,6 +201,5 @@
               ,delete_date = now()
          WHERE name = #{name}
     </update>
-
 
 </mapper>

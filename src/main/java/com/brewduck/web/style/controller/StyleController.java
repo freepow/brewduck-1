@@ -7,11 +7,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -46,7 +42,6 @@ public class StyleController {
      */
     @ResponseBody
     @RequestMapping(value = "/list", method = RequestMethod.GET)
-    // public String styleList(Model model, Style style) {
     public List<Style> selectStyleList(Model model) {
         logger.info("Style List");
         Style style = new Style();
@@ -54,9 +49,6 @@ public class StyleController {
         // 맥주 스타일 목록 조회
         List<Style> list = styleService.selectStyleList(style);
         logger.info("Style List Size : {}", list.size());
-
-        // model.addAttribute("list", list);
-        // return "/style/style";
 
         return list;
     }
@@ -72,7 +64,6 @@ public class StyleController {
      */
     @ResponseBody
     @RequestMapping(value = "/detail/{name}", method = RequestMethod.GET)
-    // public String styleDetail(Model model, @PathVariable("name") String name) {
     public Style selectStyleDetail(Model model, @PathVariable("name") String name) {
         logger.info("Style Name : {}", name);
 
@@ -81,9 +72,6 @@ public class StyleController {
 
         // 맥주 스타일 상세 조회
         Style styleDetail = styleService.selectStyleDetail(style);
-
-        // model.addAttribute("style", style);
-        // return "/style/styleView";
 
         return styleDetail;
     }
