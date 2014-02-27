@@ -7,24 +7,24 @@ import java.io.Serializable;
 import java.util.Date;
 
 /**
- * 발효 Value Object
+ * 맥아, Value Object
  *
  * 신재근, 2014-02-12
  */
 public class Fermentable implements Serializable {
     private static final long serialVersionUID = 1L;
 
-    // 발효 한글명
+    // 맥아 한글명
     private String name;
-    // 발효 영문명
+    // 맥아 영문명
     private String koreanName;
-    // 발효 버전 (Fix : "1")
+    // 맥아 버전 (Fix : "1")
     private Integer version;
-    // 발효 종류 ("Grain", "Sugar", "Extract", "Dry Extract" or "Adjunct")
+    // 맥아 종류 ("Grain", "Sugar", "Extract", "Dry Extract" or "Adjunct")
     private String type;
-    // 발효의 양 (발효, 추출 또는 설탕의 무게 : "Kg")
+    // 맥아의 양 (맥아, 추출 또는 설탕의 무게 : "Kg")
     private Double amount;
-    // 발효 수율 (중량 원료의 수율 : "%")
+    // 맥아 수율 (중량 원료의 수율 : "%")
     private Double yield;
     // 맥주의 색상 (SRM)
     private Double color;
@@ -74,112 +74,112 @@ public class Fermentable implements Serializable {
 
 
     /**
-     * 발효 한글명
+     * 맥아 한글명
      *
-     * @return 발효 한글명
+     * @return 맥아 한글명
      */
     public String getName() {
         return name;
     }
 
     /**
-     * 발효 한글명
+     * 맥아 한글명
      *
-     * @param name 발효 한글명
+     * @param name 맥아 한글명
      */
     public void setName(String name) {
         this.name = name;
     }
 
     /**
-     * 발효 영문명
+     * 맥아 영문명
      *
-     * @return 발효 영문명
+     * @return 맥아 영문명
      */
     public String getKoreanName() {
         return koreanName;
     }
 
     /**
-     * 발효 영문명
+     * 맥아 영문명
      *
-     * @param koreanName 발효 영문명
+     * @param koreanName 맥아 영문명
      */
     public void setKoreanName(String koreanName) {
         this.koreanName = koreanName;
     }
 
     /**
-     * 발효 버전
+     * 맥아 버전
      * Fix : "1"
      *
-     * @return 발효 버전
+     * @return 맥아 버전
      */
     public Integer getVersion() {
         return version;
     }
 
     /**
-     * 발효 버전
+     * 맥아 버전
      *
-     * @param version 발효 버전
+     * @param version 맥아 버전
      */
     public void setVersion(Integer version) {
         this.version = version;
     }
 
     /**
-     * 발효 종류
+     * 맥아 종류
      * ("Grain", "Sugar", "Extract", "Dry Extract" or "Adjunct")
      *
-     * @return 발효 종류
+     * @return 맥아 종류
      */
     public String getType() {
         return type;
     }
 
     /**
-     * 발효 종류
+     * 맥아 종류
      *
-     * @param type 발효 종류
+     * @param type 맥아 종류
      */
     public void setType(String type) {
         this.type = type;
     }
 
     /**
-     * 발효의 양
-     * (발효, 추출 또는 설탕의 무게 : "Kg")
+     * 맥아의 양
+     * (맥아, 추출 또는 설탕의 무게 : "Kg")
      *
-     * @return 발효의 양
+     * @return 맥아의 양
      */
     public Double getAmount() {
         return amount;
     }
 
     /**
-     * 발효의 양
+     * 맥아의 양
      *
-     * @param amount 발효의 양
+     * @param amount 맥아의 양
      */
     public void setAmount(Double amount) {
         this.amount = amount;
     }
 
     /**
-     * 발효 수율
+     * 맥아 수율
      * (중량 원료의 수율 : "%")
      *
-     * @return 발효 수율
+     * @return 맥아 수율
      */
     public Double getYield() {
         return yield;
     }
 
     /**
-     * 발효 수율
+     * 맥아 수율
      *
-     * @param yield 발효 수율
+     * @param yield 맥아 수율
      */
     public void setYield(Double yield) {
         this.yield = yield;
@@ -261,18 +261,18 @@ public class Fermentable implements Serializable {
     }
 
     /**
-     * 발효 주의사항(메모)
+     * 맥아 주의사항(메모)
      *
-     * @return 발효 주의사항(메모)
+     * @return 맥아 주의사항(메모)
      */
     public String getNotes() {
         return notes;
     }
 
     /**
-     * 발효 주의사항(메모)
+     * 맥아 주의사항(메모)
      *
-     * @param notes 발효 주의사항(메모)
+     * @param notes 맥아 주의사항(메모)
      */
     public void setNotes(String notes) {
         this.notes = notes;
@@ -369,18 +369,18 @@ public class Fermentable implements Serializable {
     }
 
     /**
-     * 발효 추천 당화
+     * 맥아 추천 당화
      *
-     * @return 발효 추천 당화
+     * @return 맥아 추천 당화
      */
     public Boolean getRecommendMash() {
         return recommendMash;
     }
 
     /**
-     * 발효 추천 당화
+     * 맥아 추천 당화
      *
-     * @param recommendMash 발효 추천 당화
+     * @param recommendMash 맥아 추천 당화
      */
     public void setRecommendMash(Boolean recommendMash) {
         this.recommendMash = recommendMash;
