@@ -7,33 +7,31 @@ import java.io.Serializable;
 import java.util.Date;
 
 /**
- * 기타 재료, Value Object
+ * 당화 단계, Value Object
  *
  * 신재근, 2014-02-27
  */
-public class Misc implements Serializable {
+public class MashStep implements Serializable {
     private static final long serialVersionUID = 1L;
 
-    // 기타 재료 영문명
+    // 당화 단계 영문명
     private String name;
-    // 기타 재료 한글명
+    // 당화 단계 한글명
     private String koreanName;
-    // 기타 재료 버전
+    // 당화 단계 버전
     private Integer version;
-    // 기타 재료 종류 ("Spice", "Fining", "Water Agent", "Herb", "Flavor" or "Other")
+    // 당화 단계 종류 (물 주입, 가열, 달임)
     private String type;
-    // 기타 재료 사용 ("Boil", "Mash", "Primary", "Secondary", "Bottling")
-    private String miscUse;
-    // 기타 재료의 사용되는 시간
-    private Integer time;
-    // 기타 재료의 무게(kg) 또는 양(리터, L)
-    private Integer amount;
-    // 기타 재료의 무게, 양을 측정 여부
-    private Boolean amountIsWeight;
-    // 기타 재료의 사용 항목에 대한 간단한 설명
-    private String useFor;
-    // 기타 재료의 사용 항목에 대한 상세한 설명
-    private String notes;
+    // 물 주입하는 양 (리터)
+    private Integer infuseAmount;
+    // 단계에 대한 목표 온도
+    private Integer stepTemp;
+    // 단계에서 소비되는 시간
+    private Integer stepTime;
+    // 원하는 온도에 달성하는 시간
+    private Integer rampTime;
+    // 마지막 당화 온도 (온도가 떨어질 것으로 예상할 수 있는 온도 )
+    private Integer endTemp;
     // 작성자 아이디
     private String insertId;
     // 작성자 날짜
@@ -55,183 +53,165 @@ public class Misc implements Serializable {
 
 
     /**
-     * 기타 재료 영문명
+     * 당화 단계 영문명
      *
-     * @return 기타 재료 영문명
+     * @return 당화 단계 영문명
      */
     public String getName() {
         return name;
     }
 
     /**
-     * 기타 재료 영문명
+     * 당화 단계 영문명
      *
-     * @param name 기타 재료 영문명
+     * @param name 당화 단계 영문명
      */
     public void setName(String name) {
         this.name = name;
     }
 
     /**
-     * 기타 재료 한글명
+     * 당화 단계 한글명
      *
-     * @return 기타 재료 한글명
+     * @return 당화 단계 한글명
      */
     public String getKoreanName() {
         return koreanName;
     }
 
     /**
-     * 기타 재료 한글명
+     * 당화 단계 한글명
      *
-     * @param koreanName 기타 재료 한글명
+     * @param koreanName 당화 단계 한글명
      */
     public void setKoreanName(String koreanName) {
         this.koreanName = koreanName;
     }
 
     /**
-     * 기타 재료 버전
+     * 당화 단계 버전
      *
-     * @return 기타 재료 버전
+     * @return 당화 단계 버전
      */
     public Integer getVersion() {
         return version;
     }
 
     /**
-     * 기타 재료 버전
+     * 당화 단계 버전
      *
-     * @param version 기타 재료 버전
+     * @param version
      */
     public void setVersion(Integer version) {
         this.version = version;
     }
 
     /**
-     * 기타 재료 종류
+     * 당화 단계 종류
      *
-     * @return 기타 재료 종류
+     * @return 당화 단계 종류
      */
     public String getType() {
         return type;
     }
 
     /**
-     * 기타 재료 종류
+     * 당화 단계 종류
      *
-     * @param type 기타 재료 종류
+     * @param type 당화 단계 종류
      */
     public void setType(String type) {
         this.type = type;
     }
 
     /**
-     * 기타 재료 사용
+     * 물 주입하는 양
      *
-     * @return 기타 재료 사용
+     * @return 물 주입하는 양
      */
-    public String getMiscUse() {
-        return miscUse;
+    public Integer getInfuseAmount() {
+        return infuseAmount;
     }
 
     /**
+     * 물 주입하는 양
      *
-     *
-     * @param miscUse
+     * @param infuseAmount 물 주입하는 양
      */
-    public void setMiscUse(String miscUse) {
-        this.miscUse = miscUse;
+    public void setInfuseAmount(Integer infuseAmount) {
+        this.infuseAmount = infuseAmount;
     }
 
     /**
-     * 기타 재료의 사용되는 시간
+     * 단계에 대한 목표 온도
      *
-     * @return 기타 재료의 사용되는 시간
+     * @return 단계에 대한 목표 온도
      */
-    public Integer getTime() {
-        return time;
+    public Integer getStepTemp() {
+        return stepTemp;
     }
 
     /**
-     * 기타 재료의 사용되는 시간
+     * 단계에 대한 목표 온도
      *
-     * @param time 기타 재료의 사용되는 시간
+     * @param stepTemp 단계에 대한 목표 온도
      */
-    public void setTime(Integer time) {
-        this.time = time;
+    public void setStepTemp(Integer stepTemp) {
+        this.stepTemp = stepTemp;
     }
 
     /**
-     * 기타 재료의 무게 또는 양
+     * 단계에서 소비되는 시간
      *
-     * @return 기타 재료의 무게 또는 양
+     * @return 단계에서 소비되는 시간
      */
-    public Integer getAmount() {
-        return amount;
+    public Integer getStepTime() {
+        return stepTime;
     }
 
     /**
-     * 기타 재료의 무게 또는 양
+     * 단계에서 소비되는 시간
      *
-     * @param amount 기타 재료의 무게 또는 양
+     * @param stepTime 단계에서 소비되는 시간
      */
-    public void setAmount(Integer amount) {
-        this.amount = amount;
+    public void setStepTime(Integer stepTime) {
+        this.stepTime = stepTime;
     }
 
     /**
-     * 기타 재료의 무게, 양을 측정 여부
+     * 원하는 온도에 달성하는 시간
      *
-     * @return 기타 재료의 무게, 양을 측정 여부
+     * @return 원하는 온도에 달성하는 시간
      */
-    public Boolean getAmountIsWeight() {
-        return amountIsWeight;
+    public Integer getRampTime() {
+        return rampTime;
     }
 
     /**
-     * 기타 재료의 무게, 양을 측정 여부
+     * 원하는 온도에 달성하는 시간
      *
-     * @param amountIsWeight 기타 재료의 무게, 양을 측정 여부
+     * @param rampTime 원하는 온도에 달성하는 시간
      */
-    public void setAmountIsWeight(Boolean amountIsWeight) {
-        this.amountIsWeight = amountIsWeight;
+    public void setRampTime(Integer rampTime) {
+        this.rampTime = rampTime;
     }
 
     /**
-     * 기타 재료의 사용 항목에 대한 간단한 설명
+     * 마지막 당화 온도
      *
-     * @return 기타 재료의 사용 항목에 대한 간단한 설명
+     * @return 마지막 당화 온도
      */
-    public String getUseFor() {
-        return useFor;
+    public Integer getEndTemp() {
+        return endTemp;
     }
 
     /**
-     * 기타 재료의 사용 항목에 대한 간단한 설명
+     * 마지막 당화 온도
      *
-     * @param useFor 기타 재료의 사용 항목에 대한 간단한 설명
+     * @param endTemp 마지막 당화 온도
      */
-    public void setUseFor(String useFor) {
-        this.useFor = useFor;
-    }
-
-    /**
-     * 기타 재료의 사용 항목에 대한 상세한 설명
-     *
-     * @return 기타 재료의 사용 항목에 대한 상세한 설명
-     */
-    public String getNotes() {
-        return notes;
-    }
-
-    /**
-     * 기타 재료의 사용 항목에 대한 상세한 설명
-     *
-     * @param notes 기타 재료의 사용 항목에 대한 상세한 설명
-     */
-    public void setNotes(String notes) {
-        this.notes = notes;
+    public void setEndTemp(Integer endTemp) {
+        this.endTemp = endTemp;
     }
 
     /**
@@ -401,3 +381,4 @@ public class Misc implements Serializable {
         return ToStringBuilder.reflectionToString(this, ToStringStyle.MULTI_LINE_STYLE);
     }
 }
+

@@ -5,6 +5,7 @@ import org.apache.commons.lang.builder.ToStringStyle;
 
 import java.io.Serializable;
 import java.util.Date;
+import java.util.List;
 
 /**
  * 당화(매쉬), Value Object
@@ -14,6 +15,33 @@ import java.util.Date;
 public class Mash implements Serializable {
     private static final long serialVersionUID = 1L;
 
+    // 당화(매쉬) 영문명
+    private String name;
+    // 당화(매쉬) 한글명
+    private String koreanName;
+    // 당화 종류
+    private String type;
+    // 당화 전 곡물을 넣을때 온도
+    private Integer grainTemp;
+    // 매쉬 단계 리스트
+    private List<MashStep> mashSteps;
+    // 당화 메모
+    private String notes;
+    // 매쉬턴(곡물 술통) 온도
+    private Integer tunTemp;
+    // 당화 시 스파징 온도
+    private Integer spargeTemp;
+    // 당화시 스파징 PH
+    private Double ph;
+    // 킬로그램(kg)의 매쉬턴 무게
+    private Integer tunWeight;
+    // 물질의 비열
+    // 재질의 1그램의 물질을 1도 올리는 데 필요한 열량. (단위 cal)
+    private Double tunSpecificHeat;
+    // 장비 조절 여부 (기본은 "FALSE")
+    // "TRUE"일 때는 매쉬턴의 장비(무게와 비열)의 온도의 영향을 준다.
+    // "FALSE"일 때는 매쉬턴의 예열으로 간주한다.
+    private Boolean equipAdjust;
     // 작성자 아이디
     private String insertId;
     // 작성자 날짜
@@ -34,6 +62,222 @@ public class Mash implements Serializable {
     private Boolean deleteFlag;
 
 
+
+    /**
+     * 당화 영문명
+     *
+     * @return 당화 영문명
+     */
+    public String getName() {
+        return name;
+    }
+
+    /**
+     * 당화 영문명
+     *
+     * @param name 당화 영문명
+     */
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    /**
+     * 당화 한글명
+     *
+     * @return 당화 한글명
+     */
+    public String getKoreanName() {
+        return koreanName;
+    }
+
+    /**
+     * 당화 한글명
+     *
+     * @param koreanName 당화 한글명
+     */
+    public void setKoreanName(String koreanName) {
+        this.koreanName = koreanName;
+    }
+
+    /**
+     * 당화 종류
+     *
+     * @return 당화 종류
+     */
+    public String getType() {
+        return type;
+    }
+
+    /**
+     * 당화 종류
+     *
+     * @param type 당화 종류
+     */
+    public void setType(String type) {
+        this.type = type;
+    }
+
+    /**
+     * 당화 전 곡물을 넣을때 온도
+     *
+     * @return 당화 전 곡물을 넣을때 온도
+     */
+    public Integer getGrainTemp() {
+        return grainTemp;
+    }
+
+    /**
+     * 당화 전 곡물을 넣을때 온도
+     *
+     * @param grainTemp 당화 전 곡물을 넣을때 온도
+     */
+    public void setGrainTemp(Integer grainTemp) {
+        this.grainTemp = grainTemp;
+    }
+
+    /**
+     * 매쉬 단계 리스트
+     *
+     * @return 매쉬 단계 리스트
+     */
+    public List<MashStep> getMashSteps() {
+        return mashSteps;
+    }
+
+    /**
+     * 매쉬 단계 리스트
+     *
+     * @param mashSteps 매쉬 단계 리스트
+     */
+    public void setMashSteps(List<MashStep> mashSteps) {
+        this.mashSteps = mashSteps;
+    }
+
+    /**
+     * 당화 메모
+     *
+     * @return 당화 메모
+     */
+    public String getNotes() {
+        return notes;
+    }
+
+    /**
+     * 당화 메모
+     *
+     * @param notes 당화 메모
+     */
+    public void setNotes(String notes) {
+        this.notes = notes;
+    }
+
+    /**
+     * 매쉬턴 온도
+     *
+     * @return 매쉬턴 온도
+     */
+    public Integer getTunTemp() {
+        return tunTemp;
+    }
+
+    /**
+     * 매쉬턴 온도
+     *
+     * @param tunTemp 매쉬턴 온도
+     */
+    public void setTunTemp(Integer tunTemp) {
+        this.tunTemp = tunTemp;
+    }
+
+    /**
+     * 당화 시 스파징 온도
+     *
+     * @return 당화 시 스파징 온도
+     */
+    public Integer getSpargeTemp() {
+        return spargeTemp;
+    }
+
+    /**
+     * 당화 시 스파징 온도
+     *
+     * @param spargeTemp 당화 시 스파징 온도
+     */
+    public void setSpargeTemp(Integer spargeTemp) {
+        this.spargeTemp = spargeTemp;
+    }
+
+    /**
+     * 당화시 스파징 PH
+     *
+     * @return 당화시 스파징 PH
+     */
+    public Double getPh() {
+        return ph;
+    }
+
+    /**
+     * 당화시 스파징 PH
+     *
+     * @param ph 당화시 스파징 PH
+     */
+    public void setPh(Double ph) {
+        this.ph = ph;
+    }
+
+    /**
+     * 매쉬턴 무게
+     *
+     * @return 매쉬턴 무게
+     */
+    public Integer getTunWeight() {
+        return tunWeight;
+    }
+
+    /**
+     * 매쉬턴 무게
+     *
+     * @param tunWeight 매쉬턴 무게
+     */
+    public void setTunWeight(Integer tunWeight) {
+        this.tunWeight = tunWeight;
+    }
+
+    /**
+     * 물질의 비열
+     *
+     * @return 물질의 비열
+     */
+    public Double getTunSpecificHeat() {
+        return tunSpecificHeat;
+    }
+
+    /**
+     * 물질의 비열
+     *
+     * @param tunSpecificHeat 물질의 비열
+     */
+    public void setTunSpecificHeat(Double tunSpecificHeat) {
+        this.tunSpecificHeat = tunSpecificHeat;
+    }
+
+    /**
+     * 장비 조절 여부 (기본은 "FALSE")
+     *
+     * @return 장비 조절 여부
+     */
+    public Boolean getEquipAdjust() {
+        return equipAdjust;
+    }
+
+    /**
+     * 장비 조절 여부 (기본은 "FALSE")
+     *
+     * @param equipAdjust 장비 조절 여부
+     */
+    public void setEquipAdjust(Boolean equipAdjust) {
+        this.equipAdjust = equipAdjust;
+    }
 
     /**
      * 작성자 아이디
