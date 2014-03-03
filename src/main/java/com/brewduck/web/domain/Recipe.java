@@ -25,7 +25,7 @@ public class Recipe implements Serializable {
     // 레시피 종류 (추출물, 부분 곡물, 완전 곡물)
     private String type;
     // 맥주 스타일 리스트
-    private List<Style> styles;
+    private Style style;
     // 레시피 양조자
     private String brewer;
     // 레시피 보조 양조자
@@ -161,21 +161,21 @@ public class Recipe implements Serializable {
     }
 
     /**
-     * 맥주 스타일 리스트
+     * 맥주 스타일
      *
-     * @return 맥주 스타일 리스트
+     * @return 맥주 스타일
      */
-    public List<Style> getStyles() {
-        return styles;
+    public Style getStyle() {
+        return style;
     }
 
     /**
-     * 맥주 스타일 리스트
+     * 맥주 스타일
      *
-     * @param styles 맥주 스타일 리스트
+     * @param style 맥주 스타일
      */
-    public void setStyles(List<Style> styles) {
-        this.styles = styles;
+    public void setStyles(Style style) {
+        this.style = style;
     }
 
     /**

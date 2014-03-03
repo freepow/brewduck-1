@@ -12,7 +12,7 @@ import java.util.List;
 
 /**
  * <pre>
- * 맥주 발효 DAO 구현체.
+ * 맥주 맥아 DAO 구현체.
  * </pre>
  *
  * @author jaeger

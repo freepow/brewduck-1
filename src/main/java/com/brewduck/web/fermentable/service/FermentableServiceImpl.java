@@ -10,6 +10,14 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 
+/**
+ * <pre>
+ * 맥주 맥아 Service 구현체.
+ * </pre>
+ *
+ * @author jaeger
+ * @version 1.0, 2014.02.20
+ */
 @Service("fermentableService")
 public class FermentableServiceImpl implements FermentableService {
     private static final Logger logger = LoggerFactory.getLogger(FermentableServiceImpl.class);

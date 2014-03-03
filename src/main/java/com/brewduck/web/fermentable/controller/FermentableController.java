@@ -13,7 +13,7 @@ import java.util.List;
 
 /**
  * <pre>
- * 맥주 발효 Controller.
+ * 맥주 맥아 Controller.
  * </pre>
  *
  * @author jaeger
@@ -33,11 +33,11 @@ public class FermentableController {
 
     /**
      * <pre>
-     * 맥주 발효 목록 조회.
+     * 맥주 맥아 목록 조회.
      * </pre>
      *
      * @param model Model
-     * @return 맥주 발효 목록
+     * @return 맥주 맥아 목록
      */
     @ResponseBody
     @RequestMapping(value = "/list", method = RequestMethod.GET)
@@ -45,7 +45,7 @@ public class FermentableController {
         logger.info("Fermentable List");
         Fermentable fermentable = new Fermentable();
 
-        // 맥주 발효 목록 조회
+        // 맥주 맥아 목록 조회
         List<Fermentable> list = fermentableService.selectFermentableList(fermentable);
         logger.info("Fermentable List Size : {}", list.size());
 
@@ -54,12 +54,12 @@ public class FermentableController {
 
     /**
      * <pre>
-     * 맥주 발효 상세 조회.
+     * 맥주 맥아 상세 조회.
      * </pre>
      *
      * @param model Model
-     * @param name 맥주 발효 영문명
-     * @return 맥주 발효 상세.
+     * @param name 맥주 맥아 영문명
+     * @return 맥주 맥아 상세.
      */
     @ResponseBody
     @RequestMapping(value = "/detail/{name}", method = RequestMethod.GET)
@@ -69,7 +69,7 @@ public class FermentableController {
         Fermentable fermentable = new Fermentable();
         fermentable.setName(name);
 
-        // 맥주 발효 상세 조회
+        // 맥주 맥아 상세 조회
         Fermentable fermentableDetail = fermentableService.selectFermentableDetail(fermentable);
 
         return fermentableDetail;
@@ -77,23 +77,23 @@ public class FermentableController {
 
     /**
      * <pre>
-     * 맥주 발효 저장.
+     * 맥주 맥아 저장.
      * </pre>
      *
      * @param model Model
-     * @param name 맥주 발효 영문명
-     * @param paramFermentable 맥주 발효 VO
-     * @return 맥주 발효 저장 여부
+     * @param name 맥주 맥아 영문명
+     * @param paramFermentable 맥주 맥아 VO
+     * @return 맥주 맥아 저장 여부
      */
     @ResponseBody
     @RequestMapping(value = "/insert/{name}", method = RequestMethod.POST)
     public Fermentable insertFermentable(Model model, @PathVariable("name") String name, @RequestBody Fermentable paramFermentable) {
         logger.info("Insert Fermentable : {}", paramFermentable);
 
-        // 맥주 발효 저장
+        // 맥주 맥아 저장
         Boolean insertFlag = fermentableService.insertFermentable(paramFermentable);
 
-        // 맥주 발효 저장했는지 성공 세팅
+        // 맥주 맥아 저장했는지 성공 세팅
         Fermentable returnFermentable = new Fermentable();
         returnFermentable.setName(name);
         returnFermentable.setInsertFlag(insertFlag);
@@ -102,23 +102,23 @@ public class FermentableController {
     }
     /**
      * <pre>
-     * 맥주 발효 수정.
+     * 맥주 맥아 수정.
      * </pre>
      *
      * @param model Model
-     * @param name 맥주 발효 영문명
-     * @param paramFermentable 맥주 발효 VO
-     * @return 맥주 발효 수정 여부
+     * @param name 맥주 맥아 영문명
+     * @param paramFermentable 맥주 맥아 VO
+     * @return 맥주 맥아 수정 여부
      */
     @ResponseBody
     @RequestMapping(value = "/update/{name}", method = RequestMethod.POST)
     public Fermentable updateFermentable(Model model, @PathVariable("name") String name, @RequestBody Fermentable paramFermentable) {
         logger.info("Update Fermentable : {}", paramFermentable);
 
-        // 맥주 발효 수정
+        // 맥주 맥아 수정
         Boolean updateFlag = fermentableService.updateFermentable(paramFermentable);
 
-        // 맥주 발효 수정했는지 성공 세팅
+        // 맥주 맥아 수정했는지 성공 세팅
         Fermentable returnFermentable = new Fermentable();
         returnFermentable.setName(name);
         returnFermentable.setUpdateFlag(updateFlag);
@@ -128,23 +128,23 @@ public class FermentableController {
 
     /**
      * <pre>
-     * 맥주 발효 삭제.
+     * 맥주 맥아 삭제.
      * </pre>
      *
      * @param model Model
-     * @param name 맥주 발효 영문명
-     * @param paramFermentable 맥주 발효 VO
-     * @return 맥주 발효 삭제 여부
+     * @param name 맥주 맥아 영문명
+     * @param paramFermentable 맥주 맥아 VO
+     * @return 맥주 맥아 삭제 여부
      */
     @ResponseBody
     @RequestMapping(value = "/delete/{name}", method = RequestMethod.POST)
     public Fermentable deleteFermentable(Model model, @PathVariable("name") String name, @RequestBody Fermentable paramFermentable) {
         logger.info("Delete Fermentable : {}", paramFermentable);
 
-        // 맥주 발효 삭제
+        // 맥주 맥아 삭제
         Boolean deleteFlag = fermentableService.deleteFermentable(paramFermentable);
 
-        // 맥주 발효 삭제했는지 성공 세팅
+        // 맥주 맥아 삭제했는지 성공 세팅
         Fermentable returnFermentable = new Fermentable();
         returnFermentable.setName(name);
         returnFermentable.setDeleteFlag(deleteFlag);
