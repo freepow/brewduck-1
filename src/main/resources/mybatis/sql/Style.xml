@@ -34,7 +34,7 @@
               ,update_date        updateDate
               ,delete_id          deleteId
               ,delete_date        deleteDate
-          FROM brewduckdb.STYLEw
+          FROM brewduckdb.STYLE
     </sql>
 
     <select id="Style.selectStyleList" parameterType="Style" resultType="Style">

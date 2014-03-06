@@ -46,7 +46,7 @@ public class Hop implements Serializable {
     private String origin;
     // 홉 대체 재료
     private String substitutes;
-    //Humulene 함량 (단위 : %) 향기의 주성분
+    // Humulene 함량 (단위 : %) 향기의 주성분
     private Double humulene;
     // Caryophyllene 함량 (단위 : %)
     private Double caryophyllene;
