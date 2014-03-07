@@ -4,32 +4,33 @@
 
     <sql id="Recipe.selectRecipe">
         SELECT
-               name                name
-              ,korean_name         koreanName
-              ,version             version
-              ,type                type
-              ,brewer              brewer
-              ,asst_brewer         asstBrewer
-              ,batch_size          batchSize
-              ,boil_size           boilSize
-              ,boil_time           boilTime
-              ,efficiency          efficiency
-              ,notes               notes
-              ,og                  og
-              ,fg                  fg
-              ,primary_age         primaryAge
-              ,primary_temp        primaryTemp
-              ,secondary_age       secondaryAge
-              ,secondary_temp      secondaryTemp
-              ,age                 age
-              ,age_temp            ageTemp
-              ,priming_sugar_name  primingSugarName
-              ,insert_id           insertId
-              ,insert_date         insertDate
-              ,update_id           updateId
-              ,update_date         updateDate
-              ,delete_id           deleteId
-              ,delete_date         deleteDate
+               seq                seq
+              ,name               name
+              ,version            version
+              ,type               type
+              ,style_name         styleName
+              ,brewer             brewer
+              ,asst_brewer        asstBrewer
+              ,batch_size         batchSize
+              ,boil_size          boilSize
+              ,boil_time          boilTime
+              ,efficiency         efficiency
+              ,notes              notes
+              ,og                 og
+              ,fg                 fg
+              ,primary_age        primaryAge
+              ,primary_temp       primaryTemp
+              ,secondary_age      secondaryAge
+              ,secondary_temp     secondaryTemp
+              ,age                age
+              ,age_temp           ageTemp
+              ,priming_sugar_name primingSugarName
+              ,insert_id          insertId
+              ,insert_date        insertDate
+              ,update_id          updateId
+              ,update_date        updateDate
+              ,delete_id          deleteId
+              ,delete_date        deleteDate
           FROM brewduckdb.RECIPE
     </sql>
 
@@ -43,6 +44,9 @@
         <!-- 맥주 레시피 상세 조회 -->
         <include refid="Recipe.selectRecipe" />
         WHERE delete_id IS NULL
+        <if test="seq != null">
+            AND seq = #{seq}
+        </if>
         <if test="name != null">
             AND name = #{name}
         </if>
@@ -60,8 +64,7 @@
     <insert id="Recipe.insertRecipe" parameterType="Recipe">
         <!-- 맥주 레시피 저장 -->
         INSERT INTO brewduckdb.RECIPE (
-             name              
-            ,korean_name       
+             name
             ,version           
             ,type              
             ,brewer            
@@ -84,7 +87,6 @@
             ,insert_date
         ) VALUES (
              #{name}
-            ,#{koreanName}
             ,#{version}
             ,#{type}
             ,#{brewer}
@@ -113,7 +115,7 @@
         UPDATE brewduckdb.RECIPE
         <trim prefix="SET" suffixOverrides=",">
             <if test="koreanName != null">
-                korean_name = #{koreanName},
+                name = #{name},
             </if>
             <if test="version != null">
                 version = #{version}
@@ -176,7 +178,8 @@
                 update_date = now()
             </if>
         </trim>
-        WHERE name = #{name}
+        WHERE seq  = #{seq}
+          AND name = #{name}
     </update>
 
     <update id="deleteRecipe" parameterType="Recipe">
@@ -184,7 +187,8 @@
         UPDATE brewduckdb.RECIPE
            SET delete_id = #{deleteId}
               ,delete_date = now()
-         WHERE name = #{name}
+         WHERE seq  = #{seq}
+           AND name = #{name}
     </update>
 
 </mapper>

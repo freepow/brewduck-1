@@ -27,6 +27,16 @@ public interface HopDao {
 
     /**
      * <pre>
+     * 맥주 레시피 홉 목록 조회.
+     * </pre>
+     *
+     * @param name 맥주 레시피 이름
+     * @return 맥주 홉 목록
+     */
+    public List<Hop> selectRecipeHopList(String name);
+
+    /**
+     * <pre>
      * 맥주 홉 상세 조회.
      * </pre>
      *

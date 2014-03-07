@@ -54,13 +54,6 @@
 
     <select id="Misc.selectRecipeMiscList" parameterType="Misc" resultType="Misc">
         <!-- 맥주 레시피 기타 재료 목록 조회 -->
-        <include refid="Misc.selectMisc" />
-          AND a.name = #{name}
-          AND b.delete_id IS NULL
-    </select>
-
-    <select id="Misc.selectRecipeMiscList" parameterType="Misc" resultType="Misc">
-        <!-- 맥주 기타 재료 목록 조회 -->
         <include refid="Misc.selectRecipeMisc" />
           AND a.name = #{name}
           AND b.delete_id IS NULL

@@ -17,14 +17,16 @@ public class Recipe implements Serializable {
     private static final long serialVersionUID = 1L;
 
     // 레시피 영문명
-    private String name;
+    private Integer seq;
     // 레시피 한글명
-    private String koreanName;
+    private String name;
     // 레시피 버전
     private Integer version;
     // 레시피 종류 (추출물, 부분 곡물, 완전 곡물)
     private String type;
-    // 맥주 스타일 리스트
+    // 맥주 스타일 이름
+    private String styleName;
+    // 맥주 스타일
     private Style style;
     // 레시피 양조자
     private String brewer;
@@ -89,21 +91,21 @@ public class Recipe implements Serializable {
 
 
     /**
-     * 레시피 영문명
+     * 레시피 순번
      *
-     * @return 레시피 영문명
+     * @return 레시피 순번
      */
-    public String getName() {
-        return name;
+    public Integer getSeq() {
+        return seq;
     }
 
     /**
-     * 레시피 영문명
+     * 레시피 순번
      *
-     * @param name 레시피 영문명
+     * @param seq 레시피 순번
      */
-    public void setName(String name) {
-        this.name = name;
+    public void setSeq(Integer seq) {
+        this.seq = seq;
     }
 
     /**
@@ -111,17 +113,17 @@ public class Recipe implements Serializable {
      *
      * @return 레시피 한글명
      */
-    public String getKoreanName() {
-        return koreanName;
+    public String getName() {
+        return name;
     }
 
     /**
      * 레시피 한글명
      *
-     * @param koreanName 레시피 한글명
+     * @param name 레시피 한글명
      */
-    public void setKoreanName(String koreanName) {
-        this.koreanName = koreanName;
+    public void setName(String name) {
+        this.name = name;
     }
 
     /**
@@ -161,6 +163,24 @@ public class Recipe implements Serializable {
     }
 
     /**
+     * 맥주 스타일 이름
+     *
+     * @return 맥주 스타일 이름
+     */
+    public String getStyleName() {
+        return styleName;
+    }
+
+    /**
+     * 맥주 스타일 이름
+     *
+     * @param styleName 맥주 스타일 이름
+     */
+    public void setStyleName(String styleName) {
+        this.styleName = styleName;
+    }
+
+    /**
      * 맥주 스타일
      *
      * @return 맥주 스타일
@@ -174,7 +194,7 @@ public class Recipe implements Serializable {
      *
      * @param style 맥주 스타일
      */
-    public void setStyles(Style style) {
+    public void setStyle(Style style) {
         this.style = style;
     }
 

@@ -58,7 +58,7 @@
               ,b.delete_id        deleteId
               ,b.delete_date      deleteDate
           FROM brewduckdb.RECIPE_HOPS a
-              ,brewduckdb.HOPS
+              ,brewduckdb.HOPS b
          WHERE a.hops_name = b.name
     </sql>
 

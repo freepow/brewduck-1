@@ -26,6 +26,16 @@ public interface YeastDao {
 
     /**
      * <pre>
+     * 맥주 레시피 이스트 목록 조회.
+     * </pre>
+     *
+     * @param name 레시피 이름
+     * @return 맥주 이스트 목록
+     */
+    public List<Yeast> selectRecipeYeastList(String name);
+
+    /**
+     * <pre>
      * 맥주 이스트 상세 내용 조회.
      * </pre>
      *
