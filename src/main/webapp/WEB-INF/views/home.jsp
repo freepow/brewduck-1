@@ -76,7 +76,7 @@
 
 
 <!-- YTPlayer -->
-<a href="http://www.youtube.com/watch?v=Qs17Pra0ePw" id="bgndVideo" class="player {containment:'body', autoPlay:true, mute:true, startAt:0, opacity:1, loop:true}"></a>
+<a href="https://www.youtube.com/watch?v=8J1uXn3-5lE&feature=youtu.be" id="bgndVideo" class="player {containment:'body', autoPlay:true, mute:true, startAt:0, opacity:1, loop:true}"></a>
 <!-- YTPlayer end -->
 
 

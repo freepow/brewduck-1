@@ -19,11 +19,8 @@
         <pattern>/company/*</pattern>
         <pattern>/profile/*</pattern>
         <pattern>/recipe/*</pattern>
-	</decorator>
-
-    <decorator name="default" page="landing.jsp">
         <pattern>/</pattern>
-    </decorator>
+	</decorator>
 
     <decorator name="default_mini" page="default_mini.jsp">
         <pattern>/recipe/*</pattern>

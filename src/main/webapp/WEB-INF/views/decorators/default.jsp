@@ -1,552 +1,625 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@ taglib prefix="decorator" uri="http://www.opensymphony.com/sitemesh/decorator" %>
 <!DOCTYPE html>
 <html>
+<!-- 자바스크립트, css 파일들 -->
 <%@include file="/WEB-INF/views/common/include/default_header.jsp"%>
+
 <body>
 <div id="wrapper">
-
-<!-- 상단 네비게이션 -->
-<%@include file="/WEB-INF/views/common/include/default_topnavybar.jsp"%>
-
-
-<!-- 왼쪽 컨텐츠 영역 -->
-<%@include file="/WEB-INF/views/common/include/default_left_content.jsp"%>
-
-
-
-<!-- 메인 컨텐츠 영역 -->
-<decorator:body />
-
-<!-- 모달 메세지 -->
-<div id="md-messages" class="modal fade md-slideUp" tabindex="-1" data-width="450"  data-header-color="theme-inverse">
-    <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><i class="fa fa-times"></i></button>
-        <h4 class="modal-title"><i class="fa fa-inbox"></i> Inbox messages</h4>
-    </div>
-    <!-- //modal-header-->
-    <div class="modal-body" style="padding:0">
-        <div class="widget-im">
-            <ul>
-                <li>
-                    <section  class="thumbnail-in">
-                        <div class="widget-im-tools tooltip-area pull-right">
-																<span>
-																		<i class="fa fa-paperclip"></i>
-																</span>
-																<span>
-																		<i class="fa fa-reply-all"></i>
-																</span>
-																<span>
-																		<a href="javascript:void(0)" class="im-delete" data-toggle="tooltip" title="Delete"><i class="fa fa-trash-o"></i></a>
-																</span>
-																<span>
-																		<time datetime="2013-11-16">1 : 52 am</time>
-																</span>
-                        </div>
-                        <h4><a href="javascript:void(0)">Edlado Holder</a>
-                        </h4>
-                        <div class="im-thumbnail"><img alt="" src="/resources/img/avatar2.png" /></div>
-                        <label></label>
-                        <div class="pre-text"> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </div>
-                    </section>
-                    <div class="im-confirm-group">
-                        <div class=" btn-group btn-group-justified">
-                            <a class="btn btn-inverse im-confirm" href="javascript:void(0)" data-confirm="yes">YES.</a>
-                            <a class="btn btn-theme im-confirm" href="javascript:void(0)" data-confirm="no">NO.</a>
-                        </div>
+<header id="header">
+    <div class="wrap-top-menu">
+        <div class="container_12 clearfix">
+            <div class="grid_12">
+                <nav class="top-menu">
+                    <ul id="main-menu" class="nav nav-horizontal clearfix">
+                        <li class="active"><a href="/">메인으로</a></li>
+                        <li class="sep"></li>
+                        <li><a href="/customer">고객센터</a></li>
+                    </ul>
+                    <a id="btn-toogle-menu" class="btn-toogle-menu" href="#alternate-menu">
+                        <span class="line-bar"></span>
+                        <span class="line-bar"></span>
+                        <span class="line-bar"></span>
+                    </a>
+                    <div id="right-menu">
+                        <ul class="alternate-menu">
+                            <li><a href="/">Home</a></li>
+                            <li><a href="/customer">All Pages</a></li>
+                        </ul>
                     </div>
-                </li>
-                <li>
-                    <section  class="thumbnail-in">
-                        <div class="widget-im-tools tooltip-area pull-right">
-																<span>
-																		<i class="fa fa-paperclip"></i>
-																</span>
-																<span>
-																		<a href="javascript:void(0)" class="im-delete" data-toggle="tooltip" title="Delete"><i class="fa fa-trash-o"></i></a>
-																</span>
-																<span>
-																		<time datetime="2013-11-16">12 : 00 pm</time>
-																</span>
-                        </div>
-                        <h4><a href="javascript:void(0)">Laine Franchi</a>
-                        </h4>
-                        <div class="im-thumbnail"><i class="glyphicon glyphicon-user"></i></div>
-                        <div class="pre-text"> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </div>
-                    </section>
-                    <div class="im-confirm-group">
-                        <div class=" btn-group btn-group-justified">
-                            <a class="btn btn-inverse im-confirm" href="javascript:void(0)" data-confirm="yes">YES.</a>
-                            <a class="btn btn-theme im-confirm" href="javascript:void(0)" data-confirm="no">NO.</a>
-                        </div>
-                    </div>
-                </li>
-                <li>
-                    <section class="thumbnail-in">
-                        <div class="widget-im-tools tooltip-area pull-right">
-																<span>
-																		<a href="javascript:void(0)" class="im-delete" data-toggle="tooltip" title="Delete"><i class="fa fa-trash-o"></i></a>
-																</span>
-																<span>
-																		<time datetime="2013-11-16">4 : 45 pm</time>
-																</span>
-                        </div>
-                        <h4><a href="javascript:void(0)">Cinda Collar</a>
-                        </h4>
-                        <div class="im-thumbnail"><img alt="" src="/resources/img/avatar.png" /></div>
-                        <label data-color="theme"></label>
-                        <div class="pre-text"> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </div>
-                    </section>
-                    <div class="im-confirm-group">
-                        <div class=" btn-group btn-group-justified">
-                            <a class="btn btn-inverse im-confirm" href="javascript:void(0)" data-confirm="yes">YES.</a>
-                            <a class="btn btn-theme im-confirm" href="javascript:void(0)" data-confirm="no">NO.</a>
-                        </div>
-                    </div>
-                </li>
-            </ul>
-            <button class="btn btn-theme-inverse btn-block btn-lg">View All inbox</button>
+                </nav>
+                <div class="top-message clearfix">
+                    <i class="icon iFolder"></i>
+                    <span class="txt-message">Nulla egestas nulla ac diam ultricies id viverra nisi adipiscing.</span>
+                    <i class="icon iX"></i>
+                    <div class="clear"></div>
+                </div>
+                <i id="sys_btn_toggle_search" class="icon iBtnRed make-right"></i>
+            </div>
         </div>
-        <!-- //widget-im-->
-    </div>
-    <!-- //modal-body-->
-</div>
-
-<!-- 모달 Notification -->
-<div id="md-notification" class="modal fade md-stickTop" tabindex="-1" data-width="500"  data-header-color="danger">
-    <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><i class="fa fa-angle-double-up"></i></button>
-        <h4 class="modal-title"><i class="fa fa-bell-o"></i> Notification</h4>
-    </div>
-    <!-- //modal-header-->
-    <div class="modal-body" style="padding:0">
-        <div class="widget-im notification">
-            <ul>
-                <li>
-                    <section class="thumbnail-in">
-                        <div class="widget-im-tools tooltip-area pull-right">
-																<span>
-																		<time class="timeago lasted" datetime="2014">when you opened the page</time>
-																</span>
-																<span>
-																		<a href="javascript:void(0)" class="im-action" data-toggle="tooltip" data-placement="left" title="Action"><i class="fa fa-keyboard-o"></i></a>
-																</span>
-                        </div>
-                        <h4>Your request approved</h4>
-                        <div class="im-thumbnail" data-color="theme-inverse"><i class="fa fa-check"></i></div>
-                        <div class="pre-text">One Button (click to remove this)</div>
-                    </section>
-                    <div class="im-confirm-group">
-                        <div class=" btn-group btn-group-justified">
-                            <a class="btn btn-inverse im-confirm" href="javascript:void(0)" data-confirm="accept">Accept.</a>
-                        </div>
+    </div><!-- end: .wrap-top-menu -->
+    <div class="container_12 clearfix">
+        <div class="grid_12 header-content">
+            <div id="sys_header_right" class="header-right">
+                <div class="account-panel">
+                    <a href="#" class="btn btn-red sys_show_popup_login">회원가입</a>
+                    <a href="#" class="btn btn-black sys_show_popup_login">Login</a>
+                </div>
+                <div class="form-search">
+                    <form action="#">
+                        <label for="sys_txt_keyword">
+                            <input id="sys_txt_keyword" class="txt-keyword" type="text" placeholder="Search projects"/>
+                        </label>
+                        <button class="btn-search" type="reset"><i class="icon iMagnifier"></i></button>
+                        <button class="btn-reset-keyword" type="reset"><i class="icon iXHover"></i></button>
+                    </form>
+                </div>
+            </div>
+            <div class="header-left">
+                <h1 id="logo">
+                    <a href="index.html"><img src="/resources/images/logo.png" alt="$SITE_NAME"/></a>
+                </h1>
+                <div class="main-nav clearfix">
+                    <div class="nav-item">
+                        <a href="category.html" class="nav-title">Discover</a>
+                        <p class="rs nav-description">Great Projects</p>
                     </div>
-                </li>
-                <li>
-                    <section class="thumbnail-in">
-                        <div class="widget-im-tools tooltip-area pull-right">
-																<span>
-																		<time class="timeago" datetime="2013-11-17T14:24:17Z">timeago</time>
-																</span>
-																<span>
-																		<a href="javascript:void(0)" class="im-action" data-toggle="tooltip" data-placement="left" title="Action"><i class="fa fa-keyboard-o"></i></a>
-																</span>
-                        </div>
-                        <h4>Dashboard new design!! you want to see now ? </h4>
-                        <div class="im-thumbnail" data-color="theme"><i class="fa fa-bell-o"></i></div>
-                        <div class="pre-text">Two Button (with link and click to close this) Lorem ipsum dolor sit amet, consectetur adipisicing elit, </div>
-                    </section>
-                    <div class="im-confirm-group">
-                        <div class=" btn-group btn-group-justified">
-                            <a class="btn btn-inverse" href="dashboard.html">Go Now.</a>
-                            <a class="btn btn-theme im-confirm" href="javascript:void(0)" data-confirm="no">Later.</a>
-                        </div>
+                    <span class="sep"></span>
+                    <div class="nav-item">
+                        <a href="#" class="nav-title">Start</a>
+                        <p class="rs nav-description">Your Project</p>
                     </div>
-                </li>
-                <li>
-                    <section class="thumbnail-in">
-                        <div class="widget-im-tools tooltip-area pull-right">
-																<span>
-																		<time class="timeago" datetime="2013-11-17T01:24:17Z">timeago</time>
-																</span>
-																<span>
-																		<a href="javascript:void(0)" class="im-action" data-toggle="tooltip" data-placement="left" title="Action"><i class="fa fa-keyboard-o"></i></a>
-																</span>
-                        </div>
-                        <h4>Error 404 <small>( File not  found )</small></h4>
-                        <div class="im-thumbnail" data-color="warning"><i class="fa fa-exclamation-triangle"></i></div>
-                        <div class="pre-text">Two Button (click to  action and remove) </div>
-                    </section>
-                    <div class="im-confirm-group">
-                        <div class=" btn-group btn-group-justified">
-                            <a class="btn btn-inverse im-confirm" href="javascript:void(0)" data-confirm="accept">Accept.</a>
-                            <a class="btn btn-theme im-confirm" href="javascript:void(0)" data-confirm="actionNow">Fixed now.</a>
-                        </div>
-                    </div>
-                </li>
-                <li>
-                    <section class="thumbnail-in">
-                        <div class="widget-im-tools tooltip-area pull-right">
-																<span>
-																		<time class="timeago" datetime="2013-09-17T09:24:17Z">timeago</time>
-																</span>
-																<span>
-																		<a href="javascript:void(0)" class="im-action" data-toggle="tooltip" data-placement="left" title="Action"><i class="fa fa-keyboard-o"></i></a>
-																</span>
-                        </div>
-                        <h4>Upgrade Premium ?</h4>
-                        <div class="im-thumbnail" data-color="inverse">
-                            <i class="fa fa-cogs"></i></div>
-                        <div class="pre-text"> Three button (test action) </div>
-                    </section>
-                    <div class="im-confirm-group">
-                        <div class=" btn-group btn-group-justified">
-                            <a class="btn btn-inverse im-confirm" href="javascript:void(0)" data-confirm="actionNow">Now.</a>
-                            <a class="btn btn-theme im-confirm" href="javascript:void(0)" data-confirm="no">Later.</a>
-                            <a class="btn btn-danger im-confirm" href="javascript:void(0)" data-confirm="yes">Delete.</a>
-                        </div>
-                    </div>
-                </li>
-            </ul>
+                </div>
+            </div>
         </div>
-        <!-- //widget-im-->
     </div>
-    <!-- //modal-body-->
+</header><!--end: #header -->
+<div id="home-slider">
+    <div class="md-slide-items md-slider" id="md-slider-1" data-thumb-width="105" data-thumb-height="70">
+        <div class="md-slide-item slide-0" data-timeout="6000">
+            <div class="md-mainimg"><img src="/resources/images/ex/th-slide0.jpg" alt=""></div>
+            <div class="md-objects">
+                <div class="md-object rs slide-title" data-x="20" data-y="38" data-width="480" data-height="30" data-start="700" data-stop="5500" data-easein="random" data-easeout="keep">
+                    <p>Search Money for Your Creative Ideas?</p>
+                </div>
+                <div class="md-object rs slide-description" data-x="20" data-y="160" data-width="480" data-height="90" data-start="1400" data-stop="7500" data-easein="random" data-easeout="keep">
+                    <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient monte.</p>
+                </div>
+                <div class="md-object rs" data-x="20" data-y="260" data-width="120" data-height="23" data-padding-top="9" data-padding-bottom="7" data-padding-left="10" data-padding-right="10" data-start="1800" data-stop="7500" data-easein="random" data-easeout="keep">
+                    <a href="#" class="btn btn-gray">Learn more</a>
+                </div>
+                <div class="md-object" data-x="495" data-y="0" data-width="612" data-height="365" data-start="1800" data-stop="7500" data-easein="fadeInRight" data-easeout="keep" style=""><img src="/resources/images/ex/th-slide-man.png" alt="Search Money for Your Creative Ideas" width="612" height="365" /></div>
+            </div>
+        </div>
+        <div class="md-slide-item slide-1" data-timeout="6000">
+            <div class="md-mainimg"><img src="/resources/images/ex/th-slide1.jpg" alt=""></div>
+            <div class="md-objects">
+                <div class="md-object rs slide-title" data-x="20" data-y="188" data-width="390" data-height="30" data-start="700" data-stop="5500" data-easein="random" data-easeout="random">
+                    <p>A creative engine</p>
+                </div>
+                <div class="md-object rs slide-description2" data-x="20" data-y="250" data-width="390" data-height="100" data-start="1400" data-stop="4500" data-easein="random" data-easeout="random">
+                    <p>Mauris volutpat, lectus vitae pretium sagittis, turpis augue euismod libero</p>
+                </div>
+                <div class="md-object" data-x="454" data-y="44" data-width="327" data-height="268" data-start="1000" data-stop="5500" data-easein="random" data-easeout="random" style=""><img src="/resources/images/ex/slide1_1.png" alt="Responsive" width="327" height="268" /></div>
+                <div class="md-object" data-x="628" data-y="142" data-width="298" data-height="176" data-start="1600" data-stop="5100" data-easein="random" data-easeout="random" style=""><img src="/resources/images/ex/slide1_2.png" alt="Responsive" width="298" height="176" /></div>
+                <div class="md-object" data-x="837" data-y="169" data-width="119" data-height="149" data-start="2200" data-stop="4800" data-easein="random" data-easeout="random" style=""><img src="/resources/images/ex/slide1_3.png" alt="Responsive" width="119" height="149" /></div>
+                <div class="md-object" data-x="809" data-y="208" data-width="59" data-height="114" data-start="2800" data-stop="4500" data-easein="random" data-easeout="random" style=""><img src="/resources/images/ex/slide1_4.png" alt="Responsive" width="59" height="114" /></div>
+            </div>
+        </div>
+        <div class="md-slide-item slide-2" data-timeout="4000">
+            <div class="md-mainimg"><img src="/resources/images/ex/th-slide2.jpg" alt=""></div>
+            <div class="md-objects">
+                <div class="md-object slide-with-background" data-x="20" data-y="58" data-width="500" data-height="170" data-padding-top="30" data-padding-bottom="30" data-padding-left="35" data-padding-right="35" data-start="300" data-stop="3600" data-easein="random" data-easeout="keep">
+                    <h2 class="rs slide-title">Start your project today</h2>
+                    <p class="rs slide-description2">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient monte.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div><!--end: #home-slider -->
+<div class="home-feature-category">
+    <div class="container_12 clearfix">
+        <div class="grid_4 left-lst-category">
+            <div class="wrap-lst-category">
+                <h3 class="title-welcome rs">Welcome to Kickstars!</h3>
+                <p class="description rs">Pellentesque laoreet sapien id lacus luctus non fringilla elit lobortis. Fusce augue diam, tempor posuere pharetra sed, feugiat non sapien.</p>
+                <nav class="lst-category">
+                    <ul class="rs nav nav-category">
+                        <li>
+                            <a href="#">
+                                Art
+                                <span class="count-val">(12)</span>
+                                <i class="icon iPlugGray"></i>
+                            </a>
+                        </li>
+                        <li class="active">
+                            <a href="#">
+                                Comics
+                                <span class="count-val">(12)</span>
+                                <i class="icon iPlugGray"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                Design
+                                <span class="count-val">(12)</span>
+                                <i class="icon iPlugGray"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                Fashion
+                                <span class="count-val">(12)</span>
+                                <i class="icon iPlugGray"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                Film
+                                <span class="count-val">(12)</span>
+                                <i class="icon iPlugGray"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                Games
+                                <span class="count-val">(12)</span>
+                                <i class="icon iPlugGray"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                Music
+                                <span class="count-val">(12)</span>
+                                <i class="icon iPlugGray"></i>
+                            </a>
+                        </li>
+                    </ul>
+                    <p class="rs view-all-category">
+                        <a href="category.html" class="be-fc-orange">+ View all categories</a>
+                    </p>
+                </nav><!--end: .lst-category -->
+            </div>
+        </div><!--end: .left-lst-category -->
+        <div class="grid_8 marked-category">
+            <div class="wrap-title clearfix">
+                <h2 class="title-mark rs">Staff Picks: <span class="fc-orange">Comics</span></h2>
+                <a href="category.html" class="count-project be-fc-orange">See all <span class="fw-b">24</span> Comics projects</a>
+            </div>
+            <div class="box-marked-project project-short">
+                <div class="top-project-info">
+                    <div class="content-info-short clearfix">
+                        <a href="#" class="thumb-img">
+                            <img src="/resources/images/ex/th-292x204-1.jpg" alt="$TITLE">
+                        </a>
+                        <div class="wrap-short-detail">
+                            <h3 class="rs acticle-title"><a class="be-fc-orange" href="project.html">LYK and Bear #1: No Food Deed Unpunished</a></h3>
+                            <p class="rs tiny-desc">by <a href="profile.html" class="fw-b fc-gray be-fc-orange">Ray Sumser</a> in <span class="fw-b fc-gray">New York, NY</span></p>
+                            <p class="rs title-description">Nam sit amet est sapien, a faucibus purus. Sed commodo facilisis tempus. Pellentesque placerat elementum adipiscing.</p>
+                        </div>
+                        <p class="rs clearfix comment-view">
+                            <a href="#" class="fc-gray be-fc-orange">75 comments</a>
+                            <span class="sep">|</span>
+                            <a href="#" class="fc-gray be-fc-orange">378 views</a>
+                        </p>
+                    </div>
+                </div><!--end: .top-project-info -->
+                <div class="bottom-project-info clearfix">
+                    <div class="project-progress sys_circle_progress" data-percent="76">
+                        <div class="sys_holder_sector"></div>
+                    </div>
+                    <div class="group-fee clearfix">
+                        <div class="fee-item">
+                            <p class="rs lbl">Bankers</p>
+                            <span class="val">270</span>
+                        </div>
+                        <div class="sep"></div>
+                        <div class="fee-item">
+                            <p class="rs lbl">Pledged</p>
+                            <span class="val">$38,000</span>
+                        </div>
+                        <div class="sep"></div>
+                        <div class="fee-item">
+                            <p class="rs lbl">Days Left</p>
+                            <span class="val">25</span>
+                        </div>
+                    </div>
+                    <div class="clear"></div>
+                </div>
+            </div>
+        </div><!--end: .marked-category -->
+        <div class="clear"></div>
+    </div>
+</div><!--end: .home-feature-category -->
+<div class="home-popular-project">
+    <div class="container_12">
+        <div class="grid_12 wrap-title">
+            <h2 class="common-title">Popular</h2>
+            <a class="be-fc-orange" href="category.html">View all</a>
+        </div>
+        <div class="clear"></div>
+        <div class="lst-popular-project clearfix">
+            <div class="grid_3">
+                <div class="project-short sml-thumb">
+                    <div class="top-project-info">
+                        <div class="content-info-short clearfix">
+                            <a href="#" class="thumb-img">
+                                <img src="/resources/images/ex/th-292x204-1.jpg" alt="$TITLE">
+                            </a>
+                            <div class="wrap-short-detail">
+                                <h3 class="rs acticle-title"><a class="be-fc-orange" href="project.html">Project title</a></h3>
+                                <p class="rs tiny-desc">by <a href="profile.html" class="fw-b fc-gray be-fc-orange">John Doe</a></p>
+                                <p class="rs title-description">Nam sit amet est sapien, a faucibus purus. Sed commodo facilisis tempus. Pellentesque placerat elementum adipiscing.</p>
+                                <p class="rs project-location">
+                                    <i class="icon iLocation"></i>
+                                    New York, NY
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bottom-project-info clearfix">
+                        <div class="line-progress">
+                            <div class="bg-progress">
+                                <span  style="width: 50%"></span>
+                            </div>
+                        </div>
+                        <div class="group-fee clearfix">
+                            <div class="fee-item">
+                                <p class="rs lbl">Funded</p>
+                                <span class="val">50%</span>
+                            </div>
+                            <div class="sep"></div>
+                            <div class="fee-item">
+                                <p class="rs lbl">Pledged</p>
+                                <span class="val">$38,000</span>
+                            </div>
+                            <div class="sep"></div>
+                            <div class="fee-item">
+                                <p class="rs lbl">Days Left</p>
+                                <span class="val">25</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div><!--end: .grid_3 > .project-short-->
+            <div class="grid_3">
+                <div class="project-short sml-thumb">
+                    <div class="top-project-info">
+                        <div class="content-info-short clearfix">
+                            <a href="#" class="thumb-img">
+                                <img src="/resources/images/ex/th-192x135-1.jpg" alt="$TITLE">
+                            </a>
+                            <div class="wrap-short-detail">
+                                <h3 class="rs acticle-title"><a class="be-fc-orange" href="project.html">Project title</a></h3>
+                                <p class="rs tiny-desc">by <a href="profile.html" class="fw-b fc-gray be-fc-orange">John Doe</a></p>
+                                <p class="rs title-description">Nam sit amet est sapien, a faucibus purus. Sed commodo facilisis tempus. Pellentesque placerat elementum adipiscing.</p>
+                                <p class="rs project-location">
+                                    <i class="icon iLocation"></i>
+                                    New York, NY
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bottom-project-info clearfix">
+                        <div class="line-progress">
+                            <div class="bg-progress">
+                                <span class="success" style="width: 98%"></span>
+                            </div>
+                        </div>
+                        <div class="group-fee clearfix">
+                            <div class="fee-item">
+                                <p class="rs lbl">Funded</p>
+                                <span class="val">98%</span>
+                            </div>
+                            <div class="sep"></div>
+                            <div class="fee-item">
+                                <p class="rs lbl">Pledged</p>
+                                <span class="val">$25,000</span>
+                            </div>
+                            <div class="sep"></div>
+                            <div class="fee-item">
+                                <p class="rs lbl">Days Left</p>
+                                <span class="val">18</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div><!--end: .grid_3 > .project-short-->
+            <div class="clear clear-2col"></div>
+            <div class="grid_3">
+                <div class="project-short sml-thumb">
+                    <div class="top-project-info">
+                        <div class="content-info-short clearfix">
+                            <a href="#" class="thumb-img">
+                                <img src="/resources/images/ex/th-192x135-2.jpg" alt="$TITLE">
+                            </a>
+                            <div class="wrap-short-detail">
+                                <h3 class="rs acticle-title"><a class="be-fc-orange" href="project.html">Project title</a></h3>
+                                <p class="rs tiny-desc">by <a href="profile.html" class="fw-b fc-gray be-fc-orange">John Doe</a></p>
+                                <p class="rs title-description">Nam sit amet est sapien, a faucibus purus. Sed commodo facilisis tempus. Pellentesque placerat elementum adipiscing.</p>
+                                <p class="rs project-location">
+                                    <i class="icon iLocation"></i>
+                                    New York, NY
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bottom-project-info clearfix">
+                        <div class="line-progress">
+                            <div class="bg-progress">
+                                <span  style="width: 21%"></span>
+                            </div>
+                        </div>
+                        <div class="group-fee clearfix">
+                            <div class="fee-item">
+                                <p class="rs lbl">Funded</p>
+                                <span class="val">21%</span>
+                            </div>
+                            <div class="sep"></div>
+                            <div class="fee-item">
+                                <p class="rs lbl">Pledged</p>
+                                <span class="val">$850K</span>
+                            </div>
+                            <div class="sep"></div>
+                            <div class="fee-item">
+                                <p class="rs lbl">Days Left</p>
+                                <span class="val">2</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div><!--end: .grid_3 > .project-short-->
+            <div class="grid_3">
+                <div class="project-short sml-thumb">
+                    <div class="top-project-info">
+                        <div class="content-info-short clearfix">
+                            <a href="#" class="thumb-img">
+                                <img src="/resources/images/ex/th-192x135-3.jpg" alt="$TITLE">
+                            </a>
+                            <div class="wrap-short-detail">
+                                <h3 class="rs acticle-title"><a class="be-fc-orange" href="project.html">Project title</a></h3>
+                                <p class="rs tiny-desc">by <a href="profile.html" class="fw-b fc-gray be-fc-orange">John Doe</a></p>
+                                <p class="rs title-description">Nam sit amet est sapien, a faucibus purus. Sed commodo facilisis tempus. Pellentesque placerat elementum adipiscing.</p>
+                                <p class="rs project-location">
+                                    <i class="icon iLocation"></i>
+                                    New York, NY
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bottom-project-info clearfix">
+                        <div class="line-progress">
+                            <div class="bg-progress">
+                                <span  style="width: 50%"></span>
+                            </div>
+                        </div>
+                        <div class="group-fee clearfix">
+                            <div class="fee-item">
+                                <p class="rs lbl">Funded</p>
+                                <span class="val">50%</span>
+                            </div>
+                            <div class="sep"></div>
+                            <div class="fee-item">
+                                <p class="rs lbl">Pledged</p>
+                                <span class="val">$138,662</span>
+                            </div>
+                            <div class="sep"></div>
+                            <div class="fee-item">
+                                <p class="rs lbl">Days Left</p>
+                                <span class="val">44</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div><!--end: .grid_3 > .project-short-->
+        </div>
+    </div>
+</div><!--end: .home-popular-project -->
+<div class="home-discover-friends">
+    <div class="container_12">
+        <div class="row-friends">
+            <a class="thumb-avatar" href="#"><img src="/resources/images/ex/th-119x119-1.jpg" alt="$USER_NAME"/></a>
+            <a class="thumb-avatar" href="#"><img src="/resources/images/ex/th-119x119-2.jpg" alt="$USER_NAME"/></a>
+            <a class="thumb-avatar" href="#"><img src="/resources/images/ex/th-119x119-3.jpg" alt="$USER_NAME"/></a>
+            <a class="thumb-avatar" href="#"><img src="/resources/images/ex/th-119x119-4.jpg" alt="$USER_NAME"/></a>
+            <a class="thumb-avatar" href="#"><img src="/resources/images/ex/th-119x119-5.jpg" alt="$USER_NAME"/></a>
+            <a class="thumb-avatar" href="#"><img src="/resources/images/ex/th-119x119-6.jpg" alt="$USER_NAME"/></a>
+            <a class="thumb-avatar" href="#"><img src="/resources/images/ex/th-119x119-7.jpg" alt="$USER_NAME"/></a>
+            <a class="thumb-avatar" href="#"><img src="/resources/images/ex/th-119x119-8.jpg" alt="$USER_NAME"/></a>
+            <div class="clear"></div>
+        </div>
+        <div class="row-friends row-connect-fb">
+            <a class="thumb-avatar t-first" href="#"><img src="/resources/images/ex/th-119x119-17.jpg" alt="$USER_NAME"/></a>
+            <div class="connect-fb">
+                <p class="rs description">Discover great projects with your friends!</p>
+                <a href="#" class="btn btn-fb">Connect With Facebook</a>
+            </div>
+            <a class="thumb-avatar t-last" href="#"><img src="/resources/images/ex/th-119x119-1.jpg" alt="$USER_NAME"/></a>
+            <div class="clear"></div>
+        </div>
+        <div class="row-friends">
+            <a class="thumb-avatar" href="#"><img src="/resources/images/ex/th-119x119-9.jpg" alt="$USER_NAME"/></a>
+            <a class="thumb-avatar" href="#"><img src="/resources/images/ex/th-119x119-10.jpg" alt="$USER_NAME"/></a>
+            <a class="thumb-avatar" href="#"><img src="/resources/images/ex/th-119x119-11.jpg" alt="$USER_NAME"/></a>
+            <a class="thumb-avatar" href="#"><img src="/resources/images/ex/th-119x119-12.jpg" alt="$USER_NAME"/></a>
+            <a class="thumb-avatar" href="#"><img src="/resources/images/ex/th-119x119-13.jpg" alt="$USER_NAME"/></a>
+            <a class="thumb-avatar" href="#"><img src="/resources/images/ex/th-119x119-14.jpg" alt="$USER_NAME"/></a>
+            <a class="thumb-avatar" href="#"><img src="/resources/images/ex/th-119x119-15.jpg" alt="$USER_NAME"/></a>
+            <a class="thumb-avatar" href="#"><img src="/resources/images/ex/th-119x119-16.jpg" alt="$USER_NAME"/></a>
+            <div class="clear"></div>
+        </div>
+    </div>
+</div><!--end: .home-discover-friends -->
+
+<div class="additional-info-line">
+    <div class="container_12">
+        <div class="grid_9">
+            <h2 class="rs title">Vestibulum tristique, purus eget euismod vulputate, nisl erat suscipit mi!</h2>
+            <p class="rs description">Duis placerat malesuada sapien, eu consequat mauris vestibulum vitae. Aliquam fermentum lorem ut leo ultricies semper. In sed ligula massa, vitae elementum mauris.</p>
+        </div>
+        <div class="grid_3 ta-r">
+            <a class="btn bigger btn-red" href="#">Learn more</a>
+        </div>
+        <div class="clear"></div>
+    </div>
+</div><!--end: .additional-info-line -->
+<footer id="footer">
+    <div class="container_12 main-footer">
+        <div class="grid_3 about-us">
+            <h3 class="rs title">About</h3>
+            <p class="rs description">Donec rutrum elit ac arcu bibendum rhoncus in vitae turpis. Quisque fermentum gravida eros non faucibus. Curabitur fermentum, arcu sed cursus commodo.</p>
+            <p class="rs email"><a class="fc-default  be-fc-orange" href="mailto:info@megadrupal.com">info@megadrupal.com</a></p>
+            <p class="rs">+1 (555) 555 - 55 - 55</p>
+        </div><!--end: .contact-info -->
+        <div class="grid_3 recent-tweets">
+            <h3 class="rs title">Recent Tweets</h3>
+            <div class="lst-tweets" id="sys_lst_tweets">
+
+            </div>
+        </div><!--end: .recent-tweets -->
+        <div class="clear clear-2col"></div>
+        <div class="grid_3 email-newsletter">
+            <h3 class="rs title">Newsletter Signup</h3>
+            <div class="inner">
+                <p class="rs description">Nam aliquet, velit quis consequat interdum, odio dolor elementum.</p>
+                <form action="#">
+                    <div class="form form-email">
+                        <label class="lbl" for="txt-email">
+                            <input id="txt-email" type="text" class="txt fill-width" placeholder="Enter your e-mail address"/>
+                        </label>
+                        <button class="btn btn-green" type="submit">Submit</button>
+                    </div>
+                </form>
+            </div>
+        </div><!--end: .email-newsletter -->
+        <div class="grid_3">
+            <h3 class="rs title">Discover &amp; Create</h3>
+            <div class="footer-menu">
+                <ul class="rs">
+                    <li><a class="be-fc-orange" href="#">What is Kickstars</a></li>
+                    <li><a class="be-fc-orange" href="#">Start a project</a></li>
+                    <li><a class="be-fc-orange" href="#">Project Guidlines</a></li>
+                    <li><a class="be-fc-orange" href="#">Press</a></li>
+                    <li><a class="be-fc-orange" href="#">Stats</a></li>
+                </ul>
+                <ul class="rs">
+                    <li><a class="be-fc-orange" href="#">Staff Picks</a></li>
+                    <li><a class="be-fc-orange" href="#">Popular</a></li>
+                    <li><a class="be-fc-orange" href="#">Recent</a></li>
+                    <li><a class="be-fc-orange" href="#">Small Projects</a></li>
+                    <li><a class="be-fc-orange" href="#">Most Funded</a></li>
+                </ul>
+                <div class="clear"></div>
+            </div>
+        </div>
+        <div class="clear"></div>
+    </div>
+    <div class="copyright">
+        <div class="container_12">
+            <div class="grid_12">
+                <a class="logo-footer" href="index.html"><img src="/resources/images/logo-2.png" alt="$SITE_NAME"/></a>
+                <p class="rs term-privacy">
+                    <a class="fw-b be-fc-orange" href="single.html">Terms & Conditions</a>
+                    <span class="sep">/</span>
+                    <a class="fw-b be-fc-orange" href="single.html">Privacy Policy</a>
+                    <span class="sep">/</span>
+                    <a class="fw-b be-fc-orange" href="#">FAQ</a>
+                </p>
+                <p class="rs ta-c fc-gray-dark site-copyright">HTML by <a href="http://megadrupal.com" title="Drupal Developers" target="_blank">MegaDrupal</a>. Designed by <a href="http://bestwebsoft.com/" title="Web development company" target="_blank">BestWebSoft</a>.</p>
+            </div>
+            <div class="clear"></div>
+        </div>
+    </div>
+</footer><!--end: #footer -->
+
 </div>
 
+<div class="popup-common" id="sys_popup_common">
+    <div class="overlay-bl-bg"></div>
+    <div class="container_12 pop-content">
+        <div class="grid_12 wrap-btn-close ta-r">
+            <i class="icon iBigX closePopup"></i>
+        </div>
+        <div class="grid_6 prefix_1">
+            <div class="form login-form">
+                <form action="#">
+                    <h3 class="rs title-form">브루덕에 합류하기</h3>
+                    <div class="box-white">
+                        <h4 class="rs title-box">New to Kickstars?</h4>
+                        <p class="rs">A Kickstars account is required to continue.</p>
+                        <div class="form-action">
+                            <label for="txt_name">
+                                <input id="txt_name" class="txt fill-width" type="text" placeholder="Enter full name"/>
+                            </label>
+                            <div class="wrap-2col clearfix">
+                                <div class="col">
+                                    <label for="txt_email">
+                                        <input id="txt_email" class="txt fill-width" type="email" placeholder="Enter your e-mail address"/>
+                                    </label>
+                                    <label for="txt_re_email">
+                                        <input id="txt_re_email" class="txt fill-width" type="email" placeholder="Re-enter your e-mail adress"/>
+                                    </label>
+                                </div>
+                                <div class="col">
+                                    <label for="txt_password">
+                                        <input id="txt_password" class="txt fill-width" type="password" placeholder="Enter password"/>
+                                    </label>
+                                    <label for="txt_re_password">
+                                        <input id="txt_re_password" class="txt fill-width" type="password" placeholder="Re-enter password"/>
+                                    </label>
+                                </div>
+                            </div>
+                            <p class="rs pb10">By signing up, you agree to our <a href="#" class="fc-orange">terms of use</a> and <a href="#" class="fc-orange">privacy policy</a>.</p>
+                            <p class="rs ta-c">
+                                <button class="btn btn-red btn-submit" type="submit">Register</button>
+                            </p>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="grid_4">
+            <div class="form login-form">
+                <form action="#">
+                    <h3 class="rs title-form">Login</h3>
+                    <div class="box-white">
+                        <h4 class="rs title-box">Already Have an Account?</h4>
+                        <p class="rs">Please log in to continue.</p>
+                        <div class="form-action">
+                            <label for="txt_email_login">
+                                <input id="txt_email_login" class="txt fill-width" type="email" placeholder="Enter your e-mail address"/>
+                            </label>
+                            <label for="txt_password_login">
+                                <input id="txt_password_login" class="txt fill-width" type="password" placeholder="Enter password"/>
+                            </label>
 
-<!-- 왼쪽 메뉴 -->
-<%@include file="/WEB-INF/views/common/include/default_left_nav_menu.jsp"%>
-
-
-<!-- //nav left menu-->
-
-
-
-<!--
-/////////////////////////////////////////////////////////////////
-//////////     RIGHT NAV MENU     //////////
-/////////////////////////////////////////////////////////////
--->
-<nav id="contact-right">
-<ul>
-<li class="Label label-lg">Contact Group</li>
-<li>
-    <span>Friends</span>
-    <ul>
-        <li class="Label">A</li>
-        <li class="img">
-            <a href="#" class="online">
-                <img alt="" src="/resources/photos_preview/50/people/1.jpg" /> Alexa
-                <small>Johnson</small>
-            </a>
-        </li>
-        <li class="img">
-            <a href="#" class="busy">
-                <img alt="" src="/resources/photos_preview/50/people/2.jpg" /> Alexander
-                <small>Brown</small>
-            </a>
-        </li>
-        <li class="Label">F</li>
-        <li class="img">
-            <a href="#">
-                <img alt="" src="/resources/photos_preview/50/people/3.jpg" /> Fred
-                <small>Smith</small>
-            </a>
-        </li>
-        <li class="Label">J</li>
-        <li class="img">
-            <a href="#">
-                <img alt="" src="/resources/photos_preview/50/people/4.jpg" /> James
-                <small>Miller</small>
-            </a>
-        </li>
-        <li class="img">
-            <a href="#">
-                <img alt="" src="/resources/photos_preview/50/people/5.jpg" /> Jefferson
-                <small>Jackson</small>
-            </a>
-        </li>
-        <li class="img">
-            <a href="#">
-                <img alt="" src="/resources/photos_preview/50/people/6.jpg" /> Jordan
-                <small>Lee</small>
-            </a>
-        </li>
-        <li class="Label">K</li>
-        <li class="img">
-            <a href="#" class="online">
-                <img alt="" src="/resources/photos_preview/50/people/7.jpg" /> Kim
-                <small>Adams</small>
-            </a>
-        </li>
-        <li class="Label">M</li>
-        <li class="img">
-            <a href="#">
-                <img alt="" src="/resources/photos_preview/50/people/8.jpg" /> Meagan
-                <small>Miller</small>
-            </a>
-        </li>
-        <li class="img">
-            <a href="#" class="busy">
-                <img alt="" src="/resources/photos_preview/50/people/9.jpg" /> Melissa
-                <small>Johnson</small>
-            </a>
-        </li>
-        <li class="Label">N</li>
-        <li class="img">
-            <a href="#" class="online">
-                <img alt="" src="/resources/photos_preview/50/people/10.jpg" /> Nicole
-                <small>Smith</small>
-            </a>
-        </li>
-        <li class="Label">S</li>
-        <li class="img">
-            <a href="#" class="online">
-                <img alt="" src="/resources/photos_preview/50/people/1.jpg" /> Samantha
-                <small>Harris</small>
-            </a>
-        </li>
-        <li class="img">
-            <a href="#" class="block">
-                <img alt="" src="/resources/photos_preview/50/people/2.jpg" /> Scott
-                <small>Thompson</small>
-            </a>
-        </li>
-    </ul>
-</li>
-<li>
-    <span>Family</span>
-    <ul>
-        <li class="Label">A</li>
-        <li class="img">
-            <a href="#" class="busy">
-                <img alt="" src="/resources/photos_preview/50/people/3.jpg" /> Adam
-                <small>White</small>
-            </a>
-        </li>
-        <li class="Label">B</li>
-        <li class="img">
-            <a href="#" class="busy">
-                <img alt="" src="/resources/photos_preview/50/people/4.jpg" /> Ben
-                <small>Robinson</small>
-            </a>
-        </li>
-        <li class="img">
-            <a href="#">
-                <img alt="" src="/resources/photos_preview/50/people/5.jpg" /> Bruce
-                <small>Lee</small>
-            </a>
-        </li>
-        <li class="Label">E</li>
-        <li class="img">
-            <a href="#">
-                <img alt="" src="/resources/photos_preview/50/people/6.jpg" /> Eddie
-                <small>Williams</small>
-            </a>
-        </li>
-        <li class="Label">J</li>
-        <li class="img">
-            <a href="#" class="online">
-                <img alt="" src="/resources/photos_preview/50/people/7.jpg" /> Jack
-                <small>Johnson</small>
-            </a>
-        </li>
-        <li class="img">
-            <a href="#">
-                <img alt="" src="/resources/photos_preview/50/people/8.jpg" /> John
-                <small>Jackman</small>
-            </a>
-        </li>
-        <li class="Label">M</li>
-        <li class="img">
-            <a href="#">
-                <img alt="" src="/resources/photos_preview/50/people/9.jpg" /> Martina
-                <small>Thompson</small>
-            </a>
-        </li>
-        <li class="img">
-            <a href="#" class="busy">
-                <img alt="" src="/resources/photos_preview/50/people/10.jpg" /> Matthew
-                <small>Watson</small>
-            </a>
-        </li>
-        <li class="Label">O</li>
-        <li class="img">
-            <a href="#" class="online">
-                <img alt="" src="/resources/photos_preview/50/people/1.jpg" /> Olivia
-                <small>Taylor</small>
-            </a>
-        </li>
-        <li class="img">
-            <a href="#" class="online">
-                <img alt="" src="/resources/photos_preview/50/people/2.jpg" /> Owen
-                <small>Wilson</small>
-            </a>
-        </li>
-    </ul>
-</li>
-<li>
-								<span>
-										Work colleagues
-								</span>
-    <ul>
-        <li class="Label">D</li>
-        <li class="img">
-            <a href="#">
-                <img alt="" src="/resources/photos_preview/50/people/3.jpg" /> David
-                <small>Harris</small>
-            </a>
-        </li>
-        <li class="img">
-            <a href="#">
-                <img alt="" src="/resources/photos_preview/50/people/4.jpg" /> Dennis
-                <small>King</small>
-            </a>
-        </li>
-        <li class="Label">E</li>
-        <li class="img">
-            <a href="#" class="online">
-                <img alt="" src="/resources/photos_preview/50/people/5.jpg" /> Eliza
-                <small>Walker</small>
-            </a>
-        </li>
-        <li class="Label">L</li>
-        <li class="img">
-            <a href="#" class="busy">
-                <img alt="" src="/resources/photos_preview/50/people/6.jpg" /> Larry
-                <small>Turner</small>
-            </a>
-        </li>
-        <li class="img">
-            <a href="#" class="online">
-                <img alt="" src="/resources/photos_preview/50/people/7.jpg" /> Lisa<br />
-                <small>Wilson</small>
-            </a>
-        </li>
-        <li class="Label">M</li>
-        <li class="img">
-            <a href="#">
-                <img alt="" src="/resources/photos_preview/50/people/8.jpg" /> Michael
-                <small>Jordan</small>
-            </a>
-        </li>
-        <li class="Label">R</li>
-        <li class="img">
-            <a href="#">
-                <img alt="" src="/resources/photos_preview/50/people/9.jpg" /> Rachelle
-                <small>Cooper</small>
-            </a>
-        </li>
-        <li class="img">
-            <a href="#" class="online">
-                <img alt="" src="/resources/photos_preview/50/people/10.jpg" /> Rick
-                <small>James</small>
-            </a>
-        </li>
-    </ul>
-</li>
-<li class="Label label-lg">Total week Earnings</li>
-<li>
-								<span>
-									<div class="widget-mini-chart align-xs-right">
-                                        <div class="pull-left">
-                                            <div class="sparkline mini-chart" data-type="bar" data-color="warning" data-bar-width="10" data-height="45">2,3,7,5,4,6,6,3</div>
-                                        </div>
-                                        <p>This week Earnings</p>
-                                        <h4>$11,987</h4>
-                                    </div>
-									<!-- //widget-mini-chart -->
-								</span>
-</li>
-<li>
-								<span>
-										See This week
-								</span>
-    <ul>
-        <li class="Label">themeforest</li>
-        <li><span><i class="label label-warning pull-right">HTML</i> Earnings $395 </span></li>
-        <li><span> Earnings $485 </span></li>
-        <li><span><i class="label label-info pull-right">Wordpress</i> Earnings $1,589 </span></li>
-        <li class="Label">codecanyon </li>
-        <li><span><i class="label label-danger pull-right">Item 6537086</i> Earnings $897</span></li>
-        <li><span>Sunday Earnings $395</span></li>
-        <li class="Label">Other</li>
-        <li><span><i class="label label-success  pull-right">up 35%</i> Total Earnings $5,025</span></li>
-    </ul>
-</li>
-<li class="Label label-lg">Processing </li>
-<li>
-								<span>
-									<p>Server Processing</p>
-									<div class="progress progress-dark progress-stripes progress-xs">
-                                        <div class="progress-bar" data-color="theme" aria-valuetransitiongoal="37"></div>
-                                    </div>
-									<label class="progress-label">Today , CPU 37%</label>
-									<!-- //progress-->
-									<div class="progress progress-dark progress-xs">
-                                        <div class="progress-bar" data-color="lightseagreen" aria-valuetransitiongoal="23"></div>
-                                    </div>
-									<label class="progress-label lasted">Today , Server load  22.85%</label>
-									<!-- //progress-->
-								</span>
-</li>
-<li class="Label label-lg">Quick Friends Chat </li>
-<li class="img">
-    <a href="#" class="online">
-        <img alt="" src="/resources/photos_preview/50/people/1.jpg" /> Olivia
-        <small>Taylor</small>
-    </a>
-</li>
-<li class="img">
-    <a href="#" class="online">
-        <img alt="" src="/resources/photos_preview/50/people/2.jpg" /> Owen
-        <small>Wilson</small>
-    </a>
-</li>
-<li class="img">
-    <a href="#">
-        <img alt="" src="/resources/photos_preview/50/people/8.jpg" /> Meagan
-        <small>Miller</small>
-    </a>
-</li>
-<li class="img">
-    <a href="#" class="busy">
-        <img alt="" src="/resources/photos_preview/50/people/9.jpg" /> Melissa
-        <small>Johnson</small>
-    </a>
-</li>
-<li class="img">
-    <a href="#" class="online">
-        <img alt="" src="/resources/photos_preview/50/people/5.jpg" /> Samantha
-        <small>Harris</small>
-    </a>
-</li>
-<li class="Label label-lg">visitors Real Time</li>
-<li>
-								<span>
-									<div class="widget-chart">
-                                        <div id="realtimeChart" class="demo-placeholder" style="height:150px"></div>
-                                        <div id="realtimeChartCount" class="align-lg-center"><span>0</span> visitors on site </div>
-                                    </div><!-- // widget-chart -->
-								</span>
-</li>
-</ul>
-</nav>
-<!-- //nav right menu-->
-
-
+                            <label for="chk_remember" class="rs pb20 clearfix">
+                                <input id="chk_remember" type="checkbox" class="chk-remember"/>
+                                <span class="lbl-remember">Remember me</span>
+                            </label>
+                            <p class="rs ta-c pb10">
+                                <button class="btn btn-red btn-submit" type="submit">Login</button>
+                            </p>
+                            <p class="rs ta-c">
+                                <a href="#" class="fc-orange">I forgot my password</a>
+                            </p>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="clear"></div>
+    </div>
 </div>
-<!-- //wrapper-->
+<script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
+    ga('create', 'UA-20585382-5', 'megadrupal.com');
+    ga('send', 'pageview');
 
-<!--
-////////////////////////////////////////////////////////////////////////
-//////////     JAVASCRIPT  LIBRARY     //////////
-/////////////////////////////////////////////////////////////////////
--->
-<decorator:getProperty property="page.script"/>
-
+</script>
 </body>
 </html>
