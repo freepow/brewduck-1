@@ -1,12 +1,3 @@
-/**
- * @FileName  : AuthenticationNotException.java
- * @Project   : talenta
- * @Date      : 2013. 6. 26
- * @작성자      : @author hukoru
-
- * @변경이력    :
- * @프로그램 설명 :
- */
 package com.brewduck.web.account.service;
 
 import com.brewduck.framework.crypto.SimpleCrypto;
@@ -23,33 +14,35 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
+
 /**
- * Created with IntelliJ IDEA.
- * User: HUKORU - 임세환
- * Date: 13. 12. 11
- * Time: 오후 1:01
- * To change this template use File | Settings | File Templates.
+ * <pre>
+ * 계정 서비스 구현체.
+ * </pre>
+ *
+ * @author 임세환
+ * @version 1.0, 2013.12.11
  */
 @Service("accountService")
 public class AccountServiceImpl implements AccountService {
-    Logger logger = LoggerFactory.getLogger(this.getClass());
+    private static Logger LOGGER = LoggerFactory.getLogger(AccountServiceImpl.class);
 
     @Autowired
     private AccountDao accountDao;
 
 
     @Override
-    public Account selectAccount(Account account) throws RuntimeException {
+    public Account selectAccount(Account account) {
         return accountDao.selectAccount(account);
     }
 
     @Override
-    public List<Account> selectAccountList(Account account) throws RuntimeException {
+    public List<Account> selectAccountList(Account account) {
         return accountDao.selectAccountList(account);
     }
 
     @Override
-    public int selectAccountId() throws RuntimeException {
+    public int selectAccountId() {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
 
         // 로그인 안하고 호출하면 계정 ID는 0으로 세팅
@@ -64,16 +57,9 @@ public class AccountServiceImpl implements AccountService {
         return account.getId();
     }
 
-    /**
-     * 회원 가입
-     *
-     * @param account
-     * @return
-     * @throws RuntimeException
-     */
     @Transactional
     @Override
-    public int insertAccount(Account account) throws RuntimeException {
+    public int insertAccount(Account account) {
         int insertCount = 0;
         int duplicateEmail = -99;
 
@@ -86,8 +72,8 @@ public class AccountServiceImpl implements AccountService {
         if (currentAccount == null) {
             // 회원 가입 후 UserId 리턴
             insertCount = accountDao.insertAccount(account);
-            logger.info("insertCount : " + insertCount);
-            logger.info("가입 UserId : " + account.getId());
+            LOGGER.info("insertCount : " + insertCount);
+            LOGGER.info("가입 UserId : " + account.getId());
 
             // 가입 완료 후 이메일 전송
             if (insertCount > 0) {
@@ -96,7 +82,7 @@ public class AccountServiceImpl implements AccountService {
                                     SimpleCrypto.seed,
                                     String.valueOf(account.getId())
                                 );
-                    logger.info("가입 인증키 : " + authKey);
+                    LOGGER.info("가입 인증키 : " + authKey);
                 } catch (Exception e) {
                     throw new RuntimeException("이메일 인증키 암호화하는 도중에 오류가 발생하였습니다.", e);
                 }
@@ -121,21 +107,14 @@ public class AccountServiceImpl implements AccountService {
             return duplicateEmail;
         }
         else {
-            logger.info("회원 가입 처리");
+            LOGGER.info("회원 가입 처리");
         }
 
         return insertCount;
     }
 
-    /**
-     * 회원 정보 수정
-     *
-     * @param account
-     * @return
-     */
     @Override
     public int updateAccount(Account account) {
         return accountDao.updateAccount(account);
     }
-
 }

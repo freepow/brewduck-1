@@ -5,12 +5,15 @@ import com.brewduck.framework.exception.PasswordMismatchException;
 import com.brewduck.framework.exception.UserNotFoundException;
 
 /**
- * Created with IntelliJ IDEA.
- * User: Jaeger
- * Date: 13. 9. 14.
- * Time: 오후 4:29
- * To change this template use File | Settings | File Templates.
+ * <pre>
+ * 회원 인증 인터페이스.
+ * </pre>
+ *
+ * @author jaeger
+ * @version 1.0, 2014.02.14
  */
 public interface AuthenticationService {
-    void login(String userId, String password) throws Throwable, UserNotFoundException, AuthenticationNotException, PasswordMismatchException;
+
+    void login(String userId, String password) throws UserNotFoundException, AuthenticationNotException, PasswordMismatchException;
+
 }

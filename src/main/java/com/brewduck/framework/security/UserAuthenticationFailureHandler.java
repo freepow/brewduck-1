@@ -14,15 +14,16 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 public class UserAuthenticationFailureHandler extends SimpleUrlAuthenticationFailureHandler {
-    Logger logger = LoggerFactory.getLogger(UserAuthenticationFailureHandler.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(UserAuthenticationFailureHandler.class);
 
     public static final String DEFAULT_FAIL_TARGET_PARAMETER = "spring-security-fail-redirect";
 
 
     @Override
-    public void onAuthenticationFailure(HttpServletRequest request, HttpServletResponse response,
-            AuthenticationException exception) throws IOException, ServletException {
-        logger.debug("### Login Failed!!");
+    public void onAuthenticationFailure(HttpServletRequest request,
+                                        HttpServletResponse response,
+                                        AuthenticationException exception) throws IOException, ServletException {
+        LOGGER.info("### Login Failed!!");
 
         RedirectStrategy redirectStrategy = new DefaultRedirectStrategy();
         String entryUrl = request.getParameter(DEFAULT_FAIL_TARGET_PARAMETER);
@@ -32,11 +33,11 @@ public class UserAuthenticationFailureHandler extends SimpleUrlAuthenticationFai
 
         String forwardUrl = "http://localhost:8080/account/login?login_error=false";
 
-        logger.debug("### Login Error Message : {}", exception.getMessage(), exception);
+        LOGGER.info("### Login Error Message : {}", exception.getMessage());
         saveException(request, exception);
 
-        logger.debug("### entryUrl : {}", entryUrl);
-        logger.debug("### forwardUrl : {}", forwardUrl);
+        LOGGER.info("### entryUrl : {}", entryUrl);
+        LOGGER.info("### forwardUrl : {}", forwardUrl);
 
         redirectStrategy.sendRedirect(request, response, createForwardUrl(entryUrl, forwardUrl));
     }
@@ -46,6 +47,6 @@ public class UserAuthenticationFailureHandler extends SimpleUrlAuthenticationFai
             return entryUrl;
         }
 
-        return entryUrl + "&forwardUrl=" + forwardUrl;
+        return entryUrl + "?forwardUrl=" + forwardUrl;
     }
 }

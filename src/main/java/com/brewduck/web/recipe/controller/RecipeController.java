@@ -22,11 +22,8 @@ import java.util.List;
 @Controller
 @RequestMapping(value = "/recipe")
 public class RecipeController {
-    private static final Logger logger = LoggerFactory.getLogger(RecipeController.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(RecipeController.class);
 
-    /**
-     * RecipeService Dependency Injection.
-     */
     @Autowired
     private RecipeService recipeService;
 
@@ -42,12 +39,12 @@ public class RecipeController {
     @ResponseBody
     @RequestMapping(value = "/list", method = RequestMethod.GET)
     public List<Recipe> selectRecipeList(Model model) {
-        logger.info("Recipe List");
+        LOGGER.info("Recipe List");
         Recipe recipe = new Recipe();
 
         // 맥주 레시피 목록 조회
         List<Recipe> list = recipeService.selectRecipeList(recipe);
-        logger.info("Recipe List Size : {}", list.size());
+        LOGGER.info("Recipe List Size : {}", list.size());
 
         return list;
     }
@@ -64,7 +61,7 @@ public class RecipeController {
     @ResponseBody
     @RequestMapping(value = "/detail/{name}", method = RequestMethod.GET)
     public Recipe selectRecipeDetail(Model model, @PathVariable("name") String name) {
-        logger.info("Recipe Name : {}", name);
+        LOGGER.info("Recipe Name : {}", name);
 
         Recipe recipe = new Recipe();
         recipe.setName(name);
@@ -88,7 +85,7 @@ public class RecipeController {
     @ResponseBody
     @RequestMapping(value = "/insert/{name}", method = RequestMethod.POST)
     public Recipe insertRecipe(Model model, @PathVariable("name") String name, @RequestBody Recipe paramRecipe) {
-        logger.info("Insert Recipe : {}", paramRecipe);
+        LOGGER.info("Insert Recipe : {}", paramRecipe);
 
         // 맥주 레시피 저장
         Boolean insertFlag = recipeService.insertRecipe(paramRecipe);
@@ -113,7 +110,7 @@ public class RecipeController {
     @ResponseBody
     @RequestMapping(value = "/update/{name}", method = RequestMethod.POST)
     public Recipe updateRecipe(Model model, @PathVariable("name") String name, @RequestBody Recipe paramRecipe) {
-        logger.info("Update Recipe : {}", paramRecipe);
+        LOGGER.info("Update Recipe : {}", paramRecipe);
 
         // 맥주 레시피 수정
         Boolean updateFlag = recipeService.updateRecipe(paramRecipe);
@@ -139,7 +136,7 @@ public class RecipeController {
     @ResponseBody
     @RequestMapping(value = "/delete/{name}", method = RequestMethod.POST)
     public Recipe deleteRecipe(Model model, @PathVariable("name") String name, @RequestBody Recipe paramRecipe) {
-        logger.info("Delete Recipe : {}", paramRecipe);
+        LOGGER.info("Delete Recipe : {}", paramRecipe);
 
         // 맥주 레시피 삭제
         Boolean deleteFlag = recipeService.deleteRecipe(paramRecipe);

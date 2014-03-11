@@ -20,7 +20,11 @@ import org.springframework.security.web.context.HttpSessionSecurityContextReposi
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.PathVariable;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
@@ -31,17 +35,25 @@ import java.io.IOException;
 
 
 /**
- * Created with IntelliJ IDEA.
- * User: HUKORU - 임세환
- * Date: 13. 12. 11
- * Time: 오후 1:01
- * To change this template use File | Settings | File Templates.
+ * <pre>
+ * 계정 Controller.
+ * </pre>
+ *
+ * -------------------
+ * 작성 내역
+ * -------------------
+ * 작성자 : 임세환
+ * 작성일 : 2013.12.11
+ * -------------------
+ * 수정자 : jaeger
+ * 수정일 : 2014.02.14
+ * -------------------
  */
 @Controller
 @RequestMapping(value = "/account")
 public class AccountController {
 
-    private static final Logger logger = LoggerFactory.getLogger(AccountController.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(AccountController.class);
     private static String ENABLE  = "ENABLE";   // 계정 활성화
     private static String DISABLE = "DISABLE";  // 계정 비활성화
 
@@ -59,11 +71,10 @@ public class AccountController {
      * @return
      */
     @RequestMapping(value = "/signup", method = RequestMethod.GET)
-    public String signin(Model model,
-                         HttpServletRequest request) {
-        logger.debug("회원 가입 페이지");
-        Account account = new Account();
-        model.addAttribute("account", account);
+    public String signin(Model model) {
+        LOGGER.debug("회원 가입 페이지");
+
+        model.addAttribute("account", new Account("", ""));
 
         return "account/signup";
     }
@@ -81,12 +92,11 @@ public class AccountController {
     public String join(@ModelAttribute @Valid Account account,
                        BindingResult result,
                        Model model) {
-
-        logger.info("회원 가입");
+        LOGGER.info("회원 가입");
 
         // 필수값 미입력시 가입 페이지로 전환
         if (result.hasErrors()) {
-            logger.info("가입 실패 : {}", account.toString());
+            LOGGER.info("가입 실패 : {}", account.toString());
             return "account/signup";
         }
 
@@ -94,13 +104,13 @@ public class AccountController {
 
         int duplicateEmail = -99;
         if (insertCount == duplicateEmail) {
-            logger.error("동일한 이메일이 존재합니다.");
+            LOGGER.error("동일한 이메일이 존재합니다.");
             model.addAttribute("message", "동일한 이메일이 존재합니다.");
             return "account/signin";
         }
 
         if (insertCount == 0) {
-            logger.error("회원 가입 중 저장이 실패하였습니다.");
+            LOGGER.error("회원 가입 중 저장이 실패하였습니다.");
             model.addAttribute("message", "회원 가입 중 저장이 실패하였습니다.");
             return "account/signin";
         }
@@ -127,7 +137,7 @@ public class AccountController {
      */
     @RequestMapping(value = "/confirm", method = RequestMethod.GET)
     public String confirm() {
-        logger.debug("### 가입 완료 페이지");
+        LOGGER.debug("### 가입 완료 페이지");
         return "account/confirm";
     }
 
@@ -137,15 +147,18 @@ public class AccountController {
      *
      * @return
      */
-    @RequestMapping(value = "/login", method = {RequestMethod.GET, RequestMethod.POST})
-    public String login(Model model,
-                        HttpServletRequest request) {
-        logger.info("### 로그인 페이지");
-
+    @RequestMapping(value = "/login", method = RequestMethod.GET)
+    public String login(Model model) {
+        LOGGER.info("### 로그인 페이지");
         Account account = AuthenticationUtils.getUser();
 
-        model.addAttribute("account", account);
+        // 초기에 "GUEST"로 세팅되어 있는 것을 초기화 해줌.
+        if ("GUEST".equals(account.getName()) || "GUEST".equals(account.getEmail())) {
+            account.setName("");
+            account.setEmail("");
+        }
 
+        model.addAttribute("account", account);
         return "account/login";
     }
 
@@ -156,7 +169,8 @@ public class AccountController {
      */
     @RequestMapping(value = "/logout", method = RequestMethod.GET)
     public String logout() {
-        logger.debug("### 로그아웃");
+        LOGGER.info("### 로그아웃");
+
         return "account/logout";
     }
 
@@ -175,9 +189,9 @@ public class AccountController {
                        HttpServletResponse response,
                        String email,
                        String password) throws IOException, ServletException {
-        logger.info("로그인 인증 프로세스 시작");
-        logger.info("username : {}", email);
-        logger.info("password : {}", password);
+        LOGGER.info("로그인 인증 프로세스 시작");
+        LOGGER.info("username : {}", email);
+        LOGGER.info("password : {}", password);
 
         // 계정과 암호로 토큰 생성
         UsernamePasswordAuthenticationToken authRequest =
@@ -197,7 +211,7 @@ public class AccountController {
         UserAuthenticationSuccessHandler handler = new UserAuthenticationSuccessHandler();
         handler.onAuthenticationSuccess(request, response, authentication);
 
-        logger.info("Login Success : {}", email);
+        LOGGER.info("Login Success : {}", email);
     }
 
     /**
@@ -216,9 +230,9 @@ public class AccountController {
         try {
             // authKey(userId) 복호화
             userId = SimpleCrypto.decrypt(SimpleCrypto.seed, authKey);
-            logger.info("userId : " + userId);
+            LOGGER.info("userId : " + userId);
         } catch (Exception e) {
-            logger.error("이메일 인증키 복호화를 실패하였습니다.", e);
+            LOGGER.error("이메일 인증키 복호화를 실패하였습니다.", e);
             result = -1;
         }
 

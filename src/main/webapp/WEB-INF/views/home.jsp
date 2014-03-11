@@ -1,4 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+
 <div id="home-slider">
     <div class="md-slide-items md-slider" id="md-slider-1" data-thumb-width="105" data-thumb-height="70">
         <div class="md-slide-item slide-0" data-timeout="6000">
@@ -366,16 +367,17 @@
 </div>
 <!--end: .home-popular-project -->
 
+<!--
 <div class="home-discover-friends">
     <div class="container_12">
         <div class="row-friends">
-            <a class="thumb-avatar" href="#"><img src="/resources/images/ex/beer1.jpg" alt="$USER_NAME"/></a>
-            <a class="thumb-avatar" href="#"><img src="/resources/images/ex/beer2.jpg" alt="$USER_NAME"/></a>
-            <a class="thumb-avatar" href="#"><img src="/resources/images/ex/beer3.jpg" alt="$USER_NAME"/></a>
-            <a class="thumb-avatar" href="#"><img src="/resources/images/ex/beer4.jpg" alt="$USER_NAME"/></a>
-            <a class="thumb-avatar" href="#"><img src="/resources/images/ex/beer5.jpg" alt="$USER_NAME"/></a>
-            <a class="thumb-avatar" href="#"><img src="/resources/images/ex/beer6.jpg" alt="$USER_NAME"/></a>
-            <a class="thumb-avatar" href="#"><img src="/resources/images/ex/beer7.jpg" alt="$USER_NAME"/></a>
+            <a class="thumb-avatar" href="#"><img src="/resources/images/ex/th-119x119-1.jpg" alt="$USER_NAME"/></a>
+            <a class="thumb-avatar" href="#"><img src="/resources/images/ex/th-119x119-2.jpg" alt="$USER_NAME"/></a>
+            <a class="thumb-avatar" href="#"><img src="/resources/images/ex/th-119x119-3.jpg" alt="$USER_NAME"/></a>
+            <a class="thumb-avatar" href="#"><img src="/resources/images/ex/th-119x119-4.jpg" alt="$USER_NAME"/></a>
+            <a class="thumb-avatar" href="#"><img src="/resources/images/ex/th-119x119-5.jpg" alt="$USER_NAME"/></a>
+            <a class="thumb-avatar" href="#"><img src="/resources/images/ex/th-119x119-6.jpg" alt="$USER_NAME"/></a>
+            <a class="thumb-avatar" href="#"><img src="/resources/images/ex/th-119x119-7.jpg" alt="$USER_NAME"/></a>
             <a class="thumb-avatar" href="#"><img src="/resources/images/ex/th-119x119-8.jpg" alt="$USER_NAME"/></a>
             <div class="clear"></div>
         </div>
@@ -401,8 +403,10 @@
         </div>
     </div>
 </div>
+-->
 <!--end: .home-discover-friends -->
 
+<!--
 <div class="additional-info-line">
     <div class="container_12">
         <div class="grid_9">
@@ -414,4 +418,6 @@
         </div>
         <div class="clear"></div>
     </div>
-</div><!--end: .additional-info-line -->
+</div>
+-->
+<!--end: .additional-info-line -->

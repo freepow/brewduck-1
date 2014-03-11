@@ -118,9 +118,10 @@ public class Account implements Serializable {
 
     public static class GuestUser extends Account {
         private GuestUser guestUser;
+        private static final String GUEST = "GUEST";
 
         GuestUser() {
-            guestUser = new GuestUser(0, "GUEST","GUEST");
+            guestUser = new GuestUser(0, GUEST, GUEST);
         }
 
         GuestUser(Integer id, String email, String name) {
