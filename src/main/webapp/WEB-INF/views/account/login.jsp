@@ -10,6 +10,9 @@
                 <h3 class="rs title-form">입장 (Login)</h3>
                 <div class="box-white">
                     <h4 class="rs title-box">이미 회원이신가요?</h4>
+                <c:if test="${login_error eq 'false'}">
+                    <h4 class="rs title-box fc-orange">${error_message}</h4>
+                </c:if>
                     <p class="rs">로그인 해주세요!</p>
                     <div class="form-action">
                         <label for="email">

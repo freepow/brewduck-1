@@ -12,12 +12,10 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.net.URLEncoder;
 
 public class UserAuthenticationFailureHandler extends SimpleUrlAuthenticationFailureHandler {
     private static final Logger LOGGER = LoggerFactory.getLogger(UserAuthenticationFailureHandler.class);
-
-    public static final String DEFAULT_FAIL_TARGET_PARAMETER = "spring-security-fail-redirect";
-
 
     @Override
     public void onAuthenticationFailure(HttpServletRequest request,
@@ -25,28 +23,14 @@ public class UserAuthenticationFailureHandler extends SimpleUrlAuthenticationFai
                                         AuthenticationException exception) throws IOException, ServletException {
         LOGGER.info("### Login Failed!!");
 
-        RedirectStrategy redirectStrategy = new DefaultRedirectStrategy();
-        String entryUrl = request.getParameter(DEFAULT_FAIL_TARGET_PARAMETER);
-        if (entryUrl == null) {
-            entryUrl = request.getHeader("Referer");
-        }
-
-        String forwardUrl = "http://localhost:8080/account/login?login_error=false";
+        String forwardUrl = "/account/login?login_error=false" +
+                            "&error_message=" + URLEncoder.encode(exception.getMessage(), "UTF-8");
 
         LOGGER.info("### Login Error Message : {}", exception.getMessage());
         saveException(request, exception);
 
-        LOGGER.info("### entryUrl : {}", entryUrl);
         LOGGER.info("### forwardUrl : {}", forwardUrl);
-
-        redirectStrategy.sendRedirect(request, response, createForwardUrl(entryUrl, forwardUrl));
-    }
-
-    private String createForwardUrl(String entryUrl, String forwardUrl) {
-        if (StringUtils.isBlank(forwardUrl)) {
-            return entryUrl;
-        }
-
-        return entryUrl + "?forwardUrl=" + forwardUrl;
+        RedirectStrategy redirectStrategy = new DefaultRedirectStrategy();
+        redirectStrategy.sendRedirect(request, response, forwardUrl);
     }
 }

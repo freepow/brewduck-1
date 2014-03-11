@@ -3,6 +3,8 @@ package com.brewduck.web.account.controller;
 import com.brewduck.framework.crypto.SimpleCrypto;
 import com.brewduck.framework.security.AuthenticationUtils;
 import com.brewduck.framework.security.LoginAuthorityType;
+import org.springframework.security.core.AuthenticationException;
+import com.brewduck.framework.security.UserAuthenticationFailureHandler;
 import com.brewduck.framework.security.UserAuthenticationSuccessHandler;
 import com.brewduck.web.account.service.AccountService;
 import com.brewduck.web.domain.Account;
@@ -13,9 +15,11 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
+import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.core.context.SecurityContext;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.context.SecurityContextImpl;
+import org.springframework.security.web.WebAttributes;
 import org.springframework.security.web.context.HttpSessionSecurityContextRepository;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -148,7 +152,9 @@ public class AccountController {
      * @return
      */
     @RequestMapping(value = "/login", method = RequestMethod.GET)
-    public String login(Model model) {
+    public String login(Model model,
+                        String login_error,
+                        String error_message) {
         LOGGER.info("### 로그인 페이지");
         Account account = AuthenticationUtils.getUser();
 
@@ -159,6 +165,9 @@ public class AccountController {
         }
 
         model.addAttribute("account", account);
+        model.addAttribute("login_error", login_error);
+        model.addAttribute("error_message", error_message);
+
         return "account/login";
     }
 
@@ -188,14 +197,15 @@ public class AccountController {
     private void login(HttpServletRequest request,
                        HttpServletResponse response,
                        String email,
-                       String password) throws IOException, ServletException {
+                       String password,
+                       Model model) throws IOException, ServletException {
         LOGGER.info("로그인 인증 프로세스 시작");
         LOGGER.info("username : {}", email);
         LOGGER.info("password : {}", password);
 
         // 계정과 암호로 토큰 생성
-        UsernamePasswordAuthenticationToken authRequest =
-                        new UsernamePasswordAuthenticationToken(email, password);
+        UsernamePasswordAuthenticationToken authRequest
+                            = new UsernamePasswordAuthenticationToken(email, password);
         // 인증
         Authentication authentication = authenticationManager.authenticate(authRequest);
 
@@ -208,8 +218,8 @@ public class AccountController {
         session.setAttribute(HttpSessionSecurityContextRepository.SPRING_SECURITY_CONTEXT_KEY, securityContext);
 
         // 로그인 성공 처리
-        UserAuthenticationSuccessHandler handler = new UserAuthenticationSuccessHandler();
-        handler.onAuthenticationSuccess(request, response, authentication);
+        UserAuthenticationSuccessHandler successHandler = new UserAuthenticationSuccessHandler();
+        successHandler.onAuthenticationSuccess(request, response, authentication);
 
         LOGGER.info("Login Success : {}", email);
     }

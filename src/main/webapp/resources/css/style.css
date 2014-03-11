@@ -795,7 +795,7 @@ a.fc-gray-dark,.fc-gray-dark{color: #999}
 
 /* 6.	Icon
 --------------------------------------------------------------------------------*/
-.icon{background: transparent url("../images/icon.png?v=0.1121989") no-repeat;border: none;display: inline-block;*display: inline;*zoom: 1;}
+.icon{background: transparent url("/resources/images/icon.png?v=0.1121989") no-repeat;border: none;display: inline-block;*display: inline;*zoom: 1;}
     .iMagnifier        {width:16px;height:16px;background-position: 0 0}
     .iCalendar         {width:16px;height:16px;background-position: -16px 0}
     .iClock            {width:16px;height:16px;background-position: -32px 0}
