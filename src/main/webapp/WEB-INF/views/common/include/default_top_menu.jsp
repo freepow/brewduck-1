@@ -37,10 +37,6 @@
                 <div class="account-panel">
                     <a href="#" class="btn btn-red sys_show_popup_login">멤버 등록</a>
                     <a href="#" class="btn btn-white sys_show_popup_login">로그인</a>
-
-                    <form id="sys_login_form" action="/account/login">
-                        <input id="sys_login_type" type="hidden" value="join" />
-                    </form>
                 </div>
                 <div class="form-search">
                     <form action="#">

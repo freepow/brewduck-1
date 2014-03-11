@@ -5,18 +5,18 @@
 # Websites:  http://www.megadrupal.com -  Email: info@megadrupal.com
 --------------------------------------------------------------------------
 
-	1.	Reset
-    2.	960 Grid System
-    3.	Common css (Link, button, margin class, text align class...)
-    4.	Layout extend
-    5.	Navigation
-    6.	Icons
-    7.	Form
-    8.	Project teaser
-    9.	Header
-    10.	Footer
-    11.	Home page
-    12.	Other pages
+    1.  Reset
+    2.  960 Grid System
+    3.  Common css (Link, button, margin class, text align class...)
+    4.  Layout extend
+    5.  Navigation
+    6.  Icons
+    7.  Form
+    8.  Project teaser
+    9.  Header
+    10. Footer
+    11. Home page
+    12. Other pages
 
 --------------------------------------------------------------------------------*/
 
@@ -2244,7 +2244,7 @@ a.fc-gray-dark,.fc-gray-dark{color: #999}
 /*.login-form{}*/
 .login-form .title-form{
     font-size: 1.538461538461538em;
-    color: #ffffff;
+    color: #5c666b;
     padding-bottom: 20px;
 }
 .login-form .box-white{

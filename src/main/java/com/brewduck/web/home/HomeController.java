@@ -12,7 +12,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import javax.servlet.http.Cookie;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -39,26 +38,11 @@ public class HomeController {
      *
      * @return
      */
-    @RequestMapping(value = "/", method = RequestMethod.GET)
-    public String home(Model model,
-                       HttpServletRequest request) {
-
-        Cookie[] cookies = request.getCookies();
-
-//        logger.warn("##cookies : " + cookies);
-        if (cookies != null) {
-            for (int i = 0; i < cookies.length; i++) {
-                logger.warn("warn : " + cookies[i].getName());
-               // if (StringUtils.equals("SPRING_SECURITY_REMEMBER_ME_COOKIE", cookies[i].getName())) {
-                 //   return "redirect:/dashboard";
-                //}
-            }
-        }
-
+    @RequestMapping(value = "/")
+    public String home(Model model) {
         Account account = AuthenticationUtils.getUser();
 
         model.addAttribute("account", account);
-
 
         return "home";
     }

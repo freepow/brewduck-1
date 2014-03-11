@@ -41,7 +41,9 @@
             </div>
         </div>
     </div>
-</div><!--end: #home-slider -->
+</div>
+<!--end: #home-slider -->
+
 <div class="home-feature-category">
     <div class="container_12 clearfix">
         <div class="grid_4 left-lst-category">
@@ -120,7 +122,9 @@
                     </p>
                 </nav><!--end: .lst-category -->
             </div>
-        </div><!--end: .left-lst-category -->
+        </div>
+        <!--end: .left-lst-category -->
+
         <div class="grid_8 marked-category">
             <div class="wrap-title clearfix">
                 <h2 class="title-mark rs">브루덕의 선택 : <span class="fc-orange">India Pale Ale</span></h2>
@@ -143,7 +147,9 @@
                             <a href="#" class="fc-gray be-fc-orange">378 뷰</a>
                         </p>
                     </div>
-                </div><!--end: .top-project-info -->
+                </div>
+                <!--end: .top-project-info -->
+
                 <div class="bottom-project-info clearfix">
                     <div class="project-progress sys_circle_progress" data-percent="76">
                         <div class="sys_holder_sector"></div>
@@ -167,10 +173,13 @@
                     <div class="clear"></div>
                 </div>
             </div>
-        </div><!--end: .marked-category -->
+        </div>
+        <!--end: .marked-category -->
         <div class="clear"></div>
     </div>
-</div><!--end: .home-feature-category -->
+</div>
+<!--end: .home-feature-category -->
+
 <div class="home-popular-project">
     <div class="container_12">
         <div class="grid_12 wrap-title">
@@ -354,7 +363,9 @@
             </div><!--end: .grid_3 > .project-short-->
         </div>
     </div>
-</div><!--end: .home-popular-project -->
+</div>
+<!--end: .home-popular-project -->
+
 <div class="home-discover-friends">
     <div class="container_12">
         <div class="row-friends">
@@ -389,7 +400,8 @@
             <div class="clear"></div>
         </div>
     </div>
-</div><!--end: .home-discover-friends -->
+</div>
+<!--end: .home-discover-friends -->
 
 <div class="additional-info-line">
     <div class="container_12">
@@ -403,152 +415,3 @@
         <div class="clear"></div>
     </div>
 </div><!--end: .additional-info-line -->
-<footer id="footer">
-    <div class="container_12 main-footer">
-        <div class="grid_3 about-us">
-            <h3 class="rs title">About</h3>
-            <p class="rs description">Donec rutrum elit ac arcu bibendum rhoncus in vitae turpis. Quisque fermentum gravida eros non faucibus. Curabitur fermentum, arcu sed cursus commodo.</p>
-            <p class="rs email"><a class="fc-default  be-fc-orange" href="mailto:info@megadrupal.com">info@megadrupal.com</a></p>
-            <p class="rs">+1 (555) 555 - 55 - 55</p>
-        </div><!--end: .contact-info -->
-        <div class="grid_3 recent-tweets">
-            <h3 class="rs title">Recent Tweets</h3>
-            <div class="lst-tweets" id="sys_lst_tweets">
-
-            </div>
-        </div><!--end: .recent-tweets -->
-        <div class="clear clear-2col"></div>
-        <div class="grid_3 email-newsletter">
-            <h3 class="rs title">Newsletter Signup</h3>
-            <div class="inner">
-                <p class="rs description">Nam aliquet, velit quis consequat interdum, odio dolor elementum.</p>
-                <form action="#">
-                    <div class="form form-email">
-                        <label class="lbl" for="txt-email">
-                            <input id="txt-email" type="text" class="txt fill-width" placeholder="Enter your e-mail address"/>
-                        </label>
-                        <button class="btn btn-green" type="submit">Submit</button>
-                    </div>
-                </form>
-            </div>
-        </div><!--end: .email-newsletter -->
-        <div class="grid_3">
-            <h3 class="rs title">Discover &amp; Create</h3>
-            <div class="footer-menu">
-                <ul class="rs">
-                    <li><a class="be-fc-orange" href="#">What is Kickstars</a></li>
-                    <li><a class="be-fc-orange" href="#">Start a project</a></li>
-                    <li><a class="be-fc-orange" href="#">Project Guidlines</a></li>
-                    <li><a class="be-fc-orange" href="#">Press</a></li>
-                    <li><a class="be-fc-orange" href="#">Stats</a></li>
-                </ul>
-                <ul class="rs">
-                    <li><a class="be-fc-orange" href="#">Staff Picks</a></li>
-                    <li><a class="be-fc-orange" href="#">Popular</a></li>
-                    <li><a class="be-fc-orange" href="#">Recent</a></li>
-                    <li><a class="be-fc-orange" href="#">Small Projects</a></li>
-                    <li><a class="be-fc-orange" href="#">Most Funded</a></li>
-                </ul>
-                <div class="clear"></div>
-            </div>
-        </div>
-        <div class="clear"></div>
-    </div>
-    <div class="copyright">
-        <div class="container_12">
-            <div class="grid_12">
-                <a class="logo-footer" href="index.html"><img src="/resources/images/logo-2.png" alt="$SITE_NAME"/></a>
-                <p class="rs term-privacy">
-                    <a class="fw-b be-fc-orange" href="single.html">Terms & Conditions</a>
-                    <span class="sep">/</span>
-                    <a class="fw-b be-fc-orange" href="single.html">Privacy Policy</a>
-                    <span class="sep">/</span>
-                    <a class="fw-b be-fc-orange" href="#">FAQ</a>
-                </p>
-                <p class="rs ta-c fc-gray-dark site-copyright">HTML by <a href="http://megadrupal.com" title="Drupal Developers" target="_blank">MegaDrupal</a>. Designed by <a href="http://bestwebsoft.com/" title="Web development company" target="_blank">BestWebSoft</a>.</p>
-            </div>
-            <div class="clear"></div>
-        </div>
-    </div>
-</footer><!--end: #footer -->
-
-</div>
-
-<div class="popup-common" id="sys_popup_common">
-    <div class="overlay-bl-bg"></div>
-    <div class="container_12 pop-content">
-        <div class="grid_12 wrap-btn-close ta-r">
-            <i class="icon iBigX closePopup"></i>
-        </div>
-        <div class="grid_6 prefix_1">
-            <div class="form login-form">
-                <form action="/account/authenticate">
-                    <h3 class="rs title-form">브루덕에 합류하기 (Register)</h3>
-                    <div class="box-white">
-                        <h4 class="rs title-box">브루덕에 처음이신가요?</h4>
-                        <p class="rs">다양한 서비스를 자유롭게 사용해보세요!</p>
-                        <div class="form-action">
-                            <label for="txt_name">
-                                <input id="txt_name" class="txt fill-width" type="text" placeholder="활동 닉네임"/>
-                            </label>
-                            <div class="wrap-2col clearfix">
-                                <div class="col">
-                                    <label for="txt_email">
-                                        <input id="txt_email" class="txt fill-width" type="email" placeholder="이메일 주소를 입력하세요."/>
-                                    </label>
-                                    <label for="txt_re_email">
-                                        <input id="txt_re_email" class="txt fill-width" type="email" placeholder="이메일 주소를 다시 입력하세요."/>
-                                    </label>
-                                </div>
-                                <div class="col">
-                                    <label for="txt_password">
-                                        <input id="txt_password" class="txt fill-width" type="password" placeholder="패스워드를 입력하세요."/>
-                                    </label>
-                                    <label for="txt_re_password">
-                                        <input id="txt_re_password" class="txt fill-width" type="password" placeholder="패스워드를 다시 입력하세요."/>
-                                    </label>
-                                </div>
-                            </div>
-                            <p class="rs pb10">가입하기을 클릭하시면 <a href="#" class="fc-orange">약관</a>에 동의하며 <a href="#" class="fc-orange">쿠키 사용</a>을
-                                포함한 </br><a href="#" class="fc-orange">데이터 사용 정책</a>을 숙지하신 것으로 간주됩니다.</p>
-                            <p class="rs ta-c">
-                                <button class="btn btn-red btn-submit" type="submit">합류하기</button>
-                            </p>
-                        </div>
-                    </div>
-                </form>
-            </div>
-        </div>
-        <div class="grid_4">
-            <div class="form login-form">
-                <form action="#">
-                    <h3 class="rs title-form">입장 (Login)</h3>
-                    <div class="box-white">
-                        <h4 class="rs title-box">이미 회원이신가요?</h4>
-                        <p class="rs">로그인 해주세요!</p>
-                        <div class="form-action">
-                            <label for="txt_email_login">
-                                <input id="txt_email_login" class="txt fill-width" type="email" placeholder="이메일 주소를 입력하세요."/>
-                            </label>
-                            <label for="txt_password_login">
-                                <input id="txt_password_login" class="txt fill-width" type="password" placeholder="패스워드를 입력하세요."/>
-                            </label>
-
-                            <label for="chk_remember" class="rs pb20 clearfix">
-                                <input id="chk_remember" type="checkbox" class="chk-remember"/>
-                                <span class="lbl-remember">로그인 상태유지</span>
-                            </label>
-                            <p class="rs ta-c pb10">
-                                <button class="btn btn-red btn-submit" type="submit">로그인</button>
-                            </p>
-                            <p class="rs ta-c">
-                                <a href="#" class="fc-orange">비밀번호를 잃어버리셨나요?</a>
-                            </p>
-                        </div>
-                    </div>
-                </form>
-            </div>
-        </div>
-        <div class="clear"></div>
-    </div>
-</div>

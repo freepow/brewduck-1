@@ -4,9 +4,12 @@
     <excludes>
         <pattern>/resource/*</pattern>
         <pattern>/resource/js/*</pattern>
+        <pattern>/resource/css/*</pattern>
+        <pattern>/resource/images/*</pattern>
+        <pattern>/resource/images/*/*</pattern>
+        <pattern>/resource/images/*/*/*</pattern>
         <pattern>/service/*/*</pattern>
         <pattern>/service/*</pattern>
-
     </excludes>
 
     <decorator name="default" page="default.jsp">

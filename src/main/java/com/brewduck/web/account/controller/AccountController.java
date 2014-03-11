@@ -146,7 +146,7 @@ public class AccountController {
 
         model.addAttribute("account", account);
 
-        return "account/contact";
+        return "account/login";
     }
 
     /**

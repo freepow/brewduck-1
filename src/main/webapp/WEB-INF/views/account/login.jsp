@@ -1,156 +1,77 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
-<div id="wrapper">
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 
-    <div id="loading-top">
-        <div id="canvas_loading"></div>
-        <span>Checking...</span>
+<div class="container_12 pop-content">
+    <div class="grid_12 wrap-btn-close ta-r">
+        <i class="icon"></i>
     </div>
-
-    <div id="main">
-        <div class="real-border">
-            <div class="row">
-                <div class="col-xs-1"></div>
-                <div class="col-xs-1"></div>
-                <div class="col-xs-1"></div>
-                <div class="col-xs-1"></div>
-                <div class="col-xs-1"></div>
-                <div class="col-xs-1"></div>
-                <div class="col-xs-1"></div>
-                <div class="col-xs-1"></div>
-                <div class="col-xs-1"></div>
-                <div class="col-xs-1"></div>
-                <div class="col-xs-1"></div>
-                <div class="col-xs-1"></div>
-            </div>
-        </div>
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-
-                    <div class="account-wall">
-                        <section class="align-lg-center">
-                            <div class="site-logo"></div>
-                            <h1 class="login-title"><span>환영</span>합니다. <small> 회원이 되어, 다양한 서비스를 자유롭게 사용해보세요!</small></h1>
-                        </section>
-                        <form id="form-signin" class="form-signin">
-                            <section>
-                                <div class="input-group">
-                                    <div class="input-group-addon"><i class="fa fa-user"></i></div>
-                                    <input  type="text" class="form-control" name="username" placeholder="이메일">
-                                </div>
-                                <div class="input-group">
-                                    <div class="input-group-addon"><i class="fa fa-key"></i></div>
-                                    <input type="password" class="form-control"  name="password" placeholder="패스워드">
-                                </div>
-                                <button class="btn btn-lg btn-theme-inverse btn-block" type="submit" id="sign-in">로그 인</button>
-                            </section>
-                            <section class="clearfix">
-                                <div class="iCheck pull-left"  data-color="red">
-                                    <input type="checkbox" checked>
-                                    <label>로그인 유지</label>
-                                </div>
-                                <a href="#" class="pull-right help">패스워드 찾기 </a>
-                            </section>
-                            <span class="or" data-text="or"></span>
-                            <button class="btn btn-lg  btn-inverse btn-block" type="button"> 신규 계정 생성 </button>
-                        </form>
-                        <a href="#" class="footer-link">&copy; 2014 brewduck </a>
+    <div class="grid_6 prefix_1">
+        <div class="form login-form">
+            <form action="/account/authenticate">
+                <h3 class="rs title-form">브루덕에 합류하기 (Register)</h3>
+                <div class="box-white">
+                    <h4 class="rs title-box">브루덕에 처음이신가요?</h4>
+                    <p class="rs">다양한 서비스를 자유롭게 사용해보세요!</p>
+                    <div class="form-action">
+                        <label for="txt_name">
+                            <input id="txt_name" class="txt fill-width" type="text" placeholder="성명"/>
+                        </label>
+                        <div class="wrap-2col clearfix">
+                            <div class="col">
+                                <label for="txt_email">
+                                    <input id="txt_email" class="txt fill-width" type="email" placeholder="이메일 주소를 입력하세요."/>
+                                </label>
+                                <label for="txt_re_email">
+                                    <input id="txt_re_email" class="txt fill-width" type="email" placeholder="이메일 주소를 다시 입력하세요."/>
+                                </label>
+                            </div>
+                            <div class="col">
+                                <label for="txt_password">
+                                    <input id="txt_password" class="txt fill-width" type="password" placeholder="패스워드를 입력하세요."/>
+                                </label>
+                                <label for="txt_re_password">
+                                    <input id="txt_re_password" class="txt fill-width" type="password" placeholder="패스워드를 다시 입력하세요."/>
+                                </label>
+                            </div>
+                        </div>
+                        <p class="rs pb10">가입하기을 클릭하시면 <a href="#" class="fc-orange">약관</a>에 동의하며 <a href="#" class="fc-orange">쿠키 사용</a>을
+                            포함한 </br><a href="#" class="fc-orange">데이터 사용 정책</a>을 숙지하신 것으로 간주됩니다.</p>
+                        <p class="rs ta-c">
+                            <button class="btn btn-red btn-submit" type="submit">합류하기</button>
+                        </p>
                     </div>
-                    <!-- //account-wall-->
-
                 </div>
-                <!-- //col-sm-6 col-md-4 col-md-offset-4-->
-            </div>
-            <!-- //row-->
+            </form>
         </div>
-        <!-- //container-->
-
     </div>
-    <!-- //main-->
+    <div class="grid_4">
+        <div class="form login-form">
+            <form action="#">
+                <h3 class="rs title-form">입장 (Login)</h3>
+                <div class="box-white">
+                    <h4 class="rs title-box">이미 회원이신가요?</h4>
+                    <p class="rs">로그인 해주세요!</p>
+                    <div class="form-action">
+                        <label for="txt_email_login">
+                            <input id="txt_email_login" class="txt fill-width" type="email" placeholder="이메일 주소를 입력하세요."/>
+                        </label>
+                        <label for="txt_password_login">
+                            <input id="txt_password_login" class="txt fill-width" type="password" placeholder="패스워드를 입력하세요."/>
+                        </label>
 
-
+                        <label for="chk_remember" class="rs pb20 clearfix">
+                            <input id="chk_remember" type="checkbox" class="chk-remember"/>
+                            <span class="lbl-remember">로그인 상태유지</span>
+                        </label>
+                        <p class="rs ta-c pb10">
+                            <button class="btn btn-red btn-submit" type="submit">로그인</button>
+                        </p>
+                        <p class="rs ta-c">
+                            <a href="#" class="fc-orange">비밀번호를 잃어버리셨나요?</a>
+                        </p>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="clear"></div>
 </div>
-<!-- //wrapper-->
-
-
-<!--
-////////////////////////////////////////////////////////////////////////
-//////////     JAVASCRIPT  LIBRARY     //////////
-/////////////////////////////////////////////////////////////////////
--->
-
-<!-- Jquery Library -->
-<script type="text/javascript" src="/resources/js/jquery.min.js"></script>
-<script type="text/javascript" src="/resources/js/jquery.ui.min.js"></script>
-<script type="text/javascript" src="/resources/plugins/bootstrap/bootstrap.min.js"></script>
-<!-- Modernizr Library For HTML5 And CSS3 -->
-<script type="text/javascript" src="/resources/js/modernizr/modernizr.js"></script>
-<script type="text/javascript" src="/resources/plugins/mmenu/jquery.mmenu.js"></script>
-<!-- Holder Images -->
-<script type="text/javascript" src="/resources/plugins/holder/holder.js"></script>
-<!-- Form plugins -->
-<script type="text/javascript" src="/resources/plugins/form/form.js"></script>
-<!-- Datetime plugins -->
-<script type="text/javascript" src="/resources/plugins/datetime/datetime.js"></script>
-<!-- Library Chart-->
-<script type="text/javascript" src="/resources/plugins/chart/chart.js"></script>
-<!-- Library Themes Customize-->
-<script type="text/javascript" src="/resources/js/caplet.custom.js"></script>
-<script type="text/javascript">
-    $(function() {
-        //Login animation to center
-        function toCenter(){
-            var mainH=$("#main").outerHeight();
-            var accountH=$(".account-wall").outerHeight();
-            var marginT=(mainH-accountH)/2;
-            if(marginT>30){
-                $(".account-wall").css("margin-top",marginT-15);
-            }else{
-                $(".account-wall").css("margin-top",30);
-            }
-        }
-        toCenter();
-        var toResize;
-        $(window).resize(function(e) {
-            clearTimeout(toResize);
-            toResize = setTimeout(toCenter(), 500);
-        });
-
-        //Canvas Loading
-        var throbber = new Throbber({  size: 32, padding: 17,  strokewidth: 2.8,  lines: 12, rotationspeed: 0, fps: 15 });
-        throbber.appendTo(document.getElementById('canvas_loading'));
-        throbber.start();
-
-        //Set note alert
-        setTimeout(function () {
-            $.notific8('Hi Guest , you can use Username : <strong>demo</strong> and Password: <strong>demo</strong> to  access account.',{ sticky:true, horizontalEdge:"top", theme:"inverse" ,heading:"LOGIN DEMO"})
-        }, 1000);
-
-
-        $("#form-signin").submit(function(event){
-            event.preventDefault();
-            var main=$("#main");
-            //scroll to top
-            main.animate({
-                scrollTop: 0
-            }, 500);
-            main.addClass("slideDown");
-
-            // send username and password to php check login
-            $.ajax({
-                url: "data/checklogin.php", data: $(this).serialize(), type: "POST", dataType: 'json',
-                success: function (e) {
-                    setTimeout(function () { main.removeClass("slideDown") }, !e.status ? 500:3000);
-                    if (!e.status) {
-                        $.notific8('Check Username or Password again !! ',{ life:5000,horizontalEdge:"bottom", theme:"danger" ,heading:" ERROR :); "});
-                        return false;
-                    }
-                    setTimeout(function () { $("#loading-top span").text("Yes, account is access...") }, 500);
-                    setTimeout(function () { $("#loading-top span").text("Redirect to account page...")  }, 1500);
-                    setTimeout( "window.location.href='dashboard.html'", 3100 );
-                }
-            });
-
-        });
-    });
-</script>

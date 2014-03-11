@@ -98,11 +98,11 @@ $(function(){
                 sys_popup_common.find(".closePopup").trigger("click");
             }
         });
-*/
-        // $("sys_login_form").submit();
-        location.href = "/account/login";
 
-        // return false;
+        return false;
+*/
+
+        location.href = "account/login";
     });
     sys_popup_common.on("click.closePopup",".closePopup,.overlay-bl-bg",function(){
         sys_popup_common.fadeOut(function(){
@@ -119,7 +119,8 @@ $(function(){
         _self = $(this);
         _self.text('Loading...')
         $.ajax({
-            url: "ajax/category.php"
+            // [TODO] 주소 변경해야 함!!!
+            url: "/resources/ajax/category.html"
         }).done(function(data) {
             $('#list-project-ajax').append(data);
             _self.text('Show more projects')
@@ -133,7 +134,8 @@ $(function(){
         _self = $(this);
         _self.text('Loading...')
         $.ajax({
-            url: "ajax/blog.php"
+            // [TODO] 주소 변경해야 함!!!
+            url: "/resources/ajax/blog.html"
         }).done(function(data) {
             $('#list-blog-ajax').append(data);
             _self.text('Show more posts')
@@ -147,7 +149,8 @@ $(function(){
         _self = $(this);
         _self.text('Loading...')
         $.ajax({
-            url: "ajax/search-results.php"
+            // [TODO] 주소 변경해야 함!!!
+            url: "/resources/ajax/search-results.html"
         }).done(function(data) {
             $('#list-search-ajax').append(data);
             _self.text('Show more projects')
