@@ -1,6 +1,7 @@
 package com.brewduck.web.account.controller;
 
 import com.brewduck.framework.crypto.SimpleCrypto;
+import com.brewduck.framework.security.AuthenticationUtils;
 import com.brewduck.framework.security.LoginAuthorityType;
 import com.brewduck.framework.security.UserAuthenticationSuccessHandler;
 import com.brewduck.web.account.service.AccountService;
@@ -136,9 +137,14 @@ public class AccountController {
      *
      * @return
      */
-    @RequestMapping(value = "/login", method = RequestMethod.GET)
-    public String login() {
+    @RequestMapping(value = "/login", method = {RequestMethod.GET, RequestMethod.POST})
+    public String login(Model model,
+                        HttpServletRequest request) {
         logger.info("### 로그인 페이지");
+
+        Account account = AuthenticationUtils.getUser();
+
+        model.addAttribute("account", account);
 
         return "account/contact";
     }

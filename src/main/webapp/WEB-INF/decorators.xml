@@ -3,14 +3,11 @@
 <decorators defaultdir="/WEB-INF/views/decorators">
     <excludes>
         <pattern>/resource/*</pattern>
+        <pattern>/resource/js/*</pattern>
         <pattern>/service/*/*</pattern>
         <pattern>/service/*</pattern>
 
     </excludes>
-
-    <decorator name="guest" page="guest.jsp">
-        <pattern>/account/*</pattern>
-    </decorator>
 
     <decorator name="default" page="default.jsp">
         <pattern>/index</pattern>
@@ -19,6 +16,7 @@
         <pattern>/company/*</pattern>
         <pattern>/profile/*</pattern>
         <pattern>/recipe/*</pattern>
+        <pattern>/account/*</pattern>
         <pattern>/</pattern>
     </decorator>
 
