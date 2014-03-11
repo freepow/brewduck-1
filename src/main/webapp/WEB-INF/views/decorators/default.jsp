@@ -57,7 +57,7 @@
             </div>
             <div class="header-left">
                 <h1 id="logo">
-                    <a href="index.html"><img src="images/logo.png" alt="$SITE_NAME"/></a>
+                    <a href="index.html"><img src="/resources/images/logo.png" alt="$SITE_NAME"/></a>
                 </h1>
                 <div class="main-nav clearfix">
                     <div class="nav-item">
@@ -77,7 +77,7 @@
 <div id="home-slider">
     <div class="md-slide-items md-slider" id="md-slider-1" data-thumb-width="105" data-thumb-height="70">
         <div class="md-slide-item slide-0" data-timeout="6000">
-            <div class="md-mainimg"><img src="images/ex/th-slide0.jpg" alt=""></div>
+            <div class="md-mainimg"><img src="/resources/images/ex/th-slide0.jpg" alt=""></div>
             <div class="md-objects">
                 <div class="md-object rs slide-title" data-x="20" data-y="38" data-width="480" data-height="30" data-start="700" data-stop="5500" data-easein="random" data-easeout="keep">
                     <p>Search Money for Your Creative Ideas?</p>
@@ -88,11 +88,11 @@
                 <div class="md-object rs" data-x="20" data-y="260" data-width="120" data-height="23" data-padding-top="9" data-padding-bottom="7" data-padding-left="10" data-padding-right="10" data-start="1800" data-stop="7500" data-easein="random" data-easeout="keep">
                     <a href="#" class="btn btn-gray">Learn more</a>
                 </div>
-                <div class="md-object" data-x="495" data-y="0" data-width="612" data-height="365" data-start="1800" data-stop="7500" data-easein="fadeInRight" data-easeout="keep" style=""><img src="images/ex/th-slide-man.png" alt="Search Money for Your Creative Ideas" width="612" height="365" /></div>
+                <div class="md-object" data-x="495" data-y="0" data-width="612" data-height="365" data-start="1800" data-stop="7500" data-easein="fadeInRight" data-easeout="keep" style=""><img src="/resources/images/ex/th-slide-man.png" alt="Search Money for Your Creative Ideas" width="612" height="365" /></div>
             </div>
         </div>
         <div class="md-slide-item slide-1" data-timeout="6000">
-            <div class="md-mainimg"><img src="images/ex/th-slide1.jpg" alt=""></div>
+            <div class="md-mainimg"><img src="/resources/images/ex/th-slide1.jpg" alt=""></div>
             <div class="md-objects">
                 <div class="md-object rs slide-title" data-x="20" data-y="188" data-width="390" data-height="30" data-start="700" data-stop="5500" data-easein="random" data-easeout="random">
                     <p>A creative engine</p>
@@ -100,14 +100,14 @@
                 <div class="md-object rs slide-description2" data-x="20" data-y="250" data-width="390" data-height="100" data-start="1400" data-stop="4500" data-easein="random" data-easeout="random">
                     <p>Mauris volutpat, lectus vitae pretium sagittis, turpis augue euismod libero</p>
                 </div>
-                <div class="md-object" data-x="454" data-y="44" data-width="327" data-height="268" data-start="1000" data-stop="5500" data-easein="random" data-easeout="random" style=""><img src="images/ex/slide1_1.png" alt="Responsive" width="327" height="268" /></div>
-                <div class="md-object" data-x="628" data-y="142" data-width="298" data-height="176" data-start="1600" data-stop="5100" data-easein="random" data-easeout="random" style=""><img src="images/ex/slide1_2.png" alt="Responsive" width="298" height="176" /></div>
-                <div class="md-object" data-x="837" data-y="169" data-width="119" data-height="149" data-start="2200" data-stop="4800" data-easein="random" data-easeout="random" style=""><img src="images/ex/slide1_3.png" alt="Responsive" width="119" height="149" /></div>
-                <div class="md-object" data-x="809" data-y="208" data-width="59" data-height="114" data-start="2800" data-stop="4500" data-easein="random" data-easeout="random" style=""><img src="images/ex/slide1_4.png" alt="Responsive" width="59" height="114" /></div>
+                <div class="md-object" data-x="454" data-y="44" data-width="327" data-height="268" data-start="1000" data-stop="5500" data-easein="random" data-easeout="random" style=""><img src="/resources/images/ex/slide1_1.png" alt="Responsive" width="327" height="268" /></div>
+                <div class="md-object" data-x="628" data-y="142" data-width="298" data-height="176" data-start="1600" data-stop="5100" data-easein="random" data-easeout="random" style=""><img src="/resources/images/ex/slide1_2.png" alt="Responsive" width="298" height="176" /></div>
+                <div class="md-object" data-x="837" data-y="169" data-width="119" data-height="149" data-start="2200" data-stop="4800" data-easein="random" data-easeout="random" style=""><img src="/resources/images/ex/slide1_3.png" alt="Responsive" width="119" height="149" /></div>
+                <div class="md-object" data-x="809" data-y="208" data-width="59" data-height="114" data-start="2800" data-stop="4500" data-easein="random" data-easeout="random" style=""><img src="/resources/images/ex/slide1_4.png" alt="Responsive" width="59" height="114" /></div>
             </div>
         </div>
         <div class="md-slide-item slide-2" data-timeout="4000">
-            <div class="md-mainimg"><img src="images/ex/th-slide2.jpg" alt=""></div>
+            <div class="md-mainimg"><img src="/resources/images/ex/th-slide2.jpg" alt=""></div>
             <div class="md-objects">
                 <div class="md-object slide-with-background" data-x="20" data-y="58" data-width="500" data-height="170" data-padding-top="30" data-padding-bottom="30" data-padding-left="35" data-padding-right="35" data-start="300" data-stop="3600" data-easein="random" data-easeout="keep">
                     <h2 class="rs slide-title">Start your project today</h2>
@@ -205,7 +205,7 @@
                 <div class="top-project-info">
                     <div class="content-info-short clearfix">
                         <a href="project.html" class="thumb-img">
-                            <img src="images/ex/th-292x204-1.jpg" alt="$TITLE">
+                            <img src="/resources/images/ex/th-292x204-1.jpg" alt="$TITLE">
                         </a>
                         <div class="wrap-short-detail">
                             <h3 class="rs acticle-title"><a class="be-fc-orange" href="project.html">Hop Bomb! #1: 혀에 폭탄을 맞은듯한</a></h3>
@@ -259,7 +259,7 @@
                     <div class="top-project-info">
                         <div class="content-info-short clearfix">
                             <a href="#" class="thumb-img">
-                                <img src="images/ex/th-292x204-1.jpg" alt="$TITLE">
+                                <img src="/resources/images/ex/th-292x204-1.jpg" alt="$TITLE">
                             </a>
                             <div class="wrap-short-detail">
                                 <h3 class="rs acticle-title"><a class="be-fc-orange" href="project.html">Project title</a></h3>
@@ -302,7 +302,7 @@
                     <div class="top-project-info">
                         <div class="content-info-short clearfix">
                             <a href="#" class="thumb-img">
-                                <img src="images/ex/th-192x135-1.jpg" alt="$TITLE">
+                                <img src="/resources/images/ex/th-192x135-1.jpg" alt="$TITLE">
                             </a>
                             <div class="wrap-short-detail">
                                 <h3 class="rs acticle-title"><a class="be-fc-orange" href="project.html">Project title</a></h3>
@@ -346,7 +346,7 @@
                     <div class="top-project-info">
                         <div class="content-info-short clearfix">
                             <a href="#" class="thumb-img">
-                                <img src="images/ex/th-192x135-2.jpg" alt="$TITLE">
+                                <img src="/resources/images/ex/th-192x135-2.jpg" alt="$TITLE">
                             </a>
                             <div class="wrap-short-detail">
                                 <h3 class="rs acticle-title"><a class="be-fc-orange" href="project.html">Project title</a></h3>
@@ -389,7 +389,7 @@
                     <div class="top-project-info">
                         <div class="content-info-short clearfix">
                             <a href="#" class="thumb-img">
-                                <img src="images/ex/th-192x135-3.jpg" alt="$TITLE">
+                                <img src="/resources/images/ex/th-192x135-3.jpg" alt="$TITLE">
                             </a>
                             <div class="wrap-short-detail">
                                 <h3 class="rs acticle-title"><a class="be-fc-orange" href="project.html">Project title</a></h3>
@@ -433,34 +433,34 @@
 <div class="home-discover-friends">
     <div class="container_12">
         <div class="row-friends">
-            <a class="thumb-avatar" href="#"><img src="images/ex/beer1.jpg" alt="$USER_NAME"/></a>
-            <a class="thumb-avatar" href="#"><img src="images/ex/beer2.jpg" alt="$USER_NAME"/></a>
-            <a class="thumb-avatar" href="#"><img src="images/ex/beer3.jpg" alt="$USER_NAME"/></a>
-            <a class="thumb-avatar" href="#"><img src="images/ex/beer4.jpg" alt="$USER_NAME"/></a>
-            <a class="thumb-avatar" href="#"><img src="images/ex/beer5.jpg" alt="$USER_NAME"/></a>
-            <a class="thumb-avatar" href="#"><img src="images/ex/beer6.jpg" alt="$USER_NAME"/></a>
-            <a class="thumb-avatar" href="#"><img src="images/ex/beer7.jpg" alt="$USER_NAME"/></a>
-            <a class="thumb-avatar" href="#"><img src="images/ex/th-119x119-8.jpg" alt="$USER_NAME"/></a>
+            <a class="thumb-avatar" href="#"><img src="/resources/images/ex/beer1.jpg" alt="$USER_NAME"/></a>
+            <a class="thumb-avatar" href="#"><img src="/resources/images/ex/beer2.jpg" alt="$USER_NAME"/></a>
+            <a class="thumb-avatar" href="#"><img src="/resources/images/ex/beer3.jpg" alt="$USER_NAME"/></a>
+            <a class="thumb-avatar" href="#"><img src="/resources/images/ex/beer4.jpg" alt="$USER_NAME"/></a>
+            <a class="thumb-avatar" href="#"><img src="/resources/images/ex/beer5.jpg" alt="$USER_NAME"/></a>
+            <a class="thumb-avatar" href="#"><img src="/resources/images/ex/beer6.jpg" alt="$USER_NAME"/></a>
+            <a class="thumb-avatar" href="#"><img src="/resources/images/ex/beer7.jpg" alt="$USER_NAME"/></a>
+            <a class="thumb-avatar" href="#"><img src="/resources/images/ex/th-119x119-8.jpg" alt="$USER_NAME"/></a>
             <div class="clear"></div>
         </div>
         <div class="row-friends row-connect-fb">
-            <a class="thumb-avatar t-first" href="#"><img src="images/ex/th-119x119-17.jpg" alt="$USER_NAME"/></a>
+            <a class="thumb-avatar t-first" href="#"><img src="/resources/images/ex/th-119x119-17.jpg" alt="$USER_NAME"/></a>
             <div class="connect-fb">
                 <p class="rs description">친구들이 좋아하는 맥주는 무엇일까요!</p>
                 <a href="#" class="btn btn-fb">페이스북 연결하기</a>
             </div>
-            <a class="thumb-avatar t-last" href="#"><img src="images/ex/th-119x119-1.jpg" alt="$USER_NAME"/></a>
+            <a class="thumb-avatar t-last" href="#"><img src="/resources/images/ex/th-119x119-1.jpg" alt="$USER_NAME"/></a>
             <div class="clear"></div>
         </div>
         <div class="row-friends">
-            <a class="thumb-avatar" href="#"><img src="images/ex/th-119x119-9.jpg" alt="$USER_NAME"/></a>
-            <a class="thumb-avatar" href="#"><img src="images/ex/th-119x119-10.jpg" alt="$USER_NAME"/></a>
-            <a class="thumb-avatar" href="#"><img src="images/ex/th-119x119-11.jpg" alt="$USER_NAME"/></a>
-            <a class="thumb-avatar" href="#"><img src="images/ex/th-119x119-12.jpg" alt="$USER_NAME"/></a>
-            <a class="thumb-avatar" href="#"><img src="images/ex/th-119x119-13.jpg" alt="$USER_NAME"/></a>
-            <a class="thumb-avatar" href="#"><img src="images/ex/th-119x119-14.jpg" alt="$USER_NAME"/></a>
-            <a class="thumb-avatar" href="#"><img src="images/ex/th-119x119-15.jpg" alt="$USER_NAME"/></a>
-            <a class="thumb-avatar" href="#"><img src="images/ex/th-119x119-16.jpg" alt="$USER_NAME"/></a>
+            <a class="thumb-avatar" href="#"><img src="/resources/images/ex/th-119x119-9.jpg" alt="$USER_NAME"/></a>
+            <a class="thumb-avatar" href="#"><img src="/resources/images/ex/th-119x119-10.jpg" alt="$USER_NAME"/></a>
+            <a class="thumb-avatar" href="#"><img src="/resources/images/ex/th-119x119-11.jpg" alt="$USER_NAME"/></a>
+            <a class="thumb-avatar" href="#"><img src="/resources/images/ex/th-119x119-12.jpg" alt="$USER_NAME"/></a>
+            <a class="thumb-avatar" href="#"><img src="/resources/images/ex/th-119x119-13.jpg" alt="$USER_NAME"/></a>
+            <a class="thumb-avatar" href="#"><img src="/resources/images/ex/th-119x119-14.jpg" alt="$USER_NAME"/></a>
+            <a class="thumb-avatar" href="#"><img src="/resources/images/ex/th-119x119-15.jpg" alt="$USER_NAME"/></a>
+            <a class="thumb-avatar" href="#"><img src="/resources/images/ex/th-119x119-16.jpg" alt="$USER_NAME"/></a>
             <div class="clear"></div>
         </div>
     </div>
@@ -532,7 +532,7 @@
     <div class="copyright">
         <div class="container_12">
             <div class="grid_12">
-                <a class="logo-footer" href="index.html"><img src="images/logo-2.png" alt="$SITE_NAME"/></a>
+                <a class="logo-footer" href="index.html"><img src="/resources/images/logo-2.png" alt="$SITE_NAME"/></a>
                 <p class="rs term-privacy">
                     <a class="fw-b be-fc-orange" href="single.html">Terms & Conditions</a>
                     <span class="sep">/</span>
