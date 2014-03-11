@@ -9,7 +9,6 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.http.MediaType;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
@@ -139,19 +138,9 @@ public class AccountController {
      */
     @RequestMapping(value = "/login", method = RequestMethod.GET)
     public String login() {
-        logger.debug("### 로그인 페이지");
+        logger.info("### 로그인 페이지");
 
-        return "account/login";
-    }
-
-    /**
-     * 로그인 페이지
-     *
-     * @return
-     */
-    @RequestMapping(value = "/loginPopup", method = RequestMethod.GET)
-    public String loginPopup() {
-        return "account/login_popup";
+        return "account/contact";
     }
 
     /**
@@ -180,9 +169,9 @@ public class AccountController {
                        HttpServletResponse response,
                        String email,
                        String password) throws IOException, ServletException {
-        logger.debug("로그인 인증 프로세스 시작");
-        logger.debug("username : " + email);
-        logger.debug("password : " + password);
+        logger.info("로그인 인증 프로세스 시작");
+        logger.info("username : {}", email);
+        logger.info("password : {}", password);
 
         // 계정과 암호로 토큰 생성
         UsernamePasswordAuthenticationToken authRequest =
@@ -201,6 +190,8 @@ public class AccountController {
         // 로그인 성공 처리
         UserAuthenticationSuccessHandler handler = new UserAuthenticationSuccessHandler();
         handler.onAuthenticationSuccess(request, response, authentication);
+
+        logger.info("Login Success : {}", email);
     }
 
     /**
@@ -248,27 +239,6 @@ public class AccountController {
         }
 
         return "redirect:/";
-    }
-
-    @RequestMapping(value = "/test", method = RequestMethod.GET, consumes = MediaType.APPLICATION_JSON_VALUE)
-    @ResponseBody
-    public Account test() {
-        logger.warn("start of json");
-        Account account = new Account();
-        account.setEmail("hukoru@naver.com");
-
-        Account responseAccount = accountService.selectAccount(account);
-        logger.debug("Response Account : " + responseAccount);
-
-        return responseAccount;
-    }
-
-    @RequestMapping(value = "/test", method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE)
-    @ResponseBody
-    public Account test(@RequestBody Account requestAccount) {
-        logger.debug("### Request Account : " + requestAccount);
-
-        return requestAccount;
     }
 
 }

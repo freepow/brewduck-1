@@ -8,41 +8,40 @@
 $(function(){
     var sys_show_popup_login = $(".sys_show_popup_login"),
         sys_popup_common = $("#sys_popup_common");
-		
-	/* Homepage Slider
-	---------------------------------------------------------- */	
-	if ($("#md-slider-1").length) {
-		$("#md-slider-1").mdSlider({
-			fullwidth: true,
-			transitions: "fade",
-			width: 980,
-			height: 365,
-			responsive: true,
-			slideShowDelay: 6000,
-			slideShow: true,
-			loop: true,
-			showLoading: false,
-			showArrow: 1,
-			showBullet: 1,
-			posBullet: 2,
-			showThumb: false,
-			enableDrag: true
-		});
-	}
-	
-	/* get Twitter
-	---------------------------------------------------------- */
-
-	$('#sys_lst_tweets').tweet({
-			modpath: '/twitter/',
-			count: 2,
-			loading_text: '<p class="rs ta-c fc-white">loading Twitter <br /><img src="images/ajax-loader.gif" alt="loading"/></p>',
-			username: 'megadrupal',
-			template: '<p class="rs tweet-mind">{text}</p><p class="rs timestamp">{time}</p><i class="icon iTwitter"></i>',
-	});
-	
-	/* Project Slider
-	---------------------------------------------------------- */	
+        
+    /* Homepage Slider
+    ---------------------------------------------------------- */
+    if ($("#md-slider-1").length) {
+        $("#md-slider-1").mdSlider({
+            fullwidth: true,
+            transitions: "fade",
+            width: 980,
+            height: 365,
+            responsive: true,
+            slideShowDelay: 6000,
+            slideShow: true,
+            loop: true,
+            showLoading: false,
+            showArrow: 1,
+            showBullet: 1,
+            posBullet: 2,
+            showThumb: false,
+            enableDrag: true
+        });
+    }
+    
+    /* get Twitter
+    ---------------------------------------------------------- */
+    $('#sys_lst_tweets').tweet({
+            modpath: '/',
+            count: 2,
+            loading_text: '<p class="rs ta-c fc-white">loading Twitter <br /><img src="/resources/images/ajax-loader.gif" alt="loading"/></p>',
+            username: 'megadrupal',
+            template: '<p class="rs tweet-mind">{text}</p><p class="rs timestamp">{time}</p><i class="icon iTwitter"></i>'
+    });
+    
+    /* Project Slider
+    ---------------------------------------------------------- */    
     if ($("#slider1").length > 0) {
         $("#slider1").responsiveSlides({
             auto: false,
@@ -54,8 +53,8 @@ $(function(){
         });
     }
 
-	/* Tabs
-	---------------------------------------------------------- */
+    /* Tabs
+    ---------------------------------------------------------- */
     $(".tabbable").on("click",".nav-tabs > li",function(){
         if($(this).hasClass("disable"))
             return false;
@@ -64,9 +63,9 @@ $(function(){
         $(this).parents(".tabbable").find(".tab-content .tab-pane").removeClass("active").eq(getIndex).addClass("active");
         return false;
     });
-	
-	/* Accordion
-	---------------------------------------------------------- */
+    
+    /* Accordion
+    ---------------------------------------------------------- */
     $(".accordion").on("click",".accordion-label",function(){
         if($(this).hasClass("active")){
             $(this).removeClass("active").siblings(".accordion-content").slideUp(400,function(){
@@ -84,9 +83,14 @@ $(function(){
         return false;
     });
 
-	/* Open popup when click to: Register, Login
-	---------------------------------------------------------- */
-    sys_show_popup_login.on("click",function(){
+    /* Open popup when click to: Register, Login
+    ---------------------------------------------------------- */
+    sys_show_popup_login.on("click", function() {
+/*
+        // ---------------------------------------------------
+        // 레이어 팝업에서 일반 페이지로 전환해서 주석 처리
+        // 신재근, 2014.03.11
+        // ---------------------------------------------------
         sys_popup_common.fadeIn();
         $("body").on("keydown.closePopup",function(e){
             var getCode = e.keyCode ? e.keyCode : e.which;
@@ -94,7 +98,11 @@ $(function(){
                 sys_popup_common.find(".closePopup").trigger("click");
             }
         });
-        return false;
+*/
+        // $("sys_login_form").submit();
+        location.href = "/account/login";
+
+        // return false;
     });
     sys_popup_common.on("click.closePopup",".closePopup,.overlay-bl-bg",function(){
         sys_popup_common.fadeOut(function(){
@@ -104,9 +112,9 @@ $(function(){
     sys_popup_common.on("click",".main-content",function(e){
         e.stopPropagation();
     });
-	
-	/* Loadmore button on Category
-	---------------------------------------------------------- */	
+    
+    /* Loadmore button on Category
+    ---------------------------------------------------------- */    
     $('#showmoreproject').bind('click', function (e) {
         _self = $(this);
         _self.text('Loading...')
@@ -118,9 +126,9 @@ $(function(){
         });
         return false;
     });
-	
-	/* Loadmore button on blog
-	---------------------------------------------------------- */	
+    
+    /* Loadmore button on blog
+    ---------------------------------------------------------- */    
     $('#showmorepost').bind('click', function (e) {
         _self = $(this);
         _self.text('Loading...')
@@ -132,9 +140,9 @@ $(function(){
         });
         return false;
     });
-	
-	/* Loadmore button on search results
-	---------------------------------------------------------- */	
+    
+    /* Loadmore button on search results
+    ---------------------------------------------------------- */    
     $('#showmoreresults').bind('click', function (e) {
         _self = $(this);
         _self.text('Loading...')
@@ -146,13 +154,13 @@ $(function(){
         });
         return false;
     });
-	
-	/* Contact form: Ajax & Validate
-	---------------------------------------------------------- */	
-	if(jQuery("#contact-form").length > 0){
+    
+    /* Contact form: Ajax & Validate
+    ---------------------------------------------------------- */    
+    if(jQuery("#contact-form").length > 0){
         // Validate the contact form
         jQuery('#contact-form').validate({
-	
+    
             // Add requirements to each of the fields
             rules: {
                 name: {
@@ -168,7 +176,7 @@ $(function(){
                     minlength: 10
                 }
             },
-		
+        
             // Specify what error messages to display
             // when the user does something horrid
             messages: {
@@ -185,7 +193,7 @@ $(function(){
                     minlength: jQuery.format("At least {0} characters required.")
                 }
             },
-		
+        
             // Use Ajax to send everything to processForm.php
             submitHandler: function(form) {
                 jQuery("#submit-contact").attr("value", "Sending...");
@@ -205,9 +213,10 @@ $(function(){
     }
 
     /* Responsive
-	---------------------------------------------------------- */
+    ---------------------------------------------------------- */
     var sys_btn_toggle_search = $("#sys_btn_toggle_search"),
         sys_header_right = $("#sys_header_right");
+
     sys_btn_toggle_search.on("click",function(){
         sys_header_right.slideToggle(function(){
             if($(this).is(":visible")){
@@ -221,7 +230,7 @@ $(function(){
     });
 
     /* Navigation on mobile (Sidr)
-	---------------------------------------------------------- */
+    ---------------------------------------------------------- */
     $('#btn-toogle-menu').sidr({
         side:"left",
         name:"alternate-menu",

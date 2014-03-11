@@ -2,7 +2,6 @@ package com.brewduck.web.recipe.service;
 
 import com.brewduck.web.domain.Recipe;
 import com.brewduck.web.domain.Style;
-import com.brewduck.web.domain.Yeast;
 import com.brewduck.web.fermentable.dao.FermentableDao;
 import com.brewduck.web.hop.dao.HopDao;
 import com.brewduck.web.recipe.dao.RecipeDao;
@@ -58,6 +57,11 @@ public class RecipeServiceImpl implements RecipeService {
         newRecipe.setHops(hopDao.selectRecipeHopList(newRecipe.getName()));
         // 레시피에 포함되는 이스트 리스트
         newRecipe.setYeasts(yeastDao.selectRecipeYeastList(newRecipe.getName()));
+
+        newRecipe.setReadCount(newRecipe.getReadCount() + 1);
+        // [TODO] 조회자 아이디 어떻게 가져오지?
+        newRecipe.setUpdateId("");
+        // recipeDao.updateRecipe()
 
         return newRecipe;
     }

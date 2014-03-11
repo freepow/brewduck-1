@@ -19,49 +19,49 @@ public interface RecipeDao {
      * 맥주 레시피 목록 조회.
      * </pre>
      *
-     * @param fermentable 맥주 레시피
+     * @param recipe 맥주 레시피
      * @return 맥주 레시피 목록
      */
-    public List<Recipe> selectRecipeList(Recipe fermentable);
+    public List<Recipe> selectRecipeList(Recipe recipe);
 
     /**
      * <pre>
      * 맥주 레시피 상세 조회.
      * </pre>
      *
-     * @param fermentable 맥주 레시피
+     * @param recipe 맥주 레시피
      * @return 맥주 레시피
      */
-    public Recipe selectRecipeDetail(Recipe fermentable);
+    public Recipe selectRecipeDetail(Recipe recipe);
 
     /**
      * <pre>
      * 맥주 레시피 저장.
      * </pre>
      *
-     * @param fermentable 맥주 레시피
+     * @param recipe 맥주 레시피
      * @return 저장 성공 횟수
      */
-    public Integer insertRecipe(Recipe fermentable);
+    public Integer insertRecipe(Recipe recipe);
 
     /**
      * <pre>
      * 맥주 레시피 수정.
      * </pre>
      *
-     * @param fermentable 맥주 레시피
+     * @param recipe 맥주 레시피
      * @return 수정 성공 횟수
      */
-    public Integer updateRecipe(Recipe fermentable);
+    public Integer updateRecipe(Recipe recipe);
 
     /**
      * <pre>
      * 맥주 레시피 삭제.
      * </pre>
      *
-     * @param fermentable 맥주 레시피
+     * @param recipe 맥주 레시피
      * @return 삭제 성공 횟수
      */
-    public Integer deleteRecipe(Recipe fermentable);
+    public Integer deleteRecipe(Recipe recipe);
 
 }

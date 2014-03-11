@@ -3,10 +3,10 @@
     <div id="nav-scroll">
         <div class="avatar-slide">
 
-								<span class="avatar-chart" data-percent="69">
-										<span class="percent"></span>
-										<img alt="" src="/resources/img/avatar.png" class="circle">
-								</span>
+            <span class="avatar-chart" data-percent="69">
+                <span class="percent"></span>
+                <img alt="" src="/resources/img/avatar.png" class="circle">
+            </span>
             <!-- //avatar-chart-->
 
             <div class="avatar-detail">

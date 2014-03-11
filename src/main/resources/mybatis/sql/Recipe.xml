@@ -4,33 +4,34 @@
 
     <sql id="Recipe.selectRecipe">
         SELECT
-               seq                seq
-              ,name               name
-              ,version            version
-              ,type               type
-              ,style_name         styleName
-              ,brewer             brewer
-              ,asst_brewer        asstBrewer
-              ,batch_size         batchSize
-              ,boil_size          boilSize
-              ,boil_time          boilTime
-              ,efficiency         efficiency
-              ,notes              notes
-              ,og                 og
-              ,fg                 fg
-              ,primary_age        primaryAge
-              ,primary_temp       primaryTemp
-              ,secondary_age      secondaryAge
-              ,secondary_temp     secondaryTemp
-              ,age                age
-              ,age_temp           ageTemp
-              ,priming_sugar_name primingSugarName
-              ,insert_id          insertId
-              ,insert_date        insertDate
-              ,update_id          updateId
-              ,update_date        updateDate
-              ,delete_id          deleteId
-              ,delete_date        deleteDate
+               seq                   seq
+              ,name                  name
+              ,version               version
+              ,type                  type
+              ,style_name            styleName
+              ,brewer                brewer
+              ,asst_brewer           asstBrewer
+              ,batch_size            batchSize
+              ,boil_size             boilSize
+              ,boil_time             boilTime
+              ,efficiency            efficiency
+              ,notes                 notes
+              ,og                    og
+              ,fg                    fg
+              ,primary_age           primaryAge
+              ,primary_temp          primaryTemp
+              ,secondary_age         secondaryAge
+              ,secondary_temp        secondaryTemp
+              ,age                   age
+              ,age_temp              ageTemp
+              ,priming_sugar_name    primingSugarName
+              ,read_count            readCount
+              ,insert_id             insertId
+              ,insert_date           insertDate
+              ,update_id             updateId
+              ,update_date           updateDate
+              ,delete_id             deleteId
+              ,delete_date           deleteDate
           FROM brewduckdb.RECIPE
     </sql>
 
@@ -170,6 +171,14 @@
             </if>
             <if test="primingSugarName != null">
                 priming_sugar_name = #{primingSugarName}
+            </if>
+            <if test="updateId != null">
+                read_count = (
+                              SELECT (IFNULL(MAX(name), 0) + 1)  read_count
+                                FROM brewduckdb.RECIPE
+                               WHERE seq  = #{seq}
+                                 AND name = #{name}
+                             )
             </if>
             <if test="updateId != null">
                 update_id = #{updateId},

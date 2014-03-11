@@ -29,6 +29,7 @@
                     authentication-failure-handler-ref="authenticationFailureHandler" />
 
         <intercept-url pattern="/account/signin" access="permitAll" />
+        <intercept-url pattern="/account/login" access="permitAll" />
         <intercept-url pattern="/favicon.ico" access="permitAll" />
         <intercept-url pattern="/resources/**" access="permitAll" />
         <intercept-url pattern="/auth/**" access="permitAll" />

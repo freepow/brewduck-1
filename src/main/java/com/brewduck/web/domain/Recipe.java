@@ -16,7 +16,7 @@ import java.util.List;
 public class Recipe implements Serializable {
     private static final long serialVersionUID = 1L;
 
-    // 레시피 영문명
+    // 레시피 순번
     private Integer seq;
     // 레시피 한글명
     private String name;
@@ -70,6 +70,8 @@ public class Recipe implements Serializable {
     private Integer ageTemp;
     // 프라이밍 슈가 명
     private String primingSugarName;
+    // 조회수
+    private Integer readCount;
     // 작성자 아이디
     private String insertId;
     // 작성자 날짜
@@ -574,6 +576,24 @@ public class Recipe implements Serializable {
      */
     public void setPrimingSugarName(String primingSugarName) {
         this.primingSugarName = primingSugarName;
+    }
+
+    /**
+     * 조회수
+     *
+     * @return 조회수
+     */
+    public Integer getReadCount() {
+        return readCount;
+    }
+
+    /**
+     * 조회수
+     *
+     * @param readCount 조회수
+     */
+    public void setReadCount(Integer readCount) {
+        this.readCount = readCount;
     }
 
     /**
