@@ -24,6 +24,8 @@ public class Fermentable implements Serializable {
     private String type;
     // 맥아의 양 (맥아, 추출 또는 설탕의 무게 : "Kg")
     private Double amount;
+    // 맥아 사용처
+    private String fermentableUse;
     // 맥아 수율 (중량 원료의 수율 : "%")
     private Double yield;
     // 맥주의 색상 (SRM)
@@ -164,6 +166,24 @@ public class Fermentable implements Serializable {
      */
     public void setAmount(Double amount) {
         this.amount = amount;
+    }
+
+    /**
+     * 맥아 사용처
+     *
+     * @return 맥아 사용처
+     */
+    public String getFermentableUse() {
+        return fermentableUse;
+    }
+
+    /**
+     * 맥아 사용처
+     *
+     * @param fermentableUse 맥아 사용처
+     */
+    public void setFermentableUse(String fermentableUse) {
+        this.fermentableUse = fermentableUse;
     }
 
     /**

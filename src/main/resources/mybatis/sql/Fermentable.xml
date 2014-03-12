@@ -36,8 +36,9 @@
                b.name                name
               ,b.korean_name         koreanName
               ,b.version             version
-              ,b.type                type
-              ,b.amount              amount
+              ,a.amount              amount
+              ,a.fermentable_use     fermantableUse
+              ,a.type                type
               ,b.yield               yield
               ,b.color               color
               ,b.add_after_boil      addAfterBoil

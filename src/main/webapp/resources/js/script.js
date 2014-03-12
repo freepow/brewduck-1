@@ -56,23 +56,27 @@ $(function(){
 
     /* Tabs
     ---------------------------------------------------------- */
-    $(".tabbable").on("click",".nav-tabs > li",function(){
-        if($(this).hasClass("disable"))
+    $(".tabbable").on("click", ".nav-tabs > li", function() {
+        if ($(this).hasClass("disable")) {
             return false;
+        }
+
         var getIndex=$(this).index();
+
         $(this).siblings().removeClass("active").end().addClass("active");
         $(this).parents(".tabbable").find(".tab-content .tab-pane").removeClass("active").eq(getIndex).addClass("active");
+
         return false;
     });
     
     /* Accordion
     ---------------------------------------------------------- */
-    $(".accordion").on("click",".accordion-label",function(){
-        if($(this).hasClass("active")){
+    $(".accordion").on("click", ".accordion-label", function() {
+        if ($(this).hasClass("active")) {
             $(this).removeClass("active").siblings(".accordion-content").slideUp(400,function(){
                 $(this).removeClass("active").removeAttr("style");
             });
-        }else{
+        } else {
             $(this).parents(".accordion").find(".accordion-label").removeClass("active");
             $(this).addClass("active").siblings(".accordion-content").slideDown(400,function(){
                 $(this).addClass("active").removeAttr("style");

@@ -35,6 +35,7 @@
         <intercept-url pattern="/resources/**" access="permitAll" />
         <intercept-url pattern="/auth/**" access="permitAll" />
         <intercept-url pattern="/style/**" access="permitAll" />
+        <intercept-url pattern="/recipe/**" access="permitAll" />
         <intercept-url pattern="/profile/**" access="hasRole('ROLE_SIGNIN')" />
         <intercept-url pattern="/disconnect/facebook" access="permitAll" />
         <intercept-url pattern="/" access="permitAll" />

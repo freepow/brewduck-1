@@ -190,9 +190,9 @@ public class AccountController {
      */
     @RequestMapping(value = "/authentication", method = RequestMethod.POST)
     public void login(HttpServletRequest request,
-                       HttpServletResponse response,
-                       String email,
-                       String password) throws IOException, ServletException {
+                      HttpServletResponse response,
+                      String email,
+                      String password) throws IOException, ServletException {
         LOGGER.info("로그인 인증 프로세스 시작");
         LOGGER.info("username : {}", email);
         LOGGER.info("password : {}", password);

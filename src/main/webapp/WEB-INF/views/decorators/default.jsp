@@ -8,13 +8,13 @@
 <body>
 <div id="wrapper">
 
-<!-- 상단 메뉴 -->
-<%@ include file="/WEB-INF/views/common/include/default_top_menu.jsp" %>
+    <!-- 상단 메뉴 -->
+    <%@ include file="/WEB-INF/views/common/include/default_top_menu.jsp" %>
 
-<decorator:body />
+    <decorator:body />
 
-<!-- 상단 메뉴 -->
-<%@ include file="/WEB-INF/views/common/include/default_footer.jsp" %>
+    <!-- 상단 메뉴 -->
+    <%@ include file="/WEB-INF/views/common/include/default_footer.jsp" %>
 
 </div>
 

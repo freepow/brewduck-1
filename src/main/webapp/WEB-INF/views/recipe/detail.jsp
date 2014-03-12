@@ -1,19 +1,19 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <div class="layout-2cols">
+
 <div class="content grid_8">
 <div class="project-detail">
-<h2 class="rs project-title">홉 폭탄 : 혀에 폭탄을 맞은듯한 에일맥주</h2>
-<p class="rs post-by">by <a href="#">맥주의달인</a></p>
+<h2 class="rs project-title">${recipeDetail.name}</h2>
+<p class="rs post-by">by <a href="#">${recipeDetail.brewer}</a></p>
 <div class="project-short big-thumb">
     <div class="top-project-info">
         <div class="content-info-short clearfix">
             <div class="thumb-img">
                 <div class="rslides_container">
                     <ul class="rslides" id="slider1">
-                        <li><img src="/resources/images/ex/th-552x411-2.jpg" alt=""></li>
                         <li><img src="/resources/images/ex/th-552x411-1.jpg" alt=""></li>
-                        <li><img src="/resources/images/ex/th-552x411-2.jpg" alt=""></li>
                     </ul>
                 </div>
             </div>
@@ -31,7 +31,7 @@
             <div class="sep"></div>
             <div class="fee-item">
                 <p class="rs lbl">스타일</p>
-                <span class="val">인디아 페일 에일</span>
+                <span class="val">${recipeDetail.styleName}</span>
             </div>
             <div class="sep"></div>
             <div class="fee-item">
@@ -45,7 +45,6 @@
 <div class="project-tab-detail tabbable accordion">
 <ul class="nav nav-tabs clearfix">
     <li class="active"><a href="#">레시피</a></li>
-    <li><a href="#" class="be-fc-orange">스토리 (0)</a></li>
     <li><a href="#" class="be-fc-orange">사간 사람들 (270)</a></li>
     <li><a href="#" class="be-fc-orange">댓글 (2)</a></li>
 </ul>
@@ -54,15 +53,32 @@
     <h3 class="rs alternate-tab accordion-label">About</h3>
     <div class="tab-pane active accordion-content">
         <div class="editor-content">
-            <h3 class="rs title-inside">홉 폭탄 : 혀에 폭탄을 맞은듯한 에일맥주</h3>
-            <p class="rs post-by">by <a href="#" class="fw-b fc-gray be-fc-orange">Ray Sumser</a> in <span class="fw-b fc-gray">New York, NY</span></p>
-            <p>Nam sit amet est sapien, a faucibus purus. Sed commodo facilisis tempus. Pellentesque placerat elementum adipiscing. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu.</p>
-            <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu.</p>
+            <h3 class="rs title-inside">${recipeDetail.name}</h3>
+            <p class="rs post-by">by <a href="#" class="fw-b fc-gray be-fc-orange">${recipeDetail.brewer}</a> in <span class="fw-b fc-gray">경기도 성남시</span></p>
+            <p>레시피 내용~ 불랴불랴~</p>
             <p>
                 <img class="img-desc" src="/resources/images/ex/th-552x411-2.jpg" alt="$DESCRIPTION"/>
-                <span class="img-label">Me and project friends on meeting</span>
+                <span class="img-label">맥주 레시피 사진 설명!!!</span>
             </p>
-            <p>Nam sit amet est sapien, a faucibus purus. Sed commodo facilisis tempus. Pellentesque placerat elementum adipiscing. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu.</p>
+            <p>어쩌고! 저쩌고~ 레시피 만들자</p>
+
+<table border="1">
+    <tr>
+        <td>몰트 명</td>
+        <td>용량  </td>
+        <td>사용처 </td>
+        <td>타입  </td>
+    </tr>
+<c:forEach items="${recipeDetail.fermentables}" var="fermentable" varStatus="stat">
+    <tr>
+        <td>${fermentable.name}          </td>
+        <td>${fermentable.amount} kg     </td>
+        <td>${fermentable.fermentableUse}</td>
+        <td>${fermentable.type}          </td>
+    </tr>
+</c:forEach>
+</table>
+
             <div class="social-sharing">
                 <!-- AddThis Button BEGIN -->
                 <div class="addthis_toolbox addthis_default_style">
@@ -71,87 +87,18 @@
                     <a class="addthis_button_google_plusone" g:plusone:size="medium"></a>
                     <a class="addthis_counter addthis_pill_style"></a>
                 </div>
-                <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=undefined"></script>
+                <script type="text/javascript" src="http://s7.addthis.com/js/300/addthis_widget.js#pubid=undefined"></script>
                 <!-- AddThis Button END -->
             </div>
         </div>
         <div class="project-btn-action">
-            <a class="btn big btn-red" href="#">Ask a question</a>
-            <a class="btn big btn-black" href="#">Report this project</a>
+            <a class="btn big btn-red" href="#">질문하기</a>
+            <a class="btn big btn-black" href="#">레시피 보고</a>
         </div>
     </div><!--end: .tab-pane(About) -->
 </div>
 <div>
-    <h3 class="rs alternate-tab accordion-label">Updates (0)</h3>
-    <div class="tab-pane accordion-content">
-        <div class="tab-pane-inside">
-            <div class="list-last-post">
-                <div class="media other-post-item">
-                    <a href="#" class="thumb-left">
-                        <img src="/resources/images/ex/th-90x90-1.jpg" alt="$TITLE">
-                    </a>
-                    <div class="media-body">
-                        <h4 class="rs title-other-post">
-                            <a href="#" class="be-fc-orange fw-b">맥주의 달인</a>
-                        </h4>
-                        <p class="rs fc-gray time-post pb10">posted 5 days ago</p>
-                        <p class="rs description">Nam nec sem ac risus congue varius. Maecenas interdum ipsum tempor ipsum fringilla eu vehicula urna vehicula.</p>
-                    </div>
-                </div><!--end: .other-post-item -->
-                <div class="media other-post-item">
-                    <a href="#" class="thumb-left">
-                        <img src="/resources/images/ex/th-90x90-2.jpg" alt="$TITLE">
-                    </a>
-                    <div class="media-body">
-                        <h4 class="rs title-other-post">
-                            <a href="#" class="be-fc-orange fw-b">John Doe</a>
-                        </h4>
-                        <p class="rs fc-gray time-post pb10">posted 5 days ago</p>
-                        <p class="rs description">Nam nec sem ac risus congue varius. Maecenas interdum ipsum tempor ipsum fringilla eu vehicula urna vehicula.</p>
-                    </div>
-                </div><!--end: .other-post-item -->
-                <div class="media other-post-item">
-                    <a href="#" class="thumb-left">
-                        <img src="/resources/images/ex/th-90x90-3.jpg" alt="$TITLE">
-                    </a>
-                    <div class="media-body">
-                        <h4 class="rs title-other-post">
-                            <a href="#" class="be-fc-orange fw-b">John Doe</a>
-                        </h4>
-                        <p class="rs fc-gray time-post pb10">posted 5 days ago</p>
-                        <p class="rs description">Nam nec sem ac risus congue varius. Maecenas interdum ipsum tempor ipsum fringilla eu vehicula urna vehicula.</p>
-                    </div>
-                </div><!--end: .other-post-item -->
-                <div class="media other-post-item">
-                    <a href="#" class="thumb-left">
-                        <img src="/resources/images/ex/th-90x90-4.jpg" alt="$TITLE">
-                    </a>
-                    <div class="media-body">
-                        <h4 class="rs title-other-post">
-                            <a href="#" class="be-fc-orange fw-b">John Doe1</a>
-                        </h4>
-                        <p class="rs fc-gray time-post pb10">posted 5 days ago</p>
-                        <p class="rs description">Nam nec sem ac risus congue varius. Maecenas interdum ipsum tempor ipsum fringilla eu vehicula urna vehicula.</p>
-                    </div>
-                </div><!--end: .other-post-item -->
-                <div class="media other-post-item">
-                    <a href="#" class="thumb-left">
-                        <img src="/resources/images/ex/th-90x90-1.jpg" alt="$TITLE">
-                    </a>
-                    <div class="media-body">
-                        <h4 class="rs title-other-post">
-                            <a href="#" class="be-fc-orange fw-b">John Doe</a>
-                        </h4>
-                        <p class="rs fc-gray time-post pb10">posted 5 days ago</p>
-                        <p class="rs description">Nam nec sem ac risus congue varius. Maecenas interdum ipsum tempor ipsum fringilla eu vehicula urna vehicula.</p>
-                    </div>
-                </div><!--end: .other-post-item -->
-            </div>
-        </div>
-    </div><!--end: .tab-pane(Updates) -->
-</div>
-<div>
-    <h3 class="rs alternate-tab accordion-label">Backers (270)</h3>
+    <h3 class="rs alternate-tab accordion-label">사간 사람 (270)</h3>
     <div class="tab-pane accordion-content">
         <div class="tab-pane-inside">
             <div class="project-author pb20">
@@ -186,7 +133,7 @@
     </div><!--end: .tab-pane(Backers) -->
 </div>
 <div>
-    <h3 class="rs active alternate-tab accordion-label">Comments (2)</h3>
+    <h3 class="rs alternate-tab accordion-label">댓글 (2)</h3>
     <div class="tab-pane accordion-content">
         <div class="box-list-comment">
             <div class="media comment-item">
@@ -274,6 +221,7 @@
 </div><!--end: .project-tab-detail -->
 </div>
 </div><!--end: .content -->
+
 <div class="sidebar grid_4">
     <div class="project-runtime">
         <div class="box-gray">
@@ -331,60 +279,12 @@
                 </div>
             </li><!--end: pledge-item -->
             <li>
-                <div class=" pledge-label accordion-label clearfix">
-                    <i class="icon iPlugGray"></i>
-                    <span class="pledge-amount">Pledge $32 or more</span>
-                    <span class="count-val">(42 of 111)</span>
-                </div>
-                <div class=" pledge-content accordion-content">
-                    <div class="pledge-detail">
-                        <p class="rs pledge-description">Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim.</p>
-                        <p class="rs fw-b pb20">Ocupated (2 of 10)</p>
-                        <p class="rs"><span class="fw-b">Estimated delivery:</span> Aug 2013</p>
-                        <p class="rs fw-thin fc-gray pb20">Ships within the US only</p>
-                        <p class="rs ta-c"><a class="btn big btn-red" href="#">Buck this project</a></p>
-                    </div>
-                </div>
-            </li><!--end: pledge-item -->
-            <li>
                 <div class="active pledge-label accordion-label clearfix">
                     <i class="icon iPlugGray"></i>
                     <span class="pledge-amount">Pledge $50 or more</span>
                     <span class="count-val">(7 of 13)</span>
                 </div>
                 <div class="active pledge-content accordion-content">
-                    <div class="pledge-detail">
-                        <p class="rs pledge-description">Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim.</p>
-                        <p class="rs fw-b pb20">Ocupated (2 of 10)</p>
-                        <p class="rs"><span class="fw-b">Estimated delivery:</span> Aug 2013</p>
-                        <p class="rs fw-thin fc-gray pb20">Ships within the US only</p>
-                        <p class="rs ta-c"><a class="btn big btn-red" href="#">Buck this project</a></p>
-                    </div>
-                </div>
-            </li><!--end: pledge-item -->
-            <li>
-                <div class=" pledge-label accordion-label clearfix">
-                    <i class="icon iPlugGray"></i>
-                    <span class="pledge-amount">Pledge $54 or more</span>
-                    <span class="count-val">(2 of 10)</span>
-                </div>
-                <div class=" pledge-content accordion-content">
-                    <div class="pledge-detail">
-                        <p class="rs pledge-description">Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim.</p>
-                        <p class="rs fw-b pb20">Ocupated (12 of 30)</p>
-                        <p class="rs"><span class="fw-b">Estimated delivery:</span> Aug 2013</p>
-                        <p class="rs fw-thin fc-gray pb20">Ships within the US only</p>
-                        <p class="rs ta-c"><a class="btn big btn-red" href="#">Buck this project</a></p>
-                    </div>
-                </div>
-            </li><!--end: pledge-item -->
-            <li>
-                <div class=" pledge-label accordion-label clearfix">
-                    <i class="icon iPlugGray"></i>
-                    <span class="pledge-amount">Pledge $130 or more</span>
-                    <span class="count-val">(23 of 47)</span>
-                </div>
-                <div class=" pledge-content accordion-content">
                     <div class="pledge-detail">
                         <p class="rs pledge-description">Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim.</p>
                         <p class="rs fw-b pb20">Ocupated (2 of 10)</p>
@@ -413,5 +313,7 @@
         </ul>
     </div><!--end: .wrap-nav-pledge -->
 </div><!--end: .sidebar -->
+
 <div class="clear"></div>
+
 </div>
