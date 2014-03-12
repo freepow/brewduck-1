@@ -23,8 +23,10 @@
 
     <http auto-config="true" use-expressions="true">
         <form-login login-page="/account/login"
-                    login-processing-url="/account/authenticate"
-                    authentication-failure-url="/account/login?param.error=bad_credentials"
+                    login-processing-url="/account/authentication"
+                    username-parameter="email"
+                    password-parameter="password"
+                    authentication-failure-url="/account/login?login_error=false"
                     authentication-success-handler-ref="authenticationSuccessHandler"
                     authentication-failure-handler-ref="authenticationFailureHandler" />
 

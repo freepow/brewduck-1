@@ -6,7 +6,7 @@
     </div>
     <div class="grid_5 prefix_4">
         <div class="form login-form">
-            <form id="authenticate" method="POST" action="/account/authenticate">
+            <form id="authentication" method="POST" action="/account/authentication">
                 <h3 class="rs title-form">입장 (Login)</h3>
                 <div class="box-white">
                     <h4 class="rs title-box">이미 회원이신가요?</h4>
@@ -16,10 +16,10 @@
                     <p class="rs">로그인 해주세요!</p>
                     <div class="form-action">
                         <label for="email">
-                            <input id="email" name="j_username" type="email" class="txt fill-width" placeholder="이메일 주소를 입력하세요." />
+                            <input id="email" name="email" type="email" class="txt fill-width" placeholder="이메일 주소를 입력하세요." maxlength="40" />
                         </label>
                         <label for="password">
-                            <input id="password" name="j_password" type="password" class="txt fill-width" placeholder="패스워드를 입력하세요." />
+                            <input id="password" name="password" type="password" class="txt fill-width" placeholder="패스워드를 입력하세요." maxlength="100" />
                         </label>
 
                         <label for="chk_remember" class="rs pb20 clearfix">

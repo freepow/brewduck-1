@@ -7,30 +7,36 @@
     </div>
     <div class="grid_7 prefix_3">
         <div class="form login-form">
-            <form id="join" method="POST" action="/account/join">
+            <form:form id="join" method="POST" action="/account/join" modelAttribute="account">
                 <h3 class="rs title-form">브루덕에 합류하기 (Register)</h3>
                 <div class="box-white">
                     <h4 class="rs title-box">브루덕에 처음이신가요?</h4>
+                    <c:if test="${message != null}">
+                        <h4 class="rs title-box fc-orange">${message}</h4>
+                    </c:if>
                     <p class="rs">다양한 서비스를 자유롭게 사용해보세요!</p>
                     <div class="form-action">
                         <label for="name">
-                            <input id="name" class="txt fill-width" type="text" placeholder="성명"/>
+                            <form:input id="name" path="name" cssClass="txt fill-width" type="text" placeholder="성명을 입력하세요." maxlength="40" />
+                            <form:errors path="name" />
                         </label>
                         <div class="wrap-2col clearfix">
                             <div class="col">
                                 <label for="email">
-                                    <input id="email" class="txt fill-width" type="email" placeholder="이메일 주소를 입력하세요."/>
+                                    <form:input id="email" path="email" cssClass="txt fill-width" type="email" placeholder="이메일 주소를 입력하세요." maxlength="100" />
+                                    <form:errors path="email" />
                                 </label>
-                                <label for="re_email">
-                                    <input id="re_email" class="txt fill-width" type="email" placeholder="이메일 주소를 다시 입력하세요."/>
+                                <label for="reEmail">
+                                    <input id="reEmail" name="reEmail" class="txt fill-width" type="email" placeholder="이메일 주소를 다시 입력하세요." maxlength="100" />
                                 </label>
                             </div>
                             <div class="col">
                                 <label for="password">
-                                    <input id="password" class="txt fill-width" type="password" placeholder="패스워드를 입력하세요."/>
+                                    <form:input id="password" path="password" cssClass="txt fill-width" type="password" placeholder="패스워드를 입력하세요." maxlength="20" />
+                                    <form:errors path="password" />
                                 </label>
-                                <label for="re_password">
-                                    <input id="re_password" class="txt fill-width" type="password" placeholder="패스워드를 다시 입력하세요."/>
+                                <label for="rePassword">
+                                    <input id="rePassword" name="rePassword" class="txt fill-width" type="password" placeholder="패스워드를 다시 입력하세요." maxlength="20" />
                                 </label>
                             </div>
                         </div>
@@ -41,7 +47,7 @@
                         </p>
                     </div>
                 </div>
-            </form>
+            </form:form>
         </div>
     </div>
     <div class="clear"></div>

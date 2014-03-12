@@ -34,20 +34,22 @@ public class Account implements Serializable {
     // UserId
     private int id;
 
-    @NotEmpty(message = "이메일은 필수 입력입니다.")
-    @Email(message = "올바른 이메일 형식이 아닙니다.")
-    @Size(min = 6, max = 255, message = "이메일은 6자에서 250자까지 입력 가능합니다.")
-    private String email;
-
     @NotEmpty(message = "이름은 필수 입력입니다.")
-    @Size(min = 2, max = 100, message = "이름은 2자에서 100자까지 입력하세요.")
+    @Size(min = 2, max = 40, message = "이름은 2자에서 40자까지 입력하세요.")
     private String name;
 
+    @NotEmpty(message = "이메일은 필수 입력입니다.")
+    @Email(message = "올바른 이메일 형식이 아닙니다.")
+    @Size(min = 6, max = 100, message = "이메일은 6자에서 100자까지 입력 가능합니다.")
+    private String email;
+
+    private String reEmail;
+
     @NotEmpty(message = "비밀번호는 필수 입력입니다.")
-    @Size(min = 6, max = 200, message = "비밀번호는 6자에서 200자까지 입력하세요.")
+    @Size(min = 6, max = 20, message = "비밀번호는 6자에서 20자까지 입력하세요.")
     private String password;
 
-    private String checkPassword;
+    private String rePassword;
 
     // 권한
     private String authority;
@@ -57,26 +59,12 @@ public class Account implements Serializable {
 
 
 
-    public String getCheckPassword() {
-        return checkPassword;
-    }
-
-    public void setCheckPassword(String checkPassword) {
-        this.checkPassword = checkPassword;
-    }
 
     public int getId() {
         return id;
     }
     public void setId(int id) {
         this.id = id;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-    public void setEmail(String email) {
-        this.email = email;
     }
 
     public String getName() {
@@ -86,11 +74,32 @@ public class Account implements Serializable {
         this.name = name;
     }
 
+    public String getEmail() {
+        return email;
+    }
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getReEmail() {
+        return reEmail;
+    }
+    public void setReEmail(String reEmail) {
+        this.reEmail = reEmail;
+    }
+
     public String getPassword() {
         return password;
     }
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public String getRePassword() {
+        return rePassword;
+    }
+    public void setRePassword(String rePassword) {
+        this.rePassword = rePassword;
     }
 
     public String getAuthority() {

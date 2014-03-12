@@ -1,4 +1,6 @@
+<%@ page import="com.brewduck.framework.security.AuthenticationUtils" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+
 <header id="header">
     <div class="wrap-top-menu">
         <div class="container_12 clearfix">
@@ -34,6 +36,8 @@
     <div class="container_12 clearfix">
         <div class="grid_12 header-content">
             <div id="sys_header_right" class="header-right">
+                <%= AuthenticationUtils.getUser() %>
+
                 <div class="account-panel">
                     <a href="#" class="btn btn-red sys_show_popup_join">멤버 등록</a>
                     <a href="#" class="btn btn-white sys_show_popup_login">로그인</a>

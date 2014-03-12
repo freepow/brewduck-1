@@ -19,7 +19,6 @@ import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.core.context.SecurityContext;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.context.SecurityContextImpl;
-import org.springframework.security.web.WebAttributes;
 import org.springframework.security.web.context.HttpSessionSecurityContextRepository;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -27,8 +26,8 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
@@ -92,10 +91,9 @@ public class AccountController {
      * @return
      */
     @RequestMapping(value = "/join", method = RequestMethod.POST)
-    @ResponseBody
-    public String join(@ModelAttribute @Valid Account account,
+    public String join(@ModelAttribute("account") @Valid Account account,
                        BindingResult result,
-                       Model model) {
+                       RedirectAttributes redirectAttributes) {
         LOGGER.info("회원 가입");
 
         // 필수값 미입력시 가입 페이지로 전환
@@ -109,14 +107,14 @@ public class AccountController {
         int duplicateEmail = -99;
         if (insertCount == duplicateEmail) {
             LOGGER.error("동일한 이메일이 존재합니다.");
-            model.addAttribute("message", "동일한 이메일이 존재합니다.");
-            return "account/signin";
+            redirectAttributes.addFlashAttribute("message", "동일한 이메일이 존재합니다.");
+            return "redirect:/account/signup";
         }
 
         if (insertCount == 0) {
             LOGGER.error("회원 가입 중 저장이 실패하였습니다.");
-            model.addAttribute("message", "회원 가입 중 저장이 실패하였습니다.");
-            return "account/signin";
+            redirectAttributes.addFlashAttribute("message", "회원 가입 중 저장이 실패하였습니다.");
+            return "redirect:/account/signup";
         }
 
         return "redirect:/account/confirm";
@@ -193,12 +191,11 @@ public class AccountController {
      * @throws java.io.IOException
      * @throws javax.servlet.ServletException
      */
-    @RequestMapping(value = "/authenticate", method = RequestMethod.POST)
-    private void login(HttpServletRequest request,
+    @RequestMapping(value = "/authentication", method = RequestMethod.POST)
+    public void login(HttpServletRequest request,
                        HttpServletResponse response,
                        String email,
-                       String password,
-                       Model model) throws IOException, ServletException {
+                       String password) throws IOException, ServletException {
         LOGGER.info("로그인 인증 프로세스 시작");
         LOGGER.info("username : {}", email);
         LOGGER.info("password : {}", password);
@@ -256,7 +253,8 @@ public class AccountController {
 
         // 회원이 존재하지 않으면 가입 페이지로 이동
         if (currentAccount == null) {
-            return "redirect:/account/signin";
+            model.addAttribute("message", "회원 정보가 존재하지 않습니다.");
+            return "redirect:/account/signup";
         }
 
         // 회원이 존재하면 userId로 해당 계정 활성화 업데이트
