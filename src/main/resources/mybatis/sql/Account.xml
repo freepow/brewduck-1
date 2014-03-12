@@ -12,7 +12,7 @@
               ,password
               ,authority
               ,activation
-          FROM account
+          FROM brewduckdb.account
          WHERE 1 = 1
         <if test="id != 0">
            AND id = #{id}
@@ -32,14 +32,14 @@
               ,password
               ,authority
               ,activation
-          FROM account
+          FROM brewduckdb.account
          WHERE name = #{name}
     </select>
 
     <insert id="Account.insertAccount"
             parameterType="Account">
         <!-- 회원 가입 -->
-        INSERT INTO account (
+        INSERT INTO brewduckdb.account (
              name
             ,email
             ,password
@@ -60,7 +60,7 @@
     <update id="Account.updateAccount"
             parameterType="Account">
         <!-- 회원 정보 수정 -->
-        UPDATE account
+        UPDATE brewduckdb.account
         <trim prefix="SET" suffixOverrides=",">
             <if test="password != null">password = #{password},</if>
             <if test="authority != null">authority = #{authority},</if>

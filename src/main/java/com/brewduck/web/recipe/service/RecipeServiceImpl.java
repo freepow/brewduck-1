@@ -1,5 +1,7 @@
 package com.brewduck.web.recipe.service;
 
+import com.brewduck.framework.security.AuthenticationUtils;
+import com.brewduck.web.domain.Account;
 import com.brewduck.web.domain.Recipe;
 import com.brewduck.web.domain.Style;
 import com.brewduck.web.fermentable.dao.FermentableDao;
@@ -42,6 +44,8 @@ public class RecipeServiceImpl implements RecipeService {
 
     @Override
     public Recipe selectRecipeDetail(Recipe recipe) {
+        Account account = AuthenticationUtils.getUser();
+
         // 레시피 조회
         Recipe newRecipe = recipeDao.selectRecipeDetail(recipe);
 
@@ -58,10 +62,9 @@ public class RecipeServiceImpl implements RecipeService {
         // 레시피에 포함되는 이스트 리스트
         newRecipe.setYeasts(yeastDao.selectRecipeYeastList(newRecipe.getName()));
 
-        newRecipe.setReadCount(newRecipe.getReadCount() + 1);
-        // [TODO] 조회자 아이디 어떻게 가져오지?
-        newRecipe.setUpdateId("");
-        // recipeDao.updateRecipe()
+        // 조회수 업데이트
+        newRecipe.setUpdateId(Integer.toString(account.getId()));
+        recipeDao.updateRecipe(newRecipe);
 
         return newRecipe;
     }

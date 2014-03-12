@@ -11,13 +11,13 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 public class UserAuthenticationSuccessHandler extends SavedRequestAwareAuthenticationSuccessHandler {
-    Logger logger = LoggerFactory.getLogger(UserAuthenticationSuccessHandler.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(UserAuthenticationSuccessHandler.class);
 
     @Override
     public void onAuthenticationSuccess(HttpServletRequest request,
                                         HttpServletResponse response,
                                         Authentication authentication) throws IOException, ServletException {
-        logger.info("### Login Success!!!");
+        LOGGER.info("### Login Success!!!");
         super.onAuthenticationSuccess(request, response, authentication);
     }
 }

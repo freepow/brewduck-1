@@ -35,7 +35,7 @@
         <div class="grid_12 header-content">
             <div id="sys_header_right" class="header-right">
                 <div class="account-panel">
-                    <a href="#" class="btn btn-red sys_show_popup_login">멤버 등록</a>
+                    <a href="#" class="btn btn-red sys_show_popup_join">멤버 등록</a>
                     <a href="#" class="btn btn-white sys_show_popup_login">로그인</a>
                 </div>
                 <div class="form-search">

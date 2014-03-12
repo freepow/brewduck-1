@@ -16,15 +16,17 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.util.Assert;
 
+
 /**
- * Created with IntelliJ IDEA.
- * User: Jaeger
- * Date: 13. 9. 14.
- * Time: 오후 4:58
- * To change this template use File | Settings | File Templates.
+ * <pre>
+ * 회원 인증 제공자 구현체.
+ * </pre>
+ *
+ * @author jaeger
+ * @version 1.0, 2014.02.14
  */
 public class AuthenticationProviderImpl implements AuthenticationProvider, InitializingBean {
-    private static Logger logger = LoggerFactory.getLogger(AuthenticationProviderImpl.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(AuthenticationProviderImpl.class);
 
     private AuthenticationService authenticationService;
     private UserDetailsService userDetailsService;
@@ -51,7 +53,7 @@ public class AuthenticationProviderImpl implements AuthenticationProvider, Initi
         try {
             this.login(email, password);
         } catch (AuthenticationNotException e) {
-            logger.error("### AuthenticationNotException Occurred.", e);
+            LOGGER.error("### AuthenticationNotException Occurred.", e);
         }
 
         UserDetails userDetails = userDetailsService.loadUserByUsername(email);
@@ -64,8 +66,8 @@ public class AuthenticationProviderImpl implements AuthenticationProvider, Initi
     }
 
     private void login(String email, String password) throws AuthenticationNotException {
-        logger.debug("### login email : {}", email);
-        logger.debug("### login password : {}", password);
+        LOGGER.info("### Login Email : {}", email);
+        LOGGER.info("### Login Password : {}", password);
 
         try {
             authenticationService.login(email, password);

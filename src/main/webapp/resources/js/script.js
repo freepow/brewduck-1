@@ -7,6 +7,7 @@
 
 $(function(){
     var sys_show_popup_login = $(".sys_show_popup_login"),
+        sys_show_popup_join = $(".sys_show_popup_join"),
         sys_popup_common = $("#sys_popup_common");
         
     /* Homepage Slider
@@ -85,12 +86,12 @@ $(function(){
 
     /* Open popup when click to: Register, Login
     ---------------------------------------------------------- */
+    sys_show_popup_join.on("click", function() {
+        // 회원 가입
+        location.href = "/account/signup";
+    });
     sys_show_popup_login.on("click", function() {
-/*
-        // ---------------------------------------------------
-        // 레이어 팝업에서 일반 페이지로 전환해서 주석 처리
-        // 신재근, 2014.03.11
-        // ---------------------------------------------------
+        /*
         sys_popup_common.fadeIn();
         $("body").on("keydown.closePopup",function(e){
             var getCode = e.keyCode ? e.keyCode : e.which;
@@ -98,11 +99,10 @@ $(function(){
                 sys_popup_common.find(".closePopup").trigger("click");
             }
         });
-
         return false;
-*/
-
-        location.href = "account/login";
+        */
+        // 회원 로그인
+        location.href = "/account/login";
     });
     sys_popup_common.on("click.closePopup",".closePopup,.overlay-bl-bg",function(){
         sys_popup_common.fadeOut(function(){

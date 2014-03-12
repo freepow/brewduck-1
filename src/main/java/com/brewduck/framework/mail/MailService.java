@@ -39,7 +39,7 @@ public class MailService {
         html.append("<table border='0' cellspacing='0' cellpadding='10' width='600' align='center'>");
         html.append("<tbody>");
         html.append("<tr>");
-        html.append("<td height='80' align='center'><a href='#' target='_blank'><img src='http://nanooda01.cafe24.com/resources/images/logo_email.png' border='0' alt='NanoodaMusic' width='187' height='72'></a></td>");
+        html.append("<td height='80' align='center'><a href='#' target='_blank'><img src='#' border='0' alt='NanoodaMusic' width='187' height='72'></a></td>");
         html.append("</tr>");
         html.append("<tr>");
         html.append("<td bgcolor='#FFFFFF'>");
