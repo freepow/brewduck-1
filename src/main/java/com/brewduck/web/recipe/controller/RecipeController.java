@@ -58,9 +58,8 @@ public class RecipeController {
      * @param name 맥주 레시피 영문명
      * @return 맥주 레시피 상세.
      */
-    @ResponseBody
     @RequestMapping(value = "/detail/{name}", method = RequestMethod.GET)
-    public Recipe selectRecipeDetail(Model model, @PathVariable("name") String name) {
+    public String selectRecipeDetail(Model model, @PathVariable("name") String name) {
         LOGGER.info("Recipe Name : {}", name);
 
         Recipe recipe = new Recipe();
@@ -69,7 +68,9 @@ public class RecipeController {
         // 맥주 레시피 상세 조회
         Recipe recipeDetail = recipeService.selectRecipeDetail(recipe);
 
-        return recipeDetail;
+        model.addAttribute("recipeDetail", recipeDetail);
+
+        return "recipe/detail";
     }
 
     /**

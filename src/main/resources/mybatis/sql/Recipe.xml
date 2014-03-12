@@ -115,71 +115,73 @@
         <!-- 맥주 레시피 수정 -->
         UPDATE brewduckdb.RECIPE
         <trim prefix="SET" suffixOverrides=",">
-            <if test="koreanName != null">
+            <if test="name != null">
                 name = #{name},
             </if>
             <if test="version != null">
-                version = #{version}
+                version = #{version},
             </if>
             <if test="type != null">
-                type = #{type}
+                type = #{type},
             </if>
             <if test="brewer != null">
-                brewer = #{brewer}
+                brewer = #{brewer},
             </if>
             <if test="asstBrewer != null">
-                asst_brewer = #{asstBrewer}
+                asst_brewer = #{asstBrewer},
             </if>
             <if test="batchSize != null">
-                batch_size = #{batchSize}
+                batch_size = #{batchSize},
             </if>
             <if test="boilSize != null">
-                boil_size = #{boilSize}
+                boil_size = #{boilSize},
             </if>
             <if test="boilTime != null">
-                boil_time = #{boilTime}
+                boil_time = #{boilTime},
             </if>
             <if test="efficiency != null">
-                efficiency = #{efficiency}
+                efficiency = #{efficiency},
             </if>
             <if test="notes != null">
-                notes = #{notes}
+                notes = #{notes},
             </if>
             <if test="og != null">
-                og = #{og}
+                og = #{og},
             </if>
             <if test="fg != null">
-                fg = #{fg}
+                fg = #{fg},
             </if>
             <if test="primaryAge != null">
-                primary_age = #{primaryAge}
+                primary_age = #{primaryAge},
             </if>
             <if test="primaryTemp != null">
-                primary_temp = #{primaryTemp}
+                primary_temp = #{primaryTemp},
             </if>
             <if test="secondaryAge != null">
-                secondary_age = #{secondaryAge}
+                secondary_age = #{secondaryAge},
             </if>
             <if test="secondaryTemp != null">
-                secondary_temp = #{secondaryTemp}
+                secondary_temp = #{secondaryTemp},
             </if>
             <if test="age != null">
-                age = #{age}
+                age = #{age},
             </if>
             <if test="ageTemp != null">
-                age_temp = #{ageTemp}
+                age_temp = #{ageTemp},
             </if>
             <if test="primingSugarName != null">
-                priming_sugar_name = #{primingSugarName}
+                priming_sugar_name = #{primingSugarName},
             </if>
+<!--
             <if test="updateId != null">
                 read_count = (
                               SELECT (IFNULL(MAX(name), 0) + 1)  read_count
                                 FROM brewduckdb.RECIPE
                                WHERE seq  = #{seq}
                                  AND name = #{name}
-                             )
+                             ),
             </if>
+-->
             <if test="updateId != null">
                 update_id = #{updateId},
             </if>

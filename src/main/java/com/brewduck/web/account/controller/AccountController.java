@@ -3,8 +3,6 @@ package com.brewduck.web.account.controller;
 import com.brewduck.framework.crypto.SimpleCrypto;
 import com.brewduck.framework.security.AuthenticationUtils;
 import com.brewduck.framework.security.LoginAuthorityType;
-import org.springframework.security.core.AuthenticationException;
-import com.brewduck.framework.security.UserAuthenticationFailureHandler;
 import com.brewduck.framework.security.UserAuthenticationSuccessHandler;
 import com.brewduck.web.account.service.AccountService;
 import com.brewduck.web.domain.Account;
@@ -15,7 +13,6 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
-import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.core.context.SecurityContext;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.context.SecurityContextImpl;
@@ -87,7 +84,7 @@ public class AccountController {
      *
      * @param account
      * @param result
-     * @param model
+     * @param redirectAttributes
      * @return
      */
     @RequestMapping(value = "/join", method = RequestMethod.POST)

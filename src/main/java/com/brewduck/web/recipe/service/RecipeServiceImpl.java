@@ -63,8 +63,8 @@ public class RecipeServiceImpl implements RecipeService {
         newRecipe.setYeasts(yeastDao.selectRecipeYeastList(newRecipe.getName()));
 
         // 조회수 업데이트
-        newRecipe.setUpdateId(Integer.toString(account.getId()));
-        recipeDao.updateRecipe(newRecipe);
+        // newRecipe.setUpdateId(Integer.toString(account.getId()));
+        // recipeDao.updateRecipe(newRecipe);
 
         return newRecipe;
     }
