@@ -54,7 +54,7 @@
             </div>
             <div class="header-left">
                 <h1 id="logo">
-                    <a href="index.html"><img src="/resources/images/logo.png" alt="$SITE_NAME"/></a>
+                    <a href="/"><img src="/resources/images/logo.png" alt="$SITE_NAME"/></a>
                 </h1>
                 <div class="main-nav clearfix">
                     <div class="nav-item">
