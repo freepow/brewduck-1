@@ -37,7 +37,7 @@
               ,b.korean_name         koreanName
               ,b.version             version
               ,a.amount              amount
-              ,a.fermentable_use     fermantableUse
+              ,a.fermentable_use     fermentableUse
               ,a.type                type
               ,b.yield               yield
               ,b.color               color
