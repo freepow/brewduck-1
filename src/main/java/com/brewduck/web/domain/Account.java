@@ -34,8 +34,8 @@ public class Account implements Serializable {
     // UserId
     private int id;
 
-    @NotEmpty(message = "이름은 필수 입력입니다.")
-    @Size(min = 2, max = 40, message = "이름은 2자에서 40자까지 입력하세요.")
+    @NotEmpty(message = "이름은 필수 입력입니다.", groups = { Join.class })
+    @Size(min = 2, max = 40, message = "이름은 2자에서 40자까지 입력하세요.", groups = { Join.class })
     private String name;
 
     @NotEmpty(message = "이메일은 필수 입력입니다.")
@@ -146,4 +146,8 @@ public class Account implements Serializable {
             return guestUser;
         }
     }
+
+    public interface Login {}
+    public interface Join {}
+
 }

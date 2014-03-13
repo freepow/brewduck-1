@@ -1,4 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 
 <div class="container_12 pop-content">
@@ -17,13 +18,13 @@
                     <p class="rs">다양한 서비스를 자유롭게 사용해보세요!</p>
                     <div class="form-action">
                         <label for="name">
-                            <form:input id="name" path="name" cssClass="txt fill-width" type="text" placeholder="성명을 입력하세요." maxlength="40" />
+                            <input id="name" name="name" class="txt fill-width" type="text" placeholder="성명을 입력하세요." maxlength="40" />
                             <form:errors path="name" />
                         </label>
                         <div class="wrap-2col clearfix">
                             <div class="col">
                                 <label for="email">
-                                    <form:input id="email" path="email" cssClass="txt fill-width" type="email" placeholder="이메일 주소를 입력하세요." maxlength="100" />
+                                    <input id="email" name="email" class="txt fill-width" type="email" placeholder="이메일 주소를 입력하세요." maxlength="100" />
                                     <form:errors path="email" />
                                 </label>
                                 <label for="reEmail">
@@ -32,7 +33,7 @@
                             </div>
                             <div class="col">
                                 <label for="password">
-                                    <form:input id="password" path="password" cssClass="txt fill-width" type="password" placeholder="패스워드를 입력하세요." maxlength="20" />
+                                    <input id="password" name="password" class="txt fill-width" type="password" placeholder="패스워드를 입력하세요." maxlength="20" />
                                     <form:errors path="password" />
                                 </label>
                                 <label for="rePassword">

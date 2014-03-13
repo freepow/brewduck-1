@@ -50,11 +50,7 @@ public class AuthenticationProviderImpl implements AuthenticationProvider, Initi
         String email = authentication.getPrincipal().toString();
         String password = authentication.getCredentials().toString();
 
-        try {
-            this.login(email, password);
-        } catch (AuthenticationNotException e) {
-            LOGGER.error("### AuthenticationNotException Occurred.", e);
-        }
+        this.login(email, password);
 
         UserDetails userDetails = userDetailsService.loadUserByUsername(email);
         return new UsernamePasswordAuthenticationToken(userDetails, password, userDetails.getAuthorities());
@@ -65,9 +61,9 @@ public class AuthenticationProviderImpl implements AuthenticationProvider, Initi
         return (UsernamePasswordAuthenticationToken.class.isAssignableFrom(authentication));
     }
 
-    private void login(String email, String password) throws AuthenticationNotException {
-        LOGGER.info("### Login Email : {}", email);
-        LOGGER.info("### Login Password : {}", password);
+    private void login(String email, String password) {
+        LOGGER.info("Login Email    : {}", email   );
+        LOGGER.info("Login Password : {}", password);
 
         try {
             authenticationService.login(email, password);
@@ -77,8 +73,10 @@ public class AuthenticationProviderImpl implements AuthenticationProvider, Initi
             throw new BadCredentialsException(e.getMessage(), e);
         } catch (PasswordMismatchException e) {
             throw new BadCredentialsException(e.getMessage(), e);
+        /*
         } catch(AuthenticationNotException e) {
             throw new AuthenticationNotException(e.getMessage(), e);
+        */
         } catch (Throwable e) {
             throw new RuntimeException(e);
         }

@@ -20,10 +20,7 @@ import org.springframework.security.web.context.HttpSessionSecurityContextReposi
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.servlet.ServletException;
@@ -72,9 +69,7 @@ public class AccountController {
      */
     @RequestMapping(value = "/signup", method = RequestMethod.GET)
     public String signin(Model model) {
-        LOGGER.debug("회원 가입 페이지");
-
-        model.addAttribute("account", new Account("", ""));
+        LOGGER.info("회원 가입 페이지");
 
         return "account/signup";
     }
@@ -91,7 +86,7 @@ public class AccountController {
     public String join(@ModelAttribute("account") @Valid Account account,
                        BindingResult result,
                        RedirectAttributes redirectAttributes) {
-        LOGGER.info("회원 가입");
+        LOGGER.info("회원 가입 처리");
 
         // 필수값 미입력시 가입 페이지로 전환
         if (result.hasErrors()) {
@@ -103,30 +98,20 @@ public class AccountController {
 
         int duplicateEmail = -99;
         if (insertCount == duplicateEmail) {
-            LOGGER.error("동일한 이메일이 존재합니다.");
             redirectAttributes.addFlashAttribute("message", "동일한 이메일이 존재합니다.");
+            LOGGER.error("동일한 이메일이 존재합니다.");
+
             return "redirect:/account/signup";
         }
 
         if (insertCount == 0) {
-            LOGGER.error("회원 가입 중 저장이 실패하였습니다.");
             redirectAttributes.addFlashAttribute("message", "회원 가입 중 저장이 실패하였습니다.");
+            LOGGER.error("회원 가입 중 저장이 실패하였습니다.");
+
             return "redirect:/account/signup";
         }
 
         return "redirect:/account/confirm";
-
-/*
-        // 관리자 추가 결과값 설정
-        Map<String, Object> resultMap = new HashMap<String, Object>();
-
-        resultMap.put("code", result);
-        if (result == -21) {
-            resultMap.put("message", "DB 입력 실패.");
-        }
-
-        return resultMap;
-*/
     }
 
     /**
@@ -136,7 +121,7 @@ public class AccountController {
      */
     @RequestMapping(value = "/confirm", method = RequestMethod.GET)
     public String confirm() {
-        LOGGER.debug("### 가입 완료 페이지");
+        LOGGER.info("가입 완료 페이지");
         return "account/confirm";
     }
 
@@ -147,21 +132,13 @@ public class AccountController {
      * @return
      */
     @RequestMapping(value = "/login", method = RequestMethod.GET)
-    public String login(Model model,
-                        String login_error,
-                        String error_message) {
-        LOGGER.info("### 로그인 페이지");
-        Account account = AuthenticationUtils.getUser();
+    public String login(Model model
+                       ,@RequestParam(value = "login_error"  , required = false) String loginError
+                       ,@RequestParam(value = "error_message", required = false) String errorMessage) {
+        LOGGER.info("로그인 페이지");
 
-        // 초기에 "GUEST"로 세팅되어 있는 것을 초기화 해줌.
-        if ("GUEST".equals(account.getName()) || "GUEST".equals(account.getEmail())) {
-            account.setName("");
-            account.setEmail("");
-        }
-
-        model.addAttribute("account", account);
-        model.addAttribute("login_error", login_error);
-        model.addAttribute("error_message", error_message);
+        model.addAttribute("loginError"  , loginError  );
+        model.addAttribute("errorMessage", errorMessage);
 
         return "account/login";
     }
@@ -173,7 +150,7 @@ public class AccountController {
      */
     @RequestMapping(value = "/logout", method = RequestMethod.GET)
     public String logout() {
-        LOGGER.info("### 로그아웃");
+        LOGGER.info("로그아웃");
 
         return "account/logout";
     }
@@ -183,31 +160,43 @@ public class AccountController {
      *
      * @param request
      * @param response
-     * @param email
-     * @param password
+     * @param account
+     * @param result
      * @throws java.io.IOException
      * @throws javax.servlet.ServletException
      */
     @RequestMapping(value = "/authentication", method = RequestMethod.POST)
-    public void login(HttpServletRequest request,
-                      HttpServletResponse response,
-                      String email,
-                      String password) throws IOException, ServletException {
-        LOGGER.info("로그인 인증 프로세스 시작");
-        LOGGER.info("username : {}", email);
+    public void login(HttpServletRequest  request
+                     ,HttpServletResponse response
+                     ,@ModelAttribute("account") @Valid Account account
+                     ,BindingResult result) throws IOException, ServletException {
+        LOGGER.info("로그인 인증 프로세스 시작 : {}", account.toString());
+
+        // 필수값 미입력시 로그인 페이지로 전환
+        if (result.hasErrors()) {
+            LOGGER.info("로그인 실패     : {}", account.toString());
+            LOGGER.info("로그인 실패 이유 : {}", result.getAllErrors().toString());
+        }
+
+        String email    = account.getEmail();
+        String password = account.getPassword();
+
+        LOGGER.info("email    : {}", email   );
         LOGGER.info("password : {}", password);
 
         // 계정과 암호로 토큰 생성
         UsernamePasswordAuthenticationToken authRequest
                             = new UsernamePasswordAuthenticationToken(email, password);
+
         // 인증
         Authentication authentication = authenticationManager.authenticate(authRequest);
 
-        // 세션에 저장
         SecurityContext securityContext = new SecurityContextImpl();
         securityContext.setAuthentication(authentication);
+
         SecurityContextHolder.setContext(securityContext);
 
+        // 세션에 저장
         HttpSession session = request.getSession();
         session.setAttribute(HttpSessionSecurityContextRepository.SPRING_SECURITY_CONTEXT_KEY, securityContext);
 

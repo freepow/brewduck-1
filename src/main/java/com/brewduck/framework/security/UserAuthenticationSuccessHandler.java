@@ -17,7 +17,7 @@ public class UserAuthenticationSuccessHandler extends SavedRequestAwareAuthentic
     public void onAuthenticationSuccess(HttpServletRequest request,
                                         HttpServletResponse response,
                                         Authentication authentication) throws IOException, ServletException {
-        LOGGER.info("### Login Success!!!");
+        LOGGER.info("### Login Success : {}", authentication);
         super.onAuthenticationSuccess(request, response, authentication);
     }
 }

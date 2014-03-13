@@ -23,7 +23,7 @@ import java.util.Collection;
  * To change this template use File | Settings | File Templates.
  */
 public class UserDetailServiceImpl implements UserDetailsService {
-    private static final Logger logger = LoggerFactory.getLogger(UserDetailServiceImpl.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(UserDetailServiceImpl.class);
 
     private AccountService accountService;
 
@@ -46,18 +46,18 @@ public class UserDetailServiceImpl implements UserDetailsService {
         }
 
         if (account != null) {
-            // 추후 언제 로그인 했는지 기록 예정
+            LOGGER.info("추후 언제 로그인 했는지 기록 예정");
 
-
-            return new UserDetailService(account.getEmail(),
-                            account.getPassword(),
-                            true,
-                            true,
-                            true,
-                            true,
-                            this.createAuthorities(account),
-                            account
-                        );
+            return new UserDetailService(
+                                    account.getEmail(),
+                                    account.getPassword(),
+                                    true,
+                                    true,
+                                    true,
+                                    true,
+                                    this.createAuthorities(account),
+                                    account
+                                );
         }
 
         return null;

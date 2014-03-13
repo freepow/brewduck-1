@@ -18,16 +18,15 @@
         </mapper>
 
         <mapper class="com.opensymphony.module.sitemesh.mapper.InlineDecoratorMapper">
-            <!--
-                request에 com.opensymphony.module.sitemesh.RequestConstants.DECORATOR 의 속성 값으로
-                데코레이터 이름을 지정한다.
-            -->
+        <!--
+            request에 com.opensymphony.module.sitemesh.RequestConstants.DECORATOR 의 속성 값으로
+            데코레이터 이름을 지정한다.
+        -->
         </mapper>
 
         <mapper class="com.opensymphony.module.sitemesh.mapper.ConfigDecoratorMapper">
             <param name="config" value="${decorators-file}" />
         </mapper>
-
     </decorator-mappers>
 
 </sitemesh>

@@ -1,4 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 
 <div class="container_12 pop-content">
     <div class="grid_12 wrap-btn-close ta-r">
@@ -6,20 +8,22 @@
     </div>
     <div class="grid_5 prefix_4">
         <div class="form login-form">
-            <form id="authentication" method="POST" action="/account/authentication">
+            <form:form id="authentication" method="POST" action="/account/authentication" modelAttribute="account">
                 <h3 class="rs title-form">입장 (Login)</h3>
                 <div class="box-white">
                     <h4 class="rs title-box">이미 회원이신가요?</h4>
-                <c:if test="${login_error eq 'false'}">
-                    <h4 class="rs title-box fc-orange">${error_message}</h4>
+                <c:if test="${loginError eq 'false'}">
+                    <h4 class="rs title-box fc-orange">${errorMessage}</h4>
                 </c:if>
                     <p class="rs">로그인 해주세요!</p>
                     <div class="form-action">
                         <label for="email">
                             <input id="email" name="email" type="email" class="txt fill-width" placeholder="이메일 주소를 입력하세요." maxlength="40" />
+                            <form:errors path="email" />
                         </label>
                         <label for="password">
                             <input id="password" name="password" type="password" class="txt fill-width" placeholder="패스워드를 입력하세요." maxlength="100" />
+                            <form:errors path="password" />
                         </label>
 
                         <label for="chk_remember" class="rs pb20 clearfix">
@@ -34,7 +38,7 @@
                         </p>
                     </div>
                 </div>
-            </form>
+            </form:form>
         </div>
     </div>
     <div class="clear"></div>

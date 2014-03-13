@@ -8,23 +8,21 @@
         <pattern>/resource/images/*</pattern>
         <pattern>/resource/images/*/*</pattern>
         <pattern>/resource/images/*/*/*</pattern>
+        <!--
         <pattern>/service/*/*</pattern>
         <pattern>/service/*</pattern>
+        -->
     </excludes>
 
     <decorator name="default" page="default.jsp">
-        <pattern>/index</pattern>
+        <!--
         <pattern>/help/*</pattern>
-        <pattern>/help/faq</pattern>
         <pattern>/company/*</pattern>
         <pattern>/profile/*</pattern>
         <pattern>/recipe/*</pattern>
         <pattern>/account/*</pattern>
-        <pattern>/</pattern>
-    </decorator>
-
-    <decorator name="default_mini" page="default_mini.jsp">
-        <pattern>/recipe/*</pattern>
+        -->
+        <pattern>/*</pattern>
     </decorator>
 
 </decorators>

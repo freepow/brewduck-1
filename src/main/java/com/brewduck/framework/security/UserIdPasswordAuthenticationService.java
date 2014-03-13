@@ -21,7 +21,7 @@ import org.springframework.util.StringUtils;
  */
 @Service(value = "authenticationService")
 public class UserIdPasswordAuthenticationService implements AuthenticationService {
-    private static Logger logger = LoggerFactory.getLogger(UserIdPasswordAuthenticationService.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(UserIdPasswordAuthenticationService.class);
 
     @Autowired
     AccountService accountService;
@@ -29,11 +29,13 @@ public class UserIdPasswordAuthenticationService implements AuthenticationServic
     @Override
     public void login(String email, String password) throws UserNotFoundException, AuthenticationNotException, PasswordMismatchException {
         if (StringUtils.isEmpty(email)) {
+            LOGGER.info("이메일 정보가 존재하지 않습니다.");
             throw new UserNotFoundException("이메일 정보가 존재하지 않습니다.");
         }
 
         Account account = accountService.selectAccount(new Account(email, password));
         if (account == null) {
+            LOGGER.info("회원 정보가 존재하지 않습니다.");
             throw new UserNotFoundException("회원 정보가 존재하지 않습니다.");
         }
 
@@ -42,6 +44,7 @@ public class UserIdPasswordAuthenticationService implements AuthenticationServic
         // 이메일 인증 회원인지 체크 필요
         // throw new AuthenticationNotException("### 이메일 인증이 필요합니다.");
         if ( ! account.getPassword().equals(password)) {
+            LOGGER.info("비밀번호가 틀렸습니다.");
             throw new PasswordMismatchException("비밀번호가 틀렸습니다.");
         }
     }

@@ -40,9 +40,9 @@ public class HomeController {
      */
     @RequestMapping(value = "/")
     public String home(Model model) {
-        Account account = AuthenticationUtils.getUser();
+        // Account account = AuthenticationUtils.getUser();
 
-        model.addAttribute("account", account);
+        // model.addAttribute("account", account);
 
         return "home";
     }

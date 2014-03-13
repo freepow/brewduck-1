@@ -19,7 +19,7 @@
     <beans:bean id="logoutHandler" class="com.brewduck.framework.security.LogoutHandler" />
 
     <http pattern="/resources/**" security="none" />
-    <http pattern="/favicon.ico" security="none" />
+    <http pattern="/favicon.ico"  security="none" />
 
     <http auto-config="true" use-expressions="true">
         <form-login login-page="/account/login"
@@ -28,16 +28,14 @@
                     password-parameter="password"
                     authentication-failure-url="/account/login?login_error=false"
                     authentication-success-handler-ref="authenticationSuccessHandler"
-                    authentication-failure-handler-ref="authenticationFailureHandler" />
+                    authentication-failure-handler-ref="authenticationFailureHandler"
+                    />
 
-        <intercept-url pattern="/account/**" access="permitAll" />
-        <intercept-url pattern="/favicon.ico" access="permitAll" />
+        <intercept-url pattern="/favicon.ico"  access="permitAll" />
         <intercept-url pattern="/resources/**" access="permitAll" />
-        <intercept-url pattern="/auth/**" access="permitAll" />
-        <intercept-url pattern="/style/**" access="permitAll" />
-        <intercept-url pattern="/recipe/**" access="permitAll" />
+        <intercept-url pattern="/account/**"   access="permitAll" />
         <intercept-url pattern="/profile/**" access="hasRole('ROLE_SIGNIN')" />
-        <intercept-url pattern="/disconnect/facebook" access="permitAll" />
+        <intercept-url pattern="/recipe/**"  access="permitAll" />
         <intercept-url pattern="/" access="permitAll" />
 
         <logout logout-url="/logout" success-handler-ref="logoutHandler" />
@@ -53,7 +51,7 @@
     <!-- 인증관련 모듈 -->
     <beans:bean id="authenticationProvider" class="com.brewduck.framework.security.AuthenticationProviderImpl">
         <beans:property name="authenticationService" ref="authenticationService" />
-        <beans:property name="userDetailsService" ref="userDetailService" />
+        <beans:property name="userDetailsService"    ref="userDetailService"     />
     </beans:bean>
 
 </beans:beans>

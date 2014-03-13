@@ -21,7 +21,7 @@ import java.util.Collection;
  * To change this template use File | Settings | File Templates.
  */
 public class AuthenticationUtils {
-    private static Logger logger = LoggerFactory.getLogger(AuthenticationUtils.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(AuthenticationUtils.class);
 
     public static Authentication getAuthentication() {
         if (SecurityContextHolder.getContext() == null) {
@@ -50,13 +50,13 @@ public class AuthenticationUtils {
 
         Object principal = authentication.getPrincipal();
         if (principal == null) {
-            throw new NullPointerException("### Principal should not null!");
+            throw new NullPointerException("'Principal'은 반드시 값이 존재해야 합니다.");
         }
 
         if (principal instanceof UserDetailService) {
             UserDetailService userDetails = (UserDetailService) principal;
-            Account account = userDetails.getAccount();
-            return account;
+
+            return userDetails.getAccount();
         } else {
             return Account.GUEST_USER.getGuestUser();
         }
@@ -78,8 +78,9 @@ public class AuthenticationUtils {
 
         AuthenticationTrustResolver trustResolver = new AuthenticationTrustResolverImpl();
         if (getAuthentication().isAuthenticated()) {
-            return !trustResolver.isAnonymous(getAuthentication());
+            return (trustResolver.isAnonymous(getAuthentication()) == false);
         }
+
         return false;
     }
 }
