@@ -39,16 +39,23 @@
         <div class="grid_12 header-content">
             <div id="sys_header_right" class="header-right">
                 <div class="account-panel">
-                    <%
-                        if (AuthenticationUtils.isAuthenticated() == false) {
-                    %>
+                <%
+                    if (AuthenticationUtils.isAuthenticated() == false) {
+                %>
                     <a href="#" class="btn btn-red sys_show_popup_join">멤버 등록</a>
                     <a href="#" class="btn btn-white sys_show_popup_login">로그인</a>
-                    <%
-                        } else {
-                            out.print("환영합니다. " + AuthenticationUtils.getUser().getName());
-                        }
-                    %>
+                <%
+                    } else {
+                %>
+                    <div class="main-nav clearfix">
+                        <div class="nav-item">
+                            <a href="/account/logout" class="nav-title">로그아웃</a>
+                            <p class="rs nav-description">환영합니다.</p>
+                        </div>
+                    </div>
+                <%
+                    }
+                %>
                 </div>
                 <div class="form-search">
                     <form action="#">

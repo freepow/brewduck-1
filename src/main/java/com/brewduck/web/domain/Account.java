@@ -15,6 +15,10 @@ public class Account implements Serializable {
 
     public static final GuestUser GUEST_USER = new GuestUser();
 
+    public static interface Login {}
+
+    public static interface Join {}
+
 
     public Account() {
     }
@@ -38,15 +42,15 @@ public class Account implements Serializable {
     @Size(min = 2, max = 40, message = "이름은 2자에서 40자까지 입력하세요.", groups = { Join.class })
     private String name;
 
-    @NotEmpty(message = "이메일은 필수 입력입니다.")
-    @Email(message = "올바른 이메일 형식이 아닙니다.")
+    @NotEmpty(message = "이메일은 필수 입력입니다.", groups = { Join.class, Login.class })
+    @Email(message = "올바른 이메일 형식이 아닙니다.", groups = { Join.class, Login.class })
     @Size(min = 6, max = 100, message = "이메일은 6자에서 100자까지 입력 가능합니다.")
     private String email;
 
     private String reEmail;
 
-    @NotEmpty(message = "비밀번호는 필수 입력입니다.")
-    @Size(min = 6, max = 20, message = "비밀번호는 6자에서 20자까지 입력하세요.")
+    @NotEmpty(message = "비밀번호는 필수 입력입니다.", groups = { Join.class, Login.class })
+    @Size(min = 6, max = 20, message = "비밀번호는 6자에서 20자까지 입력하세요.", groups = { Join.class, Login.class })
     private String password;
 
     private String rePassword;
@@ -146,8 +150,4 @@ public class Account implements Serializable {
             return guestUser;
         }
     }
-
-    public interface Login {}
-    public interface Join {}
-
 }

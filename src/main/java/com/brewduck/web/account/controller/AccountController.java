@@ -1,7 +1,6 @@
 package com.brewduck.web.account.controller;
 
 import com.brewduck.framework.crypto.SimpleCrypto;
-import com.brewduck.framework.security.AuthenticationUtils;
 import com.brewduck.framework.security.LoginAuthorityType;
 import com.brewduck.framework.security.UserAuthenticationSuccessHandler;
 import com.brewduck.web.account.service.AccountService;
@@ -20,6 +19,7 @@ import org.springframework.security.web.context.HttpSessionSecurityContextReposi
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
@@ -27,7 +27,6 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import javax.validation.Valid;
 import java.io.IOException;
 
 
@@ -83,7 +82,7 @@ public class AccountController {
      * @return
      */
     @RequestMapping(value = "/join", method = RequestMethod.POST)
-    public String join(@ModelAttribute("account") @Valid Account account,
+    public String join(@ModelAttribute("account") @Validated(Account.Join.class) Account account,
                        BindingResult result,
                        RedirectAttributes redirectAttributes) {
         LOGGER.info("회원 가입 처리");
@@ -92,6 +91,19 @@ public class AccountController {
         if (result.hasErrors()) {
             LOGGER.info("가입 실패 : {}", account.toString());
             return "account/signup";
+        }
+
+        if (account.getEmail().equals(account.getReEmail()) == false) {
+            redirectAttributes.addFlashAttribute("message", "이메일 주소가 동일하지 않습니다.");
+            LOGGER.error("이메일 주소가 동일하지 않습니다.");
+
+            return "redirect:/account/signup";
+        }
+        if (account.getPassword().equals(account.getRePassword()) == false) {
+            redirectAttributes.addFlashAttribute("message", "비빌번호가 동일하지 않습니다.");
+            LOGGER.error("비빌번호가 동일하지 않습니다.");
+
+            return "redirect:/account/signup";
         }
 
         int insertCount = accountService.insertAccount(account);
@@ -168,7 +180,7 @@ public class AccountController {
     @RequestMapping(value = "/authentication", method = RequestMethod.POST)
     public void login(HttpServletRequest  request
                      ,HttpServletResponse response
-                     ,@ModelAttribute("account") @Valid Account account
+                     ,@ModelAttribute("account") @Validated(Account.Login.class) Account account
                      ,BindingResult result) throws IOException, ServletException {
         LOGGER.info("로그인 인증 프로세스 시작 : {}", account.toString());
 
