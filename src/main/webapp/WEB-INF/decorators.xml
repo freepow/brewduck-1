@@ -14,7 +14,7 @@
         -->
     </excludes>
 
-    <decorator name="default" page="default.jsp">
+    <decorator name="default" page="fullsize.jsp">
         <!--
         <pattern>/help/*</pattern>
         <pattern>/company/*</pattern>
