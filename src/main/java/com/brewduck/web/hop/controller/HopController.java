@@ -1,5 +1,6 @@
 package com.brewduck.web.hop.controller;
 
+import com.brewduck.web.domain.Account;
 import com.brewduck.web.domain.Hop;
 import com.brewduck.web.hop.service.HopService;
 import org.slf4j.Logger;
@@ -35,6 +36,20 @@ public class HopController {
     @Autowired
     private HopService hopService;
 
+    /**
+     * <pre>
+     * 맥주 홉 메인
+     * </pre>
+     *
+     * @param model Model
+     * @return 맥주 홉 메인
+     */
+    @RequestMapping(value = "/index", method = RequestMethod.GET)
+    public String main(Model model) {
+        logger.info("Hop index");
+
+        return "hop/index";
+    }
 
     /**
      * <pre>

@@ -14,7 +14,11 @@
         -->
     </excludes>
 
-    <decorator name="default" page="fullsize.jsp">
+    <decorator name="full-content" page="full-content.jsp">
+        <pattern>/hop/*</pattern>
+    </decorator>
+
+    <decorator name="default" page="default.jsp">
         <!--
         <pattern>/help/*</pattern>
         <pattern>/company/*</pattern>

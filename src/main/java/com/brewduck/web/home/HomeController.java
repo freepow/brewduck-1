@@ -47,15 +47,15 @@ public class HomeController {
         return "home";
     }
 
-    @RequestMapping(value = "/sample", method = RequestMethod.GET)
-    public String sample(Model model,
-                       HttpServletRequest request) {
-        Account account = AuthenticationUtils.getUser();
+        @RequestMapping(value = "/sample", method = RequestMethod.GET)
+        public String sample(Model model,
+                           HttpServletRequest request) {
+            Account account = AuthenticationUtils.getUser();
 
-        model.addAttribute("account", account);
+            model.addAttribute("account", account);
 
-        return "sample";
-    }
+            return "sample";
+        }
 
     @RequestMapping(value = "/default", method = RequestMethod.GET)
     public String basic(Model model,
