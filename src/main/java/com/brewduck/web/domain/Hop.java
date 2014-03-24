@@ -34,8 +34,10 @@ public class Hop implements Serializable {
     private Integer time;
     // 설명
     private String notes;
-    // 홉의 용도 (쓴맛,향,둘다)
+    // 홉의 용도 ( Bittering,Aroma,Both)
     private String type;
+    // 홉의 용도 한글 (쓴맛,향,둘다)
+    private String typeKorean;
     // 홉의 형태(Pellet, Plug, Leaf)
     private String form;
     // 홉 베타값(단위: %)
@@ -165,6 +167,10 @@ public class Hop implements Serializable {
     public void setType(String type) {
         this.type = type;
     }
+
+    public String getTypeKorean() { return typeKorean;  }
+
+    public void setTypeKorean(String typeKorean) { this.typeKorean = typeKorean; }
 
     public String getForm() {
         return form;

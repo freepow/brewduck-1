@@ -3,28 +3,32 @@
 <mapper namespace="Hop">
 
     <sql id="Hop.selectHop">
-        SELECT
-               name             name
-              ,korean_name      koreanName
-              ,version          version
-              ,alpha            alpha
-              ,notes            notes
-              ,type             type
-              ,beta             beta
-              ,hsi              hsi
-              ,origin           origin
-              ,substitutes      substitutes
-              ,humulene         humulene
-              ,caryophyllene    caryophyllene
-              ,cohumulone       cohumulone
-              ,myrcene          myrcene
-              ,insert_id        insertId
-              ,insert_date      insertDate
-              ,update_id        updateId
-              ,update_date      updateDate
-              ,delete_id        deleteId
-              ,delete_date      deleteDate
-          FROM brewduckdb.HOPS
+          SELECT
+               A.name             name
+              ,A.korean_name      koreanName
+              ,A.version          version
+              ,A.alpha            alpha
+              ,A.notes            notes
+              ,A.type             type
+              ,(select B.attribute1desc
+                  from common_code B
+                 where common_set = 'hop_type'
+                   and A.type = B.common_code) as typeKorean
+              ,A.beta             beta
+              ,A.hsi              hsi
+              ,A.origin           origin
+              ,A.substitutes      substitutes
+              ,A.humulene         humulene
+              ,A.caryophyllene    caryophyllene
+              ,A.cohumulone       cohumulone
+              ,A.myrcene          myrcene
+              ,A.insert_id        insertId
+              ,A.insert_date      insertDate
+              ,A.update_id        updateId
+              ,A.update_date      updateDate
+              ,A.delete_id        deleteId
+              ,A.delete_date      deleteDate
+          FROM brewduckdb.HOPS A
     </sql>
 
     <sql id="Hop.selectRecipeHop">
@@ -63,6 +67,7 @@
         <include refid="Hop.selectHop" />
         <trim prefix="WHERE" prefixOverrides="AND | OR">
             <if test="name != null">AND NAME like CONCAT('%', #{name}, '%') </if>
+            <if test="type != null and type != 0">AND type =  #{type} </if>
         </trim>
         AND delete_id IS NULL
     </select>
