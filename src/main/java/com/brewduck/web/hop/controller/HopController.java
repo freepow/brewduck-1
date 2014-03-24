@@ -59,15 +59,18 @@ public class HopController {
      * @param model Model
      * @return 맥주 홉 목록
      */
-    @ResponseBody
     @RequestMapping(value = "/list", method = RequestMethod.GET)
-    public List<Hop> HopList(Model model) {
-        logger.info("Hop List");
+    @ResponseBody
+    public List<Hop> HopList(Model model,Hop paramHop) {
+        logger.info("Hop List searching.........");
+
+        logger.info("Hop name " + paramHop.getName());
         Hop hop = new Hop();
 
         // 맥주 홉 목록 조회
         List<Hop> list = hopService.selectHopList(hop);
-        logger.info("Hop List Size : {}", list.size());
+        //List<Hop> list = null;
+        //logger.info("Hop List Size : {}", list.size());
 
         return list;
     }

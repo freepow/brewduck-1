@@ -33,6 +33,7 @@
 
         <intercept-url pattern="/favicon.ico"  access="permitAll" />
         <intercept-url pattern="/resources/**" access="permitAll" />
+        <intercept-url pattern="/hop/**" access="permitAll" />
         <intercept-url pattern="/account/**"   access="permitAll" />
         <intercept-url pattern="/profile/**" access="hasRole('ROLE_SIGNIN')" />
         <intercept-url pattern="/recipe/**"  access="permitAll" />
