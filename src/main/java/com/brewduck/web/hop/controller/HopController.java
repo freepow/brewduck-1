@@ -68,7 +68,7 @@ public class HopController {
         Hop hop = new Hop();
 
         // 맥주 홉 목록 조회
-        List<Hop> list = hopService.selectHopList(hop);
+        List<Hop> list = hopService.selectHopList(paramHop);
         //List<Hop> list = null;
         //logger.info("Hop List Size : {}", list.size());
 

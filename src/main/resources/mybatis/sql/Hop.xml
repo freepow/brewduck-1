@@ -61,8 +61,10 @@
     <select id="Hop.selectHopList" parameterType="Hop" resultType="Hop">
         <!-- 맥주 홉 목록 조회 -->
         <include refid="Hop.selectHop" />
-        WHERE delete_id IS NULL
-          AND NAME = 'Ahtanum'
+        <trim prefix="WHERE" prefixOverrides="AND | OR">
+            <if test="name != null">AND NAME like CONCAT('%', #{name}, '%') </if>
+        </trim>
+        AND delete_id IS NULL
     </select>
 
     <select id="Hop.selectRecipeHopList" parameterType="Hop" resultType="Hop">
