@@ -39,6 +39,11 @@ public class HopServiceImpl implements HopService {
     }
 
     @Override
+    public Hop countHopOrigin(Hop hop) {
+        return hopDao.countHopOrigin(hop);
+    }
+
+    @Override
     public Boolean insertHop(Hop hop) {
         int insertCount = hopDao.insertHop(hop);
 

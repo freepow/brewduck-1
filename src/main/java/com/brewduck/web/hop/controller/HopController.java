@@ -104,6 +104,35 @@ public class HopController {
 
     /**
      * <pre>
+     * 맥주 홉 국가 별 갯수 조회.
+     * </pre>
+     *
+     * @param model Model
+     * @param origin 맥주 홉 영문명
+     * @return 맥주 홉 국가 별 갯수.
+     */
+    @ResponseBody
+    @RequestMapping(value = "/count/{origin}", method = RequestMethod.GET)
+    // public String HopDetail(Model model, @PathVariable("name") String name) {
+    public Hop countHopOrigin(Model model, @PathVariable("origin") String origin) {
+        logger.info("Count Hop Origin : {}", origin);
+
+        Hop hop = new Hop();
+        hop.setOrigin(origin);
+
+        // 맥주 홉 국가 별 갯수 조회.
+        Hop countHopOrigin = hopService.countHopOrigin(hop);
+
+        // model.addAttribute("Hop", Hop);
+        // return "/Hop/HopView";
+
+        return countHopOrigin;
+    }
+
+
+
+    /**
+     * <pre>
      * 맥주 홉 저장.
      * </pre>
      *

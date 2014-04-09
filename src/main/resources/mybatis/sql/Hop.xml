@@ -68,6 +68,7 @@
         <trim prefix="WHERE" prefixOverrides="AND | OR">
             <if test="name != null">AND NAME like CONCAT('%', #{name}, '%') </if>
             <if test="type != null and type != 0">AND type =  #{type} </if>
+            <if test="origin != null">AND origin =  #{origin} </if>
         </trim>
         AND delete_id IS NULL
     </select>
@@ -88,6 +89,14 @@
         </if>
         <if test="type != null">
             AND type = #{type}
+        </if>
+    </select>
+
+
+    <select id="Hop.countHopOrigin" parameterType="Hop" resultType="Hop">
+        <!-- 맥주 홉 국가 별 갯수 조회 -->
+        <if test = "origin != null">
+         SELECT COUNT(*) FROM brewduckdb.HOPS WHERE origin  = #{origin}
         </if>
     </select>
 

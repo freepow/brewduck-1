@@ -36,6 +36,16 @@ public interface HopService {
 
     /**
      * <pre>
+     * 맥주 홉 국가 별 갯수 조회.
+     * </pre>
+     *
+     * @param hop 맥주 홉
+     * @return 맥주 홉 내용
+     */
+    public Hop countHopOrigin(Hop hop);
+
+    /**
+     * <pre>
      * 맥주 홉 저장.
      * </pre>
      *
@@ -63,5 +73,6 @@ public interface HopService {
      * @return 삭제 성공 여부
      */
     public Boolean deleteHop(Hop hop);
+
 
 }
