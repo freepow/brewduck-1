@@ -93,11 +93,17 @@
     </select>
 
 
-    <select id="Hop.countHopOrigin" parameterType="Hop" resultType="Hop">
+    <select id="Hop.countHopOrigin" resultType="Hop">
         <!-- 맥주 홉 국가 별 갯수 조회 -->
-        <if test = "origin != null">
-         SELECT COUNT(*) FROM brewduckdb.HOPS WHERE origin  = #{origin}
-        </if>
+        SELECT
+        (SELECT COUNT(*) FROM HOPS WHERE ORIGIN = 'US') usCnt,
+        (SELECT COUNT(*) FROM HOPS WHERE ORIGIN = 'DE') deCnt,
+        (SELECT COUNT(*) FROM HOPS WHERE ORIGIN = 'UK') ukCnt,
+        (SELECT COUNT(*) FROM HOPS WHERE ORIGIN = 'NZ') nzCnt,
+        (SELECT COUNT(*) FROM HOPS WHERE ORIGIN = 'AU') auCnt,
+        (SELECT COUNT(*) FROM HOPS WHERE ORIGIN = 'SI') siCnt,
+        (SELECT COUNT(*) FROM HOPS WHERE ORIGIN != 'US' AND ORIGIN != 'DE' AND ORIGIN != 'UK' AND ORIGIN != 'NZ' AND ORIGIN != 'AU' AND ORIGIN != 'SI') etcCnt
+        FROM DUAL
     </select>
 
     <insert id="Hop.insertHop" parameterType="Hop">

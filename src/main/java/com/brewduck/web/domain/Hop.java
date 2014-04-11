@@ -74,6 +74,20 @@ public class Hop implements Serializable {
     private Boolean updateFlag;
     // 삭제 성공 여부
     private Boolean deleteFlag;
+    //미국 홉 갯수
+    private String usCnt;
+    //독일 홉 갯수
+    private String deCnt;
+    //영국 홉 갯수
+    private String ukCnt;
+    //뉴질랜드 홉 갯수
+    private String nzCnt;
+    //호주 홉 갯수
+    private String auCnt;
+    //슬로베니아 홉 갯수
+    private String siCnt;
+    //기타 홉 갯수
+    private String etcCnt;
 
 
     /**
@@ -404,6 +418,62 @@ public class Hop implements Serializable {
      */
     public void setDeleteFlag(Boolean deleteFlag) {
         this.deleteFlag = deleteFlag;
+    }
+
+    public String getUsCnt() {
+        return usCnt;
+    }
+
+    public void setUsCnt(String usCnt) {
+        this.usCnt = usCnt;
+    }
+
+    public String getDeCnt() {
+        return deCnt;
+    }
+
+    public void setDeCnt(String deCnt) {
+        this.deCnt = deCnt;
+    }
+
+    public String getUkCnt() {
+        return ukCnt;
+    }
+
+    public void setUkCnt(String ukCnt) {
+        this.ukCnt = ukCnt;
+    }
+
+    public String getNzCnt() {
+        return nzCnt;
+    }
+
+    public void setNzCnt(String nzCnt) {
+        this.nzCnt = nzCnt;
+    }
+
+    public String getAuCnt() {
+        return auCnt;
+    }
+
+    public void setAuCnt(String auCnt) {
+        this.auCnt = auCnt;
+    }
+
+    public String getSiCnt() {
+        return siCnt;
+    }
+
+    public void setSiCnt(String siCnt) {
+        this.siCnt = siCnt;
+    }
+
+    public String getEtcCnt() {
+        return etcCnt;
+    }
+
+    public void setEtcCnt(String etcCnt) {
+        this.etcCnt = etcCnt;
     }
 
     @Override

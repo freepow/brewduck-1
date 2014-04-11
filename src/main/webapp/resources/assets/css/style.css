@@ -6273,8 +6273,8 @@ border-bottom-left-radius: 2px;
 }
 .select2.form-control{
 	padding: 0;
-	box-shadow:none;
-	border:0;
+    border:1px solid #E5E9EC;
+    font-size: 13px;
 }
 
 .input-append .add-on:last-child, .input-append .btn:last-child, .input-append .btn-group:last-child > .dropdown-toggle{
