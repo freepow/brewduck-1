@@ -74,13 +74,14 @@ public class HopController {
         Boolean updateFlag = hopService.updateViewCount(hop);
 
         List<Hop> hopUsedForList = hopService.selectHopUsedForList(hop);
+        List<Hop> hopAromaList = hopService.selectHopAromaList(hop);
 
         logger.info("updateFlag : {}", updateFlag);
-
         logger.info("hopUsedForList List Size : {}", hopUsedForList.size());
 
         model.addAttribute("HopDetail", hopDetail);
         model.addAttribute("hopUsedForList", hopUsedForList);
+        model.addAttribute("hopAromaList", hopAromaList);
 
         return "hop/detail";
     }
@@ -95,7 +96,7 @@ public class HopController {
      */
     @RequestMapping(value = "/list", method = RequestMethod.GET)
     @ResponseBody
-    public List<Hop> HopList(Model model,Hop paramHop) {
+    public List<Hop> HopList(Model model, Hop paramHop) {
         logger.info("Hop List searching.........");
 
         logger.info("Hop name " + paramHop.getName());

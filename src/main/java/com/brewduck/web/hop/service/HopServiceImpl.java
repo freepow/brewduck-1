@@ -39,6 +39,11 @@ public class HopServiceImpl implements HopService {
     }
 
     @Override
+    public List<Hop> selectHopAromaList(Hop hop) {
+        return hopDao.selectHopAromaList(hop);
+    }
+
+    @Override
     public Hop selectHopDetail(Hop hop) {
         return hopDao.selectHopDetail(hop);
     }

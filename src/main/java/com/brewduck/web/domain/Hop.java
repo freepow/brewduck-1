@@ -46,6 +46,8 @@ public class Hop implements Serializable {
     private Double hsi;
     // 홉 원산지
     private String origin;
+    //원산지 명
+    public String originKorean;
     // 홉 대체 재료
     private String substitutes;
     // Humulene 함량 (단위 : %) 향기의 주성분
@@ -74,21 +76,64 @@ public class Hop implements Serializable {
     private Boolean updateFlag;
     // 삭제 성공 여부
     private Boolean deleteFlag;
-    //미국 홉 갯수
-    private String usCnt;
-    //독일 홉 갯수
-    private String deCnt;
-    //영국 홉 갯수
-    private String ukCnt;
-    //뉴질랜드 홉 갯수
-    private String nzCnt;
-    //호주 홉 갯수
-    private String auCnt;
-    //슬로베니아 홉 갯수
-    private String siCnt;
-    //기타 홉 갯수
-    private String etcCnt;
+    //원산지 미국 홉 카운트
+    public String usCnt;
+    //원산지 미국 이름
+    public String usCntName;
+    //원산지 독일 홉 카운트
+    public String deCnt;
+    //원산지 미국 이름
+    public String deCntName;
+    //원산지 영국 홉 카운트
+    public String ukCnt;
+    //원산지 미국 이름
+    public String ukCntName;
+    //원산지 뉴질랜드 홉 카운트
+    public String nzCnt;
+    //원산지 미국 이름
+    public String nzCntName;
+    //원산지 호주 홉 카운트
+    public String auCnt;
+    //원산지 미국 이름
+    public String auCntName;
+    //원산지 슬로베닝니아 홉 카운트
+    public String siCnt;
+    //원산지 미국 이름
+    public String siCntName;
+    //원산지 기타 홉 카운트
+    public String etcCnt;
+    //원산지 미국 이름
+    public String etcCntName;
+    //사용용도
+    public String usedFor;
+    //아로마명
+    public String aromaName;
+    //아로마 코드
+    public String aromaCode;
 
+    public String getAromaName() {
+        return aromaName;
+    }
+
+    public void setAromaName(String aromaName) {
+        this.aromaName = aromaName;
+    }
+
+    public String getAromaCode() {
+        return aromaCode;
+    }
+
+    public void setAromaCode(String aromaCode) {
+        this.aromaCode = aromaCode;
+    }
+
+    public String getUsedFor() {
+        return usedFor;
+    }
+
+    public void setUsedFor(String usedFor) {
+        this.usedFor = usedFor;
+    }
 
     /**
      * 홉 영문명
@@ -258,6 +303,7 @@ public class Hop implements Serializable {
         this.myrcene = myrcene;
     }
 
+
     /**
      * 작성자 아이디
      *
@@ -411,15 +457,6 @@ public class Hop implements Serializable {
         return deleteFlag;
     }
 
-    /**
-     * 삭제 성공 여부.
-     *
-     * @param deleteFlag 삭제 성공 여부
-     */
-    public void setDeleteFlag(Boolean deleteFlag) {
-        this.deleteFlag = deleteFlag;
-    }
-
     public String getUsCnt() {
         return usCnt;
     }
@@ -474,6 +511,79 @@ public class Hop implements Serializable {
 
     public void setEtcCnt(String etcCnt) {
         this.etcCnt = etcCnt;
+    }
+
+    public String getUsCntName() {
+        return usCntName;
+    }
+
+    public void setUsCntName(String usCntName) {
+        this.usCntName = usCntName;
+    }
+
+    public String getDeCntName() {
+        return deCntName;
+    }
+
+    public void setDeCntName(String deCntName) {
+        this.deCntName = deCntName;
+    }
+
+    public String getUkCntName() {
+        return ukCntName;
+    }
+
+    public void setUkCntName(String ukCntName) {
+        this.ukCntName = ukCntName;
+    }
+
+    public String getNzCntName() {
+        return nzCntName;
+    }
+
+    public void setNzCntName(String nzCntName) {
+        this.nzCntName = nzCntName;
+    }
+
+    public String getAuCntName() {
+        return auCntName;
+    }
+
+    public void setAuCntName(String auCntName) {
+        this.auCntName = auCntName;
+    }
+
+    public String getSiCntName() {
+        return siCntName;
+    }
+
+    public void setSiCntName(String siCntName) {
+        this.siCntName = siCntName;
+    }
+
+    public String getEtcCntName() {
+        return etcCntName;
+    }
+
+    public void setEtcCntName(String etcCntName) {
+        this.etcCntName = etcCntName;
+    }
+
+    /**
+     * 삭제 성공 여부.
+     *
+     * @param deleteFlag 삭제 성공 여부
+     */
+    public void setDeleteFlag(Boolean deleteFlag) {
+        this.deleteFlag = deleteFlag;
+    }
+
+    public String getOriginKorean() {
+        return originKorean;
+    }
+
+    public void setOriginKorean(String originKorean) {
+        this.originKorean = originKorean;
     }
 
     @Override

@@ -37,12 +37,23 @@ public interface HopDao {
 
     /**
      * <pre>
-     * 맥주 레시피 홉 목록 조회.
+     * 홉 사용용도
      * </pre>
      *
      * @return 맥주 홉 목록
      */
     public List<Hop> selectHopUsedForList(Hop hop);
+
+    /**
+     * <pre>
+     * 홉 아로마 리스트
+     * </pre>
+     *
+     * @return 맥주 홉 목록
+     */
+    public List<Hop> selectHopAromaList(Hop hop);
+
+
 
 
     /**

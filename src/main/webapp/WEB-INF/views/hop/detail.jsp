@@ -42,24 +42,12 @@
             </div>
             <div class="row form-row">
                 <br>
-                <br>
                 <div class="col-md-12">
-                    <div class="checkbox check-default checkbox-circle">
-                        <input id="checkbox7" type="checkbox" value="1" checked="checked">
-                        <label for="checkbox7">floral</label>
-                        <input id="checkbox8" type="checkbox" value="1" >
-                        <label for="checkbox8">tropical</label>
-                        <input id="checkbox7" type="checkbox" value="1" >
-                        <label for="checkbox7">citrus</label>
-                        <input id="checkbox7" type="checkbox" value="1" checked="unchecked">
-                        <label for="checkbox7">Pungent Spciy</label>
-                        <input id="checkbox7" type="checkbox" value="1" checked="checked">
-                        <label for="checkbox7">Hoppy</label>
-                        <input id="checkbox7" type="checkbox" value="1" >
-                        <label for="checkbox7">Earthy</label>
-                        <input id="checkbox7" type="checkbox" value="1" checked="unchecked">
-                        <label for="checkbox7">Herbal</label>
-                    </div>
+                    <c:forEach items="${hopAromaList}" var="aromaName">
+                        <button type="button" class="btn btn-white btn-cons btn-mini">
+                                ${aromaName.aromaName}
+                        </button>
+                    </c:forEach>
                 </div>
             </div>
         </div>
@@ -67,10 +55,10 @@
             <h4>수치</h4>
             <div class="row form-row">
                 <div class="slider col-md-4">
-                    <span class="semi-bold">ALPHA</span>
+                    <span class="semi-bold">ALPHA ${HopDetail.alpha}</span>
                 </div>
                 <div class="slider info col-md-8">
-                    <input type="text" disable data-slider-value="[10]" data-slider-step="5" data-slider-max="100" data-slider-min="10" value="" class="slider-element form-control" data-slider-selection="after">
+                    <input type="text" disable data-slider-value="[${HopDetail.alpha}]" data-slider-step="0.5" data-slider-max="25" data-slider-min="0" value="" class="slider-element form-control" data-slider-selection="after">
                 </div>
             </div>
 
@@ -79,7 +67,7 @@
                     <span class="semi-bold">BETA</span>
                 </div>
                 <div class="slider info col-md-8">
-                    <input type="text" disable data-slider-value="[10]" data-slider-step="5" data-slider-max="100" data-slider-min="10" value="" class="slider-element form-control" data-slider-selection="after">
+                    <input type="text" disable data-slider-value="[${HopDetail.beta}]" data-slider-step="0.5" data-slider-max="25" data-slider-min="0" value="" class="slider-element form-control" data-slider-selection="after">
                 </div>
             </div>
 
@@ -88,18 +76,18 @@
                     <span class="semi-bold">HSI</span>
                 </div>
                 <div class="slider info col-md-8">
-                    <input type="text" disable data-slider-value="[10]" data-slider-step="5" data-slider-max="100" data-slider-min="10" value="" class="slider-element form-control" data-slider-selection="after">
+                    <input type="text" disable data-slider-value="[${HopDetail.hsi}]" data-slider-step="0.5" data-slider-max="100" data-slider-min="0" value="" class="slider-element form-control" data-slider-selection="after">
                 </div>
             </div>
 
-            <div class="row form-row">
+            <!--div class="row form-row">
                 <div class="slider col-md-4">
                     <span class="semi-bold">CO-HUMULONE 함유랑</span>
                 </div>
                 <div class="slider info col-md-8">
                     <input type="text" disable data-slider-value="[10,45]" data-slider-step="5" data-slider-max="100" data-slider-min="10" value="" class="slider-element form-control" data-slider-selection="after">
                 </div>
-            </div>
+            </div-->
 
         </div>
 
