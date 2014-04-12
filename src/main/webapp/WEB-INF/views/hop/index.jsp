@@ -176,6 +176,7 @@
         $('.slider-element').slider();
         //getResult();
         getNationCount();
+        $("#name").focus();
 
         $("#search").click(function(){
             $("#result").html("");
