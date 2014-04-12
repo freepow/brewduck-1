@@ -192,7 +192,7 @@
         });
 
         $("#fullSearch").click(function(){
-            $("#origin").val('');
+            $("#origin").val('');             //TODO : 초기화 함수로 뺄것
             search();
         });
 
