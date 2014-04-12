@@ -53,7 +53,7 @@ public interface HopDao {
      * @param hop 맥주 홉
      * @return 맥주 홉
      */
-    public Hop countHopOrigin(Hop hop);
+    public Hop countHopOrigin();
 
     /**
      * <pre>

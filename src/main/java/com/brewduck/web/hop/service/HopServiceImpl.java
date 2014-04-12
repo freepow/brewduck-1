@@ -39,8 +39,8 @@ public class HopServiceImpl implements HopService {
     }
 
     @Override
-    public Hop countHopOrigin(Hop hop) {
-        return hopDao.countHopOrigin(hop);
+    public Hop countHopOrigin() {
+        return hopDao.countHopOrigin();
     }
 
     @Override

@@ -134,6 +134,13 @@
 
 <content tag="local_script">
 <script>
+    function getNationCount(){
+
+        $.get("/hop/countHopOrigin", function(data, status){
+            alert("US 값은 : " + data.usCnt + "\n" + "de 값은 : " + data.deCnt + "\n");
+        })
+    }
+
     function getResult(){
         var result_html = "";
         $.ajax({
@@ -168,6 +175,7 @@
     $(document).ready(function() {
         $('.slider-element').slider();
         //getResult();
+        getNationCount();
 
         $("#search").click(function(){
             $("#result").html("");

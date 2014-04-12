@@ -42,7 +42,7 @@ public interface HopService {
      * @param hop 맥주 홉
      * @return 맥주 홉 내용
      */
-    public Hop countHopOrigin(Hop hop);
+    public Hop countHopOrigin();
 
     /**
      * <pre>
