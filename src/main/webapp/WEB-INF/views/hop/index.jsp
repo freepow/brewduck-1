@@ -20,7 +20,7 @@
                 <h4>특성으로 찾기</h4>
                 <div class="row form-row">
                     <div class="col-md-12">
-                        <input name="name" id="name" type="text"  class="form-control" placeholder="홉 이름" onkeypress="javascript:if(event.keyCode == 13){getResult();}">
+                        <input name="name" id="name" type="text"  class="form-control" placeholder="홉 이름" onkeypress="javascript:if(event.keyCode == 13){search();}">
                     </div>
                 </div>
                 <div class="row form-row">
