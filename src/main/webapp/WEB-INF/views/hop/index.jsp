@@ -13,13 +13,14 @@
 <div class="grid simple ">
 <div class="grid-title">
     <form:form class="form-no-horizontal-spacing" id="searchForm"  name="searchForm" modelAttribute="paramHop">
+        <input name="origin" id="origin" type="text"  class="form-control" value="">
 
         <div class="row column-seperation">
             <div class="col-md-6">
                 <h4>특성으로 찾기</h4>
                 <div class="row form-row">
                     <div class="col-md-12">
-                        <input name="name" id="name" type="text"  class="form-control" placeholder="홉 이름">
+                        <input name="name" id="name" type="text"  class="form-control" placeholder="홉 이름" onkeypress="javascript:if(event.keyCode == 13){getResult();}">
                     </div>
                 </div>
                 <div class="row form-row">
@@ -39,14 +40,17 @@
                 <div class="row form-row">
                     <br>
                     <div class="col-md-12">
-                        <button type="button" class="btn btn-white btn-xs btn-mini">미국 (60건)</button>
-                        <button type="button" class="btn btn-white btn-xs btn-mini">독일 (24건)</button>
-                        <button type="button" class="btn btn-white btn-xs btn-mini">영국 (22건)</button>
-                        <button type="button" class="btn btn-white btn-xs btn-mini">뉴질랜드 (14건)</button>
-                        <button type="button" class="btn btn-white btn-xs btn-mini">호주 (13건)</button>
-                        <button type="button" class="btn btn-white btn-xs btn-mini">슬로베니아 (8건)</button>
-                        <button type="button" class="btn btn-white btn-xs btn-mini">기타 (15건)</button>
+                        <button id="usButton" type="button" class="btn btn-white btn-xs btn-mini" value="US"> </button>
+                        <button id="deButton" type="button" class="btn btn-white btn-xs btn-mini" value="DE"> </button>
+                        <button id="ukButton" type="button" class="btn btn-white btn-xs btn-mini" value="UK"> </button>
+                        <button id="nzButton" type="button" class="btn btn-white btn-xs btn-mini" value="NZ"> </button>
+                        <button id="auButton" type="button" class="btn btn-white btn-xs btn-mini" value="AU"> </button>
+                        <button id="siButton" type="button" class="btn btn-white btn-xs btn-mini" value="SI"> </button>
+                        <button id="etcButton" type="button" class="btn btn-white btn-xs btn-mini" value=""> </button>
                     </div>
+
+
+
                 </div>
                 <div class="row form-row">
                     <br>
@@ -55,13 +59,13 @@
                         <div class="checkbox check-default checkbox-circle">
                             <input id="checkbox7" type="checkbox" value="1" checked="checked">
                             <label for="checkbox7">floral</label>
-                            <input id="checkbox8" type="checkbox" value="1" >
+                            <input id="checkbox8" type="checkbox" value="2" >
                             <label for="checkbox8">tropical</label>
-                            <input id="checkbox7" type="checkbox" value="1" >
+                            <input id="checkbox7" type="checkbox" value="3" >
                             <label for="checkbox7">citrus</label>
-                            <input id="checkbox7" type="checkbox" value="1" checked="unchecked">
+                            <input id="checkbox7" type="checkbox" value="4" checked="unchecked">
                             <label for="checkbox7">Pungent Spciy</label>
-                            <input id="checkbox7" type="checkbox" value="1" checked="checked">
+                            <input id="checkbox7" type="checkbox" value="5" checked="checked">
                             <label for="checkbox7">Hoppy</label>
                             <input id="checkbox7" type="checkbox" value="1" >
                             <label for="checkbox7">Earthy</label>
@@ -104,7 +108,7 @@
         </div>
         <div class="form-actions">
             <div class="pull-right">
-                <div id="search" class="btn btn-danger btn-cons"><i class="icon-ok"></i> 조회</div>
+                <div id="search" class="btn btn-danger btn-cons" ><i class="icon-ok"></i> 조회</div>
             </div>
         </div>
     </form:form>
@@ -137,9 +141,24 @@
     function getNationCount(){
 
         $.get("/hop/countHopOrigin", function(data, status){
-            alert("US 값은 : " + data.usCnt + "\n" + "de 값은 : " + data.deCnt + "\n");
+            //alert("US 값은 : " + data.usCnt + "\n" + "de 값은 : " + data.deCnt + "\n");
+                /*미국*/
+                $("#usButton").html("("+data.usCntName +data.usCnt+" 건)");
+                /*독일*/
+                $("#deButton").html("("+data.deCntName +data.deCnt+" 건)");
+                /*영국*/
+                $("#ukButton").html("("+data.ukCntName +data.ukCnt+" 건)");
+                /*뉴질랜드*/
+                $("#nzButton").html("("+data.nzCntName +data.nzCnt+" 건)");
+                /*호주*/
+                $("#auButton").html("("+data.auCntName +data.auCnt+" 건)");
+                /*슬로베니아*/
+                $("#siButton").html("("+data.siCntName +data.siCnt+" 건)");
+                /*기타*/
+                $("#etcButton").html("("+data.etcCntName +data.etcCnt+" 건)");
         })
     }
+
 
     function getResult(){
         var result_html = "";
@@ -151,9 +170,10 @@
             dataType : "json", //전송받을 데이터의 타입
             data : $("#searchForm").serialize(),
             success:function(list){
+                $("#result").html("");/*검색 초기화(serch value initialization) */
                 $.each(list, function(i){
                     result_html = result_html + ("<tr>");
-                    result_html = result_html + ("<td>"+ list[i].name +"</td>");
+                    result_html = result_html + ("<a href='www.naver.com'><td>"+ list[i].name +"</td></a>");
                     result_html = result_html + ("<td>"+ list[i].typeKorean +"</td>");
                     result_html = result_html + ("<td>"+ list[i].origin +"</td>");
                     result_html = result_html + ("<td>"+ list[i].alpha +"</td>");
@@ -163,8 +183,8 @@
                     result_html = result_html + ("</tr>");
                     //$("#userBirthMonth").append("<option value='"+result[i].code+"'>"+result[i].codeName+"</option>")
                 });
+                alert(result_html);
                 $("#result").append(result_html);
-
             },
             error:function(xhr,statue,error){
                 alert(error);
@@ -179,6 +199,48 @@
         $("#name").focus();
 
         $("#search").click(function(){
+            $("#result").html("");
+            getResult();
+        });
+
+        $("#usButton").click(function(){
+            $("#origin").val($("#usButton").val());
+            $("#result").html("");
+            getResult();
+        });
+
+        $("#deButton").click(function(){
+            $("#origin").val($("#deButton").val());
+            $("#result").html("");
+            getResult();
+        });
+
+        $("#ukButton").click(function(){
+            $("#origin").val($("#ukButton").val());
+            $("#result").html("");
+            getResult();
+        });
+
+        $("#nzButton").click(function(){
+            $("#origin").val($("#nzButton").val());
+            $("#result").html("");
+            getResult();
+        });
+
+        $("#auButton").click(function(){
+            $("#origin").val($("#auButton").val());
+            $("#result").html("");
+            getResult();
+        });
+
+        $("#siButton").click(function(){
+            $("#origin").val($("#siButton").val());
+            $("#result").html("");
+            getResult();
+        });
+
+        $("#etcButton").click(function(){
+            $("#origin").val($("#etcButton").val());
             $("#result").html("");
             getResult();
         });
