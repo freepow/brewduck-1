@@ -13,7 +13,7 @@
 <div class="grid simple ">
 <div class="grid-title">
     <form:form class="form-no-horizontal-spacing" id="searchForm"  name="searchForm" modelAttribute="paramHop">
-        <input name="origin" id="origin" type="text"  class="form-control" value="">
+        <input name="origin" type ="hidden" id="origin" type="text"  class="form-control" value="">
 
         <div class="row column-seperation">
             <div class="col-md-6">
@@ -183,7 +183,6 @@
                     result_html = result_html + ("</tr>");
                     //$("#userBirthMonth").append("<option value='"+result[i].code+"'>"+result[i].codeName+"</option>")
                 });
-                alert(result_html);
                 $("#result").append(result_html);
             },
             error:function(xhr,statue,error){
