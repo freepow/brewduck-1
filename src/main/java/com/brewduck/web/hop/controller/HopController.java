@@ -53,6 +53,31 @@ public class HopController {
 
     /**
      * <pre>
+     * 맥주 홉 상세 조회.
+     * </pre>
+     *
+     * @param model Model
+     * @param name 맥주 홉 영문명
+     * @return 맥주 홉 상세.
+     */
+    @RequestMapping(value = "/detail/{name}", method = RequestMethod.GET)
+    public String detail(Model model, @PathVariable("name") String name) {
+
+        logger.info("Hop Name : {}", name);
+
+        Hop hop = new Hop();
+        hop.setName(name);
+
+        // 맥주 홉 상세 조회
+        Hop hopDetail = hopService.selectHopDetail(hop);
+
+        model.addAttribute("HopDetail", hopDetail);
+
+        return "hop/detail";
+    }
+
+    /**
+     * <pre>
      * 맥주 홉 목록 조회.
      * </pre>
      *
@@ -73,33 +98,6 @@ public class HopController {
         //logger.info("Hop List Size : {}", list.size());
 
         return list;
-    }
-
-    /**
-     * <pre>
-     * 맥주 홉 상세 조회.
-     * </pre>
-     *
-     * @param model Model
-     * @param name 맥주 홉 영문명
-     * @return 맥주 홉 상세.
-     */
-    @ResponseBody
-    @RequestMapping(value = "/detail/{name}", method = RequestMethod.GET)
-    // public String HopDetail(Model model, @PathVariable("name") String name) {
-    public Hop HopDetail(Model model, @PathVariable("name") String name) {
-        logger.info("Hop Name : {}", name);
-
-        Hop hop = new Hop();
-        hop.setName(name);
-
-        // 맥주 홉 상세 조회
-        Hop hopDetail = hopService.selectHopDetail(hop);
-
-        // model.addAttribute("Hop", Hop);
-        // return "/Hop/HopView";
-
-        return hopDetail;
     }
 
     /**
