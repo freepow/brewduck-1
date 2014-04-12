@@ -4,3 +4,5 @@
 <html>
 <%@ include file="/WEB-INF/views/common/include/full_content_header.jsp" %>
  <decorator:body />
+
+<decorator:getProperty property="page.local_script"></decorator:getProperty>

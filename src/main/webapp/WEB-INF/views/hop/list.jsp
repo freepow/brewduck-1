@@ -21,3 +21,14 @@
     </tr>
 </c:forEach>
 
+<content tag="local_script">
+    <script>
+        $(document).ready(function() {
+            var selectedItems=0;
+            //Table Row Click Event
+            $('.clickable').click( function() {
+                alert();
+            });
+        });
+    </script>
+</content>

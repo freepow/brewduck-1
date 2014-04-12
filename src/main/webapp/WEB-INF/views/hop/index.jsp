@@ -164,6 +164,10 @@
         location.href = "/hop/detail/"+name;
     }
 
+    function setOrigin(origin){
+        $("#origin").val(origin);
+    }
+
 
     $(document).ready(function() {
 
@@ -183,37 +187,37 @@
         });
 
         $("#usButton").click(function(){
-            $("#origin").val(jQuery(this).val());
+            setOrigin(jQuery(this).val());
             search();
         });
 
         $("#deButton").click(function(){
-            $("#origin").val(jQuery(this).val());
+            setOrigin(jQuery(this).val());
             search();
         });
 
         $("#ukButton").click(function(){
-            $("#origin").val(jQuery(this).val());
+            setOrigin(jQuery(this).val());
             search();
         });
 
         $("#nzButton").click(function(){
-            $("#origin").val(jQuery(this).val());
+            setOrigin(jQuery(this).val());
             search();
         });
 
         $("#auButton").click(function(){
-            $("#origin").val(jQuery(this).val());
+            setOrigin(jQuery(this).val());
             search();
         });
 
         $("#siButton").click(function(){
-            $("#origin").val(jQuery(this).val());
+            setOrigin(jQuery(this).val());
             search();
         });
 
         $("#etcButton").click(function(){
-            $("#origin").val('ETC');
+            setOrigin(jQuery(this).val());
             search();
         });
     });
