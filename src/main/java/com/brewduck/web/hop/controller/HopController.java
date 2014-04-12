@@ -71,7 +71,16 @@ public class HopController {
         // 맥주 홉 상세 조회
         Hop hopDetail = hopService.selectHopDetail(hop);
 
+        Boolean updateFlag = hopService.updateViewCount(hop);
+
+        List<Hop> hopUsedForList = hopService.selectHopUsedForList(hop);
+
+        logger.info("updateFlag : {}", updateFlag);
+
+        logger.info("hopUsedForList List Size : {}", hopUsedForList.size());
+
         model.addAttribute("HopDetail", hopDetail);
+        model.addAttribute("hopUsedForList", hopUsedForList);
 
         return "hop/detail";
     }
@@ -148,6 +157,8 @@ public class HopController {
 
         return returnHop;
     }
+
+
     /**
      * <pre>
      * 맥주 홉 수정.

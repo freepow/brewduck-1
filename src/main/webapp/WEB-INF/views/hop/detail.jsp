@@ -16,15 +16,28 @@
     <div class="row column-seperation">
         <div class="col-md-6">
             <div class="row form-row">
+                <div class="slider col-md-12">
+                    <H4>
+                    <button type="button" class="btn btn-warning btn-cons btn-mini">원산지 : ${HopDetail.originKorean} ( ${HopDetail.origin} )</button>
+                    <button type="button" class="btn btn-primary btn-cons btn-mini">용 도 : ${HopDetail.typeKorean}</button>
+                    </H4>
+                </div>
+            </div>
+
+            <div class="row form-row">
                 <div class="col-md-12">
-                    <button type="button" class="btn btn-warning btn-cons btn-mini">원산지  : ${HopDetail.origin}</button>
-                    <button type="button" class="btn btn-primary btn-cons btn-mini">용도  : ${HopDetail.typeKorean}</button>
+                    <c:forEach items="${hopUsedForList}" var="usedFor">
+                        <button type="button" class="btn btn-white btn-cons btn-mini">
+                        ${usedFor.usedFor}
+                        </button>
+                    </c:forEach>
                 </div>
             </div>
             <div class="row form-row">
-                <br>
                 <div class="col-md-12">
-                    ${HopDetail.notes}
+                    <blockquote  class="margin-top-20">
+                        <p> ${HopDetail.notes}</p>
+                    </blockquote>
                 </div>
             </div>
             <div class="row form-row">
@@ -54,135 +67,122 @@
             <h4>수치</h4>
             <div class="row form-row">
                 <div class="slider col-md-4">
-                    <span class="semi-bold">HSI</span>
-                    <p>HSI는...(더보기) </p>
+                    <span class="semi-bold">ALPHA</span>
                 </div>
                 <div class="slider info col-md-8">
-                    <input type="text"  data-slider-value="[10,20]" data-slider-step="5" data-slider-max="100" data-slider-min="10" value="" class="slider-element form-control" data-slider-selection="after">
+                    <input type="text" disable data-slider-value="[10]" data-slider-step="5" data-slider-max="100" data-slider-min="10" value="" class="slider-element form-control" data-slider-selection="after">
                 </div>
             </div>
+
+            <div class="row form-row">
+                <div class="slider col-md-4">
+                    <span class="semi-bold">BETA</span>
+                </div>
+                <div class="slider info col-md-8">
+                    <input type="text" disable data-slider-value="[10]" data-slider-step="5" data-slider-max="100" data-slider-min="10" value="" class="slider-element form-control" data-slider-selection="after">
+                </div>
+            </div>
+
+            <div class="row form-row">
+                <div class="slider col-md-4">
+                    <span class="semi-bold">HSI</span>
+                </div>
+                <div class="slider info col-md-8">
+                    <input type="text" disable data-slider-value="[10]" data-slider-step="5" data-slider-max="100" data-slider-min="10" value="" class="slider-element form-control" data-slider-selection="after">
+                </div>
+            </div>
+
+            <div class="row form-row">
+                <div class="slider col-md-4">
+                    <span class="semi-bold">CO-HUMULONE 함유랑</span>
+                </div>
+                <div class="slider info col-md-8">
+                    <input type="text" disable data-slider-value="[10,45]" data-slider-step="5" data-slider-max="100" data-slider-min="10" value="" class="slider-element form-control" data-slider-selection="after">
+                </div>
+            </div>
+
         </div>
+
     </div>
 
 
 </div>
-
     <br/>
-
-    <div class="row">
-        <div class="post col-md-12">
-            <div class="user-profile-pic-wrapper">
-                <div class="user-profile-pic-normal">
-                    <img width="35" height="35" src="assets/img/profiles/c.jpg" data-src="assets/img/profiles/c.jpg" data-src-retina="assets/img/profiles/c2x.jpg" alt="">
-                </div>
-            </div>
-            <div class="info-wrapper">
-                <div class="username">
-                    <span class="dark-text">John Drake</span> in <span class="dark-text">nervada hotspot</span>
-                </div>
-                <div class="info">
-                    Great design concepts by <span class="dark-text">John Smith</span> and his crew! Totally owned the WCG!, Best of luck for your future endeavours,
-                    Special thanks for <span class="dark-text">Jane smith</span> for her motivation ;)
-                </div>
-                <div class="more-details">
-                    <ul class="post-links">
-                        <li><a href="#" class="muted">2 Minutes ago</a></li>
-                        <li><a href="#" class="text-info">Collapse</a></li>
-                        <li><a href="#" class="text-info" ><i class="fa fa-reply"></i> Reply</a></li>
-                        <li><a href="#" class="text-warning"><i class="fa fa-star"></i> Favourited</a></li>
-                        <li><a href="#"  class="muted">More</a></li>
-                    </ul>
-                </div>
-                <div class="clearfix"></div>
-
-                <ul class="action-bar">
-                    <li><a href="#"  class="muted"><i class="fa fa-comment"></i> 1584</a> Comments</li>
-                    <li><a href="#" class="text-error" ><i class="fa fa-heart"></i> 47k</a> likes</li>
-                </ul>
-                <div class="clearfix"></div>
-                <div class="post comments-section">
+    <div class="m-l-10 ">
+        <div class="tiles white ">
+            <div class="p-t-20 p-b-15 b-b b-grey">
+                <div class="post overlap-left-10">
                     <div class="user-profile-pic-wrapper">
-                        <div class="user-profile-pic-normal">
-                            <img width="35" height="35" data-src-retina="assets/img/profiles/e2x.jpg" data-src="assets/img/profiles/e.jpg" src="assets/img/profiles/e.jpg" alt="">
+                        <div class="user-profile-pic-2x white-border">
+                            <img width="45" height="45" src="/resources/assets/img/profiles/avatar.jpg" data-src="/resources/assets/img/profiles/avatar.jpg" data-src-retina="/resources/assets/img/profiles/avatar2x.jpg" alt="">
                         </div>
                     </div>
-                    <div class="info-wrapper">
-                        <div class="username">
-                            <span class="dark-text">Thunderbolt</span>
+                    <div class="info-wrapper small-width inline">
+                        <div class="info text-black ">
+                            <p>"페일에일의 전형적인 홉으로 가장 기본적인 베이스 홉이다.” </p>
+                            <p class="muted small-text"> 2 분전</p>
                         </div>
-                        <div class="info">
-                            Congrats, <span class="dark-text">John Smith</span>  & <span class="dark-text">Jane Smith</span>
+                        <div class="clearfix"></div>
+                    </div>
+                    <!--div class="inline pull-right">
+                        <div class="tiles text-white p-t-5 p-l-5 p-b-5 p-r-5 inline"> <i class="fa fa-heart-o fa-lg"></i> </div>
+                        <div class="tiles white p-t-5 p-l-5 p-b-5 p-r-5 inline"> <i class="fa fa-comment-o fa-lg"></i> </div>
+                    </div-->
+                    <div class="clearfix"></div>
+                </div>
+            </div>
+            <div class="p-t-20 p-b-15 b-b b-grey">
+                <div class="post overlap-left-10">
+                    <div class="user-profile-pic-wrapper">
+                        <div class="user-profile-pic-2x tiles blue white-border">
+                            <div class="text-white inherit-size p-t-10 p-l-15"> <i class="fa fa-map-marker fa-lg"></i> </div>
                         </div>
-                        <div class="more-details">
-                            <ul class="post-links">
-                                <li><a href="#" class="muted">2 Minutes ago</a></li>
-                                <li><a href="#" class="text-error" ><i class="fa fa-heart"></i> Like</a></li>
-                                <li><a href="#"  class="muted">Details</a></li>
-                            </ul>
+                    </div>
+                    <div class="info-wrapper small-width">
+                        <div class="info text-black ">
+                            <p>You’ve got 302 Followers in 59 Diffrent places.
+                                region legally identified as a distinct entity in ....” </p>
+                            <p class="muted small-text"> 2 mins ago </p>
                         </div>
-
+                        <div class="clearfix"></div>
+                    </div>
+                    <div class="inline pull-right">
+                        <div class="tiles text-white p-t-5 p-l-5 p-b-5 p-r-5 inline"> <i class="fa fa-heart-o fa-lg"></i> </div>
+                        <div class="tiles white p-t-5 p-l-5 p-b-5 p-r-5 inline"> <i class="fa fa-comment-o fa-lg"></i> </div>
                     </div>
                     <div class="clearfix"></div>
                 </div>
-                <div class="post comments-section">
+            </div>
+            <div class="p-t-20 p-b-15 ">
+                <div class="post overlap-left-10">
                     <div class="user-profile-pic-wrapper">
-                        <div class="user-profile-pic-normal">
-                            <img width="35" height="35" data-src-retina="assets/img/profiles/b2x.jpg" data-src="assets/img/profiles/b.jpg" src="assets/img/profiles/b.jpg" alt="">
+                        <div class="user-profile-pic-2x tiles grey white-border">
+                            <div class="text-grey inherit-size p-t-10 p-l-10"> <i class="fa fa-clock-o fa-lg"></i> </div>
                         </div>
                     </div>
-                    <div class="info-wrapper">
-                        <div class="username">
-                            <span class="dark-text">Thunderbolt</span>
+                    <div class="info-wrapper small-width">
+                        <div class="info text-black ">
+                            <p>Jane Smith Commented on webarch new year bundle
+                                “Would you like to display collections on your...” </p>
+                            <p class="muted small-text"> 2 mins ago </p>
                         </div>
-                        <div class="info">
-                            Congrats, <span class="dark-text">John Smith</span>  & <span class="dark-text">Jane Smith</span>
-                        </div>
-                        <div class="more-details">
-                            <ul class="post-links">
-                                <li><a href="#" class="muted">2 Minutes ago</a></li>
-                                <li><a href="#" class="text-error" ><i class="fa fa-heart"></i> Like</a></li>
-                                <li><a href="#"  class="muted">Details</a></li>
-                            </ul>
-                        </div>
-
+                        <div class="clearfix"></div>
+                    </div>
+                    <div class="inline pull-right">
+                        <div class="tiles text-white p-t-5 p-l-5 p-b-5 p-r-5 inline"> <i class="fa fa-heart-o fa-lg"></i> </div>
+                        <div class="tiles white p-t-5 p-l-5 p-b-5 p-r-5 inline"> <i class="fa fa-comment-o fa-lg"></i> </div>
                     </div>
                     <div class="clearfix"></div>
                 </div>
-                <div class="post comments-section">
-                    <div class="row-fluid">
-                        <div class="input-append success date span12">
-                            <input type="text" class="span11">
-                            <span class="add-on"><span class="arrow"></span><i class="fa fa-th"></i></span>
-                        </div>
-                    </div>
-                </div>
             </div>
-            <div class="clearfix"></div>
+        </div>
+        <div class="tiles grey p-t-5 p-b-5 ">
+            <p class="text-center"> <a href="javascript:;" class="text-black semi-bold  small-text">전체 보기</a></p>
         </div>
     </div>
 
+    <br/><br/>
 
-    <br/>
-    <div class="grid-body ">
-        <div class="col-md-12 no-padding">
-            <div class="tiles white">
-                <textarea rows="3"  class="form-control user-status-box post-input"  placeholder="이홉의 대한 당신의 생각은요?"></textarea>
-            </div>
-            <div class="tiles grey padding-10">
-                <div class="pull-left">
-                    <button class="btn btn-default btn-sm btn-small" type="button"><i class="fa fa-camera"></i></button>
-                    <button class="btn btn-default btn-sm btn-small" type="button"><i class="fa fa-map-marker"></i></button>
-                </div>
-                <div class="pull-right">
-                    <button class="btn btn-primary btn-sm btn-small" type="button">POST</button>
-                </div>
-                <div class="clearfix"></div>
-            </div>
-        </div>
-    </div>
-
-
-    <br/>
     <div class="grid-body ">
     <table class="table table-striped" id="example2" >
         <thead>

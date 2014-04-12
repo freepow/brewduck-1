@@ -17,6 +17,10 @@
               ,A.beta             beta
               ,A.hsi              hsi
               ,A.origin           origin
+             ,(select B.attribute1desc
+                  from common_code B
+                 where common_set = 'nation_code'
+                   and A.origin = B.common_code) as originKorean
               ,A.substitutes      substitutes
               ,A.humulene         humulene
               ,A.caryophyllene    caryophyllene
@@ -249,5 +253,21 @@
               ,delete_date = now()
          WHERE name = #{name}
     </update>
+
+    <update id="Hop.updateViewCount" parameterType="Hop">
+    <!-- 맥주 홉 뷰 증가 -->
+     UPDATE HOPS
+        SET UPDATE_COUNT = UPDATE_COUNT + 1
+      WHERE name = #{name}
+    </update>
+
+    <select id="Hop.selectHopUsedForList" parameterType="Hop" resultType="Hop">
+        <!-- 맥주 홉 목록 조회 -->
+        SELECT
+          USED_FOR AS usedFor
+           FROM HOPS_USED_FOR
+        WHERE delete_id IS NULL
+          AND <if test="name != null">NAME = #{name} </if>
+    </select>
 
 </mapper>

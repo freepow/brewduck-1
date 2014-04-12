@@ -26,6 +26,17 @@ public interface HopService {
 
     /**
      * <pre>
+     * 맥주 홉 목록 조회.
+     * </pre>
+     *
+     * @param hop 맥주 홉
+     * @return 맥주 홉 목록
+     */
+    public List<Hop> selectHopUsedForList(Hop hop);
+
+
+    /**
+     * <pre>
      * 맥주 홉 상세 조회.
      * </pre>
      *
@@ -63,6 +74,16 @@ public interface HopService {
      * @return 수정 성공 여부
      */
     public Boolean updateHop(Hop hop);
+
+    /**
+     * <pre>
+     * 맥주 홉 수정.
+     * </pre>
+     *
+     * @param hop 맥주 홉
+     * @return 수정 성공 여부
+     */
+    public Boolean updateViewCount(Hop hop);
 
     /**
      * <pre>

@@ -40,6 +40,11 @@ public class HopDaoImpl implements HopDao {
     }
 
     @Override
+    public List<Hop> selectHopUsedForList(Hop hop) {
+        return sqlSession.selectList("Hop.selectHopUsedForList", hop);
+    }
+
+    @Override
     public Hop selectHopDetail(Hop hop) {
         return sqlSession.selectOne("Hop.selectHopDetail", hop);
     }
@@ -60,8 +65,14 @@ public class HopDaoImpl implements HopDao {
     }
 
     @Override
+    public Integer updateViewCount(Hop hop) {
+        return sqlSession.update("Hop.updateViewCount", hop);
+    }
+
+    @Override
     public Integer deleteHop(Hop hop) {
         return sqlSession.update("Hop.deleteHop", hop);
     }
+
 
 }

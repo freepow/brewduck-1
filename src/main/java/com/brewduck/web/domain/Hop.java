@@ -46,6 +46,8 @@ public class Hop implements Serializable {
     private Double hsi;
     // 홉 원산지
     private String origin;
+    //원산지 명
+    public String originKorean;
     // 홉 대체 재료
     private String substitutes;
     // Humulene 함량 (단위 : %) 향기의 주성분
@@ -102,8 +104,16 @@ public class Hop implements Serializable {
     public String etcCnt;
     //원산지 미국 이름
     public String etcCntName;
+    //사용용도
+    public String usedFor;
 
+    public String getUsedFor() {
+        return usedFor;
+    }
 
+    public void setUsedFor(String usedFor) {
+        this.usedFor = usedFor;
+    }
 
     /**
      * 홉 영문명
@@ -546,6 +556,14 @@ public class Hop implements Serializable {
      */
     public void setDeleteFlag(Boolean deleteFlag) {
         this.deleteFlag = deleteFlag;
+    }
+
+    public String getOriginKorean() {
+        return originKorean;
+    }
+
+    public void setOriginKorean(String originKorean) {
+        this.originKorean = originKorean;
     }
 
     @Override
