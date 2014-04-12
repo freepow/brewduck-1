@@ -44,11 +44,45 @@ public class HopController {
      * @param model Model
      * @return 맥주 홉 메인
      */
-    @RequestMapping(value = "/index", method = RequestMethod.GET)
+    @RequestMapping(value = "/", method = RequestMethod.GET)
     public String main(Model model) {
         logger.info("Hop index");
 
         return "hop/index";
+    }
+
+    /**
+     * <pre>
+     * 맥주 홉 상세 조회.
+     * </pre>
+     *
+     * @param model Model
+     * @param name 맥주 홉 영문명
+     * @return 맥주 홉 상세.
+     */
+    @RequestMapping(value = "/detail/{name}", method = RequestMethod.GET)
+    public String detail(Model model, @PathVariable("name") String name) {
+
+        logger.info("Hop Name : {}", name);
+
+        Hop hop = new Hop();
+        hop.setName(name);
+
+        // 맥주 홉 상세 조회
+        Hop hopDetail = hopService.selectHopDetail(hop);
+
+        Boolean updateFlag = hopService.updateViewCount(hop);
+
+        List<Hop> hopUsedForList = hopService.selectHopUsedForList(hop);
+
+        logger.info("updateFlag : {}", updateFlag);
+
+        logger.info("hopUsedForList List Size : {}", hopUsedForList.size());
+
+        model.addAttribute("HopDetail", hopDetail);
+        model.addAttribute("hopUsedForList", hopUsedForList);
+
+        return "hop/detail";
     }
 
     /**
@@ -77,51 +111,18 @@ public class HopController {
 
     /**
      * <pre>
-     * 맥주 홉 상세 조회.
-     * </pre>
-     *
-     * @param model Model
-     * @param name 맥주 홉 영문명
-     * @return 맥주 홉 상세.
-     */
-    @ResponseBody
-    @RequestMapping(value = "/detail/{name}", method = RequestMethod.GET)
-    // public String HopDetail(Model model, @PathVariable("name") String name) {
-    public Hop HopDetail(Model model, @PathVariable("name") String name) {
-        logger.info("Hop Name : {}", name);
-
-        Hop hop = new Hop();
-        hop.setName(name);
-
-        // 맥주 홉 상세 조회
-        Hop hopDetail = hopService.selectHopDetail(hop);
-
-        // model.addAttribute("Hop", Hop);
-        // return "/Hop/HopView";
-
-        return hopDetail;
-    }
-
-    /**
-     * <pre>
      * 맥주 홉 국가 별 갯수 조회.
      * </pre>
      *
      * @param model Model
-     * @param origin 맥주 홉 영문명
      * @return 맥주 홉 국가 별 갯수.
      */
     @ResponseBody
-    @RequestMapping(value = "/count/{origin}", method = RequestMethod.GET)
-    // public String HopDetail(Model model, @PathVariable("name") String name) {
-    public Hop countHopOrigin(Model model, @PathVariable("origin") String origin) {
-        logger.info("Count Hop Origin : {}", origin);
-
-        Hop hop = new Hop();
-        hop.setOrigin(origin);
+    @RequestMapping(value = "/countHopOrigin", method = RequestMethod.GET)
+    public Hop countHopOrigin(Model model) {
 
         // 맥주 홉 국가 별 갯수 조회.
-        Hop countHopOrigin = hopService.countHopOrigin(hop);
+        Hop countHopOrigin = hopService.countHopOrigin();
 
         // model.addAttribute("Hop", Hop);
         // return "/Hop/HopView";
@@ -156,6 +157,8 @@ public class HopController {
 
         return returnHop;
     }
+
+
     /**
      * <pre>
      * 맥주 홉 수정.
@@ -207,6 +210,7 @@ public class HopController {
 
         return returnHop;
     }
+
 
 }
 

@@ -37,6 +37,16 @@ public interface HopDao {
 
     /**
      * <pre>
+     * 맥주 레시피 홉 목록 조회.
+     * </pre>
+     *
+     * @return 맥주 홉 목록
+     */
+    public List<Hop> selectHopUsedForList(Hop hop);
+
+
+    /**
+     * <pre>
      * 맥주 홉 상세 조회.
      * </pre>
      *
@@ -50,10 +60,9 @@ public interface HopDao {
      * 맥주 홉 국가 별 갯수 조회.
      * </pre>
      *
-     * @param hop 맥주 홉
      * @return 맥주 홉
      */
-    public Hop countHopOrigin(Hop hop);
+    public Hop countHopOrigin();
 
     /**
      * <pre>
@@ -74,6 +83,18 @@ public interface HopDao {
      * @return 수정 성공 횟수
      */
     public Integer updateHop(Hop hop);
+
+    /**
+     * <pre>
+     * 맥주 홉 수정.
+     * </pre>
+     *
+     * @param hop 맥주 홉
+     * @return 수정 성공 횟수
+     */
+    public Integer updateViewCount(Hop hop);
+
+
 
     /**
      * <pre>

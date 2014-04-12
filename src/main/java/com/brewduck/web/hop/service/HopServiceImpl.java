@@ -34,13 +34,18 @@ public class HopServiceImpl implements HopService {
     }
 
     @Override
+    public List<Hop> selectHopUsedForList(Hop hop) {
+        return hopDao.selectHopUsedForList(hop);
+    }
+
+    @Override
     public Hop selectHopDetail(Hop hop) {
         return hopDao.selectHopDetail(hop);
     }
 
     @Override
-    public Hop countHopOrigin(Hop hop) {
-        return hopDao.countHopOrigin(hop);
+    public Hop countHopOrigin() {
+        return hopDao.countHopOrigin();
     }
 
     @Override
@@ -56,6 +61,14 @@ public class HopServiceImpl implements HopService {
 
         return (updateCount == 1);
     }
+
+    @Override
+    public Boolean updateViewCount(Hop hop) {
+        int updateCount = hopDao.updateViewCount(hop);
+
+        return (updateCount == 1);
+    }
+
 
     @Override
     public Boolean deleteHop(Hop hop) {
