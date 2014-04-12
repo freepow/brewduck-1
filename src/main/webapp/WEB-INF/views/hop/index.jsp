@@ -6,7 +6,7 @@
 
 <div class="content">
 <div class="page-title"> <i class="icon-custom-left"></i>
-    <h3>맥만동 홉 데이터베이스 - <span class="semi-bold">HOP DATABASE</span></h3>
+    <h3>홉 데이터베이스 - <span class="semi-bold">HOP DATABASE</span></h3>
 </div>
 <div class="row-fluid">
 <div class="span12">
@@ -26,15 +26,14 @@
                 <div class="row form-row">
                     <br>
                     <div class="col-md-12">
-
-                            <div class="radio">
-                                <input id="type1" type="radio" name="type" value="" checked="checked">
-                                <label for="type1">전체</label>
-                                <input id="type2" type="radio" name="type" value="1">
-                                <label for="type2">향</label>
-                                <input id="type3" type="radio" name="type" value="2">
-                                <label for="type3">쓴맛</label>
-                            </div>
+                        <div class="radio">
+                            <input id="type1" type="radio" name="type" value="" checked="checked">
+                            <label for="type1">전체</label>
+                            <input id="type2" type="radio" name="type" value="1">
+                            <label for="type2">향</label>
+                            <input id="type3" type="radio" name="type" value="2">
+                            <label for="type3">쓴맛</label>
+                        </div>
                     </div>
                 </div>
                 <div class="row form-row">
@@ -109,6 +108,7 @@
         <div class="form-actions">
             <div class="pull-right">
                 <div id="search" class="btn btn-danger btn-cons" ><i class="icon-ok"></i> 조회</div>
+                <div id="fullSearch" class="btn btn-primary btn-cons" ><i class="icon-ok"></i> 전체 조회</div>
             </div>
         </div>
     </form:form>
@@ -118,12 +118,12 @@
         <thead>
         <tr>
             <th>이름</th>
+            <th>영문명</th>
             <th>타입</th>
             <th>원산지</th>
             <th>ALPHA</th>
             <th>BETA</th>
             <th>HSI</th>
-            <th>Co-Humulone 함유랑</th>
         </tr>
         </thead>
         <tbody id="result" name="result">
@@ -171,18 +171,20 @@
             data : $("#searchForm").serialize(),
             success:function(list){
                 $("#result").html("");/*검색 초기화(serch value initialization) */
+                //result_html = result_html + ("<A HREF='www.naver.com'>");
                 $.each(list, function(i){
-                    result_html = result_html + ("<tr>");
-                    result_html = result_html + ("<a href='www.naver.com'><td>"+ list[i].name +"</td></a>");
-                    result_html = result_html + ("<td>"+ list[i].typeKorean +"</td>");
-                    result_html = result_html + ("<td>"+ list[i].origin +"</td>");
-                    result_html = result_html + ("<td>"+ list[i].alpha +"</td>");
-                    result_html = result_html + ("<td>"+ list[i].beta +"</td>");
-                    result_html = result_html + ("<td>"+ list[i].hsi +"</td>");
-                    result_html = result_html + ("<td>"+ list[i].cohumulone +"</td>");
+                    result_html = result_html + ("<tr onclick=goDetail('"+list[i].name+"')>");
+                    result_html = result_html + ("<td class='clickable''>"+ list[i].koreanName + "</td>");
+                    result_html = result_html + ("<td class='clickable'>"+ list[i].name +" </td>");
+                    result_html = result_html + ("<td class='clickable'>"+ list[i].typeKorean +"</td>");
+                    result_html = result_html + ("<td class='clickable'>"+ list[i].originKorean +"</td>");
+                    result_html = result_html + ("<td class='clickable'>"+ list[i].alpha +"</td>");
+                    result_html = result_html + ("<td class='clickable'>"+ list[i].beta +"</td>");
+                    result_html = result_html + ("<td class='clickable' >"+ list[i].hsi +"</td>");
                     result_html = result_html + ("</tr>");
                     //$("#userBirthMonth").append("<option value='"+result[i].code+"'>"+result[i].codeName+"</option>")
                 });
+                //result_html = result_html + ("</A>");
                 $("#result").append(result_html);
             },
             error:function(xhr,statue,error){
@@ -191,56 +193,70 @@
         });
     }
 
+    function search(){
+        $("#result").html("");
+        getResult();
+    }
+
+    function goDetail(name){
+        location.href = "/hop/detail/"+name;
+    }
+
+
     $(document).ready(function() {
-        $('.slider-element').slider();
+
+        $('.slider-element').slider();  //슬라이더 초기화
         //getResult();
-        getNationCount();
-        $("#name").focus();
+        getNationCount();                  //원산지별 카운트 (조회영역)
+        search();                          //조회
+
+        var selectedItems=0;
+        //Table Row Click Event
+
+
+        $("#name").focus(); //이름칸으로 포커스
 
         $("#search").click(function(){
-            $("#result").html("");
-            getResult();
+            search();
+        });
+
+        $("#fullSearch").click(function(){
+            $("#origin").val('');
+            search();
         });
 
         $("#usButton").click(function(){
-            $("#origin").val($("#usButton").val());
-            $("#result").html("");
+            $("#origin").val(jQuery(this).val());
             getResult();
         });
 
         $("#deButton").click(function(){
-            $("#origin").val($("#deButton").val());
-            $("#result").html("");
+            $("#origin").val(jQuery(this).val());
             getResult();
         });
 
         $("#ukButton").click(function(){
-            $("#origin").val($("#ukButton").val());
-            $("#result").html("");
+            $("#origin").val(jQuery(this).val());
             getResult();
         });
 
         $("#nzButton").click(function(){
-            $("#origin").val($("#nzButton").val());
-            $("#result").html("");
+            $("#origin").val(jQuery(this).val());
             getResult();
         });
 
         $("#auButton").click(function(){
-            $("#origin").val($("#auButton").val());
-            $("#result").html("");
+            $("#origin").val(jQuery(this).val());
             getResult();
         });
 
         $("#siButton").click(function(){
-            $("#origin").val($("#siButton").val());
-            $("#result").html("");
+            $("#origin").val(jQuery(this).val());
             getResult();
         });
 
         $("#etcButton").click(function(){
-            $("#origin").val($("#etcButton").val());
-            $("#result").html("");
+            $("#origin").val('ETC');
             getResult();
         });
     });

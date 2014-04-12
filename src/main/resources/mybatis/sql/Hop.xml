@@ -72,7 +72,21 @@
         <trim prefix="WHERE" prefixOverrides="AND | OR">
             <if test="name != null">AND NAME like CONCAT('%', #{name}, '%') </if>
             <if test="type != null and type != 0">AND type =  #{type} </if>
-            <if test="origin != null">AND origin =  #{origin} </if>
+            <choose>
+                <when test="origin == 'ETC'">
+                    AND ORIGIN != 'US' AND ORIGIN != 'DE' AND ORIGIN != 'UK' AND ORIGIN != 'NZ' AND ORIGIN != 'AU' AND ORIGIN != 'SI'
+                </when>
+                <when test="origin == ''">
+
+                </when>
+                <when test="origin != null">
+                    AND origin = #{origin}
+                </when>
+                <otherwise>
+
+                </otherwise>
+            </choose>
+
         </trim>
         AND delete_id IS NULL
     </select>

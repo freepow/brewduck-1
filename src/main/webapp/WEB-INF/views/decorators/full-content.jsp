@@ -5,7 +5,9 @@
 <%@ include file="/WEB-INF/views/common/include/full_content_header.jsp" %>
 
 <!-- BODY 시작 -->
-<body class="">
+<!--body class="" oncontextmenu="return false" ondragstrat="return false" onselectstart="return false"-->
+<body class="" >
+
 <!-- 헤더 시작 -->
 <div class="header navbar navbar-inverse ">
     <!-- TOP 네비게이션 바 시작 -->
