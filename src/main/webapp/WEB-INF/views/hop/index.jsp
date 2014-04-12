@@ -173,7 +173,6 @@
     $(document).ready(function() {
 
         $('.slider-element').slider();  //슬라이더 초기화
-        //getResult();
         getNationCount();                  //원산지별 카운트 (조회영역)
         search();                          //조회
         $("#name").focus();              //이름칸으로 포커스
@@ -183,7 +182,7 @@
         });
 
         $("#fullSearch").click(function(){
-            $("#origin").val('');
+            $("#origin").val('');             //TODO : 초기화 함수로 뺄것
             search();
         });
 
