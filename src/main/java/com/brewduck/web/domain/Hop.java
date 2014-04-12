@@ -76,18 +76,32 @@ public class Hop implements Serializable {
     private Boolean deleteFlag;
     //원산지 미국 홉 카운트
     public String usCnt;
+    //원산지 미국 이름
+    public String usCntName;
     //원산지 독일 홉 카운트
     public String deCnt;
+    //원산지 미국 이름
+    public String deCntName;
     //원산지 영국 홉 카운트
     public String ukCnt;
+    //원산지 미국 이름
+    public String ukCntName;
     //원산지 뉴질랜드 홉 카운트
     public String nzCnt;
+    //원산지 미국 이름
+    public String nzCntName;
     //원산지 호주 홉 카운트
     public String auCnt;
+    //원산지 미국 이름
+    public String auCntName;
     //원산지 슬로베닝니아 홉 카운트
     public String siCnt;
+    //원산지 미국 이름
+    public String siCntName;
     //원산지 기타 홉 카운트
     public String etcCnt;
+    //원산지 미국 이름
+    public String etcCntName;
 
 
 
@@ -467,6 +481,62 @@ public class Hop implements Serializable {
 
     public void setEtcCnt(String etcCnt) {
         this.etcCnt = etcCnt;
+    }
+
+    public String getUsCntName() {
+        return usCntName;
+    }
+
+    public void setUsCntName(String usCntName) {
+        this.usCntName = usCntName;
+    }
+
+    public String getDeCntName() {
+        return deCntName;
+    }
+
+    public void setDeCntName(String deCntName) {
+        this.deCntName = deCntName;
+    }
+
+    public String getUkCntName() {
+        return ukCntName;
+    }
+
+    public void setUkCntName(String ukCntName) {
+        this.ukCntName = ukCntName;
+    }
+
+    public String getNzCntName() {
+        return nzCntName;
+    }
+
+    public void setNzCntName(String nzCntName) {
+        this.nzCntName = nzCntName;
+    }
+
+    public String getAuCntName() {
+        return auCntName;
+    }
+
+    public void setAuCntName(String auCntName) {
+        this.auCntName = auCntName;
+    }
+
+    public String getSiCntName() {
+        return siCntName;
+    }
+
+    public void setSiCntName(String siCntName) {
+        this.siCntName = siCntName;
+    }
+
+    public String getEtcCntName() {
+        return etcCntName;
+    }
+
+    public void setEtcCntName(String etcCntName) {
+        this.etcCntName = etcCntName;
     }
 
     /**

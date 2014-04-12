@@ -96,12 +96,40 @@
     <select id="Hop.countHopOrigin" resultType="Hop">
          SELECT
         (SELECT COUNT(*) FROM HOPS WHERE ORIGIN = 'US') usCnt,
+        (SELECT B.attribute1desc
+           FROM common_code B
+          WHERE common_set = 'nation_code'
+            AND B.common_code = 'US') as usCntName,
         (SELECT COUNT(*) FROM HOPS WHERE ORIGIN = 'DE') deCnt,
+        (SELECT B.attribute1desc
+           FROM common_code B
+          WHERE common_set = 'nation_code'
+            AND B.common_code = 'DE') as usCntName,
         (SELECT COUNT(*) FROM HOPS WHERE ORIGIN = 'UK') ukCnt,
+        (SELECT B.attribute1desc
+           FROM common_code B
+          WHERE common_set = 'nation_code'
+            AND B.common_code = 'UK') as usCntName,
         (SELECT COUNT(*) FROM HOPS WHERE ORIGIN = 'NZ') nzCnt,
+        (SELECT B.attribute1desc
+           FROM common_code B
+          WHERE common_set = 'nation_code'
+            AND B.common_code = 'NZ') as usCntName,
         (SELECT COUNT(*) FROM HOPS WHERE ORIGIN = 'AU') auCnt,
+        (SELECT B.attribute1desc
+           FROM common_code B
+          WHERE common_set = 'nation_code'
+            AND B.common_code = 'AU') as usCntName,
         (SELECT COUNT(*) FROM HOPS WHERE ORIGIN = 'SI') siCnt,
-        (SELECT COUNT(*) FROM HOPS WHERE ORIGIN != 'US' AND ORIGIN != 'DE' AND ORIGIN != 'UK' AND ORIGIN != 'NZ' AND ORIGIN != 'AU' AND ORIGIN != 'SI') etcCnt
+        (SELECT B.attribute1desc
+           FROM common_code B
+          WHERE common_set = 'nation_code'
+            AND B.common_code = 'SI') as usCntName,
+        (SELECT COUNT(*) FROM HOPS WHERE ORIGIN != 'US' AND ORIGIN != 'DE' AND ORIGIN != 'UK' AND ORIGIN != 'NZ' AND ORIGIN != 'AU' AND ORIGIN != 'SI') etcCnt,
+        (SELECT B.attribute1desc
+           FROM common_code B
+          WHERE common_set = 'nation_code'
+            AND B.common_code = 'ETC') as etcCntName
         FROM DUAL
     </select>
 
