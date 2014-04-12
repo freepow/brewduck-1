@@ -19,8 +19,11 @@
             <div class="col-md-6">
                 <h4>특성으로 찾기</h4>
                 <div class="row form-row">
-                    <div class="col-md-12">
+                    <div class="col-md-11">
                         <input name="name" id="name" type="text"  class="form-control" placeholder="홉 이름" onkeypress="javascript:if(event.keyCode == 13){search();}">
+                    </div>
+                    <div class="col-md-1" id="loading">
+                        <img style="float: left;" alt="" src="/resources/landing/images/supersized-progress.gif" />
                     </div>
                 </div>
                 <div class="row form-row">
@@ -152,9 +155,8 @@
         })
     }
 
-
-
     function search(){
+        getLoadingTime();                                                   //로딩 아이콘 호출
         $("#result").html("");
         $("#result").load("/hop/list", $("#searchForm").serialize());
         //getResult();
@@ -169,17 +171,24 @@
         search();
     }
 
+    function getLoadingTime(){
+        if($("loading").is("visible")){return;}
+        document.getElementById("loading").style.display="block";       //로딩 아이콘 노출
+        setTimeout(function(){
+            document.getElementById("loading").style.display="none";    //로딩 아이콘 숨김
+        },500);
+    }
 
     $(document).ready(function() {
 
         $('.slider-element').slider();  //슬라이더 초기화
-        //getResult();
         getNationCount();                  //원산지별 카운트 (조회영역)
         search();                          //조회
         $("#name").focus();              //이름칸으로 포커스
+        document.getElementById("loading").style.display="none"; //로딩 아이콘 숨김
 
         $("#search").click(function(){
-            search();
+        search();
         });
 
         $("#fullSearch").click(function(){
@@ -188,6 +197,7 @@
         });
 
         $("#usButton").click(setOriginSearch);
+        $("#deButton").click(setOriginSearch);
         $("#ukButton").click(setOriginSearch);
         $("#nzButton").click(setOriginSearch);
         $("#auButton").click(setOriginSearch);
