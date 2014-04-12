@@ -114,9 +114,10 @@
     </form:form>
 </div>
 <div class="grid-body ">
-    <table class="table table-striped" id="example2" >
+    <table class="table table-striped table-fixed-layout table-hover" id="example2" >
         <thead>
         <tr>
+            <th class="small-cell"> </th>
             <th>이름</th>
             <th>영문명</th>
             <th>타입</th>
@@ -139,63 +140,24 @@
 <content tag="local_script">
 <script>
     function getNationCount(){
-
         $.get("/hop/countHopOrigin", function(data, status){
             //alert("US 값은 : " + data.usCnt + "\n" + "de 값은 : " + data.deCnt + "\n");
-                /*미국*/
-                $("#usButton").html("("+data.usCntName +data.usCnt+" 건)");
-                /*독일*/
-                $("#deButton").html("("+data.deCntName +data.deCnt+" 건)");
-                /*영국*/
-                $("#ukButton").html("("+data.ukCntName +data.ukCnt+" 건)");
-                /*뉴질랜드*/
-                $("#nzButton").html("("+data.nzCntName +data.nzCnt+" 건)");
-                /*호주*/
-                $("#auButton").html("("+data.auCntName +data.auCnt+" 건)");
-                /*슬로베니아*/
-                $("#siButton").html("("+data.siCntName +data.siCnt+" 건)");
-                /*기타*/
-                $("#etcButton").html("("+data.etcCntName +data.etcCnt+" 건)");
+            $("#usButton").html("("+data.usCntName +data.usCnt+" 건)"); /*미국*/
+            $("#deButton").html("("+data.deCntName +data.deCnt+" 건)"); /*독일*/
+            $("#ukButton").html("("+data.ukCntName +data.ukCnt+" 건)"); /*영국*/
+            $("#nzButton").html("("+data.nzCntName +data.nzCnt+" 건)"); /*뉴질랜드*/
+            $("#auButton").html("("+data.auCntName +data.auCnt+" 건)"); /*호주*/
+            $("#siButton").html("("+data.siCntName +data.siCnt+" 건)"); /*슬로베니아*/
+            $("#etcButton").html("("+data.etcCntName +data.etcCnt+" 건)"); /*기타*/
         })
     }
 
 
-    function getResult(){
-        var result_html = "";
-        $.ajax({
-            type: 'GET',
-            dataType : "json",
-            url : '/hop/list',
-            contentType: "application/json",
-            dataType : "json", //전송받을 데이터의 타입
-            data : $("#searchForm").serialize(),
-            success:function(list){
-                $("#result").html("");/*검색 초기화(serch value initialization) */
-                //result_html = result_html + ("<A HREF='www.naver.com'>");
-                $.each(list, function(i){
-                    result_html = result_html + ("<tr onclick=goDetail('"+list[i].name+"')>");
-                    result_html = result_html + ("<td class='clickable''>"+ list[i].koreanName + "</td>");
-                    result_html = result_html + ("<td class='clickable'>"+ list[i].name +" </td>");
-                    result_html = result_html + ("<td class='clickable'>"+ list[i].typeKorean +"</td>");
-                    result_html = result_html + ("<td class='clickable'>"+ list[i].originKorean +"</td>");
-                    result_html = result_html + ("<td class='clickable'>"+ list[i].alpha +"</td>");
-                    result_html = result_html + ("<td class='clickable'>"+ list[i].beta +"</td>");
-                    result_html = result_html + ("<td class='clickable' >"+ list[i].hsi +"</td>");
-                    result_html = result_html + ("</tr>");
-                    //$("#userBirthMonth").append("<option value='"+result[i].code+"'>"+result[i].codeName+"</option>")
-                });
-                //result_html = result_html + ("</A>");
-                $("#result").append(result_html);
-            },
-            error:function(xhr,statue,error){
-                alert(error);
-            }
-        });
-    }
 
     function search(){
         $("#result").html("");
-        getResult();
+        $("#result").load("/hop/list", $("#searchForm").serialize());
+        //getResult();
     }
 
     function goDetail(name){
@@ -209,12 +171,7 @@
         //getResult();
         getNationCount();                  //원산지별 카운트 (조회영역)
         search();                          //조회
-
-        var selectedItems=0;
-        //Table Row Click Event
-
-
-        $("#name").focus(); //이름칸으로 포커스
+        $("#name").focus();              //이름칸으로 포커스
 
         $("#search").click(function(){
             search();
@@ -227,37 +184,37 @@
 
         $("#usButton").click(function(){
             $("#origin").val(jQuery(this).val());
-            getResult();
+            search();
         });
 
         $("#deButton").click(function(){
             $("#origin").val(jQuery(this).val());
-            getResult();
+            search();
         });
 
         $("#ukButton").click(function(){
             $("#origin").val(jQuery(this).val());
-            getResult();
+            search();
         });
 
         $("#nzButton").click(function(){
             $("#origin").val(jQuery(this).val());
-            getResult();
+            search();
         });
 
         $("#auButton").click(function(){
             $("#origin").val(jQuery(this).val());
-            getResult();
+            search();
         });
 
         $("#siButton").click(function(){
             $("#origin").val(jQuery(this).val());
-            getResult();
+            search();
         });
 
         $("#etcButton").click(function(){
             $("#origin").val('ETC');
-            getResult();
+            search();
         });
     });
 </script>

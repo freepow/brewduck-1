@@ -86,9 +86,9 @@
 
                 </otherwise>
             </choose>
-
+            AND delete_id IS NULL
         </trim>
-        AND delete_id IS NULL
+
     </select>
 
     <select id="Hop.selectRecipeHopList" parameterType="Hop" resultType="Hop">

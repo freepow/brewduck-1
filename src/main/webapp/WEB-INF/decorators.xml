@@ -15,18 +15,24 @@
     </excludes>
 
     <decorator name="full-content" page="full-content.jsp">
-        <pattern>/hop/*</pattern>
+        <pattern>/hop/</pattern>
+        <pattern>/hop/detail/</pattern>
     </decorator>
 
-    <decorator name="default" page="default.jsp">
-        <!--
-        <pattern>/help/*</pattern>
-        <pattern>/company/*</pattern>
-        <pattern>/profile/*</pattern>
-        <pattern>/recipe/*</pattern>
-        <pattern>/account/*</pattern>
-        -->
-        <pattern>/*</pattern>
+    <decorator name="nonlayout-content" page="nonlayout-content.jsp">
+        <pattern>/hop/list/</pattern>
+        <pattern>/hop/list/*</pattern>
     </decorator>
+    <!--
+<decorator name="default" page="default.jsp">
+
+  <pattern>/help/*</pattern>
+  <pattern>/company/*</pattern>
+  <pattern>/profile/*</pattern>
+  <pattern>/recipe/*</pattern>
+  <pattern>/account/*</pattern>
+
+        <pattern>/</pattern>
+    </decorator>          -->
 
 </decorators>

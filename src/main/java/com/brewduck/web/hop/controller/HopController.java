@@ -95,7 +95,6 @@ public class HopController {
      * @return 맥주 홉 목록
      */
     @RequestMapping(value = "/list", method = RequestMethod.GET)
-    @ResponseBody
     public List<Hop> HopList(Model model, Hop paramHop) {
         logger.info("Hop List searching.........");
 
@@ -106,6 +105,7 @@ public class HopController {
         List<Hop> list = hopService.selectHopList(paramHop);
         //List<Hop> list = null;
         //logger.info("Hop List Size : {}", list.size());
+        model.addAttribute("list", list);
 
         return list;
     }
