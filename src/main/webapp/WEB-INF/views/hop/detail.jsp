@@ -102,6 +102,7 @@
                     <div class="content-wrapper green">
                         <h4 class="text-white"><span class="semi-bold">${HopDetail.alpha} %</span> - <span class="semi-bold">ALPHA</span></h4>
                         <p>Alpha 산 (α acids) 은 맥주의 생산에 있어서 가장 중요한 ...(더보기)</p>
+                        <button type="button" data-content="And here's some amazing content. It's very engaging. right?" id="popover" title="" data-toggle="popover" class="btn btn-primary" data-original-title="A Title">Click to toggle popover</button>
                         <!--div class="pull-left" class="col-md-12">
                             <input type="text"  data-slider-value="[${HopDetail.alpha}]" data-slider-step="0.5" data-slider-max="25" data-slider-min="0" value=""
                                    class="slider-element form-control" data-slider-selection="after">
@@ -247,13 +248,13 @@
 <script>
     function loadAnimatedWidget_pure_white(){
         var icons = new Skycons({"color": "white"});
-
         icons.play();
     }
 
     $(document).ready(function() {
         $('.slider-element').slider();  //슬라이더 초기화
-
+        $('#popover').popover();
+        $('.tip').tooltip();
         loadAnimatedWidget_pure_white();
     });
 
