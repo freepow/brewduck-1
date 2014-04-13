@@ -100,14 +100,15 @@
                 </div>
                 <div class="col-md-4 single-colored-widget">
                     <div class="content-wrapper green">
-                        <h4 class="text-white"><span class="semi-bold">${HopDetail.alpha} %</span> - <span class="semi-bold">ALPHA</span></h4>
-                        <p>Alpha 산 (α acids) 은 맥주의 생산에 있어서 가장 중요한 ...(더보기)</p>
-                        <button type="button" data-content="And here's some amazing content. It's very engaging. right?" id="popover" title="" data-toggle="popover" class="btn btn-primary" data-original-title="A Title">Click to toggle popover</button>
-                        <!--div class="pull-left" class="col-md-12">
-                            <input type="text"  data-slider-value="[${HopDetail.alpha}]" data-slider-step="0.5" data-slider-max="25" data-slider-min="0" value=""
-                                   class="slider-element form-control" data-slider-selection="after">
-                        </div>
-                        <!--div class="pull-right"> (자세히 보기)</div-->
+                        <h4 class="text-white"><span class="semi-bold">${HopDetail.alpha} %</span> - <span class="semi-bold">Alpha</span></h4>
+                        <p> 브루어들이 자신이 양조할 맥주의 쓴 맛을 계산하게 해주기 위해 알파산 퍼센티지가 기재되어있습니다.</p>
+                        <button class="btn btn-lg" data-toggle="modal" data-target="#myModal"> 자세히 보기 </button>
+
+                                <!--div class="pull-left" class="col-md-12">
+                                    <input type="text"  data-slider-value="[${HopDetail.alpha}]" data-slider-step="0.5" data-slider-max="25" data-slider-min="0" value=""
+                                           class="slider-element form-control" data-slider-selection="after">
+                                </div>
+                                <!--div class="pull-right"> (자세히 보기)</div-->
                         <div class="clearfix"></div>
                     </div>
                 </div>
@@ -115,7 +116,8 @@
                 <div class="col-md-4 single-colored-widget">
                     <div class="content-wrapper red">
                         <h4 class="text-white"><span class="semi-bold">${HopDetail.beta} %</span> - <span class="semi-bold">BETA</span></h4>
-                        <p>Beta 산은 맥주의 생산에 있어서 가장 중요한 ...(더보기)</p>
+                        <p> 발효와 저장과정에서 알파산이 내는 쓴 맛이 점차 사라질 때 베타산은 천천히 산화를 통하여 쓴맛을 만들어냅니다.</p>
+                        <button class="btn btn-lg" data-toggle="modal" data-target="#myModal2"> 자세히 보기 </button>
                         <!--div class="pull-left">
                             <input type="text"  data-slider-value="[${HopDetail.beta}]" data-slider-step="0.5" data-slider-max="25" data-slider-min="0" value="" class="slider-element form-control" data-slider-selection="after">
                         </div>
@@ -127,7 +129,7 @@
                 <div class="col-md-4 single-colored-widget">
                     <div class="content-wrapper blue">
                         <h4 class="text-white"><span class="semi-bold">${HopDetail.hsi} %</span> - <span class="semi-bold">HSI</span></h4>
-                        <p>HSI는 맥주의 생산에 있어서 가장 중요한 ...(더보기)</p>
+                        <p>개월 동안 소멸되는 알파산의 퍼센티지를 나타내는 저장성 수치. 오래된 홉의 알파산을 계산할 때 이용된다.</p>
                         <!--div class="pull-left">
                             <input type="text"  data-slider-value="[${HopDetail.hsi}]" data-slider-step="0.5" data-slider-max="100" data-slider-min="0" value="" class="slider-element form-control" data-slider-selection="after">
                         </div>
@@ -165,8 +167,78 @@
 
     </div>
 
+    <!-- Modal -->
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                    <br>
+                    <i class="icon-credit-card icon-7x"></i>
+                    <h4 id="myModalLabel" class="semi-bold">Alpha acids</h4>
+                    <br>
+                </div>
+                <div class="modal-body">
+                    <div class="row form-row">
+                        <div class="col-md-12">
+                            <P>
+                                알파산은 홈 브루어에게 가장 친숙한 홉 성분입니다. 홈브루어에게 판매되는 모든 홉패키지에는 브루어들이 자신이 양조할 맥주의 쓴 맛을 계산하게 해주기 위해 알파산 퍼센티지가 기재되어있습니다. 알파산 퍼센티지는 알파산으로 구성된 홉의 총량을 나타냅니다.
+                            </P>
+                        </div>
+                    </div>
+                    <div class="row form-row">
+                        <div class="col-md-12">
+                            <P>
+                                알파산 퍼센티지는 여러 개의 분리된 화학물질들을 아우르는데, 각각의 화학물질들은 독특한 풍미와 쓴맛의 스타일을 더합니다.
+                            </P>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+            <!-- /.modal-content -->
+        </div>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                    <br>
+                    <i class="icon-credit-card icon-7x"></i>
+                    <h4 id="myModalLabel" class="semi-bold">Beta acids</h4>
+                    <br>
+                </div>
+                <div class="modal-body">
+                    <div class="row form-row">
+                        <div class="col-md-12">
+                            <P>
+                                베타산은 보일링 때는 알파산만큼 쓴맛을 만들지 않지만 발효와 저장과정에서 알파산이 내는 쓴 맛이 점차 사라질 때 베타산은 천천히 산화를 통하여 쓴맛을 만들어냅니다. 이것은 숙성 및 라거링 된 맥주의 장기적 특성에 영향을 미칩니다.
+                            </P>
+                        </div>
+                    </div>
+                    <div class="row form-row">
+                        <div class="col-md-12">
+                            <P>
+                                베타산은 홉 생산자들에 의해 전체 홉 무게중 베타산이 차지하는 퍼센티지, 혹은 알파 대 베타의 비율로 기재됩니다. 어떤 사람들은 베타산이 주는 쓴맛이 알파산(혹은 적어도 휴물론)이 주는 것보다 더 강하다고 여겨서 베타산을 적게 함유한 홉을 찾기도 합니다. 하지만, 전통적인 노블홉들은 일반적으로 알바와 베타산을 거의 1:1의 비율로 갖고 있기 때문에 베타산도 몇몇 사람들에게는 좋다고 여겨집니다. 다른 브루어들은 숙성된 맥주에서 가장 변함없는(일정한?) 쓴맛을 생산하는 것으로 알려진 2:1의 비율을 선호합니다.
+                            </P>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+            <!-- /.modal-content -->
+        </div>
+    </div>
 
 </div>
+
     <br/>
     <div class="m-l-10 ">
         <div class="tiles white ">
