@@ -79,7 +79,7 @@
                     <h4> <span class="semi-bold">대체 홉</span></h4>
                     <div class="slider col-md-12">
                         <c:forEach items="${selectHopSubstitutesList}" var="substitutesName">
-                            <button type="button" class="btn btn-white btn-cons btn-mini">
+                            <button type="button" onclick="goDetail(' ${substitutesName.substitutesSeq}');" class="btn btn-white btn-cons btn-mini">
                                     ${substitutesName.substitutesName}
                             </button>
                         </c:forEach>
@@ -321,6 +321,10 @@
     function loadAnimatedWidget_pure_white(){
         var icons = new Skycons({"color": "white"});
         icons.play();
+    }
+
+    function goDetail(seq){
+        location.href = "/hop/detail/"+seq;
     }
 
     $(document).ready(function() {
