@@ -19,7 +19,7 @@
                 <div class="pull-left">
                     <h4>원산지 / <span class="semi-bold">타입</span></h4>
                     <div class="slider col-md-12">
-                        <button type="button" class="btn btn-warning btn-cons btn-mini">${HopDetail.originKorean} ( ${HopDetail.origin} )</button>
+                        <button type="button" class="btn btn-warning btn-cons btn-mini" onclick="goIndex('${HopDetail.origin}')">${HopDetail.originKorean} ( ${HopDetail.origin} )</button>
                         <button type="button" class="btn btn-primary btn-cons btn-mini">${HopDetail.typeKorean}</button>
                     </div>
                 </div>
@@ -305,6 +305,14 @@
     function goDetail(seq){
         location.href = "/hop/detail/"+seq;
     }
+
+    function goIndex(origin){
+        $("#origin").val(origin);
+        search();
+        //location.href = "/hop/"+origin;
+    }
+
+
 
     function search(){
      //   getLoadingTime();                                                   //로딩 아이콘 호출
