@@ -60,13 +60,14 @@ public class HopController {
      * @param name 맥주 홉 영문명
      * @return 맥주 홉 상세.
      */
-    @RequestMapping(value = "/detail/{name}", method = RequestMethod.GET)
-    public String detail(Model model, @PathVariable("name") String name) {
+    @RequestMapping(value = "/detail/{seq}", method = RequestMethod.GET)
+    public String detail(Model model, @PathVariable("seq") String seq) {
 
-        logger.info("Hop Name : {}", name);
+        logger.info("Hop seq : {}", seq);
 
         Hop hop = new Hop();
-        hop.setName(name);
+        //hop.setName(name);
+        hop.setSeq(seq);
 
         // 맥주 홉 상세 조회
         Hop hopDetail = hopService.selectHopDetail(hop);

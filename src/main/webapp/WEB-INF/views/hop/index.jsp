@@ -165,10 +165,8 @@
         //getResult();
     }
 
-    function goDetail(name){
-        alert();
-        return;
-        location.href = "/hop/detail/"+name;
+    function goDetail(seq){
+        location.href = "/hop/detail/"+seq;
     }
 
     function setOriginSearch(){

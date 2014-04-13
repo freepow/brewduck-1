@@ -5,6 +5,7 @@
     <sql id="Hop.selectHop">
           SELECT
                A.name             name
+              ,A.seq              seq
               ,A.korean_name      koreanName
               ,A.version          version
               ,A.alpha            alpha
@@ -103,6 +104,9 @@
         <!-- 맥주 홉 상세 조회 -->
         <include refid="Hop.selectHop" />
         WHERE delete_id IS NULL
+        <if test="seq != null">
+            AND seq = #{seq}
+        </if>
         <if test="name != null">
             AND name = #{name}
         </if>
@@ -280,9 +284,9 @@
     <!-- 맥주 홉 목록 조회 -->
         SELECT
         USED_FOR AS usedFor
-        FROM HOPS_USED_FOR
+         FROM HOPS_USED_FOR
         WHERE delete_id IS NULL
-        AND <if test="name != null">NAME = #{name} </if>
+          AND <if test="seq != null">SEQ = #{seq} </if>
     </select>
 
     <select id="Hop.selectHopAromaList" parameterType="Hop" resultType="Hop">
@@ -292,7 +296,7 @@
           AROMA_CODE AS aromaCode
         FROM HOPS_AROMA
         WHERE delete_id IS NULL
-        AND <if test="name != null">NAME = #{name} </if>
+          AND <if test="seq != null">SEQ = #{seq} </if>
     </select>
 
     <select id="Hop.selectHopSubstitutesList" parameterType="Hop" resultType="Hop">
@@ -302,7 +306,7 @@
             substitutes_seq  AS substitutesSeq
           FROM HOPS_SUBSTITUTES
          WHERE delete_id IS NULL
-           AND <if test="name != null">NAME = #{name} </if>
+           AND <if test="seq != null">SEQ = #{seq} </if>
     </select>
 
 </mapper>

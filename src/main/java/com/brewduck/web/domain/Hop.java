@@ -116,6 +116,15 @@ public class Hop implements Serializable {
     public String substitutesName;
     //대체 홉 순번
     public String substitutesSeq;
+    //홉 순번
+    public String seq;
+
+    public String getSeq() {
+        return seq;
+    }
+    public void setSeq(String seq) {
+        this.seq = seq;
+    }
 
     public String getSubstitutesName() {
         return substitutesName;
