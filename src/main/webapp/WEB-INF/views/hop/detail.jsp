@@ -42,11 +42,18 @@
                 <div class="clearfix"> </div>
             </div>
 
+            <!--div class="row form-row">
+                <div class="col-md-12">
+                    <blockquote  class="margin-top-20">
+                        <p> ${HopDetail.notes}</p>
+                    </blockquote>
+                </div>
+            </div-->
 
             <div class="row form-row">
                 <div class="col-md-12">
                     <blockquote  class="margin-top-20">
-                        <p> ${HopDetail.notes}</p>
+                        <p> ${HopDetail.koreanNotes}</p>
                     </blockquote>
                 </div>
             </div>

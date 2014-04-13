@@ -9,6 +9,7 @@
               ,A.version          version
               ,A.alpha            alpha
               ,A.notes            notes
+              ,A.korean_notes     koreanNotes
               ,A.type             type
               ,(select B.attribute1desc
                   from common_code B
