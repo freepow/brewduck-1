@@ -19,7 +19,7 @@
                 <div class="pull-left">
                     <h4>원산지 / <span class="semi-bold">타입</span></h4>
                     <div class="slider col-md-12">
-                        <button type="button" class="btn btn-warning btn-cons btn-mini">${HopDetail.originKorean} ( ${HopDetail.origin} )</button>
+                        <button type="button" class="btn btn-warning btn-cons btn-mini" onclick="goIndex('${HopDetail.origin}')">${HopDetail.originKorean} ( ${HopDetail.origin} )</button>
                         <button type="button" class="btn btn-primary btn-cons btn-mini">${HopDetail.typeKorean}</button>
                     </div>
                 </div>
@@ -263,28 +263,6 @@
                     <div class="clearfix"></div>
                 </div>
             </div>
-            <div class="p-t-20 p-b-15 ">
-                <div class="post overlap-left-10">
-                    <div class="user-profile-pic-wrapper">
-                        <div class="user-profile-pic-2x tiles grey white-border">
-                            <div class="text-grey inherit-size p-t-10 p-l-10"> <i class="fa fa-clock-o fa-lg"></i> </div>
-                        </div>
-                    </div>
-                    <div class="info-wrapper small-width">
-                        <div class="info text-black ">
-                            <p>Jane Smith Commented on webarch new year bundle
-                                “Would you like to display collections on your...” </p>
-                            <p class="muted small-text"> 2 mins ago </p>
-                        </div>
-                        <div class="clearfix"></div>
-                    </div>
-                    <div class="inline pull-right">
-                        <div class="tiles text-white p-t-5 p-l-5 p-b-5 p-r-5 inline"> <i class="fa fa-heart-o fa-lg"></i> </div>
-                        <div class="tiles white p-t-5 p-l-5 p-b-5 p-r-5 inline"> <i class="fa fa-comment-o fa-lg"></i> </div>
-                    </div>
-                    <div class="clearfix"></div>
-                </div>
-            </div>
         </div>
         <div class="tiles grey p-t-5 p-b-5 ">
             <p class="text-center"> <a href="javascript:;" class="text-black semi-bold  small-text">전체 보기</a></p>
@@ -297,13 +275,14 @@
     <table class="table table-striped" id="example2" >
         <thead>
         <tr>
+            <th class="small-cell"> </th>
             <th>이름</th>
+            <th>영문명</th>
             <th>타입</th>
             <th>원산지</th>
             <th>ALPHA</th>
             <th>BETA</th>
             <th>HSI</th>
-            <th>Co-Humulone 함유랑</th>
         </tr>
         </thead>
         <tbody id="result" name="result">
@@ -327,11 +306,28 @@
         location.href = "/hop/detail/"+seq;
     }
 
+    function goIndex(origin){
+        $("#origin").val(origin);
+        search();
+        //location.href = "/hop/"+origin;
+    }
+
+
+
+    function search(){
+     //   getLoadingTime();                                                   //로딩 아이콘 호출
+        $("#result").html("");
+        $("#result").load("/hop/list", $("#searchForm").serialize());
+        //getResult();
+    }
+
+
     $(document).ready(function() {
         $('.slider-element').slider();  //슬라이더 초기화
         $('#popover').popover();
         $('.tip').tooltip();
         loadAnimatedWidget_pure_white();
+        search();                          //조회
     });
 
 </script>
