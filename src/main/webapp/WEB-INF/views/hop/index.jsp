@@ -13,7 +13,8 @@
 <div class="grid simple ">
 <div class="grid-title">
     <form:form class="form-no-horizontal-spacing" id="searchForm"  name="searchForm" modelAttribute="paramHop">
-        <input name="origin" type ="hidden" id="origin" type="text"  class="form-control" value="">
+        <input name="origin" type ="hidden" id="origin" type="text"  class="form-control" value=""> <%--국가별--%>
+        <input name="aroma" type ="hidden" id="aroma" type="text"  class="form-control" value=""> <%--전체/ 향 /쓴맛--%>
 
         <div class="row column-seperation">
             <div class="col-md-6">
@@ -30,12 +31,12 @@
                     <br>
                     <div class="col-md-12">
                         <div class="radio">
-                            <input id="type1" type="radio" name="type" value="" checked="checked">
-                            <label for="type1">전체</label>
-                            <input id="type2" type="radio" name="type" value="1">
-                            <label for="type2">향</label>
-                            <input id="type3" type="radio" name="type" value="2">
-                            <label for="type3">쓴맛</label>
+                            <input id="allRadio" type="radio" name="type" value="" checked="checked">
+                            <label for="allRadio">전체</label>
+                            <input id="aromaRadio" type="radio" name="type" value="1">
+                            <label for="aromaRadio">향</label>
+                            <input id="bittersRadio" type="radio" name="type" value="2">
+                            <label for="bittersRadio">쓴맛</label>
                         </div>
                     </div>
                 </div>
@@ -174,6 +175,11 @@
         search();
     }
 
+    function setAromaSearch(){
+        $("#aroma").val(jQuery(this).val());
+        search();
+    }
+
     function getLoadingTime(){
         if($("loading").is("visible")){return;}
         document.getElementById("loading").style.display="block";       //로딩 아이콘 노출
@@ -199,7 +205,9 @@
             $("#origin").val('');             //TODO : 초기화 함수로 뺄것
             search();
         });
-
+        $("#allRadio").click(setAromaSearch);
+        $("#aromaRadio").click(setAromaSearch);
+        $("#bittersRadio").click(setAromaSearch);
         $("#usButton").click(setOriginSearch);
         $("#deButton").click(setOriginSearch);
         $("#ukButton").click(setOriginSearch);
