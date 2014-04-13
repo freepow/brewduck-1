@@ -112,6 +112,26 @@ public class Hop implements Serializable {
     public String aromaName;
     //아로마 코드
     public String aromaCode;
+    //대체 홉 이름
+    public String substitutesName;
+    //대체 홉 순번
+    public String substitutesSeq;
+
+    public String getSubstitutesName() {
+        return substitutesName;
+    }
+
+    public void setSubstitutesName(String substitutesName) {
+        this.substitutesName = substitutesName;
+    }
+
+    public String getSubstitutesSeq() {
+        return substitutesSeq;
+    }
+
+    public void setSubstitutesSeq(String substitutesSeq) {
+        this.substitutesSeq = substitutesSeq;
+    }
 
     public String getKoreanNotes() {
         return koreanNotes;

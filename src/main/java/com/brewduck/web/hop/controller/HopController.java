@@ -75,6 +75,8 @@ public class HopController {
 
         List<Hop> hopUsedForList = hopService.selectHopUsedForList(hop);
         List<Hop> hopAromaList = hopService.selectHopAromaList(hop);
+        List<Hop> selectHopSubstitutesList = hopService.selectHopSubstitutesList(hop);
+
 
         logger.info("updateFlag : {}", updateFlag);
         logger.info("hopUsedForList List Size : {}", hopUsedForList.size());
@@ -82,6 +84,7 @@ public class HopController {
         model.addAttribute("HopDetail", hopDetail);
         model.addAttribute("hopUsedForList", hopUsedForList);
         model.addAttribute("hopAromaList", hopAromaList);
+        model.addAttribute("selectHopSubstitutesList", selectHopSubstitutesList);
 
         return "hop/detail";
     }

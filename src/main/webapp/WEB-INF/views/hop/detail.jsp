@@ -74,22 +74,35 @@
             </div>
         </div>
         <div class="col-md-6">
-            <h4>수치</h4>
+            <div class="heading">
+                <div class="pull-left">
+                    <h4> <span class="semi-bold">대체 홉</span></h4>
+                    <div class="slider col-md-12">
+                        <c:forEach items="${selectHopSubstitutesList}" var="substitutesName">
+                            <button type="button" class="btn btn-white btn-cons btn-mini">
+                                    ${substitutesName.substitutesName}
+                            </button>
+                        </c:forEach>
+                    </div>
+                </div>
+                <div class="clearfix"> </div>
+            </div>
+             <br/>
+            <h4> <span class="semi-bold">수치</span></h4>
             <div class="row tiles-container">
                 <div class="heading">
                     <div class="pull-left">
-                        <h4>Hop  <span class="semi-bold">chemistry</span></h4>
+                        <!--h4>Hop  <span class="semi-bold">chemistry</span></h4-->
                         <p>다음 패치에서는 상세수치가 업데이트 됩니다.</p>
                     </div>
                     <div class="pull-right"> <span class="small-text muted">v1.0.1</span> </div>
                     <div class="clearfix"> </div>
                 </div>
-                <br/><br/>
                 <div class="col-md-4 single-colored-widget">
                     <div class="content-wrapper green">
                         <h4 class="text-white"><span class="semi-bold">${HopDetail.alpha} %</span> - <span class="semi-bold">ALPHA</span></h4>
                         <p>Alpha 산 (α acids) 은 맥주의 생산에 있어서 가장 중요한 ...(더보기)</p>
-                        <div class="pull-left" class="col-md-12">
+                        <!--div class="pull-left" class="col-md-12">
                             <input type="text"  data-slider-value="[${HopDetail.alpha}]" data-slider-step="0.5" data-slider-max="25" data-slider-min="0" value=""
                                    class="slider-element form-control" data-slider-selection="after">
                         </div>
@@ -102,7 +115,7 @@
                     <div class="content-wrapper red">
                         <h4 class="text-white"><span class="semi-bold">${HopDetail.beta} %</span> - <span class="semi-bold">BETA</span></h4>
                         <p>Beta 산은 맥주의 생산에 있어서 가장 중요한 ...(더보기)</p>
-                        <div class="pull-left">
+                        <!--div class="pull-left">
                             <input type="text"  data-slider-value="[${HopDetail.beta}]" data-slider-step="0.5" data-slider-max="25" data-slider-min="0" value="" class="slider-element form-control" data-slider-selection="after">
                         </div>
                         <!--div class="pull-right"> (자세히 보기)</div-->
@@ -114,7 +127,7 @@
                     <div class="content-wrapper blue">
                         <h4 class="text-white"><span class="semi-bold">${HopDetail.hsi} %</span> - <span class="semi-bold">HSI</span></h4>
                         <p>HSI는 맥주의 생산에 있어서 가장 중요한 ...(더보기)</p>
-                        <div class="pull-left">
+                        <!--div class="pull-left">
                             <input type="text"  data-slider-value="[${HopDetail.hsi}]" data-slider-step="0.5" data-slider-max="100" data-slider-min="0" value="" class="slider-element form-control" data-slider-selection="after">
                         </div>
                         <!--div class="pull-right"> (자세히 보기)</div-->

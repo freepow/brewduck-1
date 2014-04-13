@@ -45,6 +45,11 @@ public class HopDaoImpl implements HopDao {
     }
 
     @Override
+    public List<Hop> selectHopSubstitutesList(Hop hop) {
+        return sqlSession.selectList("Hop.selectHopSubstitutesList", hop);
+    }
+
+    @Override
     public List<Hop> selectHopAromaList(Hop hop) {
         return sqlSession.selectList("Hop.selectHopAromaList", hop);
     }

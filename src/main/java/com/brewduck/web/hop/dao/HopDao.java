@@ -53,7 +53,14 @@ public interface HopDao {
      */
     public List<Hop> selectHopAromaList(Hop hop);
 
-
+    /**
+     * <pre>
+     * 홉 대체 리스트
+     * </pre>
+     *
+     * @return 맥주 홉 목록
+     */
+    public List<Hop> selectHopSubstitutesList(Hop hop);
 
 
     /**

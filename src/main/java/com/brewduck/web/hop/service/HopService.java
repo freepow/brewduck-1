@@ -44,6 +44,16 @@ public interface HopService {
      */
     public List<Hop> selectHopAromaList(Hop hop);
 
+    /**
+     * <pre>
+     * 맥주 홉 목록 조회.
+     * </pre>
+     *
+     * @param hop 맥주 홉
+     * @return 맥주 홉 목록
+     */
+    public List<Hop> selectHopSubstitutesList(Hop hop);
+
 
     /**
      * <pre>

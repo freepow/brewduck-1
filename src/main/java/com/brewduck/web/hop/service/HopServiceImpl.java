@@ -44,6 +44,12 @@ public class HopServiceImpl implements HopService {
     }
 
     @Override
+    public List<Hop> selectHopSubstitutesList(Hop hop) {
+        return hopDao.selectHopSubstitutesList(hop);
+    }
+
+
+    @Override
     public Hop selectHopDetail(Hop hop) {
         return hopDao.selectHopDetail(hop);
     }
