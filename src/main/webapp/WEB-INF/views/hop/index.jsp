@@ -22,9 +22,9 @@
                     <div class="col-md-11">
                         <input name="name" id="name" type="text"  class="form-control" placeholder="홉 이름" onkeypress="javascript:if(event.keyCode == 13){search();}">
                     </div>
-                    <div class="col-md-1" id="loading">
+                    <!--div class="col-md-1" id="loading">
                         <img style="float: left;" alt="" src="/resources/landing/images/supersized-progress.gif" />
-                    </div>
+                    </div-->
                 </div>
                 <div class="row form-row">
                     <br>
@@ -78,14 +78,14 @@
                 </div>
             </div>
             <div class="col-md-6">
-                <h4>수치로 찾기</h4>
+                <h4>수치로 찾기 (기능 구현중)</h4>
                 <div class="row">
                     <div class="slider sucess col-md-4">
                         <span class="semi-bold">ALPHA</span>
                         <p>Alpha 산 (α acids) 은 맥주의 생산에 있어서 가장 중요한 ...(더보기) </p>
                     </div>
-                    <div class="slider sucess col-md-8">
-                        <input type="text" class="slider-element form-control" value="" data-slider-min="1" data-slider-max="70" data-slider-step="1" data-slider-value="20" data-slider-orientation="horizontal" data-slider-selection="after" data-slider-tooltip="hide">
+                    <div class="slider warning col-md-8">
+                        <input type="text" class="slider-element form-control" value="" data-slider-min="1" data-slider-max="70" data-slider-step="1" data-slider-value="40" data-slider-orientation="horizontal" data-slider-selection="after" data-slider-tooltip="hide">
                     </div>
                 </div>
                 <div class="row form-row">
@@ -131,6 +131,9 @@
         </tr>
         </thead>
         <tbody id="result" name="result">
+            <div class="progress progress-striped active progress-large" id="loading">
+                <div data-percentage="0%" style="width: 45%;" class="progress-bar progress-bar-success"></div>
+            </div>
         </tbody>
     </table>
 </div>
@@ -163,6 +166,8 @@
     }
 
     function goDetail(name){
+        alert();
+        return;
         location.href = "/hop/detail/"+name;
     }
 

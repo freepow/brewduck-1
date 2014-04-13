@@ -16,7 +16,7 @@
 
     <decorator name="full-content" page="full-content.jsp">
         <pattern>/hop/</pattern>
-        <pattern>/hop/detail/</pattern>
+        <pattern>/hop/detail/*</pattern>
     </decorator>
 
     <decorator name="nonlayout-content" page="nonlayout-content.jsp">

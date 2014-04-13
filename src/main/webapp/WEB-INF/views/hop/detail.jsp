@@ -15,24 +15,34 @@
 
     <div class="row column-seperation">
         <div class="col-md-6">
-            <div class="row form-row">
-                <div class="slider col-md-12">
-                    <H4>
-                    <button type="button" class="btn btn-warning btn-cons btn-mini">원산지 : ${HopDetail.originKorean} ( ${HopDetail.origin} )</button>
-                    <button type="button" class="btn btn-primary btn-cons btn-mini">용 도 : ${HopDetail.typeKorean}</button>
-                    </H4>
+            <div class="heading">
+                <div class="pull-left">
+                    <h4>원산지 / <span class="semi-bold">타입</span></h4>
+                    <div class="slider col-md-12">
+                        <button type="button" class="btn btn-warning btn-cons btn-mini">${HopDetail.originKorean} ( ${HopDetail.origin} )</button>
+                        <button type="button" class="btn btn-primary btn-cons btn-mini">${HopDetail.typeKorean}</button>
+                    </div>
                 </div>
+                <div class="pull-right"> <span class="small-text muted">버튼을 클릭하시면 조회됩니다.</span> </div>
+                <div class="clearfix"> </div>
             </div>
 
-            <div class="row form-row">
-                <div class="col-md-12">
-                    <c:forEach items="${hopUsedForList}" var="usedFor">
-                        <button type="button" class="btn btn-white btn-cons btn-mini">
-                        ${usedFor.usedFor}
-                        </button>
-                    </c:forEach>
+            <br/>
+            <div class="heading">
+                <div class="pull-left">
+                    <h4>사용 <span class="semi-bold">용도</span></h4>
+                    <div class="slider col-md-12">
+                        <c:forEach items="${hopUsedForList}" var="usedFor">
+                            <button type="button" class="btn btn-white btn-cons btn-mini">
+                                    ${usedFor.usedFor}
+                            </button>
+                        </c:forEach>
+                    </div>
                 </div>
+                <div class="clearfix"> </div>
             </div>
+
+
             <div class="row form-row">
                 <div class="col-md-12">
                     <blockquote  class="margin-top-20">
@@ -40,45 +50,86 @@
                     </blockquote>
                 </div>
             </div>
-            <div class="row form-row">
-                <br>
-                <div class="col-md-12">
-                    <c:forEach items="${hopAromaList}" var="aromaName">
-                        <button type="button" class="btn btn-white btn-cons btn-mini">
-                                ${aromaName.aromaName}
-                        </button>
-                    </c:forEach>
+
+            <br/>
+            <div class="heading">
+                <div class="pull-left">
+                    <h4> <span class="semi-bold">풍미</span></h4>
+                    <div class="slider col-md-12">
+                        <c:forEach items="${hopAromaList}" var="aromaName">
+                            <button type="button" class="btn btn-white btn-cons btn-mini">
+                                    ${aromaName.aromaName}
+                            </button>
+                        </c:forEach>
+                    </div>
                 </div>
+                <div class="clearfix"> </div>
             </div>
         </div>
         <div class="col-md-6">
             <h4>수치</h4>
-            <div class="row form-row">
-                <div class="slider col-md-4">
-                    <span class="semi-bold">ALPHA ${HopDetail.alpha}</span>
+            <div class="row tiles-container">
+                <div class="heading">
+                    <div class="pull-left">
+                        <h4>Hop  <span class="semi-bold">chemistry</span></h4>
+                        <p>다음 패치에서는 상세수치가 업데이트 됩니다.</p>
+                    </div>
+                    <div class="pull-right"> <span class="small-text muted">v1.0.1</span> </div>
+                    <div class="clearfix"> </div>
                 </div>
-                <div class="slider info col-md-8">
-                    <input type="text" disable data-slider-value="[${HopDetail.alpha}]" data-slider-step="0.5" data-slider-max="25" data-slider-min="0" value="" class="slider-element form-control" data-slider-selection="after">
+                <br/><br/>
+                <div class="col-md-4 single-colored-widget">
+                    <div class="content-wrapper green">
+                        <h4 class="text-white"><span class="semi-bold">${HopDetail.alpha} %</span> - <span class="semi-bold">ALPHA</span></h4>
+                        <p>Alpha 산 (α acids) 은 맥주의 생산에 있어서 가장 중요한 ...(더보기)</p>
+                        <div class="pull-left" class="col-md-12">
+                            <input type="text"  data-slider-value="[${HopDetail.alpha}]" data-slider-step="0.5" data-slider-max="25" data-slider-min="0" value=""
+                                   class="slider-element form-control" data-slider-selection="after">
+                        </div>
+                        <!--div class="pull-right"> (자세히 보기)</div-->
+                        <div class="clearfix"></div>
+                    </div>
                 </div>
+
+                <div class="col-md-4 single-colored-widget">
+                    <div class="content-wrapper red">
+                        <h4 class="text-white"><span class="semi-bold">${HopDetail.beta} %</span> - <span class="semi-bold">BETA</span></h4>
+                        <p>Beta 산은 맥주의 생산에 있어서 가장 중요한 ...(더보기)</p>
+                        <div class="pull-left">
+                            <input type="text"  data-slider-value="[${HopDetail.beta}]" data-slider-step="0.5" data-slider-max="25" data-slider-min="0" value="" class="slider-element form-control" data-slider-selection="after">
+                        </div>
+                        <!--div class="pull-right"> (자세히 보기)</div-->
+                        <div class="clearfix"></div>
+                    </div>
+                </div>
+
+                <div class="col-md-4 single-colored-widget">
+                    <div class="content-wrapper blue">
+                        <h4 class="text-white"><span class="semi-bold">${HopDetail.hsi} %</span> - <span class="semi-bold">HSI</span></h4>
+                        <p>HSI는 맥주의 생산에 있어서 가장 중요한 ...(더보기)</p>
+                        <div class="pull-left">
+                            <input type="text"  data-slider-value="[${HopDetail.hsi}]" data-slider-step="0.5" data-slider-max="100" data-slider-min="0" value="" class="slider-element form-control" data-slider-selection="after">
+                        </div>
+                        <!--div class="pull-right"> (자세히 보기)</div-->
+                        <div class="clearfix"></div>
+                    </div>
+                </div>
+
+                <!--div class="col-md-4 col-xs-7 no-padding">
+                    <div class="tiles red p-t-20 text-center">
+                        <i class="fa fa-share fa fa-2x fa-spin" id="widget-partly-rainy-day"></i>
+                        <h5 class="bold text-white text-center p-b-15">${HopDetail.hsi} % - HSI</h5>
+                    </div>
+                </div-->
+
             </div>
 
-            <div class="row form-row">
-                <div class="slider col-md-4">
-                    <span class="semi-bold">BETA</span>
-                </div>
+            <!--div class="row tiles-container">
                 <div class="slider info col-md-8">
-                    <input type="text" disable data-slider-value="[${HopDetail.beta}]" data-slider-step="0.5" data-slider-max="25" data-slider-min="0" value="" class="slider-element form-control" data-slider-selection="after">
+                    <input type="text"  data-slider-value="[10]" data-slider-step="5" data-slider-max="100" data-slider-min="10" value="" class="slider-element form-control" data-slider-selection="after">
                 </div>
-            </div>
+            </div-->
 
-            <div class="row form-row">
-                <div class="slider col-md-4">
-                    <span class="semi-bold">HSI</span>
-                </div>
-                <div class="slider info col-md-8">
-                    <input type="text" disable data-slider-value="[${HopDetail.hsi}]" data-slider-step="0.5" data-slider-max="100" data-slider-min="0" value="" class="slider-element form-control" data-slider-selection="after">
-                </div>
-            </div>
 
             <!--div class="row form-row">
                 <div class="slider col-md-4">
@@ -116,28 +167,6 @@
                         <div class="tiles text-white p-t-5 p-l-5 p-b-5 p-r-5 inline"> <i class="fa fa-heart-o fa-lg"></i> </div>
                         <div class="tiles white p-t-5 p-l-5 p-b-5 p-r-5 inline"> <i class="fa fa-comment-o fa-lg"></i> </div>
                     </div-->
-                    <div class="clearfix"></div>
-                </div>
-            </div>
-            <div class="p-t-20 p-b-15 b-b b-grey">
-                <div class="post overlap-left-10">
-                    <div class="user-profile-pic-wrapper">
-                        <div class="user-profile-pic-2x tiles blue white-border">
-                            <div class="text-white inherit-size p-t-10 p-l-15"> <i class="fa fa-map-marker fa-lg"></i> </div>
-                        </div>
-                    </div>
-                    <div class="info-wrapper small-width">
-                        <div class="info text-black ">
-                            <p>You’ve got 302 Followers in 59 Diffrent places.
-                                region legally identified as a distinct entity in ....” </p>
-                            <p class="muted small-text"> 2 mins ago </p>
-                        </div>
-                        <div class="clearfix"></div>
-                    </div>
-                    <div class="inline pull-right">
-                        <div class="tiles text-white p-t-5 p-l-5 p-b-5 p-r-5 inline"> <i class="fa fa-heart-o fa-lg"></i> </div>
-                        <div class="tiles white p-t-5 p-l-5 p-b-5 p-r-5 inline"> <i class="fa fa-comment-o fa-lg"></i> </div>
-                    </div>
                     <div class="clearfix"></div>
                 </div>
             </div>
@@ -196,40 +225,17 @@
 
 <content tag="local_script">
 <script>
+    function loadAnimatedWidget_pure_white(){
+        var icons = new Skycons({"color": "white"});
 
-    function getResult(){
-        var result_html = "";
-        $.ajax({
-            type: 'GET',
-            dataType : "json",
-            url : '/hop/list',
-            contentType: "application/json",
-            dataType : "json", //전송받을 데이터의 타입
-            success:function(list){
-                $.each(list, function(i){
-                    result_html = result_html + ("<tr>");
-                    result_html = result_html + ("<td>"+ list[i].name +"</td>");
-                    result_html = result_html + ("<td>"+ list[i].typeKorean +"</td>");
-                    result_html = result_html + ("<td>"+ list[i].origin +"</td>");
-                    result_html = result_html + ("<td>"+ list[i].alpha +"</td>");
-                    result_html = result_html + ("<td>"+ list[i].beta +"</td>");
-                    result_html = result_html + ("<td>"+ list[i].hsi +"</td>");
-                    result_html = result_html + ("<td>"+ list[i].cohumulone +"</td>");
-                    result_html = result_html + ("</tr>");
-                    //$("#userBirthMonth").append("<option value='"+result[i].code+"'>"+result[i].codeName+"</option>")
-                });
-                $("#result").append(result_html);
-
-            },
-            error:function(xhr,statue,error){
-                alert(error);
-            }
-        });
+        icons.play();
     }
 
     $(document).ready(function() {
-        $('.slider-element').slider();
-        //getResult();
+        $('.slider-element').slider();  //슬라이더 초기화
+
+        loadAnimatedWidget_pure_white();
     });
+
 </script>
 </content>

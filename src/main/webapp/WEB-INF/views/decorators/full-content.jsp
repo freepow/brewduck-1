@@ -46,11 +46,8 @@
                         <div class="iconset top-reload"></div>
                     </a> </li>
                     <li class="quicklinks"> <span class="h-seperate"></span></li>
-                    <li class="quicklinks"> <a href="#" class="" >
-                        <div class="iconset top-tiles"></div>
-                    </a> </li>
-                    <li class="m-r-10 input-prepend inside search-form no-boarder"> <span class="add-on"> <span class="iconset top-search"></span></span>
-                        <input name="" type="text"  class="no-boarder " placeholder="Search Dashboard" style="width:250px;">
+                    <li class="input-prepend inside search-form no-boarder"> <span class="add-on"> <span class="iconset top-search"></span></span>
+                        <input name="" type="text"  class="no-boarder " placeholder="전체 검색" style="width:250px;">
                     </li>
                 </ul>
             </div>
@@ -437,6 +434,8 @@
 <script src="/resources/assets/plugins/pace/pace.min.js" type="text/javascript"></script>
 <script src="/resources/assets/plugins/jquery-numberAnimate/jquery.animateNumbers.js" type="text/javascript"></script>
 <script src="/resources/assets/plugins/boostrap-slider/js/bootstrap-slider.js" type="text/javascript"></script>
+<script src="/resources/assets/plugins/skycons/skycons.js"></script>
+
 <!-- END PAGE LEVEL PLUGINS -->
 
 <!-- BEGIN CORE TEMPLATE JS -->
