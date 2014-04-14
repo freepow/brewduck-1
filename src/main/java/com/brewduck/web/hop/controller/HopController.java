@@ -1,5 +1,6 @@
 package com.brewduck.web.hop.controller;
 
+import com.brewduck.framework.security.AuthenticationUtils;
 import com.brewduck.web.domain.Account;
 import com.brewduck.web.domain.Hop;
 import com.brewduck.web.hop.service.HopService;
@@ -47,6 +48,10 @@ public class HopController {
     @RequestMapping(value = "/", method = RequestMethod.GET)
     public String main(Model model) {
         logger.info("Hop index");
+
+        Account account = AuthenticationUtils.getUser();
+
+        model.addAttribute("account", account);
 
         return "hop/index";
     }
