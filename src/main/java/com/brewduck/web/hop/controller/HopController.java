@@ -101,8 +101,6 @@ public class HopController {
     @RequestMapping(value = "/list", method = RequestMethod.GET)
     public List<Hop> HopList(Model model, Hop paramHop) {
         logger.info("Hop List searching.........");
-
-        logger.info("Hop name " + paramHop.getName());
         Hop hop = new Hop();
 
         // 맥주 홉 목록 조회

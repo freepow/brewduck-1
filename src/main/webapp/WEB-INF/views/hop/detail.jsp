@@ -116,7 +116,7 @@
                 <div class="col-md-4 single-colored-widget">
                     <div class="content-wrapper red">
                         <h4 class="text-white"><span class="semi-bold">${HopDetail.beta} %</span> - <span class="semi-bold">BETA</span></h4>
-                        <p> 발효와 저장과정에서 알파산이 내는 쓴 맛이 점차 사라질 때 베타산은 천천히 산화를 통하여 쓴맛을 만들어냅니다.</p>
+                        <p>발효와 저장과정에서 알파산이 내는 쓴 맛이 점차 사라질 때 베타산은 천천히 산화를 통하여 쓴맛을 만들어냅니다.</p>
                         <button class="btn btn-lg" data-toggle="modal" data-target="#myModal2"> 자세히 보기 </button>
                         <!--div class="pull-left">
                             <input type="text"  data-slider-value="[${HopDetail.beta}]" data-slider-step="0.5" data-slider-max="25" data-slider-min="0" value="" class="slider-element form-control" data-slider-selection="after">
@@ -311,8 +311,6 @@
         search();
         //location.href = "/hop/"+origin;
     }
-
-
 
     function search(){
      //   getLoadingTime();                                                   //로딩 아이콘 호출

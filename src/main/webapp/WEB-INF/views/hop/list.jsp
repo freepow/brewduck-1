@@ -15,9 +15,15 @@
         <td  class="clickable v-align-middle"> ${list.name}</td>
         <td  class="clickable v-align-middle"> ${list.typeKorean}</td>
         <td  class="clickable v-align-middle"> ${list.originKorean}</td>
-        <td  class="clickable v-align-middle"> ${list.alpha}</td>
-        <td  class="clickable v-align-middle"> ${list.beta}</td>
-        <td  class="clickable v-align-middle"> ${list.hsi}</td>
+        <td class="v-align-middle">
+            <button type="button" class="btn btn-primary btn-sm btn-small">${list.alpha} %</button>
+        </td>
+        <td  class="clickable v-align-middle">
+            <button type="button" class="btn btn-primary btn-sm btn-small">${list.beta} %</button>
+        </td>
+        <td  class="clickable v-align-middle">
+            <span class="label label-primary">${list.hsi} %</span>
+        </td>
     </tr>
 </c:forEach>
 

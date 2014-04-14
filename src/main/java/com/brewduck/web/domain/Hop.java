@@ -119,6 +119,7 @@ public class Hop implements Serializable {
     //홉 순번
     public String seq;
 
+
     public String getSeq() {
         return seq;
     }

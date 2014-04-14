@@ -73,6 +73,9 @@
         <include refid="Hop.selectHop" />
         <trim prefix="WHERE" prefixOverrides="AND | OR">
             <if test="name != null">AND NAME like CONCAT('%', #{name}, '%') </if>
+            <if test="koreanName != null">
+                AND korean_name like CONCAT('%', #{koreanName}, '%')
+            </if>
             <if test="type != null and type != 0">AND type =  #{type} </if>
             <choose>
                 <when test="origin == 'ETC'">
@@ -110,6 +113,7 @@
         <if test="name != null">
             AND name = #{name}
         </if>
+
         <if test="type != null">
             AND type = #{type}
         </if>

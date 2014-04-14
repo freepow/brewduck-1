@@ -21,7 +21,10 @@
                 <h4>특성으로 찾기</h4>
                 <div class="row form-row">
                     <div class="col-md-11">
-                        <input name="name" id="name" type="text"  class="form-control" placeholder="홉 이름" onkeypress="javascript:if(event.keyCode == 13){search();}">
+                        <input name="koreanName" id="koreanName" type="text"  class="form-control" placeholder="홉 한글 이름" onkeypress="javascript:if(event.keyCode == 13){search();}">
+                    </div>
+                    <div class="col-md-11">
+                        <input name="name" id="name" type="text"  class="form-control" placeholder="영문 홉 이름" onkeypress="javascript:if(event.keyCode == 13){search();}">
                     </div>
                     <!--div class="col-md-1" id="loading">
                         <img style="float: left;" alt="" src="/resources/landing/images/supersized-progress.gif" />
@@ -118,8 +121,9 @@
     </form:form>
 </div>
 <div class="grid-body ">
-    <table class="table table-striped table-fixed-layout table-hover" id="example2" >
-        <thead>
+    <table class="table table-bordered no-more-tables">
+
+    <thead>
         <tr>
             <th class="small-cell"> </th>
             <th>이름</th>
