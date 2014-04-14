@@ -94,6 +94,11 @@
                     <div class="profile-pic"> <img src="/resources/assets/img/profiles/avatar_small.jpg"  alt="" data-src="/resources/assets/img/profiles/avatar_small.jpg" data-src-retina="/resources/assets/img/profiles/avatar_small2x.jpg" width="35" height="35" /> </div>
                 </div>
                 <ul class="nav quick-section ">
+                    <li class="quicklinks"> <a href="/account/login" id="user-options">
+                        로그인
+                    </a>
+                    </li>
+                    <li class="quicklinks"> <span class="h-seperate"></span></li>
                     <li class="quicklinks"> <a data-toggle="dropdown" class="dropdown-toggle  pull-right " href="#" id="user-options">
                         <div class="iconset top-settings-dark "></div>
                     </a>
