@@ -8,6 +8,7 @@ import com.brewduck.web.user.service.UserService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.MessageSource;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -33,18 +34,24 @@ public class HomeController {
     @Autowired
     private CommonService commonService;
 
+    @Autowired
+    private MessageSource messageSource; //다국어
+
     /**
      * 회원 가입 페이지
      *
      * @return
      */
-    @RequestMapping(value = "/")
-    public String home(Model model) {
+    @RequestMapping(value = "/", method = RequestMethod.GET)
+    public String home(Model model,
+                       HttpServletRequest request) {
         // Account account = AuthenticationUtils.getUser();
 
         // model.addAttribute("account", account);
 
         //return "home";
+
+        logger.info(messageSource.getMessage("country.code",null,request.getLocale()));
         return "blank";
     }
 

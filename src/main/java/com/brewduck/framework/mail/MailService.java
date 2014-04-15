@@ -39,7 +39,7 @@ public class MailService {
         html.append("<table border='0' cellspacing='0' cellpadding='10' width='600' align='center'>");
         html.append("<tbody>");
         html.append("<tr>");
-        html.append("<td height='80' align='center'><a href='#' target='_blank'><img src='#' border='0' alt='NanoodaMusic' width='187' height='72'></a></td>");
+        html.append("<td height='80' align='center'><a href='#' target='_blank'><img src='#' border='0' alt='brewduck' width='187' height='72'></a></td>");
         html.append("</tr>");
         html.append("<tr>");
         html.append("<td bgcolor='#FFFFFF'>");
@@ -98,7 +98,7 @@ public class MailService {
         html.append("<td style='font-family:'나눔고딕', NanumGothic, NanumGothicWeb, Helvetica, sans-serif;font-size:11px;line-height:18px;color:#8a8a8a;text-align:center;padding:0;'>");
         html.append("<p style=''>본 메일은 수신을 동의한 브루덕 회원에게 발송됩니다.<br />");
         html.append("        발신전용이므로 문의사항은 <a href='#'>고객센터</a>를 이용해주세요.<br />");
-        html.append("©NANOODA, Inc.</p>");
+        html.append("©BREWDUCK, inc.</p>");
         html.append("</td> ");
         html.append("</tr> ");
         html.append("<tr>  ");
