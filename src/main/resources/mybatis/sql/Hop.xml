@@ -23,7 +23,6 @@
                   from common_code B
                  where common_set = 'nation_code'
                    and A.origin = B.common_code) as originKorean
-              ,A.substitutes      substitutes
               ,A.humulene         humulene
               ,A.caryophyllene    caryophyllene
               ,A.cohumulone       cohumulone

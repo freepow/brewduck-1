@@ -50,8 +50,6 @@ public class HomeController {
         // model.addAttribute("account", account);
 
         //return "home";
-
-        logger.info(messageSource.getMessage("country.code",null,request.getLocale()));
         return "blank";
     }
 
