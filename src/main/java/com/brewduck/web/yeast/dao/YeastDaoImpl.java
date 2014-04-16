@@ -44,6 +44,11 @@ public class YeastDaoImpl implements YeastDao {
     }
 
     @Override
+    public Yeast countYeastType() {
+        return sqlSession.selectOne("Yeast.countYeastType");
+    }
+
+    @Override
     public Integer insertYeast(Yeast yeast) {
         return sqlSession.update("Yeast.insertYeast", yeast);
     }

@@ -46,6 +46,15 @@ public interface YeastDao {
 
     /**
      * <pre>
+     * 맥주 이스트 타입 별 갯수 조회.
+     * </pre>
+     *
+     * @return 맥주 이스트
+     */
+    public Yeast countYeastType();
+
+    /**
+     * <pre>
      * 맥주 이스트 저장.
      * </pre>
      *

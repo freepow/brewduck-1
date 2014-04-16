@@ -37,6 +37,16 @@ public interface YeastService {
 
     /**
      * <pre>
+     * 맥주 이스트 삭제.
+     * </pre>
+     *
+     * @param yeast 맥주 이스트
+     * @return 이스트 타입 별 갯수
+     */
+    public Yeast countYeastType();
+
+    /**
+     * <pre>
      * 맥주 이스트 저장.
      * </pre>
      *
@@ -64,5 +74,6 @@ public interface YeastService {
      * @return 삭제 성공 여부
      */
     public Boolean deleteYeast(Yeast yeast);
-    
+
+
 }

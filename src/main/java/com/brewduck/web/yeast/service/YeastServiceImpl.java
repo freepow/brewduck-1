@@ -39,6 +39,11 @@ public class YeastServiceImpl implements YeastService {
     }
 
     @Override
+    public Yeast countYeastType() {
+        return yeastDao.countYeastType();
+    }
+
+    @Override
     public Boolean insertYeast(Yeast yeast) {
         int insertCount = yeastDao.insertYeast(yeast);
 

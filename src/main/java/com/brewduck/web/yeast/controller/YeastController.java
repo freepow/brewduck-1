@@ -1,5 +1,7 @@
 package com.brewduck.web.yeast.controller;
 
+import com.brewduck.framework.security.AuthenticationUtils;
+import com.brewduck.web.domain.Account;
 import com.brewduck.web.domain.Yeast;
 import com.brewduck.web.yeast.service.YeastService;
 import org.slf4j.Logger;
@@ -33,6 +35,25 @@ public class YeastController {
 
     /**
      * <pre>
+     * 맥주 홉 메인
+     * </pre>
+     *
+     * @param model Model
+     * @return 맥주 홉 메인
+     */
+    @RequestMapping(value = "/", method = RequestMethod.GET)
+    public String main(Model model) {
+        logger.info("Yeast index");
+
+        Account account = AuthenticationUtils.getUser();
+
+        model.addAttribute("account", account);
+
+        return "yeast/index";
+    }
+
+    /**
+     * <pre>
      * 맥주 이스트 목록 조회.
      * </pre>
      *
@@ -48,6 +69,7 @@ public class YeastController {
         // 맥주 이스트 목록 조회
         List<Yeast> list = yeastService.selectYeastList(yeast);
         logger.info("Yeast List Size : {}", list.size());
+        model.addAttribute("list", list);
 
         return list;
     }
@@ -75,6 +97,27 @@ public class YeastController {
         return yeastDetail;
     }
 
+
+    /**
+     * <pre>
+     * 맥주 이스트 타입 별 갯수 조회.
+     * </pre>
+     *
+     * @param model Model
+     * @return 맥주 이스트 타입 별 갯수.
+     */
+    @ResponseBody
+    @RequestMapping(value = "/countYeastType", method = RequestMethod.GET)
+    public Yeast countYeastType(Model model) {
+
+        // 맥주 이스트 타입 별 갯수 조회.
+        Yeast countYeastType = yeastService.countYeastType();
+
+        // model.addAttribute("Hop", Hop);
+        // return "/Hop/HopView";
+
+        return countYeastType;
+    }
     /**
      * <pre>
      * 맥주 이스트 저장.
