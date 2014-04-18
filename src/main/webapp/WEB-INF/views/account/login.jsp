@@ -68,16 +68,23 @@
                         <form:errors path="email" />
                     </div>
                     <div class="col-md-6 col-sm-6">
-                        <input id="reEmail" name="reEmail" class="txt fill-width" type="email" placeholder="이메일 주소를 다시 입력하세요." maxlength="100" />s
+                        <input id="reEmail" name="reEmail" class="txt fill-width" type="email" placeholder="이메일 주소를 다시 입력하세요." maxlength="100" />
                     </div>
                 </div>
                 <div class="row form-row m-l-20 m-r-20 xs-m-l-10 xs-m-r-10">
                     <div class="col-md-6 col-sm-6">
-                        <input id="email" name="email" class="txt fill-width" type="email" placeholder="이메일 주소를 입력하세요." maxlength="100" />
-                        <form:errors path="email" />
+                        <input id="password" name="password" class="txt fill-width" type="password" placeholder="패스워드를 입력하세요." maxlength="20" />
+                        <form:errors path="password" />
                     </div>
                     <div class="col-md-6 col-sm-6">
-                        <input id="reEmail" name="reEmail" class="txt fill-width" type="email" placeholder="이메일 주소를 다시 입력하세요." maxlength="100" />s
+                        <input id="rePassword" name="rePassword" class="txt fill-width" type="password" placeholder="패스워드를 다시 입력하세요." maxlength="20" />
+                    </div>
+                    <div class="row form-row m-l-20 m-r-20 xs-m-l-10 xs-m-r-10">
+                        <p >가입하기을 클릭하시면 <a href="#" class="fc-orange">약관</a>에 동의하며 <a href="#" class="fc-orange">쿠키 사용</a>을
+                            포함한 </br><a href="#" class="fc-orange">데이터 사용 정책</a>을 숙지하신 것으로 간주됩니다.</p>
+                        <p>
+                            <button class="btn btn-red btn-submit" type="submit">합류하기</button>
+                        </p>
                     </div>
                 </div>
             </form:form>
