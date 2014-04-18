@@ -47,7 +47,8 @@
                     </div>
                 </div>
             </form:form>
-            <form id="frm_register" class="animated fadeIn" style="display:none">
+
+            <form:form id="join" method="POST" action="/account/join" class="animated fadeIn" modelAttribute="account" style="display:none">
                 <div class="row form-row m-l-20 m-r-20 xs-m-l-10 xs-m-r-10">
                     <div class="col-md-6 col-sm-6">
                         <input name="reg_username" id="reg_username" type="text"  class="form-control" placeholder="Username">
@@ -74,7 +75,7 @@
                         <input name="reg_email" id="reg_email" type="text"  class="form-control" placeholder="Email">
                     </div>
                 </div>
-            </form>
+            </form:form>
         </div>
     </div>
 </div>
