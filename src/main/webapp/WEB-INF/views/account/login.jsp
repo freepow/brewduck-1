@@ -50,29 +50,34 @@
 
             <form:form id="join" method="POST" action="/account/join" class="animated fadeIn" modelAttribute="account" style="display:none">
                 <div class="row form-row m-l-20 m-r-20 xs-m-l-10 xs-m-r-10">
-                    <div class="col-md-6 col-sm-6">
-                        <input name="reg_username" id="reg_username" type="text"  class="form-control" placeholder="Username">
-                    </div>
-                    <div class="col-md-6 col-sm-6">
-                        <input name="reg_pass" id="reg_pass" type="password"  class="form-control" placeholder="Password">
+                    <div class="col-md-12">
+                        <c:if test="${message != null}">
+                            <h4 class="rs title-box fc-orange">${message}</h4>
+                        </c:if>
                     </div>
                 </div>
                 <div class="row form-row m-l-20 m-r-20 xs-m-l-10 xs-m-r-10">
                     <div class="col-md-12">
-                        <input name="reg_mail" id="reg_mail" type="text"  class="form-control" placeholder="Mailing Address">
+                        <input id="name" name="name" class="txt fill-width" type="text" placeholder="성명을 입력하세요." maxlength="40" />
+                        <form:errors path="name" />
                     </div>
                 </div>
                 <div class="row form-row m-l-20 m-r-20 xs-m-l-10 xs-m-r-10">
                     <div class="col-md-6 col-sm-6">
-                        <input name="reg_first_Name" id="reg_first_Name" type="text"  class="form-control" placeholder="First Name">
+                        <input id="email" name="email" class="txt fill-width" type="email" placeholder="이메일 주소를 입력하세요." maxlength="100" />
+                        <form:errors path="email" />
                     </div>
                     <div class="col-md-6 col-sm-6">
-                        <input name="reg_first_Name" id="reg_first_Name" type="password"  class="form-control" placeholder="Last Name">
+                        <input id="reEmail" name="reEmail" class="txt fill-width" type="email" placeholder="이메일 주소를 다시 입력하세요." maxlength="100" />s
                     </div>
                 </div>
                 <div class="row form-row m-l-20 m-r-20 xs-m-l-10 xs-m-r-10">
-                    <div class="col-md-12 ">
-                        <input name="reg_email" id="reg_email" type="text"  class="form-control" placeholder="Email">
+                    <div class="col-md-6 col-sm-6">
+                        <input id="email" name="email" class="txt fill-width" type="email" placeholder="이메일 주소를 입력하세요." maxlength="100" />
+                        <form:errors path="email" />
+                    </div>
+                    <div class="col-md-6 col-sm-6">
+                        <input id="reEmail" name="reEmail" class="txt fill-width" type="email" placeholder="이메일 주소를 다시 입력하세요." maxlength="100" />s
                     </div>
                 </div>
             </form:form>
