@@ -83,9 +83,8 @@ public class YeastController {
      * @param name 맥주 이스트 영문명
      * @return 맥주 이스트 상세.
      */
-    @ResponseBody
     @RequestMapping(value = "/detail/{seq}", method = RequestMethod.GET)
-    public String selectYeastDetail(Model model, @PathVariable("seq") String seq) {
+    public String detail(Model model, @PathVariable("seq") String seq) {
         logger.info("Yeast seq : {}", seq);
 
         Yeast yeast = new Yeast();
@@ -93,6 +92,8 @@ public class YeastController {
 
         // 맥주 이스트 상세 조회
         Yeast yeastDetail = yeastService.selectYeastDetail(yeast);
+
+        model.addAttribute("YeastDetail", yeastDetail);
 
         return "yeast/detail";
     }
