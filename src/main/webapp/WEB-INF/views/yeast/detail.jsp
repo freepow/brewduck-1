@@ -16,58 +16,16 @@
 <div class="row column-seperation">
     <div class="col-md-6">
         <div class="heading">
-            <div class="pull-left">
-                <h4>원산지 / <span class="semi-bold">타입</span></h4>
-                <div class="slider col-md-12">
-                    <button type="button" class="btn btn-warning btn-cons btn-mini" onclick="goIndex('${YeastDetail.origin}')">${YeastDetail.originKorean} ( ${YeastDetail.origin} )</button>
-                    <button type="button" class="btn btn-primary btn-cons btn-mini">${YeastDetail.typeKorean}</button>
-                </div>
-            </div>
             <div class="pull-right"> <span class="small-text muted">버튼을 클릭하시면 조회됩니다.</span> </div>
             <div class="clearfix"> </div>
         </div>
-
-        <br/>
         <div class="heading">
             <div class="pull-left">
-                <h4>사용 <span class="semi-bold">용도</span></h4>
+                <h4> <span class="semi-bold">타입</span></h4>
                 <div class="slider col-md-12">
-                    <c:forEach items="${hopUsedForList}" var="usedFor">
-                        <button type="button" class="btn btn-white btn-cons btn-mini">
-                                ${usedFor.usedFor}
+                        <button type="button" onclick="goDetail(' ${selectTypeList.type}');" class="btn btn-white btn-cons btn-mini">
+                                ${selectTypeList.typeName}
                         </button>
-                    </c:forEach>
-                </div>
-            </div>
-            <div class="clearfix"> </div>
-        </div>
-
-        <!--div class="row form-row">
-                <div class="col-md-12">
-                    <blockquote  class="margin-top-20">
-                        <p> ${YeastDetail.notes}</p>
-                    </blockquote>
-                </div>
-            </div-->
-
-        <div class="row form-row">
-            <div class="col-md-12">
-                <blockquote  class="margin-top-20">
-                    <p> ${YeastDetail.koreanNotes}</p>
-                </blockquote>
-            </div>
-        </div>
-
-        <br/>
-        <div class="heading">
-            <div class="pull-left">
-                <h4> <span class="semi-bold">풍미</span></h4>
-                <div class="slider col-md-12">
-                    <c:forEach items="${hopAromaList}" var="aromaName">
-                        <button type="button" onclick="goDetail(' ${aromaName.aromaCode}');" class="btn btn-white btn-cons btn-mini">
-                                ${aromaName.aromaName}
-                        </button>
-                    </c:forEach>
                 </div>
             </div>
             <div class="clearfix"> </div>
@@ -87,82 +45,6 @@
             </div>
             <div class="clearfix"> </div>
         </div>
-        <br/>
-        <h4> <span class="semi-bold">수치</span></h4>
-        <div class="row tiles-container">
-            <div class="heading">
-                <div class="pull-left">
-                    <!--h4>Hop  <span class="semi-bold">chemistry</span></h4-->
-                    <p>다음 패치에서는 상세수치가 업데이트 됩니다.</p>
-                </div>
-                <div class="pull-right"> <span class="small-text muted">v1.0.1</span> </div>
-                <div class="clearfix"> </div>
-            </div>
-            <div class="col-md-4 single-colored-widget">
-                <div class="content-wrapper green">
-                    <h4 class="text-white"><span class="semi-bold">${YeastDetail.alpha} %</span> - <span class="semi-bold">Alpha</span></h4>
-                    <p> 브루어들이 자신이 양조할 맥주의 쓴 맛을 계산하게 해주기 위해 알파산 퍼센티지가 기재되어있습니다.</p>
-                    <button class="btn btn-lg" data-toggle="modal" data-target="#myModal"> 자세히 보기 </button>
-
-                    <!--div class="pull-left" class="col-md-12">
-                                    <input type="text"  data-slider-value="[${YeastDetail.alpha}]" data-slider-step="0.5" data-slider-max="25" data-slider-min="0" value=""
-                                           class="slider-element form-control" data-slider-selection="after">
-                                </div>
-                                <!--div class="pull-right"> (자세히 보기)</div-->
-                    <div class="clearfix"></div>
-                </div>
-            </div>
-
-            <div class="col-md-4 single-colored-widget">
-                <div class="content-wrapper red">
-                    <h4 class="text-white"><span class="semi-bold">${YeastDetail.beta} %</span> - <span class="semi-bold">BETA</span></h4>
-                    <p>발효와 저장과정에서 알파산이 내는 쓴 맛이 점차 사라질 때 베타산은 천천히 산화를 통하여 쓴맛을 만들어냅니다.</p>
-                    <button class="btn btn-lg" data-toggle="modal" data-target="#myModal2"> 자세히 보기 </button>
-                    <!--div class="pull-left">
-                            <input type="text"  data-slider-value="[${YeastDetail.beta}]" data-slider-step="0.5" data-slider-max="25" data-slider-min="0" value="" class="slider-element form-control" data-slider-selection="after">
-                        </div>
-                        <!--div class="pull-right"> (자세히 보기)</div-->
-                    <div class="clearfix"></div>
-                </div>
-            </div>
-
-            <div class="col-md-4 single-colored-widget">
-                <div class="content-wrapper blue">
-                    <h4 class="text-white"><span class="semi-bold">${YeastDetail.hsi} %</span> - <span class="semi-bold">HSI</span></h4>
-                    <p>개월 동안 소멸되는 알파산의 퍼센티지를 나타내는 저장성 수치. 오래된 홉의 알파산을 계산할 때 이용된다.</p>
-                    <!--div class="pull-left">
-                            <input type="text"  data-slider-value="[${YeastDetail.hsi}]" data-slider-step="0.5" data-slider-max="100" data-slider-min="0" value="" class="slider-element form-control" data-slider-selection="after">
-                        </div>
-                        <!--div class="pull-right"> (자세히 보기)</div-->
-                    <div class="clearfix"></div>
-                </div>
-            </div>
-
-            <!--div class="col-md-4 col-xs-7 no-padding">
-                    <div class="tiles red p-t-20 text-center">
-                        <i class="fa fa-share fa fa-2x fa-spin" id="widget-partly-rainy-day"></i>
-                        <h5 class="bold text-white text-center p-b-15">${YeastDetail.hsi} % - HSI</h5>
-                    </div>
-                </div-->
-
-        </div>
-
-        <!--div class="row tiles-container">
-            <div class="slider info col-md-8">
-                <input type="text"  data-slider-value="[10]" data-slider-step="5" data-slider-max="100" data-slider-min="10" value="" class="slider-element form-control" data-slider-selection="after">
-            </div>
-        </div-->
-
-
-        <!--div class="row form-row">
-            <div class="slider col-md-4">
-                <span class="semi-bold">CO-HUMULONE 함유랑</span>
-            </div>
-            <div class="slider info col-md-8">
-                <input type="text" disable data-slider-value="[10,45]" data-slider-step="5" data-slider-max="100" data-slider-min="10" value="" class="slider-element form-control" data-slider-selection="after">
-            </div>
-        </div-->
-
     </div>
 
 </div>
@@ -279,10 +161,9 @@
             <th>이름</th>
             <th>영문명</th>
             <th>타입</th>
-            <th>원산지</th>
-            <th>ALPHA</th>
-            <th>BETA</th>
-            <th>HSI</th>
+            <th>형태</th>
+            <th>최대온도</th>
+            <th>최소온도</th>
         </tr>
         </thead>
         <tbody id="result" name="result">
