@@ -7,7 +7,6 @@
                name                name
               ,korean_name         koreanName
               ,version             version
-              /*,type                type*/
               ,(select B.attribute1desc
                   from common_code B
                  where common_set = 'yeast_type'
@@ -68,34 +67,40 @@
 
     <select id="Yeast.selectYeastList" parameterType="Yeast" resultType="Yeast">
         <!-- 맥주 이스트 목록 조회 -->
+<!--        <include refid="Yeast.selectYeast" />
+        WHERE delete_id IS NULL-->
+        <!-- 맥주 이스트 목록 조회 -->
         <include refid="Yeast.selectYeast" />
-        WHERE delete_id IS NULL
-    </select>
-
-    <select id="Yeast.selectRecipeYeastList" parameterType="Yeast" resultType="Yeast">
-        <!-- 맥주 레시피 이스트 목록 조회 -->
-<!--        <include refid="Yeast.selectRecipeYeast" />-->
-        <!-- 맥주 홉 목록 조회 -->
-        <include refid="Yeast.selectYeast" />
-        <trim prefix="WHERE" prefixOverrides="AND | OR">
+       <trim prefix="WHERE" prefixOverrides="AND | OR">
             <if test="name != null">AND NAME like CONCAT('%', #{name}, '%') </if>
             <if test="koreanName != null">
                 AND korean_name like CONCAT('%', #{koreanName}, '%')
             </if>
-<!--            <if test="type != null and type != 0">AND type =  #{type} </if>-->
-            <choose>
-                <when test="type == ''">
-                    AND TYPE != null
+            <if test="type != null and type != 0">AND type =  #{type} </if>
+<!--            <choose>
+                <when test="origin == 'ETC'">
+                    AND ORIGIN != 'US' AND ORIGIN != 'DE' AND ORIGIN != 'UK' AND ORIGIN != 'NZ' AND ORIGIN != 'AU' AND ORIGIN != 'SI'
                 </when>
-                <when test="type != null">
-                    AND type = #{type}
+                <when test="origin == ''">
+
+                </when>
+                <when test="origin != null">
+                    AND origin = #{origin}
                 </when>
                 <otherwise>
 
                 </otherwise>
-            </choose>
+            </choose>-->
             AND delete_id IS NULL
-        </trim>
+      </trim>
+
+    </select>
+
+    <select id="Yeast.selectRecipeYeastList" parameterType="Yeast" resultType="Yeast">
+        <!-- 맥주 레시피 이스트 목록 조회 -->
+        <include refid="Yeast.selectRecipeYeast" />
+          AND a.name = #{name}
+          AND b.delete_id IS NULL
     </select>
 
     <select id="Yeast.selectYeastDetail" parameterType="Yeast" resultType="Yeast">
@@ -112,31 +117,31 @@
 
     <select id="Yeast.countYeastType" resultType="Yeast">
          SELECT
-        (SELECT COUNT(*) FROM YEAST WHERE TYPE = 'Ale') aleCnt,
+        (SELECT COUNT(*) FROM YEAST WHERE TYPE = '1') aleCnt,
         (SELECT B.attribute1desc
            FROM common_code B
           WHERE common_set = 'yeast_type'
-          AND B.common_code = 'Ale') as aleCntName,
-        (SELECT COUNT(*) FROM YEAST WHERE TYPE = 'Lager') lagerCnt,
+          AND B.common_code = '1') as aleCntName,
+        (SELECT COUNT(*) FROM YEAST WHERE TYPE = '3') lagerCnt,
         (SELECT B.attribute1desc
            FROM common_code B
           WHERE common_set = 'yeast_type'
-          AND B.common_code = 'Lager') as lagerCntName,
-        (SELECT COUNT(*) FROM YEAST WHERE TYPE = 'Wheat') wheatCnt,
+          AND B.common_code = '3') as lagerCntName,
+        (SELECT COUNT(*) FROM YEAST WHERE TYPE = '4') wheatCnt,
         (SELECT B.attribute1desc
            FROM common_code B
           WHERE common_set = 'yeast_type'
-          AND B.common_code = 'Wheat') as wheatCntName,
-        (SELECT COUNT(*) FROM YEAST WHERE TYPE = 'Wine') wineCnt,
+          AND B.common_code = '4') as wheatCntName,
+        (SELECT COUNT(*) FROM YEAST WHERE TYPE = '5') wineCnt,
         (SELECT B.attribute1desc
            FROM common_code B
           WHERE common_set = 'yeast_type'
-          AND B.common_code = 'Wine') as wineCntName,
-        (SELECT COUNT(*) FROM YEAST WHERE TYPE = 'Champagne') champagneCnt,
+          AND B.common_code = '5') as wineCntName,
+        (SELECT COUNT(*) FROM YEAST WHERE TYPE = '2') champagneCnt,
         (SELECT B.attribute1desc
            FROM common_code B
           WHERE common_set = 'yeast_type'
-          AND B.common_code = 'Champagne') as champagneCntName
+          AND B.common_code = '2') as champagneCntName
         FROM DUAL
     </select>
 

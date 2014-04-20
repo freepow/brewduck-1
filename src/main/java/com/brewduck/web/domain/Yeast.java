@@ -68,7 +68,26 @@ public class Yeast implements Serializable {
     private Boolean updateFlag;
     // 삭제 성공 여부
     private Boolean deleteFlag;
-
+    // 에일 타입 이름
+    private String aleCntName;
+    // 에일 타입 이스트 카운트
+    private String aleCnt;
+    // 라거 타입 이름
+    private String lagerCntName;
+    // 라거 타입 이스트 카운트
+    private String lagerCnt;
+    // 위트 타입 이름
+    private String wheatCntName;
+    // 위트 타입 이스트 카운트
+    private String wheatCnt;
+    // 와인 타입 이름
+    private String wineCntName;
+    // 와인 타입 이스트 카운트
+    private String wineCnt;
+    // 샴페인 타입 이름
+    private String champagneCntName;
+    // 샴페인 타입 이스트 카운트
+    private String champagneCnt;
 
     /**
      * 효모 영문명
@@ -564,5 +583,89 @@ public class Yeast implements Serializable {
     @Override
     public String toString() {
         return ToStringBuilder.reflectionToString(this, ToStringStyle.MULTI_LINE_STYLE);
+    }
+
+    public static long getSerialVersionUID() {
+        return serialVersionUID;
+    }
+
+    public String getAleCntName() {
+        return aleCntName;
+    }
+
+    public void setAleCntName(String aleCntName) {
+        this.aleCntName = aleCntName;
+    }
+
+    public String getAleCnt() {
+        return aleCnt;
+    }
+
+    public void setAleCnt(String aleCnt) {
+        this.aleCnt = aleCnt;
+    }
+
+    public String getLagerCntName() {
+        return lagerCntName;
+    }
+
+    public void setLagerCntName(String lagerCntName) {
+        this.lagerCntName = lagerCntName;
+    }
+
+    public String getLagerCnt() {
+        return lagerCnt;
+    }
+
+    public void setLagerCnt(String lagerCnt) {
+        this.lagerCnt = lagerCnt;
+    }
+
+    public String getWheatCntName() {
+        return wheatCntName;
+    }
+
+    public void setWheatCntName(String wheatCntName) {
+        this.wheatCntName = wheatCntName;
+    }
+
+    public String getWheatCnt() {
+        return wheatCnt;
+    }
+
+    public void setWheatCnt(String wheatCnt) {
+        this.wheatCnt = wheatCnt;
+    }
+
+    public String getWineCntName() {
+        return wineCntName;
+    }
+
+    public void setWineCntName(String wineCntName) {
+        this.wineCntName = wineCntName;
+    }
+
+    public String getWineCnt() {
+        return wineCnt;
+    }
+
+    public void setWineCnt(String wineCnt) {
+        this.wineCnt = wineCnt;
+    }
+
+    public String getChampagneCntName() {
+        return champagneCntName;
+    }
+
+    public void setChampagneCntName(String champagneCntName) {
+        this.champagneCntName = champagneCntName;
+    }
+
+    public String getChampagneCnt() {
+        return champagneCnt;
+    }
+
+    public void setChampagneCnt(String champagneCnt) {
+        this.champagneCnt = champagneCnt;
     }
 }
