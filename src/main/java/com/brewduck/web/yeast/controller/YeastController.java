@@ -62,12 +62,12 @@ public class YeastController {
      */
     @ResponseBody
     @RequestMapping(value = "/list", method = RequestMethod.GET)
-    public List<Yeast> selectYeastList(Model model) {
+    public List<Yeast> YeastList(Model model, Yeast paramYeast) {
         logger.info("Yeast List");
         Yeast yeast = new Yeast();
 
         // 맥주 이스트 목록 조회
-        List<Yeast> list = yeastService.selectYeastList(yeast);
+        List<Yeast> list = yeastService.selectYeastList(paramYeast);
         logger.info("Yeast List Size : {}", list.size());
         model.addAttribute("list", list);
 

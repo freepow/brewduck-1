@@ -165,6 +165,7 @@
 
     function search(){
         getLoadingTime();                                                   //로딩 아이콘 호출
+
         $("#result").html("");
         $("#result").load("/hop/list", $("#searchForm").serialize());
         //getResult();
