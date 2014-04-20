@@ -88,7 +88,8 @@ public class Yeast implements Serializable {
     private String champagneCntName;
     // 샴페인 타입 이스트 카운트
     private String champagneCnt;
-
+    // 이스트 순번
+    private String seq;
     /**
      * 효모 영문명
      *
@@ -667,5 +668,13 @@ public class Yeast implements Serializable {
 
     public void setChampagneCnt(String champagneCnt) {
         this.champagneCnt = champagneCnt;
+    }
+
+    public String getSeq() {
+        return seq;
+    }
+
+    public void setSeq(String seq) {
+        this.seq = seq;
     }
 }
