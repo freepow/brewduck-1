@@ -108,6 +108,10 @@ public class Hop implements Serializable {
     public String etcCntName;
     //사용용도
     public String usedFor;
+    //사용용도명
+    public String usedForName;
+    //사용용도명
+    public String usedForCode;
     //아로마명
     public String aromaName;
     //아로마 코드
@@ -119,6 +123,21 @@ public class Hop implements Serializable {
     //홉 순번
     public String seq;
 
+    public String getUsedForName() {
+        return usedForName;
+    }
+
+    public void setUsedForName(String usedForName) {
+        this.usedForName = usedForName;
+    }
+
+    public String getUsedForCode() {
+        return usedForCode;
+    }
+
+    public void setUsedForCode(String usedForCode) {
+        this.usedForCode = usedForCode;
+    }
 
     public String getSeq() {
         return seq;

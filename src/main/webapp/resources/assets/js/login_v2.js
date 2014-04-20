@@ -1,11 +1,11 @@
 $(document).ready(function() {		
 	$('#login_toggle').click(function(){
-		$('#frm_login').show();
-		$('#frm_register').hide();
+		$('#authentication').show();
+		$('#join').hide();
 	})
 	$('#register_toggle').click(function(){
-		$('#frm_login').hide();
-		$('#frm_register').show();
+		$('#authentication').hide();
+		$('#join').show();
 	})
 	
 	$(".lazy").lazyload({

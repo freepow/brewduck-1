@@ -35,14 +35,6 @@ public interface HopDao {
      */
     public List<Hop> selectRecipeHopList(String name);
 
-    /**
-     * <pre>
-     * 홉 사용용도
-     * </pre>
-     *
-     * @return 맥주 홉 목록
-     */
-    public List<Hop> selectHopUsedForList(Hop hop);
 
     /**
      * <pre>
@@ -61,6 +53,16 @@ public interface HopDao {
      * @return 맥주 홉 목록
      */
     public List<Hop> selectHopSubstitutesList(Hop hop);
+
+    /**
+     * <pre>
+     * 홉 사용용도 리스트
+     * </pre>
+     *
+     * @return 맥주 홉 목록
+     */
+    public List<Hop> selectHopUsedForList(Hop hop);
+
 
 
     /**

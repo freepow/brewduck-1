@@ -24,15 +24,6 @@ public interface HopService {
      */
     public List<Hop> selectHopList(Hop hop);
 
-    /**
-     * <pre>
-     * 맥주 홉 목록 조회.
-     * </pre>
-     *
-     * @param hop 맥주 홉
-     * @return 맥주 홉 목록
-     */
-    public List<Hop> selectHopUsedForList(Hop hop);
 
     /**
      * <pre>
@@ -54,6 +45,17 @@ public interface HopService {
      */
     public List<Hop> selectHopSubstitutesList(Hop hop);
 
+    /**
+     * <pre>
+     * 맥주 홉 목록 조회.
+     * </pre>
+     *
+     * @param hop 맥주 홉
+     * @return 맥주 홉 목록
+     */
+    public List<Hop> selectHopUsedForList(Hop hop);
+
+
 
     /**
      * <pre>
@@ -70,7 +72,6 @@ public interface HopService {
      * 맥주 홉 국가 별 갯수 조회.
      * </pre>
      *
-     * @param hop 맥주 홉
      * @return 맥주 홉 내용
      */
     public Hop countHopOrigin();
