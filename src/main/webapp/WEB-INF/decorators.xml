@@ -18,6 +18,10 @@
         <pattern>/account/*</pattern>
     </decorator>
 
+    <decorator name="main-content" page="main.jsp">
+        <pattern>/</pattern>
+    </decorator>
+
     <decorator name="full-content" page="full-content.jsp">
         <pattern>/hop/</pattern>
         <pattern>/hop/detail/*</pattern>

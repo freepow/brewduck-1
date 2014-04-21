@@ -1,11 +1,11 @@
 $(document).ready(function() {	
-loadServerChart();
+//loadServerChart();
 //drawMouseSpeedDemo();
-loadSalesGraph();
-loadSalesSparkline();
+//loadSalesGraph();
+//loadSalesSparkline();
 loadShareMarketGraph();
 loadShareMarketGraph_Demo2();
-loadAnimatedWeatherIcons();
+//loadAnimatedWeatherIcons();
 loadAnimatedWidget_pure_white();
 //loadSampleChart();
 //loadSampleChartDemo2();

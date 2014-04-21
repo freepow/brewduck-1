@@ -60,6 +60,7 @@ public class YeastController {
      * @param model Model
      * @return 맥주 이스트 목록
      */
+    @ResponseBody
     @RequestMapping(value = "/list", method = RequestMethod.GET)
     public List<Yeast> YeastList(Model model, Yeast paramYeast) {
         logger.info("Yeast List");
