@@ -47,6 +47,16 @@ public interface HopDao {
 
     /**
      * <pre>
+     * 홉 아로마 리스트
+     * </pre>
+     *
+     * @return 맥주 홉 목록
+     */
+    public List<Hop> selectAromaList();
+
+
+    /**
+     * <pre>
      * 홉 대체 리스트
      * </pre>
      *

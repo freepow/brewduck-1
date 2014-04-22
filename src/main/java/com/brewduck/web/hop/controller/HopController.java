@@ -38,8 +38,6 @@ public class HopController {
     @Autowired
     private HopService hopService;
 
-
-
     /**
      * <pre>
      * 맥주 홉 메인
@@ -65,7 +63,6 @@ public class HopController {
      * </pre>
      *
      * @param model Model
-     * @param name 맥주 홉 영문명
      * @return 맥주 홉 상세.
      */
     @RequestMapping(value = "/detail/{seq}", method = RequestMethod.GET)
@@ -141,6 +138,26 @@ public class HopController {
         return countHopOrigin;
     }
 
+    /**
+     * <pre>
+     * 아로마 조회 조건 리스트
+     * </pre>
+     *
+     * @param model Model
+     * @return 맥주 홉 국가 별 갯수.
+     */
+    @ResponseBody
+    @RequestMapping(value = "/getAromaList", method = RequestMethod.GET)
+    public List selectAromaList(Model model) {
+
+        // 맥주 홉 국가 별 갯수 조회.
+        List selectAromaList = hopService.selectAromaList();
+
+        // model.addAttribute("Hop", Hop);
+        // return "/Hop/HopView";
+
+        return selectAromaList;
+    }
 
 
     /**

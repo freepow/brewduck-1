@@ -317,4 +317,13 @@
              AND <if test="seq != null">SEQ = #{seq} </if>
     </select>
 
+    <select id="Hop.selectAromaList" resultType="Hop">
+        <!-- 맥주 홉 목록 조회 -->
+        SELECT
+            attribute1 aromaCode,
+            attribute1desc aromaName
+          FROM common_code
+         WHERE common_set = 'aroma_code'
+    </select>
+
 </mapper>
