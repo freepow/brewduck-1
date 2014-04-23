@@ -19,7 +19,7 @@
     </decorator>
 
     <decorator name="main-content" page="main.jsp">
-        <pattern>/</pattern>
+        <pattern>/index</pattern>
     </decorator>
 
     <decorator name="full-content" page="full-content.jsp">

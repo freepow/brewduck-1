@@ -163,6 +163,17 @@
         })
     }
 
+    function getAromaList(){
+        $.get("/hop/getAromaList", function(data, status){
+            //alert("US 값은 : " + data.aromaName);
+
+            $.each(data, function(i){
+                //$("#userBirthMonth").append("<option value='"+result[i].code+"'>"+result[i].codeName+"</option>")
+                alert(result[i].data);
+            });
+        })
+    }
+
     function search(){
         getLoadingTime();                                                   //로딩 아이콘 호출
 
@@ -198,6 +209,7 @@
 
         $('.slider-element').slider();  //슬라이더 초기화
         getNationCount();                  //원산지별 카운트 (조회영역)
+       // getAromaList();
         search();                          //조회
         $("#name").focus();              //이름칸으로 포커스
         document.getElementById("loading").style.display="none"; //로딩 아이콘 숨김
