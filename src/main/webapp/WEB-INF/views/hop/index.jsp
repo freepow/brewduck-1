@@ -62,21 +62,8 @@
                     <br>
                     <br>
                     <div class="col-md-12">
-                        <div class="checkbox check-default checkbox-circle">
-                            <input id="checkbox7" type="checkbox" value="1" checked="checked">
-                            <label for="checkbox7">floral</label>
-                            <input id="checkbox8" type="checkbox" value="2" >
-                            <label for="checkbox8">tropical</label>
-                            <input id="checkbox7" type="checkbox" value="3" >
-                            <label for="checkbox7">citrus</label>
-                            <input id="checkbox7" type="checkbox" value="4" checked="unchecked">
-                            <label for="checkbox7">Pungent Spciy</label>
-                            <input id="checkbox7" type="checkbox" value="5" checked="checked">
-                            <label for="checkbox7">Hoppy</label>
-                            <input id="checkbox7" type="checkbox" value="1" >
-                            <label for="checkbox7">Earthy</label>
-                            <input id="checkbox7" type="checkbox" value="1" checked="unchecked">
-                            <label for="checkbox7">Herbal</label>
+                        <div id="aromaArea" class="checkbox check-default checkbox-circle">
+
                         </div>
                     </div>
                 </div>
@@ -164,13 +151,23 @@
     }
 
     function getAromaList(){
+
+        var aromaHtml = "";
+
         $.get("/hop/getAromaList", function(data, status){
             //alert("US 값은 : " + data.aromaName);
 
             $.each(data, function(i){
-                //$("#userBirthMonth").append("<option value='"+result[i].code+"'>"+result[i].codeName+"</option>")
-                alert(result[i].data);
+
+                aromaHtml = aromaHtml +  "<input id='aromaCode"+ data[i].aromaCode +"' type='checkbox' value='"+ data[i].aromaCode +"'>";
+                aromaHtml = aromaHtml +  "<label for='aromaCode"+ data[i].aromaCode +"'>"+data[i].aromaName+"</label>";
+
+
+
             });
+
+            $("#aromaArea").append(aromaHtml);
+
         })
     }
 
@@ -209,7 +206,7 @@
 
         $('.slider-element').slider();  //슬라이더 초기화
         getNationCount();                  //원산지별 카운트 (조회영역)
-       // getAromaList();
+        getAromaList();
         search();                          //조회
         $("#name").focus();              //이름칸으로 포커스
         document.getElementById("loading").style.display="none"; //로딩 아이콘 숨김
