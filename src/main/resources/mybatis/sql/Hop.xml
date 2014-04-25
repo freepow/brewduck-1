@@ -5,6 +5,7 @@
     <sql id="Hop.selectHop">
           SELECT
                A.name             name
+              ,A.name             titleInUrl
               ,A.seq              seq
               ,A.korean_name      koreanName
               ,A.version          version

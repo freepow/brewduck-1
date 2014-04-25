@@ -24,7 +24,7 @@
 
     <decorator name="full-content" page="full-content.jsp">
         <pattern>/hop/</pattern>
-        <pattern>/hop/detail/*</pattern>
+        <pattern>/hop/*/*</pattern>
         <pattern>/yeast/</pattern>
         <pattern>/yeast/detail/*</pattern>
     </decorator>

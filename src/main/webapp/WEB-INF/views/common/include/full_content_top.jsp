@@ -13,7 +13,7 @@
                 </a> </li>
             </ul>
             <!-- 로고 -->
-            <a href="#"><img src="/resources/assets/img/logo.png" class="logo" alt=""  data-src="/resources/assets/img/logo.png" data-src-retina="/resources/assets/img/logo2x.png" width="106" height="21"/></a>
+            <a href="/"><img src="/resources/assets/img/logo.png" class="logo" alt=""  data-src="/resources/assets/img/logo.png" data-src-retina="/resources/assets/img/logo2x.png" width="106" height="21"/></a>
             <ul class="nav pull-right notifcation-center">
                 <li class="dropdown" id="header_task_bar"> <a href="#" class="dropdown-toggle active" data-toggle="">
                     <div class="iconset top-home"></div>

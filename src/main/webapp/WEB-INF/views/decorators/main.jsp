@@ -245,9 +245,9 @@
     <div class="tiles overflow-hidden full-height tiles-overlay-hover m-b-20 widget-item">
         <div class="controller overlay right"> <a href="javascript:;" class="reload"></a> <a href="javascript:;" class="remove"></a> </div>
         <div class="overlayer tiles-overlay auto blue">
-            <div class="overlayer-wrapper  p-t-20 p-l-20 p-r-20 p-b-20"> <i class="fa fa-map-marker fa-2x"></i>
+            <div class="overlayer-wrapper  p-t-20 p-l-20 p-r-20 p-b-20">
                 <p class="p-t-20 text-white-opacity">21 Jan</p>
-                <h3 class="text-white">New Year <span class="semi-bold">UI Bundle <br>
+                <h3 class="text-white">New Year <span class="semi-bold">UI Bundle 2<br>
                   </span> now on webarch</h3>
                 <p class="p-t-20"><span class="bold">214</span> Comments <span class="m-l-10 bold">24k</span> Likes</p>
             </div>

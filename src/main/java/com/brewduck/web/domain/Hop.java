@@ -20,6 +20,9 @@ public class Hop implements Serializable {
 
     // 홉 영문명
     private String name;
+
+    private String titleInUrl;
+
     // 홉 한글명
     private String koreanName;
     // 홉 버전
@@ -633,6 +636,26 @@ public class Hop implements Serializable {
 
     public void setOriginKorean(String originKorean) {
         this.originKorean = originKorean;
+    }
+
+    public String getTitleInUrl() {
+        return titleInUrl;
+    }
+
+    public void setTitleInUrl(String titleInUrl) {
+
+        titleInUrl = titleInUrl.trim().replaceAll("[^a-zA-Z0-9\\-\\s\\.]", "");
+        titleInUrl = titleInUrl.replaceAll("[\\-| |\\.]+", "-");
+
+        /*
+        if(titleInUrl.length() > 200){
+            titleInUrl.setTitleInUrl(titleInUrl.substring(0, 100));
+        } else {
+            titleInUrl.setTitleInUrl(titleInUrl);
+        }
+        */
+
+        this.titleInUrl = titleInUrl;
     }
 
     @Override

@@ -302,8 +302,8 @@
         icons.play();
     }
 
-    function goDetail(seq){
-        location.href = "/hop/detail/"+seq;
+    function goDetail(seq, titleInUrl){
+        location.href = "/hop/"+seq+"/"+titleInUrl;
     }
 
     function goIndex(origin){

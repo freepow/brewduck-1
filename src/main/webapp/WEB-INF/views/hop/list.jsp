@@ -4,7 +4,7 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 
 <c:forEach items="${list}" var="list">
-    <tr onclick="goDetail('${list.seq}');">
+    <tr onclick="goDetail('${list.seq}', '${list.titleInUrl}');">
         <td  class="small-cell v-align-middle">
             <div class="star">
                 <input id="checkbox9" type="checkbox" value="1" checked >
@@ -12,7 +12,7 @@
             </div>
         </td>
         <td  class="clickable v-align-middle"> ${list.koreanName}</td>
-        <td  class="clickable v-align-middle"> ${list.name}</td>
+        <td  class="clickable v-align-middle"> ${list.titleInUrl}</td>
         <td  class="clickable v-align-middle"> ${list.typeKorean}</td>
         <td  class="clickable v-align-middle"> ${list.originKorean}</td>
         <td class="v-align-middle">

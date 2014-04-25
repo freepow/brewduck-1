@@ -49,8 +49,8 @@ public class HomeController {
 
         // model.addAttribute("account", account);
 
-        //return "home";
-        return "blank";
+        return "home";
+        //return "blank";
     }
 
     @RequestMapping(value = "/sample", method = RequestMethod.GET)

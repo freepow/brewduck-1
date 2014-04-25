@@ -65,7 +65,7 @@ public class HopController {
      * @param model Model
      * @return 맥주 홉 상세.
      */
-    @RequestMapping(value = "/detail/{seq}", method = RequestMethod.GET)
+    @RequestMapping(value="{seq}/*", method=RequestMethod.GET)
     public String detail(Model model, @PathVariable("seq") String seq) {
 
         logger.info("Hop seq : {}", seq);
@@ -110,6 +110,8 @@ public class HopController {
 
         // 맥주 홉 목록 조회
         List<Hop> list = hopService.selectHopList(paramHop);
+
+        logger.info(list.get(0).getTitleInUrl());
         //List<Hop> list = null;
         //logger.info("Hop List Size : {}", list.size());
         model.addAttribute("list", list);
