@@ -140,14 +140,14 @@ public class HopController {
         return countHopOrigin;
     }
 
-    /**
+/*    *//**
      * <pre>
      * 아로마 조회 조건 리스트
      * </pre>
      *
      * @param model Model
      * @return 맥주 홉 국가 별 갯수.
-     */
+     *//*
     @ResponseBody
     @RequestMapping(value = "/getAromaList", method = RequestMethod.GET)
     public List selectAromaList(Model model) {
@@ -159,7 +159,7 @@ public class HopController {
         // return "/Hop/HopView";
 
         return selectAromaList;
-    }
+    }*/
 
 
     /**

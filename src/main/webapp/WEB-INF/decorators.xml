@@ -27,6 +27,8 @@
         <pattern>/hop/*/*</pattern>
         <pattern>/yeast/</pattern>
         <pattern>/yeast/detail/*</pattern>
+        <pattern>/fermentable/</pattern>
+        <pattern>/fermentable/detail/*</pattern>
     </decorator>
 
     <decorator name="nonlayout-content" page="nonlayout-content.jsp">
@@ -34,6 +36,8 @@
         <pattern>/hop/list/*</pattern>
         <pattern>/yeast/list/</pattern>
         <pattern>/yeast/list/*</pattern>
+        <pattern>/fermentable/list/</pattern>
+        <pattern>/fermentable/list/*</pattern>
     </decorator>
     <!--
 <decorator name="default" page="default.jsp">

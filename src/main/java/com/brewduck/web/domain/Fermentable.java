@@ -33,7 +33,7 @@ public class Fermentable implements Serializable {
     // 끓인 후 추가되는 것의 유무 (Default : "FALSE")
     private Boolean addAfterBoil;
     // 원산지 국가 및 장소
-    private String orgin;
+    private String origin;
     // 공급 업체 (곡물 / 추출 / 설탕의 공급 업체)
     private String supplier;
     // 주의사항 (메모)
@@ -248,17 +248,17 @@ public class Fermentable implements Serializable {
      *
      * @return 원산지 국가 및 장소
      */
-    public String getOrgin() {
-        return orgin;
+    public String getOrigin() {
+        return origin;
     }
 
     /**
      * 원산지 국가 및 장소
      *
-     * @param orgin 원산지 국가 및 장소
+     * @param origin 원산지 국가 및 장소
      */
-    public void setOrgin(String orgin) {
-        this.orgin = orgin;
+    public void setOrigin(String origin) {
+        this.origin = origin;
     }
 
     /**

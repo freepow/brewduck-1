@@ -1,5 +1,7 @@
 package com.brewduck.web.fermentable.controller;
 
+import com.brewduck.framework.security.AuthenticationUtils;
+import com.brewduck.web.domain.Account;
 import com.brewduck.web.domain.Fermentable;
 import com.brewduck.web.fermentable.service.FermentableService;
 import org.slf4j.Logger;
@@ -30,6 +32,24 @@ public class FermentableController {
     @Autowired
     private FermentableService fermentableService;
 
+    /**
+     * <pre>
+     * 맥주 몰트 메인
+     * </pre>
+     *
+     * @param model Model
+     * @return 맥주 몰트 메인
+     */
+    @RequestMapping(value = "/", method = RequestMethod.GET)
+    public String main(Model model) {
+        logger.info("Fermentable index");
+
+        Account account = AuthenticationUtils.getUser();
+
+        model.addAttribute("account", account);
+
+        return "fermentable/index";
+    }
 
     /**
      * <pre>
@@ -39,15 +59,15 @@ public class FermentableController {
      * @param model Model
      * @return 맥주 맥아 목록
      */
-    @ResponseBody
     @RequestMapping(value = "/list", method = RequestMethod.GET)
-    public List<Fermentable> selectFermentableList(Model model) {
+    public List<Fermentable> FermentableList(Model model, Fermentable paramFermentable) {
         logger.info("Fermentable List");
         Fermentable fermentable = new Fermentable();
 
         // 맥주 맥아 목록 조회
-        List<Fermentable> list = fermentableService.selectFermentableList(fermentable);
+        List<Fermentable> list = fermentableService.selectFermentableList(paramFermentable);
         logger.info("Fermentable List Size : {}", list.size());
+        model.addAttribute("list", list);
 
         return list;
     }
@@ -61,7 +81,6 @@ public class FermentableController {
      * @param name 맥주 맥아 영문명
      * @return 맥주 맥아 상세.
      */
-    @ResponseBody
     @RequestMapping(value = "/detail/{name}", method = RequestMethod.GET)
     public Fermentable selectFermentableDetail(Model model, @PathVariable("name") String name) {
         logger.info("Fermentable Name : {}", name);
