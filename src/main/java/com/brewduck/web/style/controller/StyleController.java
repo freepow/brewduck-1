@@ -42,7 +42,8 @@ public class StyleController {
      * @param model Model
      * @return 맥주 홉 메인
      */
-    @RequestMapping(value = "/", method = RequestMethod.GET)
+
+    @RequestMapping(value =  {"","/"}, method = RequestMethod.GET)
     public String main(Model model) {
         logger.info("style index");
 

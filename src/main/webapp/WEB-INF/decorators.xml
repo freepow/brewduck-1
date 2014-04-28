@@ -25,6 +25,7 @@
     <decorator name="full-content" page="full-content.jsp">
         <pattern>/hop/</pattern>
         <pattern>/hop/*/*</pattern>
+        <pattern>/style</pattern>
         <pattern>/style/</pattern>
         <pattern>/style/*/*</pattern>
         <pattern>/yeast/</pattern>
