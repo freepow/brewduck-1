@@ -5,6 +5,7 @@
     <sql id="Style.selectStyle">
         SELECT
                name               name
+              ,name              titleInUrl
               ,korean_name        koreanName
               ,category           category
               ,version            version

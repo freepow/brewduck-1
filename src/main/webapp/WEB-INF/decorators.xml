@@ -25,6 +25,8 @@
     <decorator name="full-content" page="full-content.jsp">
         <pattern>/hop/</pattern>
         <pattern>/hop/*/*</pattern>
+        <pattern>/style/</pattern>
+        <pattern>/style/*/*</pattern>
         <pattern>/yeast/</pattern>
         <pattern>/yeast/detail/*</pattern>
         <pattern>/fermentable/</pattern>
@@ -34,6 +36,8 @@
     <decorator name="nonlayout-content" page="nonlayout-content.jsp">
         <pattern>/hop/list/</pattern>
         <pattern>/hop/list/*</pattern>
+        <pattern>/style/list/</pattern>
+        <pattern>/style/list/*</pattern>
         <pattern>/yeast/list/</pattern>
         <pattern>/yeast/list/*</pattern>
         <pattern>/fermentable/list/</pattern>

@@ -86,6 +86,20 @@ public class Style implements Serializable {
     private Boolean updateFlag;
     // 삭제 성공 여부
     private Boolean deleteFlag;
+    //SEO를 위한 타이틀 URL
+    private String titleInUrl;
+
+    public String getTitleInUrl() {
+        return titleInUrl;
+    }
+
+    public void setTitleInUrl(String titleInUrl) {
+
+        titleInUrl = titleInUrl.trim().replaceAll("[^a-zA-Z0-9\\-\\s\\.]", "");
+        titleInUrl = titleInUrl.replaceAll("[\\-| |\\.]+", "-");
+
+        this.titleInUrl = titleInUrl;
+    }
 
     public String getSeq() {
         return seq;
