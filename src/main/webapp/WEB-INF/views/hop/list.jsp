@@ -12,7 +12,7 @@
             </div>
         </td>
         <td  class="clickable v-align-middle"> ${list.koreanName}</td>
-        <td  class="clickable v-align-middle"> ${list.titleInUrl}</td>
+        <td  class="clickable v-align-middle"> ${list.name}</td>
         <td  class="clickable v-align-middle"> ${list.typeKorean}</td>
         <td  class="clickable v-align-middle"> ${list.originKorean}</td>
         <td class="v-align-middle">
