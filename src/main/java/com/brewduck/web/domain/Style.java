@@ -18,6 +18,8 @@ import java.util.Date;
 public class Style implements Serializable {
     private static final long serialVersionUID = 1L;
 
+    //홉 순번
+    public String seq;
     // 스타일 영문명
     private String name;
     // 스타일 한글명
@@ -85,6 +87,13 @@ public class Style implements Serializable {
     // 삭제 성공 여부
     private Boolean deleteFlag;
 
+    public String getSeq() {
+        return seq;
+    }
+
+    public void setSeq(String seq) {
+        this.seq = seq;
+    }
 
     /**
      * 스타일 영문명
