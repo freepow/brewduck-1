@@ -25,7 +25,7 @@ import java.util.List;
  * Time: 오후 1:01
  * To change this template use File | Settings | File Templates.
  */
-@Service("codeService")
+@Service("boardService")
 public class BoardServiceImpl implements BoardService {
     Logger logger = LoggerFactory.getLogger(this.getClass());
 

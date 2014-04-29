@@ -20,5 +20,6 @@
         <typeAlias type="com.brewduck.web.domain.Hop"         alias="Hop"         />
         <typeAlias type="com.brewduck.web.domain.Yeast"       alias="Yeast"       />
         <typeAlias type="com.brewduck.web.domain.Misc"        alias="Misc"        />
+        <typeAlias type="com.brewduck.web.domain.Board"        alias="Board"        />
     </typeAliases>
 </configuration>
