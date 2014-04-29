@@ -50,7 +50,26 @@ public class FermentableController {
 
         return "fermentable/index";
     }
+    /**
+     * <pre>
+     * 맥주 홉 국가 별 갯수 조회.
+     * </pre>
+     *
+     * @param model Model
+     * @return 맥주 홉 국가 별 갯수.
+     */
 
+    @RequestMapping(value = "/countFermentableOrigin", method = RequestMethod.GET)
+    public Fermentable countFermentableOrigin(Model model) {
+
+        // 맥주 홉 국가 별 갯수 조회.
+        Fermentable countFermentableOrigin = fermentableService.countFermentableOrigin();
+
+        // model.addAttribute("Hop", Hop);
+        // return "/Hop/HopView";
+
+        return countFermentableOrigin;
+    }
     /**
      * <pre>
      * 맥주 맥아 목록 조회.

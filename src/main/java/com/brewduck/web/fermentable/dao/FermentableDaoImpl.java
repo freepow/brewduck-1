@@ -45,6 +45,11 @@ public class FermentableDaoImpl implements FermentableDao {
     }
 
     @Override
+    public Fermentable countFermentableOrigin() {
+        return sqlSession.selectOne("Fermentable.countFermentableOrigin");
+    }
+
+    @Override
     public Integer insertFermentable(Fermentable fermentable) {
         return sqlSession.update("Fermentable.insertFermentable", fermentable);
     }

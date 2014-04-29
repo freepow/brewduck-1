@@ -4,7 +4,7 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 
 <c:forEach items="${list}" var="list">
-    <tr onclick="goDetail('${list.name}');">
+    <tr onclick="goDetail('${list.seq}');">
         <td  class="small-cell v-align-middle">
             <div class="star">
                 <input id="checkbox9" type="checkbox" value="1" checked >
@@ -14,7 +14,7 @@
         <td  class="clickable v-align-middle"> ${list.koreanName}</td>
         <td  class="clickable v-align-middle"> ${list.name}</td>
         <td  class="clickable v-align-middle"> ${list.type}</td>
-        <td  class="clickable v-align-middle"> ${list.origin}</td>
+        <td  class="clickable v-align-middle"> ${list.originKorean}</td>
         <td class="v-align-middle">
             <button type="button" class="btn btn-primary btn-sm btn-small">${list.yield} %</button>
         </td>
@@ -29,9 +29,9 @@
         $(document).ready(function() {
             var selectedItems=0;
             //Table Row Click Event
-            $('.clickable').click( function() {
+/*            $('.clickable').click( function() {
                 alert();
-            });
+            });*/
         });
     </script>
 </content>

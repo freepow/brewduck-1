@@ -12,7 +12,11 @@
               ,yield               yield
               ,color               color
               ,add_after_boil      addAfterBoil
-              ,origin              origin
+              ,A.origin           origin
+             ,(select B.attribute1desc
+                  from common_code B
+                 where common_set = 'nation_code'
+                   and A.origin = B.common_code) as originKorean
               ,supplier            supplier
               ,notes               notes
               ,coarse_fine_diff    coarseFineDiff
@@ -28,7 +32,7 @@
               ,update_date         updateDate
               ,delete_id           deleteId
               ,delete_date         deleteDate
-          FROM brewduckdb.FERMENTABLE
+          FROM brewduckdb.FERMENTABLE A
     </sql>
 
     <sql id="Fermentable.selectRecipeFermentable">
@@ -71,6 +75,20 @@
             <if test="koreanName != null">
                 AND korean_name like CONCAT('%', #{koreanName}, '%')
             </if>
+            <choose>
+                <when test="origin == 'ETC'">
+                    AND ORIGIN != 'US' AND ORIGIN != 'DE' AND ORIGIN != 'UK' AND ORIGIN != 'BE' AND ORIGIN != 'CA'
+                </when>
+                <when test="origin == ''">
+
+                </when>
+                <when test="origin != null">
+                    AND origin = #{origin}
+                </when>
+                <otherwise>
+
+                </otherwise>
+            </choose>
             AND delete_id IS NULL
         </trim>
     </select>
@@ -92,6 +110,41 @@
         <if test="type != null">
             AND type = #{type}
         </if>
+    </select>
+
+    <select id="Fermentable.countFermentableOrigin" resultType="Fermentable">
+         SELECT
+        (SELECT COUNT(*) FROM FERMENTABLE WHERE ORIGIN = 'US') usCnt,
+        (SELECT B.attribute1desc
+           FROM common_code B
+          WHERE common_set = 'nation_code'
+            AND B.common_code = 'US') as usCntName,
+        (SELECT COUNT(*) FROM FERMENTABLE WHERE ORIGIN = 'DE') deCnt,
+        (SELECT B.attribute1desc
+           FROM common_code B
+          WHERE common_set = 'nation_code'
+            AND B.common_code = 'DE') as deCntName,
+        (SELECT COUNT(*) FROM FERMENTABLE WHERE ORIGIN = 'UK') ukCnt,
+        (SELECT B.attribute1desc
+           FROM common_code B
+          WHERE common_set = 'nation_code'
+            AND B.common_code = 'UK') as ukCntName,
+        (SELECT COUNT(*) FROM FERMENTABLE WHERE ORIGIN = 'BE') beCnt,
+        (SELECT B.attribute1desc
+           FROM common_code B
+          WHERE common_set = 'nation_code'
+            AND B.common_code = 'BE') as beCntName,
+        (SELECT COUNT(*) FROM FERMENTABLE WHERE ORIGIN = 'CA') caCnt,
+        (SELECT B.attribute1desc
+           FROM common_code B
+          WHERE common_set = 'nation_code'
+            AND B.common_code = 'CA') as caCntName,
+        (SELECT COUNT(*) FROM FERMENTABLE WHERE ORIGIN != 'US' AND ORIGIN != 'DE' AND ORIGIN != 'UK' AND ORIGIN != 'BE' AND ORIGIN != 'CA') etcCnt,
+        (SELECT B.attribute1desc
+           FROM common_code B
+          WHERE common_set = 'nation_code'
+            AND B.common_code = 'ETC') as etcCntName
+        FROM DUAL
     </select>
 
     <insert id="Fermentable.insertFermentable" parameterType="Fermentable">

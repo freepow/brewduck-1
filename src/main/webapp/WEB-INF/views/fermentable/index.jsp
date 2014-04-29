@@ -14,7 +14,7 @@
                 <div class="grid-title">
                     <form:form class="form-no-horizontal-spacing" id="searchForm"  name="searchForm" modelAttribute="paramFermentable">
                         <input name="type" type ="hidden" id="type" type="text"  class="form-control" value=""> <%--타입별--%>
-                        <%--<input name="aroma" type ="hidden" id="aroma" type="text"  class="form-control" value=""> &lt;%&ndash;전체/ 향 /쓴맛&ndash;%&gt;--%>
+                        <input name="origin" type ="hidden" id="origin" type="text"  class="form-control" value="">
 
                         <div class="row column-seperation">
                             <div class="col-md-6">
@@ -27,15 +27,16 @@
                                         <input name="name" id="name" type="text"  class="form-control" placeholder="영문 몰트 이름" onkeypress="javascript:if(event.keyCode == 13){search();}">
                                     </div>
                                 </div>
-                                <h4>타입으로 찾기</h4>
+                                <h4>원산지로 찾기</h4>
                                 <div class="row form-row">
                                     <br>
                                     <div class="col-md-12">
-                                        <button id="aleButton" type="button" class="btn btn-white btn-xs btn-mini" value="1"> </button>
-                                        <button id="lagerButton" type="button" class="btn btn-white btn-xs btn-mini" value="3"> </button>
-                                        <button id="wheatButton" type="button" class="btn btn-white btn-xs btn-mini" value="4"> </button>
-                                        <button id="wineButton" type="button" class="btn btn-white btn-xs btn-mini" value="5"> </button>
-                                        <button id="champagneButton" type="button" class="btn btn-white btn-xs btn-mini" value="2"> </button>
+                                        <button id="usButton" type="button" class="btn btn-white btn-xs btn-mini" value="US"> </button>
+                                        <button id="deButton" type="button" class="btn btn-white btn-xs btn-mini" value="DE"> </button>
+                                        <button id="ukButton" type="button" class="btn btn-white btn-xs btn-mini" value="UK"> </button>
+                                        <button id="beButton" type="button" class="btn btn-white btn-xs btn-mini" value="BE"> </button>
+                                        <button id="caButton" type="button" class="btn btn-white btn-xs btn-mini" value="CA"> </button>
+                                        <button id="etcButton" type="button" class="btn btn-white btn-xs btn-mini" value="ETC"> </button>
                                     </div>
                                 </div>
                             </div>
@@ -77,14 +78,15 @@
 
 <content tag="local_script">
     <script>
-        function getTypeCount(){
-            $.get("/fermentable/countFermentableType", function(data, status){
-                /*alert("에일 값은 : " + data.aleCntName + "\n" + "de 값은 : " + data.aleCnt + "\n");*/
-                $("#aleButton").html("("+data.aleCntName +data.aleCnt+" 건)"); /*에일*/
-                $("#lagerButton").html("("+data.lagerCntName +data.lagerCnt+" 건)"); /*라거*/
-                $("#wheatButton").html("("+data.wheatCntName +data.wheatCnt+" 건)"); /*위트*/
-                $("#wineButton").html("("+data.wineCntName +data.wineCnt+" 건)"); /*와인*/
-                $("#champagneButton").html("("+data.champagneCntName +data.champagneCnt+" 건)"); /*샴페인*/
+        function getNationCount(){
+            $.get("/fermentable/countFermentableOrigin", function(data, status){
+                //alert("US 값은 : " + data.usCnt + "\n" + "de 값은 : " + data.deCnt + "\n");
+                $("#usButton").html("("+data.usCntName +data.usCnt+" 건)"); /*미국*/
+                $("#deButton").html("("+data.deCntName +data.deCnt+" 건)"); /*독일*/
+                $("#ukButton").html("("+data.ukCntName +data.ukCnt+" 건)"); /*영국*/
+                $("#beButton").html("("+data.beCntName +data.beCnt+" 건)"); /*벨기에*/
+                $("#caButton").html("("+data.caCntName +data.caCnt+" 건)"); /*캐나다*/
+                $("#etcButton").html("("+data.etcCntName +data.etcCnt+" 건)"); /*기타*/
             })
         }
 
@@ -99,8 +101,8 @@
             location.href = "/fermentable/detail/"+seq;
         }
 
-        function setTypeSearch(){
-            $("#type").val(jQuery(this).val());
+        function setOriginSearch(){
+            $("#origin").val(jQuery(this).val());
             search();
         }
 
@@ -115,7 +117,7 @@
 
         $(document).ready(function() {
 
-            getTypeCount();                  //타입별 카운트 (조회영역)
+            getNationCount();                  //원산지별 카운트 (조회영역)
             search();                          //조회
             $("#name").focus();              //이름칸으로 포커스
             document.getElementById("loading").style.display="none"; //로딩 아이콘 숨김
@@ -125,14 +127,15 @@
             });
 
             $("#fullSearch").click(function(){
-                $("#type").val('');             //TODO : 초기화 함수로 뺄것
+                $("#origin").val('');             //TODO : 초기화 함수로 뺄것
                 search();
             });
-            $("#aleButton").click(setTypeSearch);
-            $("#lagerButton").click(setTypeSearch);
-            $("#wheatButton").click(setTypeSearch);
-            $("#wineButton").click(setTypeSearch);
-            $("#champagneButton").click(setTypeSearch);
+            $("#usButton").click(setOriginSearch);
+            $("#deButton").click(setOriginSearch);
+            $("#ukButton").click(setOriginSearch);
+            $("#beButton").click(setOriginSearch);
+            $("#caButton").click(setOriginSearch);
+            $("#etcButton").click(setOriginSearch);
         });
     </script>
 </content>

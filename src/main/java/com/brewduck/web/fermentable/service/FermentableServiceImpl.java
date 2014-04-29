@@ -40,6 +40,11 @@ public class FermentableServiceImpl implements FermentableService {
     }
 
     @Override
+    public Fermentable countFermentableOrigin() {
+        return fermentableDao.countFermentableOrigin();
+    }
+
+    @Override
     public Boolean insertFermentable(Fermentable fermentable) {
         int insertCount = fermentableDao.insertFermentable(fermentable);
 

@@ -14,6 +14,8 @@ import java.util.Date;
 public class Fermentable implements Serializable {
     private static final long serialVersionUID = 1L;
 
+    //맥아 순번
+    public String seq;
     // 맥아 한글명
     private String name;
     // 맥아 영문명
@@ -34,6 +36,8 @@ public class Fermentable implements Serializable {
     private Boolean addAfterBoil;
     // 원산지 국가 및 장소
     private String origin;
+    //원산지 명
+    public String originKorean;
     // 공급 업체 (곡물 / 추출 / 설탕의 공급 업체)
     private String supplier;
     // 주의사항 (메모)
@@ -74,6 +78,23 @@ public class Fermentable implements Serializable {
     // 삭제 성공 여부
     private Boolean deleteFlag;
 
+    /**
+     * 맥아 순번
+     *
+     * @return 맥아 순번
+     */
+    public String getSeq() {
+        return seq;
+    }
+
+    /**
+     * 맥아 한글명
+     *
+     * @param seq 맥아 순번
+     */
+    public void setSeq(String seq) {
+        this.seq = seq;
+    }
 
     /**
      * 맥아 한글명
@@ -259,6 +280,24 @@ public class Fermentable implements Serializable {
      */
     public void setOrigin(String origin) {
         this.origin = origin;
+    }
+
+    /**
+     * 원산지 명
+     *
+     * @return 원산지 명
+     */
+    public String getOriginKorean() {
+        return originKorean;
+    }
+
+    /**
+     * 원산지 명
+     *
+     * @param originKorean 원산지 명
+     */
+    public void setOriginKorean(String originKorean) {
+        this.originKorean = originKorean;
     }
 
     /**

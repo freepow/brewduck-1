@@ -46,6 +46,15 @@ public interface FermentableDao {
 
     /**
      * <pre>
+     * 맥주 맥아 국가 별 갯수 조회.
+     * </pre>
+     *
+     * @return 맥주 맥아
+     */
+    public Fermentable countFermentableOrigin();
+
+    /**
+     * <pre>
      * 맥주 맥아 저장.
      * </pre>
      *
