@@ -133,4 +133,36 @@
         FROM MOVIES
     </select>
 
+    <select id="Common.selectBoardList"
+            resultType="Board">
+        SELECT
+            A.BBS_ID,
+            A.BBS_NM,
+            A.BBS_TY_CODE,
+            A.BBS_ATTRB_CODE,
+            A.TMPLAT_ID,
+            B.NTT_ID,
+            B.BBS_ID,
+            B.NTT_NO,
+            B.NTT_SJ,
+            B.NTT_CN,
+            B.ANSWER_AT,
+            B.PARNTSCTT_NO,
+            B.ANSWER_LC,
+            B.SORT_ORDR,
+            B.RDCNT,
+            B.USE_AT,
+            B.NTCE_BGNDE,
+            B.NTCE_ENDDE,
+            B.NTCR_ID,
+            B.NTCR_NM,
+            B.PASSWORD,
+            B.ATCH_FILE_ID
+            FROM BOARD_MASTER A,
+            BOARD B
+       WHERE A.USE_AT = 'Y'
+         AND A.BBS_ID = B.BBS_ID
+         AND A.BBS_ID = 'FREEBOARD01'
+    </select>
+
 </mapper>
