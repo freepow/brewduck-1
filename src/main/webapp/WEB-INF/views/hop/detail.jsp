@@ -237,9 +237,29 @@
         </div>
     </div>
 
+    <br/><br/>
+
+    <div class="row  column-seperation">
+        <div class="col-md-12">
+            <div class="tiles alert">
+                <textarea rows="3"  class="form-control user-status-box post-input"  placeholder="Whats on your mind?"></textarea>
+            </div>
+            <div class="tiles grey padding-10">
+                <div class="pull-left">
+                    <button class="btn btn-default btn-sm btn-small" type="button"><i class="fa fa-camera"></i></button>
+                    <button class="btn btn-default btn-sm btn-small" type="button"><i class="fa fa-map-marker"></i></button>
+                </div>
+                <div class="pull-right">
+                    <button class="btn btn-primary btn-sm btn-small" type="button">POST</button>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+        </div>
+    </div>
 </div>
 
     <br/>
+
     <div class="m-l-10 " id="commnet_list">
     </div>
 
@@ -299,7 +319,7 @@
         $.ajax({
             type: 'get',
             dataType : "json",
-            url : '/board/list/HOPBOARD01/1',
+            url : '/board/list/HOPBOARD01',
             contentType: "application/json",
             success:function(result){
                 //월 세팅 selectbox 초기화
@@ -329,10 +349,11 @@
                     commentHtml = commentHtml + "        </div>";
                     commentHtml = commentHtml + "    </div>";
                     commentHtml = commentHtml + "</div>";
-                    commentHtml = commentHtml + "<div class='tiles grey p-t-5 p-b-5 '>";
-                    commentHtml = commentHtml + "    <p class='text-center'> <a href='javascript:;' class='text-black semi-bold  small-text'>전체 보기</a></p>";
-                    commentHtml = commentHtml + "</div>";
                 });
+
+                commentHtml = commentHtml + "<div class='tiles grey p-t-5 p-b-5 '>";
+                commentHtml = commentHtml + "    <p class='text-center'> <a href='javascript:;' class='text-black semi-bold  small-text'>전체 보기</a></p>";
+                commentHtml = commentHtml + "</div>";
 
                 $("#commnet_list").append(commentHtml);
             },

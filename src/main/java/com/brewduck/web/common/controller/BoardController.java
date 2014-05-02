@@ -32,15 +32,13 @@ public class BoardController {
     }
 
     @ResponseBody
-    @RequestMapping(value = "/list/{boardId}/{answerNo}", method = RequestMethod.GET)
+    @RequestMapping(value = "/list/{boardId}", method = RequestMethod.GET)
     public List insertHop(Model model,
-                           @PathVariable("boardId") String boardId,
-                           @PathVariable("answerNo") Integer answerNo) {
+                           @PathVariable("boardId") String boardId) {
         // 맥주 홉 저장
         Board board = new Board();
         board.setNttId(1);
         board.setBbsId(boardId);
-        board.setAnswerNo(answerNo);
 
         List<Board> selectCommentList = boardService.selectCommentList(board);
 

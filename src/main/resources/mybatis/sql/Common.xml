@@ -184,7 +184,6 @@
         WHERE USE_AT = 'Y'
           AND NTT_ID = #{nttId}
           AND BBS_ID = #{bbsId}
-          AND ANSWER_NO = #{answerNo}
     </select>
 
 </mapper>
