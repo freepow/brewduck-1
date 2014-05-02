@@ -38,5 +38,10 @@ public class BoardDaoImpl implements BoardDao {
         return sqlSessionTemplate.selectList("Common.selectBoardList", board);
     }
 
+    @Override
+    public List<Board> selectCommentList(Board board) throws DataAccessException {
+        return sqlSessionTemplate.selectList("Common.selectCommentList", board);
+    }
+
 
 }

@@ -165,4 +165,26 @@
          AND A.BBS_ID = 'FREEBOARD01'
     </select>
 
+    <select id="Common.selectCommentList"
+            resultType="Board">
+        SELECT
+            NTT_ID        nttId,
+            BBS_ID        bbsId,
+            ANSWER_NO     answerNo,
+            WRTER_ID      wrterId,
+            WRTER_NM      wrterNm,
+            ANSWER        answer,
+            USE_AT        useAt,
+            INSERT_DATE   insertDate,
+            INSERT_ID     insertId,
+            UPDATE_DATE   updateDate,
+            UPDATE_ID     updateId,
+            PASSWORD      password
+         FROM BOARD_COMMENT
+        WHERE USE_AT = 'Y'
+          AND NTT_ID = #{nttId}
+          AND BBS_ID = #{bbsId}
+          AND ANSWER_NO = #{answerNo}
+    </select>
+
 </mapper>

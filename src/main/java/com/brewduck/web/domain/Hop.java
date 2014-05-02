@@ -122,7 +122,7 @@ public class Hop implements Serializable {
     //대체 홉 순번
     public String substitutesSeq;
     //홉 순번
-    public String seq;
+    public Integer seq;
 
     public String getUsedForCode() {
         return usedForCode;
@@ -132,10 +132,11 @@ public class Hop implements Serializable {
         this.usedForCode = usedForCode;
     }
 
-    public String getSeq() {
+    public Integer getSeq() {
         return seq;
     }
-    public void setSeq(String seq) {
+
+    public void setSeq(Integer seq) {
         this.seq = seq;
     }
 

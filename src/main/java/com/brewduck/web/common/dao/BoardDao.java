@@ -25,5 +25,6 @@ public interface BoardDao {
 
     public List<Board> selectBoardList(Board board) throws DataAccessException;
 
+    public List<Board> selectCommentList(Board board) throws DataAccessException;
 
 }

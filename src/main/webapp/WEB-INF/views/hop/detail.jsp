@@ -240,33 +240,7 @@
 </div>
 
     <br/>
-    <div class="m-l-10 ">
-        <div class="tiles white ">
-            <div class="p-t-20 p-b-15 b-b b-grey">
-                <div class="post overlap-left-10">
-                    <div class="user-profile-pic-wrapper">
-                        <div class="user-profile-pic-2x white-border">
-                            <img width="45" height="45" src="/resources/assets/img/profiles/avatar.jpg" data-src="/resources/assets/img/profiles/avatar.jpg" data-src-retina="/resources/assets/img/profiles/avatar2x.jpg" alt="">
-                        </div>
-                    </div>
-                    <div class="info-wrapper small-width inline">
-                        <div class="info text-black ">
-                            <p>"페일에일의 전형적인 홉으로 가장 기본적인 베이스 홉이다.” </p>
-                            <p class="muted small-text"> 2 분전</p>
-                        </div>
-                        <div class="clearfix"></div>
-                    </div>
-                    <!--div class="inline pull-right">
-                        <div class="tiles text-white p-t-5 p-l-5 p-b-5 p-r-5 inline"> <i class="fa fa-heart-o fa-lg"></i> </div>
-                        <div class="tiles white p-t-5 p-l-5 p-b-5 p-r-5 inline"> <i class="fa fa-comment-o fa-lg"></i> </div>
-                    </div-->
-                    <div class="clearfix"></div>
-                </div>
-            </div>
-        </div>
-        <div class="tiles grey p-t-5 p-b-5 ">
-            <p class="text-center"> <a href="javascript:;" class="text-black semi-bold  small-text">전체 보기</a></p>
-        </div>
+    <div class="m-l-10 " id="commnet_list">
     </div>
 
     <br/><br/>
@@ -319,8 +293,58 @@
         //getResult();
     }
 
+    function getCommnetList(){
+        var commentHtml ="";
+
+        $.ajax({
+            type: 'get',
+            dataType : "json",
+            url : '/board/list/HOPBOARD01/1',
+            contentType: "application/json",
+            success:function(result){
+                //월 세팅 selectbox 초기화
+                //$("#userBirthMonth").find("option").remove().end().append("<option value=''>- 선택 -</option>");
+
+
+                //결과 갯수 만큼 날짜 세팅
+                $.each(result, function(i){
+                    //$("#userBirthMonth").append("<option value='"+result[i].code+"'>"+result[i].codeName+"</option>")
+
+                    commentHtml = commentHtml + "<div class='tiles white '>";
+                    commentHtml = commentHtml + "    <div class='p-t-20 p-b-15 b-b b-grey'>";
+                    commentHtml = commentHtml + "        <div class='post overlap-left-10'>";
+                    commentHtml = commentHtml + "            <div class='user-profile-pic-wrapper'>";
+                    commentHtml = commentHtml + "                <div class='user-profile-pic-2x white-border'>";
+                    commentHtml = commentHtml + "                    <img width='45' height='45' src='/resources/assets/img/profiles/avatar.jpg' data-src='/resources/assets/img/profiles/avatar.jpg' data-src-retina='/resources/assets/img/profiles/avatar2x.jpg' alt=''>";
+                    commentHtml = commentHtml + "                </div>";
+                    commentHtml = commentHtml + "            </div>";
+                    commentHtml = commentHtml + "            <div class='info-wrapper small-width inline'>";
+                    commentHtml = commentHtml + "                <div class='info text-black '>";
+                    commentHtml = commentHtml + "                    <p>"+ result[i].answer +"</p>";
+                    commentHtml = commentHtml + "                    <p class='muted small-text'>"+ result[i].insertDate +"</p>";
+                    commentHtml = commentHtml + "                </div>";
+                    commentHtml = commentHtml + "                <div class='clearfix'></div>";
+                    commentHtml = commentHtml + "            </div>";
+                    commentHtml = commentHtml + "            <div class='clearfix'></div>";
+                    commentHtml = commentHtml + "        </div>";
+                    commentHtml = commentHtml + "    </div>";
+                    commentHtml = commentHtml + "</div>";
+                    commentHtml = commentHtml + "<div class='tiles grey p-t-5 p-b-5 '>";
+                    commentHtml = commentHtml + "    <p class='text-center'> <a href='javascript:;' class='text-black semi-bold  small-text'>전체 보기</a></p>";
+                    commentHtml = commentHtml + "</div>";
+                });
+
+                $("#commnet_list").append(commentHtml);
+            },
+            error:function(xhr,statue,error){
+                alert(error);
+            }
+        });
+    }
+
 
     $(document).ready(function() {
+        getCommnetList();
         $('.slider-element').slider();  //슬라이더 초기화
         $('#popover').popover();
         $('.tip').tooltip();

@@ -21,13 +21,95 @@ public class Board {
     private Integer answerLc;
     private Integer sortOrdr;
     private Integer rdcnt;
-    private String  useAt;
     private String  ntceBgnde;
     private String  ntceEndde;
     private String  ntcrId;
     private String  ntcrNm;
-    private String  password;
     private String  atchFileId;
+    //원글 게시판 번호
+    private int answerNo;
+    //작성자 ID
+    private String wrterId;
+    //작성자 이름
+    private String wrterNm;
+    //댓글 내용
+    private String answer;
+    //사용여부
+    private String useAt;
+    //입력시간
+    private String insertDate;
+    //입력자 아이디
+    private String insertId;
+    //수정시간
+    private String updateDate;
+    //수정아이디
+    private String updateId;
+    //패스워드
+    private String password;
+
+    public int getAnswerNo() {
+        return answerNo;
+    }
+
+    public void setAnswerNo(int answerNo) {
+        this.answerNo = answerNo;
+    }
+
+    public String getWrterId() {
+        return wrterId;
+    }
+
+    public void setWrterId(String wrterId) {
+        this.wrterId = wrterId;
+    }
+
+    public String getWrterNm() {
+        return wrterNm;
+    }
+
+    public void setWrterNm(String wrterNm) {
+        this.wrterNm = wrterNm;
+    }
+
+    public String getAnswer() {
+        return answer;
+    }
+
+    public void setAnswer(String answer) {
+        this.answer = answer;
+    }
+
+    public String getInsertDate() {
+        return insertDate;
+    }
+
+    public void setInsertDate(String insertDate) {
+        this.insertDate = insertDate;
+    }
+
+    public String getInsertId() {
+        return insertId;
+    }
+
+    public void setInsertId(String insertId) {
+        this.insertId = insertId;
+    }
+
+    public String getUpdateDate() {
+        return updateDate;
+    }
+
+    public void setUpdateDate(String updateDate) {
+        this.updateDate = updateDate;
+    }
+
+    public String getUpdateId() {
+        return updateId;
+    }
+
+    public void setUpdateId(String updateId) {
+        this.updateId = updateId;
+    }
 
     public Integer getNttId() {
         return nttId;

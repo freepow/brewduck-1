@@ -76,7 +76,6 @@ public class MiscController {
         // 맥주 홉 상세 조회
         Misc miscDetail = miscService.selectMiscDetail(misc);
 
-
         model.addAttribute("MiscDetail", miscDetail);
 
         return "misc/detail";

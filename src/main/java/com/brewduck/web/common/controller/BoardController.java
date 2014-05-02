@@ -7,8 +7,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -31,6 +30,23 @@ public class BoardController {
 
         return "board/list";
     }
+
+    @ResponseBody
+    @RequestMapping(value = "/list/{boardId}/{answerNo}", method = RequestMethod.GET)
+    public List insertHop(Model model,
+                           @PathVariable("boardId") String boardId,
+                           @PathVariable("answerNo") Integer answerNo) {
+        // 맥주 홉 저장
+        Board board = new Board();
+        board.setNttId(1);
+        board.setBbsId(boardId);
+        board.setAnswerNo(answerNo);
+
+        List<Board> selectCommentList = boardService.selectCommentList(board);
+
+        return selectCommentList;
+    }
+
 }
 
 

@@ -1,7 +1,10 @@
 package com.brewduck.web.hop.controller;
 
 import com.brewduck.framework.security.AuthenticationUtils;
+import com.brewduck.web.common.service.BoardService;
+import com.brewduck.web.common.service.CommonService;
 import com.brewduck.web.domain.Account;
+import com.brewduck.web.domain.Board;
 import com.brewduck.web.domain.Hop;
 import com.brewduck.web.hop.service.HopService;
 import org.slf4j.Logger;
@@ -32,11 +35,16 @@ import java.util.List;
 public class HopController {
     private static final Logger logger = LoggerFactory.getLogger(HopController.class);
 
+
     /**
      * HopService Dependency Injection.
      */
     @Autowired
     private HopService hopService;
+
+    @Autowired
+    private BoardService boardService;
+
 
     /**
      * <pre>
@@ -66,13 +74,14 @@ public class HopController {
      * @return 맥주 홉 상세.
      */
     @RequestMapping(value="{seq}/*", method=RequestMethod.GET)
-    public String detail(Model model, @PathVariable("seq") String seq) {
+    public String detail(Model model, @PathVariable("seq") Integer seq) {
 
         logger.info("Hop seq : {}", seq);
 
         Hop hop = new Hop();
-        //hop.setName(name);
         hop.setSeq(seq);
+
+
 
         // 맥주 홉 상세 조회
         Hop hopDetail = hopService.selectHopDetail(hop);
@@ -82,7 +91,6 @@ public class HopController {
         List<Hop> hopUsedForList = hopService.selectHopUsedForList(hop);
         List<Hop> hopAromaList = hopService.selectHopAromaList(hop);
         List<Hop> selectHopSubstitutesList = hopService.selectHopSubstitutesList(hop);
-
 
         logger.info("updateFlag : {}", updateFlag);
         logger.info("hopUsedForList List Size : {}", hopUsedForList.size());
