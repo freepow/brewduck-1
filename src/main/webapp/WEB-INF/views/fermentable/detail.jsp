@@ -5,8 +5,8 @@
 
 
 <div class="content">
-<div class="page-title"> <a href="/yeast/"><i class="icon-custom-left"></i></a>
-    <h3>${YeastDetail.koreanName} - <span class="semi-bold">${YeastDetail.name}</span></h3>
+<div class="page-title"> <a href="/fermentable/"><i class="icon-custom-left"></i></a>
+    <h3>${FermentableDetail.koreanName} - <span class="semi-bold">${FermentableDetail.name}</span></h3>
 </div>
 <div class="row-fluid">
 <div class="span12">
@@ -14,39 +14,48 @@
 <div class="grid-title">
 
 <div class="row column-seperation">
-    <div class="col-md-6">
+    <div class="col-md-12">
         <div class="heading">
             <div class="pull-right"> <span class="small-text muted">버튼을 클릭하시면 조회됩니다.</span> </div>
             <div class="clearfix"> </div>
         </div>
         <div class="heading">
             <div class="pull-left">
-                <h4> <span class="semi-bold">타입</span></h4>
+                <h4>원산지 / <span class="semi-bold">타입</span></h4>
                 <div class="slider col-md-12">
-                        <button type="button" onclick="goDetail(' ${selectTypeList.type}');" class="btn btn-white btn-cons btn-mini">
-                                ${selectTypeList.typeName}
+                    <button type="button" class="btn btn-warning btn-cons btn-mini" onclick="goIndex('${FermentableDetail.origin}')">${FermentableDetail.originKorean} ( ${FermentableDetail.origin} )</button>
+                    <button type="button" class="btn btn-primary btn-cons btn-mini">${FermentableDetail.typeKorean}</button>
                         </button>
                 </div>
             </div>
             <div class="clearfix"> </div>
         </div>
-    </div>
-    <div class="col-md-6">
-        <div class="heading">
-            <div class="pull-left">
-                <h4> <span class="semi-bold">대체 홉</span></h4>
-                <div class="slider col-md-12">
-                    <c:forEach items="${selectHopSubstitutesList}" var="substitutesName">
-                        <button type="button" onclick="goDetail(' ${substitutesName.substitutesSeq}');" class="btn btn-white btn-cons btn-mini">
-                                ${substitutesName.substitutesName}
-                        </button>
-                    </c:forEach>
-                </div>
+        <div class="row form-row">
+            <div class="col-md-12">
+                <blockquote  class="margin-top-20">
+                    <p> ${FermentableDetail.notes}</p>
+                </blockquote>
             </div>
-            <div class="clearfix"> </div>
         </div>
-    </div>
 
+        <div class="row  column-seperation">
+            <div class="col-md-12">
+                <div class="tiles alert">
+                    <textarea rows="3"  class="form-control user-status-box post-input"  placeholder="Whats on your mind?"></textarea>
+                </div>
+                <div class="tiles grey padding-10">
+                    <div class="pull-left">
+                        <button class="btn btn-default btn-sm btn-small" type="button"><i class="fa fa-camera"></i></button>
+                        <button class="btn btn-default btn-sm btn-small" type="button"><i class="fa fa-map-marker"></i></button>
+                    </div>
+                    <div class="pull-right">
+                        <button class="btn btn-primary btn-sm btn-small" type="button">POST</button>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 
 </div>
@@ -91,9 +100,9 @@
             <th>이름</th>
             <th>영문명</th>
             <th>타입</th>
-            <th>형태</th>
-            <th>최대온도</th>
-            <th>최소온도</th>
+            <th>원산지</th>
+            <th>수율(%)</th>
+            <th>색상(SRM)</th>
         </tr>
         </thead>
         <tbody id="result" name="result">
@@ -113,8 +122,8 @@
             icons.play();
         }
 
-        function goDetail(seq){
-            location.href = "/yeast/detail/"+seq;
+        function goDetail(seq, titleInUrl){
+            location.href = "/fermentable/"+seq+"/"+titleInUrl;
         }
 
         function goIndex(origin){
@@ -126,7 +135,7 @@
         function search(){
             //   getLoadingTime();                                                   //로딩 아이콘 호출
             $("#result").html("");
-            $("#result").load("/yeast/list", $("#searchForm").serialize());
+            $("#result").load("/fermentable/list", $("#searchForm").serialize());
             //getResult();
         }
 

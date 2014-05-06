@@ -4,38 +4,40 @@
 
     <sql id="Fermentable.selectFermentable">
         SELECT
-               name                name
-              ,korean_name         koreanName
-              ,version             version
-              ,type                type
+               A.name                name
+              ,A.name                titleInUrl
+              ,A.seq                 seq
+              ,A.korean_name         koreanName
+              ,A.version             version
+              ,A.type                type
               ,(select B.attribute1desc
                   from common_code B
                  where common_set = 'fermentable_type'
                    and A.type = B.common_code) as typeKorean
-              ,amount              amount
-              ,yield               yield
-              ,color               color
-              ,add_after_boil      addAfterBoil
+              ,A.amount              amount
+              ,A.yield               yield
+              ,A.color               color
+              ,A.add_after_boil      addAfterBoil
               ,A.origin           origin
              ,(select B.attribute1desc
                   from common_code B
                  where common_set = 'nation_code'
                    and A.origin = B.common_code) as originKorean
-              ,supplier            supplier
-              ,notes               notes
-              ,coarse_fine_diff    coarseFineDiff
-              ,moisture            moisture
-              ,diastatic_power     diastaticPower
-              ,protein             protein
-              ,max_in_batch        maxInBatch
-              ,recommend_mash      recommendMash
-              ,ibu_gal_per_lb      ibuGalPerLb
-              ,insert_id           insertId
-              ,insert_date         insertDate
-              ,update_id           updateId
-              ,update_date         updateDate
-              ,delete_id           deleteId
-              ,delete_date         deleteDate
+              ,A.supplier            supplier
+              ,A.notes               notes
+              ,A.coarse_fine_diff    coarseFineDiff
+              ,A.moisture            moisture
+              ,A.diastatic_power     diastaticPower
+              ,A.protein             protein
+              ,A.max_in_batch        maxInBatch
+              ,A.recommend_mash      recommendMash
+              ,A.ibu_gal_per_lb      ibuGalPerLb
+              ,A.insert_id           insertId
+              ,A.insert_date         insertDate
+              ,A.update_id           updateId
+              ,A.update_date         updateDate
+              ,A.delete_id           deleteId
+              ,A.delete_date         deleteDate
           FROM brewduckdb.FERMENTABLE A
     </sql>
 
@@ -108,6 +110,9 @@
         <!-- 맥주 맥아 상세 조회 -->
         <include refid="Fermentable.selectFermentable" />
         WHERE delete_id IS NULL
+        <if test="seq != null">
+            AND seq = #{seq}
+        </if>
         <if test="name != null">
             AND name = #{name}
         </if>

@@ -14,8 +14,12 @@ import java.util.Date;
 public class Fermentable implements Serializable {
     private static final long serialVersionUID = 1L;
 
+
+    private String titleInUrl;
+
+
     //발효재료 순번
-    public String seq;
+    public Integer seq;
     // 발효재료 한글명
     private String name;
     // 발효재료 영문명
@@ -110,7 +114,7 @@ public class Fermentable implements Serializable {
      *
      * @return 발효재료 순번
      */
-    public String getSeq() {
+    public Integer getSeq() {
         return seq;
     }
 
@@ -119,7 +123,7 @@ public class Fermentable implements Serializable {
      *
      * @param seq 발효재료 순번
      */
-    public void setSeq(String seq) {
+    public void setSeq(Integer seq) {
         this.seq = seq;
     }
 
@@ -759,5 +763,25 @@ public class Fermentable implements Serializable {
 
     public void setTypeKorean(String typeKorean) {
         this.typeKorean = typeKorean;
+    }
+
+    public String getTitleInUrl() {
+        return titleInUrl;
+    }
+
+    public void setTitleInUrl(String titleInUrl) {
+
+        titleInUrl = titleInUrl.trim().replaceAll("[^a-zA-Z0-9\\-\\s\\.]", "");
+        titleInUrl = titleInUrl.replaceAll("[\\-| |\\.]+", "-");
+
+        /*
+        if(titleInUrl.length() > 200){
+            titleInUrl.setTitleInUrl(titleInUrl.substring(0, 100));
+        } else {
+            titleInUrl.setTitleInUrl(titleInUrl);
+        }
+        */
+
+        this.titleInUrl = titleInUrl;
     }
 }

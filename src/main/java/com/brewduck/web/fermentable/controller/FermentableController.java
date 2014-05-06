@@ -34,11 +34,11 @@ public class FermentableController {
 
     /**
      * <pre>
-     * 맥주 몰트 메인
+     * 맥주 발효재료 메인
      * </pre>
      *
      * @param model Model
-     * @return 맥주 몰트 메인
+     * @return 맥주 발효재료 메인
      */
     @RequestMapping(value = "/", method = RequestMethod.GET)
     public String main(Model model) {
@@ -52,17 +52,17 @@ public class FermentableController {
     }
     /**
      * <pre>
-     * 맥주 홉 국가 별 갯수 조회.
+     * 맥주 발효재료 국가 별 갯수 조회.
      * </pre>
      *
      * @param model Model
-     * @return 맥주 홉 국가 별 갯수.
+     * @return 맥주 발효재료 국가 별 갯수.
      */
     @ResponseBody
     @RequestMapping(value = "/countFermentableOrigin", method = RequestMethod.GET)
     public Fermentable countFermentableOrigin(Model model) {
 
-        // 맥주 홉 국가 별 갯수 조회.
+        // 맥주 발효재료 국가 별 갯수 조회.
         Fermentable countFermentableOrigin = fermentableService.countFermentableOrigin();
 
         // model.addAttribute("Hop", Hop);
@@ -97,20 +97,28 @@ public class FermentableController {
      * </pre>
      *
      * @param model Model
-     * @param name 맥주 맥아 영문명
      * @return 맥주 맥아 상세.
      */
-    @RequestMapping(value = "/detail/{name}", method = RequestMethod.GET)
-    public Fermentable selectFermentableDetail(Model model, @PathVariable("name") String name) {
-        logger.info("Fermentable Name : {}", name);
-
-        Fermentable fermentable = new Fermentable();
+    @RequestMapping(value = "{seq}/*", method = RequestMethod.GET)
+    public String detail(Model model, @PathVariable("seq") Integer seq) {
+        
+/*        Fermentable fermentable = new Fermentable();
         fermentable.setName(name);
 
         // 맥주 맥아 상세 조회
         Fermentable fermentableDetail = fermentableService.selectFermentableDetail(fermentable);
 
-        return fermentableDetail;
+        return fermentableDetail;*/
+        logger.info("Fermentable seq : {}", seq);
+
+        Fermentable fermentable = new Fermentable();
+        fermentable.setSeq(seq);
+
+        // 맥주 발효재료 상세 조회
+        Fermentable fermentableDetail = fermentableService.selectFermentableDetail(fermentable);
+
+        model.addAttribute("FermentableDetail", fermentableDetail);
+        return "fermentable/detail";
     }
 
     /**

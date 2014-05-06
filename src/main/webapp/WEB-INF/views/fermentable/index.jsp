@@ -97,8 +97,8 @@
             //getResult();
         }
 
-        function goDetail(seq){
-            location.href = "/fermentable/detail/"+seq;
+        function goDetail(seq, titleInUrl){
+            location.href = "/fermentable/"+seq+"/"+titleInUrl;
         }
 
         function setOriginSearch(){
