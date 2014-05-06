@@ -8,6 +8,10 @@
               ,korean_name         koreanName
               ,version             version
               ,type                type
+              ,(select B.attribute1desc
+                  from common_code B
+                 where common_set = 'fermentable_type'
+                   and A.type = B.common_code) as typeKorean
               ,amount              amount
               ,yield               yield
               ,color               color

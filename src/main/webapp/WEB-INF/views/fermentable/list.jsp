@@ -13,7 +13,7 @@
         </td>
         <td  class="clickable v-align-middle"> ${list.koreanName}</td>
         <td  class="clickable v-align-middle"> ${list.name}</td>
-        <td  class="clickable v-align-middle"> ${list.type}</td>
+        <td  class="clickable v-align-middle"> ${list.typeKorean}</td>
         <td  class="clickable v-align-middle"> ${list.originKorean}</td>
         <td class="v-align-middle">
             <button type="button" class="btn btn-primary btn-sm btn-small">${list.yield} %</button>

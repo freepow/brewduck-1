@@ -58,7 +58,7 @@ public class FermentableController {
      * @param model Model
      * @return 맥주 홉 국가 별 갯수.
      */
-
+    @ResponseBody
     @RequestMapping(value = "/countFermentableOrigin", method = RequestMethod.GET)
     public Fermentable countFermentableOrigin(Model model) {
 

@@ -7,28 +7,28 @@ import java.io.Serializable;
 import java.util.Date;
 
 /**
- * 맥아, Value Object
+ * 발효재료, Value Object
  *
  * 신재근, 2014-02-12
  */
 public class Fermentable implements Serializable {
     private static final long serialVersionUID = 1L;
 
-    //맥아 순번
+    //발효재료 순번
     public String seq;
-    // 맥아 한글명
+    // 발효재료 한글명
     private String name;
-    // 맥아 영문명
+    // 발효재료 영문명
     private String koreanName;
-    // 맥아 버전 (Fix : "1")
+    // 발효재료 버전 (Fix : "1")
     private Integer version;
-    // 맥아 종류 ("Grain", "Sugar", "Extract", "Dry Extract" or "Adjunct")
+    // 발효재료 종류 ("Grain", "Sugar", "Extract", "Dry Extract" or "Adjunct")
     private String type;
-    // 맥아의 양 (맥아, 추출 또는 설탕의 무게 : "Kg")
+    // 발효재료의 양 (발효재료, 추출 또는 설탕의 무게 : "Kg")
     private Double amount;
-    // 맥아 사용처
+    // 발효재료 사용처
     private String fermentableUse;
-    // 맥아 수율 (중량 원료의 수율 : "%")
+    // 발효재료 수율 (중량 원료의 수율 : "%")
     private Double yield;
     // 맥주의 색상 (SRM)
     private Double color;
@@ -78,149 +78,176 @@ public class Fermentable implements Serializable {
     // 삭제 성공 여부
     private Boolean deleteFlag;
 
+    //원산지 미국 홉 카운트
+    public String usCnt;
+    //원산지 미국 이름
+    public String usCntName;
+    //원산지 독일 홉 카운트
+    public String deCnt;
+    //원산지 독일 이름
+    public String deCntName;
+    //원산지 영국 홉 카운트
+    public String ukCnt;
+    //원산지 영국 이름
+    public String ukCntName;
+    //원산지 벨기에 홉 카운트
+    public String beCnt;
+    //원산지 벨기에 이름
+    public String beCntName;
+    //원산지 캐나다 홉 카운트
+    public String caCnt;
+    //원산지 캐나다 이름
+    public String caCntName;
+    //원산지 기타 홉 카운트
+    public String etcCnt;
+    //원산지 기타 이름
+    public String etcCntName;
+    //발효재료 한글 타입
+    public String typeKorean;
+
     /**
-     * 맥아 순번
+     * 발효재료 순번
      *
-     * @return 맥아 순번
+     * @return 발효재료 순번
      */
     public String getSeq() {
         return seq;
     }
 
     /**
-     * 맥아 한글명
+     * 발효재료 한글명
      *
-     * @param seq 맥아 순번
+     * @param seq 발효재료 순번
      */
     public void setSeq(String seq) {
         this.seq = seq;
     }
 
     /**
-     * 맥아 한글명
+     * 발효재료 한글명
      *
-     * @return 맥아 한글명
+     * @return 발효재료 한글명
      */
     public String getName() {
         return name;
     }
 
     /**
-     * 맥아 한글명
+     * 발효재료 한글명
      *
-     * @param name 맥아 한글명
+     * @param name 발효재료 한글명
      */
     public void setName(String name) {
         this.name = name;
     }
 
     /**
-     * 맥아 영문명
+     * 발효재료 영문명
      *
-     * @return 맥아 영문명
+     * @return 발효재료 영문명
      */
     public String getKoreanName() {
         return koreanName;
     }
 
     /**
-     * 맥아 영문명
+     * 발효재료 영문명
      *
-     * @param koreanName 맥아 영문명
+     * @param koreanName 발효재료 영문명
      */
     public void setKoreanName(String koreanName) {
         this.koreanName = koreanName;
     }
 
     /**
-     * 맥아 버전
+     * 발효재료 버전
      * Fix : "1"
      *
-     * @return 맥아 버전
+     * @return 발효재료 버전
      */
     public Integer getVersion() {
         return version;
     }
 
     /**
-     * 맥아 버전
+     * 발효재료 버전
      *
-     * @param version 맥아 버전
+     * @param version 발효재료 버전
      */
     public void setVersion(Integer version) {
         this.version = version;
     }
 
     /**
-     * 맥아 종류
+     * 발효재료 종류
      * ("Grain", "Sugar", "Extract", "Dry Extract" or "Adjunct")
      *
-     * @return 맥아 종류
+     * @return 발효재료 종류
      */
     public String getType() {
         return type;
     }
 
     /**
-     * 맥아 종류
+     * 발효재료 종류
      *
-     * @param type 맥아 종류
+     * @param type 발효재료 종류
      */
     public void setType(String type) {
         this.type = type;
     }
 
     /**
-     * 맥아의 양
-     * (맥아, 추출 또는 설탕의 무게 : "Kg")
+     * 발효재료의 양
+     * (발효재료, 추출 또는 설탕의 무게 : "Kg")
      *
-     * @return 맥아의 양
+     * @return 발효재료의 양
      */
     public Double getAmount() {
         return amount;
     }
 
     /**
-     * 맥아의 양
+     * 발효재료의 양
      *
-     * @param amount 맥아의 양
+     * @param amount 발효재료의 양
      */
     public void setAmount(Double amount) {
         this.amount = amount;
     }
 
     /**
-     * 맥아 사용처
+     * 발효재료 사용처
      *
-     * @return 맥아 사용처
+     * @return 발효재료 사용처
      */
     public String getFermentableUse() {
         return fermentableUse;
     }
 
     /**
-     * 맥아 사용처
+     * 발효재료 사용처
      *
-     * @param fermentableUse 맥아 사용처
+     * @param fermentableUse 발효재료 사용처
      */
     public void setFermentableUse(String fermentableUse) {
         this.fermentableUse = fermentableUse;
     }
 
     /**
-     * 맥아 수율
+     * 발효재료 수율
      * (중량 원료의 수율 : "%")
      *
-     * @return 맥아 수율
+     * @return 발효재료 수율
      */
     public Double getYield() {
         return yield;
     }
 
     /**
-     * 맥아 수율
+     * 발효재료 수율
      *
-     * @param yield 맥아 수율
+     * @param yield 발효재료 수율
      */
     public void setYield(Double yield) {
         this.yield = yield;
@@ -320,18 +347,18 @@ public class Fermentable implements Serializable {
     }
 
     /**
-     * 맥아 주의사항(메모)
+     * 발효재료 주의사항(메모)
      *
-     * @return 맥아 주의사항(메모)
+     * @return 발효재료 주의사항(메모)
      */
     public String getNotes() {
         return notes;
     }
 
     /**
-     * 맥아 주의사항(메모)
+     * 발효재료 주의사항(메모)
      *
-     * @param notes 맥아 주의사항(메모)
+     * @param notes 발효재료 주의사항(메모)
      */
     public void setNotes(String notes) {
         this.notes = notes;
@@ -428,18 +455,18 @@ public class Fermentable implements Serializable {
     }
 
     /**
-     * 맥아 추천 당화
+     * 발효재료 추천 당화
      *
-     * @return 맥아 추천 당화
+     * @return 발효재료 추천 당화
      */
     public Boolean getRecommendMash() {
         return recommendMash;
     }
 
     /**
-     * 맥아 추천 당화
+     * 발효재료 추천 당화
      *
-     * @param recommendMash 맥아 추천 당화
+     * @param recommendMash 발효재료 추천 당화
      */
     public void setRecommendMash(Boolean recommendMash) {
         this.recommendMash = recommendMash;
@@ -628,5 +655,109 @@ public class Fermentable implements Serializable {
     @Override
     public String toString() {
         return ToStringBuilder.reflectionToString(this, ToStringStyle.MULTI_LINE_STYLE);
+    }
+
+    public String getUsCnt() {
+        return usCnt;
+    }
+
+    public void setUsCnt(String usCnt) {
+        this.usCnt = usCnt;
+    }
+
+    public String getUsCntName() {
+        return usCntName;
+    }
+
+    public void setUsCntName(String usCntName) {
+        this.usCntName = usCntName;
+    }
+
+    public String getDeCnt() {
+        return deCnt;
+    }
+
+    public void setDeCnt(String deCnt) {
+        this.deCnt = deCnt;
+    }
+
+    public String getDeCntName() {
+        return deCntName;
+    }
+
+    public void setDeCntName(String deCntName) {
+        this.deCntName = deCntName;
+    }
+
+    public String getUkCnt() {
+        return ukCnt;
+    }
+
+    public void setUkCnt(String ukCnt) {
+        this.ukCnt = ukCnt;
+    }
+
+    public String getUkCntName() {
+        return ukCntName;
+    }
+
+    public void setUkCntName(String ukCntName) {
+        this.ukCntName = ukCntName;
+    }
+
+    public String getBeCnt() {
+        return beCnt;
+    }
+
+    public void setBeCnt(String beCnt) {
+        this.beCnt = beCnt;
+    }
+
+    public String getBeCntName() {
+        return beCntName;
+    }
+
+    public void setBeCntName(String beCntName) {
+        this.beCntName = beCntName;
+    }
+
+    public String getCaCnt() {
+        return caCnt;
+    }
+
+    public void setCaCnt(String caCnt) {
+        this.caCnt = caCnt;
+    }
+
+    public String getCaCntName() {
+        return caCntName;
+    }
+
+    public void setCaCntName(String caCntName) {
+        this.caCntName = caCntName;
+    }
+
+    public String getEtcCnt() {
+        return etcCnt;
+    }
+
+    public void setEtcCnt(String etcCnt) {
+        this.etcCnt = etcCnt;
+    }
+
+    public String getEtcCntName() {
+        return etcCntName;
+    }
+
+    public void setEtcCntName(String etcCntName) {
+        this.etcCntName = etcCntName;
+    }
+
+    public String getTypeKorean() {
+        return typeKorean;
+    }
+
+    public void setTypeKorean(String typeKorean) {
+        this.typeKorean = typeKorean;
     }
 }

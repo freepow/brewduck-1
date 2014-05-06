@@ -6,7 +6,7 @@
 
 <div class="content">
     <div class="page-title"> <i class="icon-custom-left"></i>
-        <h3>몰트 데이터베이스 - <span class="semi-bold">FERMENTABLE DATABASE</span></h3>
+        <h3>발효재료 데이터베이스 - <span class="semi-bold">FERMENTABLE DATABASE</span></h3>
     </div>
     <div class="row-fluid">
         <div class="span12">
@@ -14,17 +14,17 @@
                 <div class="grid-title">
                     <form:form class="form-no-horizontal-spacing" id="searchForm"  name="searchForm" modelAttribute="paramFermentable">
                         <input name="type" type ="hidden" id="type" type="text"  class="form-control" value=""> <%--타입별--%>
-                        <input name="origin" type ="hidden" id="origin" type="text"  class="form-control" value="">
+                        <input name="origin" type ="hidden" id="origin" type="text"  class="form-control" value=""><%--원산지별--%>
 
                         <div class="row column-seperation">
                             <div class="col-md-6">
                                 <h4>이름으로 찾기</h4>
                                 <div class="row form-row">
                                     <div class="col-md-11">
-                                        <input name="koreanName" id="koreanName" type="text"  class="form-control" placeholder="몰트 한글 이름" onkeypress="javascript:if(event.keyCode == 13){search();}">
+                                        <input name="koreanName" id="koreanName" type="text"  class="form-control" placeholder="발효재료 한글 이름" onkeypress="javascript:if(event.keyCode == 13){search();}">
                                     </div>
                                     <div class="col-md-11">
-                                        <input name="name" id="name" type="text"  class="form-control" placeholder="영문 몰트 이름" onkeypress="javascript:if(event.keyCode == 13){search();}">
+                                        <input name="name" id="name" type="text"  class="form-control" placeholder="영문 발효재료 이름" onkeypress="javascript:if(event.keyCode == 13){search();}">
                                     </div>
                                 </div>
                                 <h4>원산지로 찾기</h4>
@@ -60,7 +60,7 @@
                             <th>타입</th>
                             <th>원산지</th>
                             <th>수율</th>
-                            <th>색상</th>
+                            <th>색상(SRM)</th>
                         </tr>
                         </thead>
                         <tbody id="result" name="result">
