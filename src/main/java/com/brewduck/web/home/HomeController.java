@@ -54,10 +54,6 @@ public class HomeController {
         // model.addAttribute("account", account);
 
 
-        Hop randomHop = hopService.selectRandomHop();
-
-        model.addAttribute("randomHop", randomHop);
-
         return "home";
         //return "blank";
     }
