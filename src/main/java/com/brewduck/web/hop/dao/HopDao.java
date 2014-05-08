@@ -87,6 +87,17 @@ public interface HopDao {
 
     /**
      * <pre>
+     * 맥주 홉 랜덤 조회.
+     * </pre>
+     *
+     * @return 맥주 홉
+     */
+    public Hop selectRandomHop();
+
+
+
+    /**
+     * <pre>
      * 맥주 홉 국가 별 갯수 조회.
      * </pre>
      *

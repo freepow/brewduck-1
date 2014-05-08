@@ -4,6 +4,8 @@ import com.brewduck.framework.security.AuthenticationUtils;
 import com.brewduck.web.account.service.AccountService;
 import com.brewduck.web.common.service.CommonService;
 import com.brewduck.web.domain.Account;
+import com.brewduck.web.domain.Hop;
+import com.brewduck.web.hop.service.HopService;
 import com.brewduck.web.user.service.UserService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -32,6 +34,9 @@ public class HomeController {
     private UserService userService;
 
     @Autowired
+    private HopService hopService;
+
+    @Autowired
     private CommonService commonService;
 
     @Autowired
@@ -46,8 +51,12 @@ public class HomeController {
     public String home(Model model,
                        HttpServletRequest request) {
         // Account account = AuthenticationUtils.getUser();
-
         // model.addAttribute("account", account);
+
+
+        Hop randomHop = hopService.selectRandomHop();
+
+        model.addAttribute("randomHop", randomHop);
 
         return "home";
         //return "blank";

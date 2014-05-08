@@ -30,8 +30,15 @@
             <!-- BEGIN SIDEBAR MENU -->
             <p class="menu-title">BROWSE <span class="pull-right"><a href="javascript:;"><i class="fa fa-refresh"></i></a></span></p>
             <ul>
-                <li class=""> <a href="/hop/"> <i class="fa fa-th"></i> <span class="title">홉 데이터베이스</span> <span class="label label-important pull-right ">HOT</span></a> </li>
-                <li class=""> <a href="/yeast/"> <i class="fa fa-adjust"></i> <span class="title">효모 데이터베이스</span> </a> </li>
+                <li class="start"> <a href="/"> <i class="fa fa-th"></i> <span class="title">데이터베이스</span> <span class="selected"></span> <span class="arrow"></span> </a>
+                    <ul class="sub-menu">
+                        <li > <a href="/style/"> 스타일 (BJCP STYLE)</a> </li>
+                        <li class="active"> <a href="/hop/ ">홉 (HOP) <span class=" label label-info pull-right m-r-30">HOT</span></a></li>
+                        <li > <a href="/fermentable/"> 발효 (Fermentable)</a> </li>
+                        <li > <a href="/yeast/"> 효모 (Yeas) </a> </li>
+                        <li > <a href="/misc/"> 첨가물 (Misc) </a> </li>
+                    </ul>
+                </li>
                 <li class="hidden-lg hidden-md hidden-xs" id="more-widgets" > <a href="javascript:;"> <i class="fa fa-plus"></i></a>
                     <ul class="sub-menu">
                         <li class="side-bar-widgets">

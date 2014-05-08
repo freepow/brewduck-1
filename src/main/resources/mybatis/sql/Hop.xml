@@ -119,6 +119,13 @@
         </if>
     </select>
 
+    <select id="Hop.selectRandomHop" resultType="Hop">
+        <!-- 맥주 홉 상세 조회 -->
+        <include refid="Hop.selectHop" />
+           WHERE delete_id IS NULL
+        ORDER BY rand() LIMIT 1
+    </select>
+
 
     <select id="Hop.countHopOrigin" resultType="Hop">
          SELECT
