@@ -92,7 +92,7 @@ public interface HopDao {
      *
      * @return 맥주 홉
      */
-    public Hop selectRandomHop();
+    public List<Hop> selectRandomHop();
 
 
 

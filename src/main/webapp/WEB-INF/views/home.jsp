@@ -298,9 +298,10 @@
         <div class="col-md-6 col-sm-6 m-b-20" data-aspect-ratio="true">
             <div class="live-tile slide ha " data-speed="750" data-delay="4000" data-mode="carousel">
                 <div class="slide-front ha tiles blue ">
-                    <div class="p-t-20 p-l-20 p-r-20 p-b-20">
-                        <h4 class="text-white no-margin custom-line-height">“Just <span class="semi-bold">Completed</span> the <span class="semi-bold">Heart walk</span> advertiing
-                            campaign”</h4>
+                    <div class="p-t-20 p-l-20 p-r-20 p-b-20" >
+                        <h4 class="text-white no-margin custom-line-height">
+                            <span class="semi-bold" id="hopName" />
+                        </h4>
                     </div>
                     <div class="overlayer bottom-left fullwidth">
                         <div class="overlayer-wrapper">
@@ -1026,8 +1027,23 @@
 <script src="/resources/assets/js/demo.js" type="text/javascript"></script>
 <script src="/resources/assets/js/dashboard_v2.js" type="text/javascript"></script>
 <script type="text/javascript">
+    function getRandomHop(){
+        $.get("/hop/randomHop", function(data, status){
+            //alert("US 값은 : " + data.usCnt + "\n" + "de 값은 : " + data.deCnt + "\n");
+            $.each(data, function(i){
+
+                alert(data[i].shortKoreanNotes);
+
+            });
+        })
+    }
+
     $(document).ready(function () {
+        getRandomHop();
+
         $(".live-tile,.flip-list").liveTile();
+
+
     });
 </script>
 

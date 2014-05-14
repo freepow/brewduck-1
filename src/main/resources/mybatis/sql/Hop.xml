@@ -12,6 +12,7 @@
               ,A.alpha            alpha
               ,A.notes            notes
               ,A.korean_notes     koreanNotes
+              ,substring(A.korean_notes, 1, 22)    shortKoreanNotes
               ,A.type             type
               ,(select B.attribute1desc
                   from common_code B
@@ -123,7 +124,7 @@
         <!-- 맥주 홉 상세 조회 -->
         <include refid="Hop.selectHop" />
            WHERE delete_id IS NULL
-        ORDER BY rand() LIMIT 1
+        ORDER BY rand() LIMIT 2
     </select>
 
 

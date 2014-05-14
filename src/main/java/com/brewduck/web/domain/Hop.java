@@ -123,6 +123,16 @@ public class Hop implements Serializable {
     public String substitutesSeq;
     //홉 순번
     public Integer seq;
+    //홉 설명 줄임
+    public String shortKoreanNotes;
+
+    public String getShortKoreanNotes() {
+        return shortKoreanNotes;
+    }
+
+    public void setShortKoreanNotes(String shortKoreanNotes) {
+        this.shortKoreanNotes = shortKoreanNotes;
+    }
 
     public String getUsedForCode() {
         return usedForCode;

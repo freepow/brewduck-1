@@ -129,12 +129,9 @@ public class HopController {
 
     @ResponseBody
     @RequestMapping(value = "/randomHop", method = RequestMethod.GET)
-    public Hop randomHop(Model model) {
+    public List<Hop> randomHop(Model model) {
 
-        // 맥주 홉 국가 별 갯수 조회.
-        Hop randomHop = hopService.selectRandomHop();
-
-        return randomHop;
+        return hopService.selectRandomHop();
     }
 
     /**
