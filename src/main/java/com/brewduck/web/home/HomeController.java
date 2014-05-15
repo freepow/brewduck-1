@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import javax.servlet.http.HttpServletRequest;
+import java.util.List;
 
 
 /**
@@ -52,7 +53,9 @@ public class HomeController {
                        HttpServletRequest request) {
         // Account account = AuthenticationUtils.getUser();
         // model.addAttribute("account", account);
+        List<Hop> list = hopService.selectRandomHop();
 
+        model.addAttribute("list", list);
 
         return "home";
         //return "blank";

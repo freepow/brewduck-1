@@ -12,7 +12,7 @@
               ,A.alpha            alpha
               ,A.notes            notes
               ,A.korean_notes     koreanNotes
-              ,substring(A.korean_notes, 1, 22)    shortKoreanNotes
+              ,substring(A.korean_notes, 1, 52)    shortKoreanNotes
               ,A.type             type
               ,(select B.attribute1desc
                   from common_code B

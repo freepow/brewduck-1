@@ -1027,19 +1027,8 @@
 <script src="/resources/assets/js/demo.js" type="text/javascript"></script>
 <script src="/resources/assets/js/dashboard_v2.js" type="text/javascript"></script>
 <script type="text/javascript">
-    function getRandomHop(){
-        $.get("/hop/randomHop", function(data, status){
-            //alert("US 값은 : " + data.usCnt + "\n" + "de 값은 : " + data.deCnt + "\n");
-            $.each(data, function(i){
-
-                alert(data[i].shortKoreanNotes);
-
-            });
-        })
-    }
 
     $(document).ready(function () {
-        getRandomHop();
 
         $(".live-tile,.flip-list").liveTile();
 
