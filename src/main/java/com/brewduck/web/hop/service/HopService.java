@@ -24,6 +24,8 @@ public interface HopService {
      */
     public List<Hop> selectHopList(Hop hop);
 
+    public List<Hop> selectAromaList();
+
 
     /**
      * <pre>
@@ -66,6 +68,9 @@ public interface HopService {
      * @return 맥주 홉 내용
      */
     public Hop selectHopDetail(Hop hop);
+
+    public List<Hop> selectRandomHop();
+
 
     /**
      * <pre>

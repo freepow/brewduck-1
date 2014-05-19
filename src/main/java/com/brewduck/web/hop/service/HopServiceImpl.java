@@ -34,6 +34,13 @@ public class HopServiceImpl implements HopService {
     }
 
     @Override
+    public List<Hop> selectAromaList() {
+        return hopDao.selectAromaList();
+    }
+
+
+
+    @Override
     public List<Hop> selectHopUsedForList(Hop hop) {
         return hopDao.selectHopUsedForList(hop);
     }
@@ -52,6 +59,11 @@ public class HopServiceImpl implements HopService {
     @Override
     public Hop selectHopDetail(Hop hop) {
         return hopDao.selectHopDetail(hop);
+    }
+
+    @Override
+    public List<Hop> selectRandomHop() {
+        return hopDao.selectRandomHop();
     }
 
     @Override
