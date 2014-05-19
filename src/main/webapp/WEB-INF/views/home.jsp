@@ -1,5 +1,11 @@
+<%@ page import="com.brewduck.framework.security.AuthenticationUtils" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="decorator" uri="http://www.opensymphony.com/sitemesh/decorator" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
+
 <!DOCTYPE html>
 <html>
 <%@ include file="/WEB-INF/views/common/include/main_header.jsp" %>
@@ -100,7 +106,9 @@
                         <div class="iconset top-settings-dark "></div>
                     </a>
                         <ul class="dropdown-menu  pull-right" role="menu" aria-labelledby="user-options">
-                            <li><a href="user-profile.html"> My Account</a> </li>
+                            <li><a href="user-profile.html"> My Account 22 <%
+                                AuthenticationUtils.isAuthenticated();
+                            %></a> </li>
                             <li><a href="calender.html">My Calendar</a> </li>
                             <li><a href="email.html"> My Inbox&nbsp;&nbsp;<span class="badge badge-important animated bounceIn">2</span></a> </li>
                             <li class="divider"></li>
@@ -370,31 +378,43 @@
             </div>
         </div>
 
-        <!-- BEGIN ANIMATED TILE -->
+        <!--랜덤 홉 소개 영역 -->
         <div class="col-md-6  col-sm-6 m-b-20"  data-aspect-ratio="true">
             <div class="live-tile slide ha " data-speed="750" data-delay="6000" data-mode="carousel"  >
-                <div class="slide-front ha tiles green ">
+
+                <c:forEach items="${list}" var="list" varStatus="i">
+                    <c:choose>
+                        <c:when test="${i.count ==1 }">
+                            <div class="slide-front ha tiles green ">
+                        </c:when>
+                        <c:otherwise>
+                            <div class="slide-back ha tiles green">
+                        </c:otherwise>
+                    </c:choose>
+
+
+
                     <div class="overlayer bottom-left fullwidth">
                         <div class="overlayer-wrapper">
                             <div class="tiles gradient-black p-l-20 p-r-20 p-b-20 p-t-20">
-                                <h4 class="text-white semi-bold no-margin">RUN AWAY GO </h4>
-                                <h5 class="text-white semi-bold ">Queen's favourite</h5>
-                                <p class="text-white semi-bold no-margin"><i class="icon-custom-up "></i> Read More</p>
+                                <h4 class="text-white semi-bold no-margin"> ${list.koreanName} </h4>
+                                <h5 class="text-white semi-bold ">${list.shortKoreanNotes}</h5>
+                                <p class="text-white semi-bold no-margin" onclick="goDetail('${list.seq}', '${list.titleInUrl}');"><i class="icon-custom-up "></i> ..더 보기</p>
                             </div>
                         </div>
                     </div>
-                    <img src="/resources/assets/img/others/11.png" alt="" class="image-responsive-width xs-image-responsive-width"> </div>
-                <div class="slide-back ha tiles green">
-                    <div class="overlayer bottom-left fullwidth">
-                        <div class="overlayer-wrapper">
-                            <div class="tiles gradient-black p-l-20 p-r-20 p-b-20 p-t-20">
-                                <h5 class="text-white semi-bold ">King's favourite</h5>
-                                <p class="text-white semi-bold no-margin"><i class="icon-custom-up "></i> Read More</p>
-                            </div>
-                        </div>
-                    </div>
-                    <img src="/resources/assets/img/others/cover.jpg" alt="" class="image-responsive-width xs-image-responsive-width">
+                    <c:choose>
+                        <c:when test="${i.count ==1 }">
+                            <img src="/resources/assets/img/others/11.png" alt="" class="image-responsive-width xs-image-responsive-width">
+                        </c:when>
+                        <c:otherwise>
+                            <img src="/resources/assets/img/others/cover.jpg" alt="" class="image-responsive-width xs-image-responsive-width">
+                        </c:otherwise>
+                    </c:choose>
+
                 </div>
+                </c:forEach>
+
             </div>
         </div>
         <!-- END ANIMATED TILE -->
@@ -1027,7 +1047,9 @@
 <script src="/resources/assets/js/demo.js" type="text/javascript"></script>
 <script src="/resources/assets/js/dashboard_v2.js" type="text/javascript"></script>
 <script type="text/javascript">
-
+    function goDetail(seq, titleInUrl){
+        location.href = "/hop/"+seq+"/"+titleInUrl;
+    }
     $(document).ready(function () {
 
         $(".live-tile,.flip-list").liveTile();
